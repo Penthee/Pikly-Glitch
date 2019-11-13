@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: bfb78746e87b9074c8a77b2aeba92652
+timeCreated: 1455990279
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - masterMixer: {fileID: 24100000, guid: 478d482530e6fe74e8a590664ca33b9e, type: 2}
+  - masterGroup: {fileID: 24300001, guid: 478d482530e6fe74e8a590664ca33b9e, type: 2}
+  - musicGroup: {fileID: 24373196, guid: 478d482530e6fe74e8a590664ca33b9e, type: 2}
+  - sfxGroup: {fileID: 24394430, guid: 478d482530e6fe74e8a590664ca33b9e, type: 2}
+  - speechGroup: {fileID: 24361364, guid: 478d482530e6fe74e8a590664ca33b9e, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,70 @@
+﻿using UnityEngine;
+using System.Collections;
+using Pikl.States;
+using Pikl.Utils.Shaker;
+using Pikl.Data;
+using Pikl.Extensions;
+using Pikl.Components;
+using Pikl.States.Components;
+//using Pikl.Audio;
+
+namespace Pikl.Player.States {
+    public class Shoot : PlayerState {
+
+        Weapon weapon;
+
+        public Shoot(float lifetime) : base (lifetime, LifetimeAction.Drop) { }
+
+        internal override void Enter(StateObject so) {
+            base.Enter(so);
+
+            weapon = (player.inventory.SelectedItem as Weapon);
+
+            if (!weapon)
+                Exit();
+
+            //player.shoot.lastTime = Time.time;
+
+            DoTheShoot();
+
+            Shaker.I.ShakeCameraOnce(ShakePresets.Shot);
+
+            //AudioMgr.I.PlaySound(Player.laserSound);
+            weapon.lastFireTime = Time.time;
+            Exit();
+        }
+
+        void DoTheShoot() {
+            for (int i = 0; i < weapon.ammoPerShot; i++) {
+                if (weapon.clipAmmo <= 0) {
+                    Exit();
+                    break;
+                } else
+                    SpawnShot(player.transform.position.To2DXY() + weapon.shot.spawnOffset, i);
+            }
+        }
+
+        void SpawnShot(Vector3 pos, int i) {
+            GameObject obj = GameObjectMgr.I.Spawn(weapon.shot.stock, pos, CalcAccuracy()) as GameObject;
+            DamageObject damageObj = obj.GetComponent<DamageObject>();
+            ForceOnStart force = obj.GetComponent<ForceOnStart>();
+
+            damageObj.damage = new Damage(weapon.shot.damage);
+            force.minForce = weapon.shot.force;
+            force.maxForce = weapon.shot.force;
+
+            weapon.clipAmmo--;
+        }
+
+        Quaternion CalcAccuracy() {
+            float accuracy = Random.Range(-weapon.shot.accuracy, weapon.shot.accuracy) + 90;
+            return Quaternion.LookRotation(Vector3.forward, player.input.MouseDir.normalized.Rotate(accuracy));
+        }
+
+
+        internal override void Exit() {
+            player.shootID = 0;
+            base.Exit();
+        }
+    }
+}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b79f7e5be97a41f4b999ab54eeb8c985, type: 3}
+  m_Name: Meat Trap
+  m_EditorClassIdentifier: 
+  name: Meat Trap
+  sprite: {fileID: 21300044, guid: 4146545d56c052747b74700d0fb3eb00, type: 3}
+  description: Lures hungries, then explodes.
+  quantity: 1
+  maxStack: 5
+  type: 2
+  selected: 0
+  liveObject: {fileID: 1089810898755744, guid: ea461b05751809742bc6c512834d0d70, type: 3}
