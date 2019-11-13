@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Input playerOneDefault="KeyboardAndMouse" playerTwoDefault="" playerThreeDefault="" playerFourDefault="">
+  <InputConfiguration name="KeyboardAndMouse">
     <AxisConfiguration name="Horizontal">
       <description />
       <positive>D</positive>
