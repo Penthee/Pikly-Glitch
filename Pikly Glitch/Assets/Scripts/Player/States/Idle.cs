@@ -10,10 +10,22 @@ namespace Pikl.Player {
 
         internal override void Enter(StateObject so) {
             base.Enter(so);
+            if (!player.input.AimAxis)
+                player.ar.Play("Idle");
         }
 
         internal override State FixedUpdate() {
             return base.FixedUpdate();
+        }
+
+        internal override State Update() {
+            //TODO - Remove this hack
+            if (player.input.AimAxis)
+                player.ar.Play("Aim");
+            else
+                player.ar.Play("Idle");
+
+            return base.Update();
         }
 
         internal override State HandleInput() {

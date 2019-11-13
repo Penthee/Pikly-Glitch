@@ -7,6 +7,8 @@ namespace Pikl.Player {
 
         internal override void Enter(StateObject so) {
             base.Enter(so);
+            if (!player.input.AimAxis)
+                player.ar.Play("Run");
         }
 
         internal override void Exit() {
@@ -20,10 +22,14 @@ namespace Pikl.Player {
         internal override State FixedUpdate() {
             base.FixedUpdate();
 
-            if (player.input.AimAxis)
+            //TODO - Implement Aiming into it's own state, probably
+            if (player.input.AimAxis) {
+                player.ar.Play("Aim");
                 player.move.MoveSlow(player.input.MoveAxis);
-            else
+            } else {
+                player.ar.Play("Run");
                 player.move.Move(player.input.MoveAxis);
+            }
 
             return null;
         }

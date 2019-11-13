@@ -20,7 +20,7 @@ namespace Pikl.Player {
         public void Init(Player player) {
             this.player = player;
         }
-
+        
         public void Update() {
             if (swiping) {
                 if (lastSwipeTime + activeTime < Time.time)
@@ -32,6 +32,7 @@ namespace Pikl.Player {
             obj.SetActive(true);
             lastSwipeTime = Time.time;
             swiping = true;
+            player.ar.Play("Knife");
         }
 
         void Stop() {

@@ -59,7 +59,7 @@ namespace Pikl.Player {
             fv2D = GetComponent<FaceInput2D>();
             //powerup.Init(this);
 
-            //ar = ship.GetComponent<Animator>();
+            ar = GetComponent<Animator>();
 
             base.Start();
 

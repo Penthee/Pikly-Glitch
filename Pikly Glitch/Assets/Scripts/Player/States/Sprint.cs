@@ -30,8 +30,10 @@ namespace Pikl.Player {
             if (player.evade.Stamina == 0 || player.input.MoveAxisRaw.magnitude == 0)
                 return new Idle();
 
-            if (player.input.ReloadAxis)
+            if (player.input.ReloadAxis) {
                 (player.inventory.SelectedItem as Weapon).Reload();
+                //TODO - Take player out of sprint state when reloading
+            }
 
             if (player.input.InteractAxis)
                 player.interactID = player.StartAsync(new States.Interact(0));
