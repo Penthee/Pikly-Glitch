@@ -19,7 +19,6 @@ namespace Pikl.Player {
         }
 
         internal override State Update() {
-            //TODO - Remove this hack
             if (player.input.AimAxis)
                 player.ar.Play("Aim");
             else if (!player.knife.swiping)

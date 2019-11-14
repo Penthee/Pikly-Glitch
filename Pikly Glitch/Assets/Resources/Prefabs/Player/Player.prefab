@@ -140,7 +140,7 @@ MonoBehaviour:
     originalForce: 0
     currentDirection: 0
     walkForce: 37
-    sprintForce: 140
+    sprintForce: 75
   input:
     player: {fileID: 0}
     aimCameraDistance: 0.05
@@ -432,7 +432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5577621591759569310
 Transform:
   m_ObjectHideFlags: 0
