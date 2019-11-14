@@ -28,7 +28,8 @@ namespace Pikl.Player {
             }
 
             //player.ship.SetActive(false);
-            
+            player.ar.Play("Death");
+
             Shaker.I.ShakeCameraOnce(ShakePresets.Death);
         }
         
