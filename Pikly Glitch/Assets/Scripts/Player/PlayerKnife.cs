@@ -32,7 +32,10 @@ namespace Pikl.Player {
             obj.SetActive(true);
             lastSwipeTime = Time.time;
             swiping = true;
-            player.ar.Play("Knife");
+            if (player.input.MoveAxis.magnitude > 0)
+                player.ar.Play("Knife Run");
+            else
+                player.ar.Play("Knife");
         }
 
         void Stop() {

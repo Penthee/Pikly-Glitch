@@ -23,7 +23,7 @@ namespace Pikl.Player {
         //public PlayerPowerup powerup = new PlayerPowerup();
         public float interactRadius, interactCooldown, lastInteractTime, useCooldown, lastUseTime;
 
-        public int evadeID, shootID, secondaryID, stunID, interactID;
+        public int evadeID, shootID, secondaryID, stunID, interactID, aimID;
 
         //static internal AudioInfo laserSound/*, missileLaunch*/;
 

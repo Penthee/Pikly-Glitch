@@ -22,12 +22,12 @@ namespace Pikl.Player {
         internal override State FixedUpdate() {
             base.FixedUpdate();
 
-            //TODO - Implement Aiming into it's own state, probably
             if (player.input.AimAxis) {
-                player.ar.Play("Aim");
+                //TODO - Implement Aiming into it's own state, probably
+                //player.ar.Play("Aim");
                 player.move.MoveSlow(player.input.MoveAxis);
             } else {
-                player.ar.Play("Run");
+                //player.ar.Play("Run");
                 player.move.Move(player.input.MoveAxis);
             }
 
@@ -37,6 +37,9 @@ namespace Pikl.Player {
         internal override State HandleInput() {
             if (player != null && player.input.MoveAxisRaw.magnitude == 0)
                 return new Idle();
+
+            if (player.aimID == 0 && player.input.AimAxis)
+                player.aimID = player.StartAsync(new States.Aim("Run"));
 
             if (player.input.EvadeAxis)
                 player.evadeID = player.StartAsync(new States.Evade(player.evade.Cooldown));
