@@ -6,9 +6,13 @@ namespace Pikl.States.Components {
     public class Movement {
         //public enum Direction { Right, DownRight, Down, DownLeft, Left, UpLeft, Up, UpRight };
         public enum Direction { Up, Right, Down, Left };
+        public enum MoveType { Linear, Sine };
+
+
         [HideInInspector]
         public StateObject so;
-        public float force, stepTime, actionDelay;
+        public float force, stepTime, actionDelay, sineMagnitude = 1;
+        public MoveType moveType = MoveType.Linear;
         [HideInInspector]
         public float originalForce;
         [HideInInspector]
@@ -37,7 +41,9 @@ namespace Pikl.States.Components {
 
             dir = Vector3.ClampMagnitude(dir, 1);
 
-            so.rb.AddForce(dir * force, forceMode);
+            float f = moveType == MoveType.Linear ? force : Mathf.Abs(Mathf.Sin(Time.time * sineMagnitude) * force);
+
+            so.rb.AddForce(dir * f, forceMode);
 
             currentDirectionVector = so.rb.velocity.normalized;
 
