@@ -15,6 +15,7 @@ namespace Pikl.Enemy {
 
             Vector3 pos = enemy.t.position + (enemy.t.right * enemy.meleeAttackRange);
             GameObjectMgr.I.Spawn(enemy.meleeDmgObj, pos);
+            so.ar.Play("Attack");
         }
 
     }

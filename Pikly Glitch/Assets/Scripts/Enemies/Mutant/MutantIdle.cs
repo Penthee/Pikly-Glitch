@@ -9,6 +9,7 @@ namespace Pikl.Enemy {
         Vector3 targetPos;
 
         internal override void Enter(StateObject so) {
+            so.ar.Play("Idle");
             base.Enter(so);
         }
 

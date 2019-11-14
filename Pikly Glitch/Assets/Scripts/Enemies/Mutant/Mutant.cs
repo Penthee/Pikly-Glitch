@@ -30,6 +30,9 @@ namespace Pikl.Enemy {
         }
 
         void OnDrawGizmos() {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, meleeAttackRange);
+            Gizmos.color = Color.white;
         }
 
         void OnDestroy() {
