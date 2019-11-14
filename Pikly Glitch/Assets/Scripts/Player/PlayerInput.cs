@@ -234,12 +234,12 @@ namespace Pikl.Player {
         public bool SprintAxis {
             get {
                 return
-                    (player.stunID == 0 && player.evadeID == 0) &&
-                    !player.evade.hasReleasedSinceLastEvade &&
+                    player.stunID == 0 && //player.evadeID == 0) &&
+                    //!player.evade.hasReleasedSinceLastEvade &&
                     MoveAxisRaw.magnitude != 0 &&
                     player.evade.Stamina >= 1 &&
-                    EvadeInput &&
-                    HasCooledDown(player.evade.lastTime, player.evade.Cooldown);
+                    EvadeInput;// &&
+                    //HasCooledDown(player.evade.lastTime, player.evade.Cooldown);
             }
         }
 
