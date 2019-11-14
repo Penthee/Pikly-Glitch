@@ -110,10 +110,10 @@ GameObject:
   - component: {fileID: 1852710226188319343}
   - component: {fileID: 1860928094178799715}
   - component: {fileID: 4128414717354758631}
-  - component: {fileID: 1803677181431866765}
   - component: {fileID: 1834072703}
   - component: {fileID: 271149687}
   - component: {fileID: 10729666}
+  - component: {fileID: 720865099}
   m_Layer: 10
   m_Name: Slug Spitter
   m_TagString: Enemy
@@ -174,7 +174,7 @@ SpriteRenderer:
   m_SortingLayerID: -788532913
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 715a051d2a804bb4ca486b848de22511, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb96d04091efe0645bba1535eb5f6652, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -244,53 +244,6 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   lastDir: {x: 0, y: 0, z: 0}
   origRotateSpeed: 0
---- !u!114 &1803677181431866765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803677181431866755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6885a4922e7445e479a5f68f774f34da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateHistoryLength: 25
-  stateBufferLength: 25
-  stateQueueLength: 25
-  localTickSpeed: 0
-  isPaused: 0
-  isDead: 0
-  useDefaultSequence: 0
-  originalSpriteColour: {r: 0, g: 0, b: 0, a: 0}
-  originalColour: {r: 0, g: 0, b: 0, a: 0}
-  fv2D: {fileID: 4128414717354758631}
-  sight:
-    range: 14
-    noLOSChaseTime: 60
-    playerLayerMask:
-      serializedVersion: 2
-      m_Bits: 2048
-    blockingLayers:
-      serializedVersion: 2
-      m_Bits: 33280
-  movement:
-    so: {fileID: 0}
-    force: 60
-    stepTime: 0
-    actionDelay: 0
-    sineMagnitude: 4
-    moveType: 1
-    originalForce: 0
-    currentDirection: 0
-  health: {fileID: 1834072703}
-  meleeDmgObj: {fileID: 1803677181431866755, guid: 4b903f6c4f18a1a49bdc5ba3a4635013,
-    type: 3}
-  rockDamageObj: {fileID: 0}
-  meleeAttackRange: 0.45
-  meleeAttackTime: 0.65
-  rockThrowChance: 50
 --- !u!114 &1834072703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,7 +311,7 @@ Animator:
   m_GameObject: {fileID: 1803677181431866755}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 54041cb696a48634d8add52e99aef725, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7d1afcdf0a9c3e64f85ae92469ea1689, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -381,3 +334,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   surface: {fileID: 5459710686449601722, guid: 8b38663535903f44f9072a3192f06dbb, type: 3}
   distance: 0.4
+--- !u!114 &720865099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803677181431866755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4828ad6d162624ca428d2a459487a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateHistoryLength: 25
+  stateBufferLength: 25
+  stateQueueLength: 25
+  localTickSpeed: 0
+  isPaused: 0
+  isDead: 0
+  useDefaultSequence: 0
+  originalSpriteColour: {r: 0, g: 0, b: 0, a: 0}
+  originalColour: {r: 0, g: 0, b: 0, a: 0}
+  fv2D: {fileID: 4128414717354758631}
+  sight:
+    range: 12
+    noLOSChaseTime: 60
+    playerLayerMask:
+      serializedVersion: 2
+      m_Bits: 2048
+    blockingLayers:
+      serializedVersion: 2
+      m_Bits: 33280
+  movement:
+    so: {fileID: 0}
+    force: 45
+    stepTime: 0
+    actionDelay: 0
+    sineMagnitude: 1
+    moveType: 0
+    originalForce: 0
+    currentDirection: 0
+  health: {fileID: 1834072703}
+  meleeDmgObj: {fileID: 1803677181431866755, guid: 4b903f6c4f18a1a49bdc5ba3a4635013,
+    type: 3}
+  rockDamageObj: {fileID: 1803677181431866755, guid: 765164403f84f6043be259c1f0b46ad7,
+    type: 3}
+  meleeAttackRange: 0.3
+  meleeAttackTime: 0.65
+  rockThrowChance: 50
