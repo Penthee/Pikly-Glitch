@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Pikl.States;
+using Pikl.Data;
 
 namespace Pikl.Player.States {
     public class Aim : PlayerState {
         string previousAnim;
+        Weapon w;
 
         public Aim(string previousAnim) : base(0, LifetimeAction.Drop) {
             this.previousAnim = previousAnim;
@@ -14,7 +16,13 @@ namespace Pikl.Player.States {
 
         internal override void Enter(StateObject so) {
             base.Enter(so);
-            player.ar.Play("Aim");
+            //player.ar.Play("Aim");
+            w = (player.inventory.SelectedItem as Weapon);
+
+            if (w) {
+                player.weaponSprite.gameObject.SetActive(true);
+                player.weaponSprite.sprite = w.sprite;
+            }
         }
 
         internal override State HandleInput() {
@@ -27,13 +35,14 @@ namespace Pikl.Player.States {
 
         internal override void Exit() {
 
-            switch (previousAnim) {
-                case "Idle":
-                case "Run":
-                    player.ar.Play(previousAnim);
-                    break;
-                default: player.ar.Play("Idle"); break;
-            }
+            //switch (previousAnim) {
+            //    case "Idle":
+            //    case "Run":
+            //        player.ar.Play(previousAnim);
+            //        break;
+            //    default: player.ar.Play("Idle"); break;
+            //}
+            player.weaponSprite.gameObject.SetActive(false);
 
             player.aimID = 0;
 

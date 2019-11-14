@@ -24,18 +24,18 @@ namespace Pikl.Components
                 //return player.input.IsAiming ? (player.input.MoveAxis.magnitude != 0 ? player.input.MoveAxis : player.input.MouseDir.normalized) : lastDir;
 
                 if (player.knife.swiping)
-                    return player.input.MouseDir.normalized;
+                    return player.input.MouseDirFromWeapon.normalized;
 
                 if (player.input.MoveAxis.magnitude != 0) {
                     if (player.input.AimAxis) {
-                        return player.input.MouseDir.normalized;
+                        return player.input.MouseDirFromWeapon.normalized;
                     } else {
                         rotateSpeed = origRotateSpeed;
                         return player.input.MoveAxis;
                     }
                 } else {
                     //if not moving or aiming, face last direction, if aiming, face aim direction
-                    return !player.input.AimAxis ? lastDir : player.input.MouseDir.normalized;
+                    return !player.input.AimAxis ? lastDir : player.input.MouseDirFromWeapon.normalized;
                 }
 
             } else {

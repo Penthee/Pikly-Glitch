@@ -40,7 +40,7 @@ namespace Pikl.Player.States {
                     Exit();
                     break;
                 } else
-                    SpawnShot(player.transform.position.To2DXY() + weapon.shot.spawnOffset, i);
+                    SpawnShot(player.weaponSprite.transform.position.To2DXY() + weapon.shot.spawnOffset, i);
             }
         }
 
@@ -58,7 +58,7 @@ namespace Pikl.Player.States {
 
         Quaternion CalcAccuracy() {
             float accuracy = Random.Range(-weapon.shot.accuracy, weapon.shot.accuracy) + 90;
-            return Quaternion.LookRotation(Vector3.forward, player.input.MouseDir.normalized.Rotate(accuracy));
+            return Quaternion.LookRotation(Vector3.forward, player.input.MouseDirFromWeapon.normalized.Rotate(accuracy));
         }
 
 

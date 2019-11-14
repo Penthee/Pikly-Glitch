@@ -20,6 +20,7 @@ namespace Pikl.Player {
         public PlayerEvade evade;
         public Inventory inventory;
         public PlayerKnife knife;
+        public SpriteRenderer weaponSprite;
         //public PlayerPowerup powerup = new PlayerPowerup();
         public float interactRadius, interactCooldown, lastInteractTime, useCooldown, lastUseTime;
 

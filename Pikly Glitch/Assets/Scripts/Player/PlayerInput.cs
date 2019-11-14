@@ -56,6 +56,15 @@ namespace Pikl.Player {
             }
         }
 
+        internal Vector3 MouseDirFromWeapon {
+            get {
+                Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                pos.z = 0;
+                //Debug.HBDebug.Log("MouseDirFromWeapon : " + (pos));
+                return pos - player.weaponSprite.transform.position;
+            }
+        }
+
         int[] aimAssistDegrees = new int[] { -2, 2, -4, 4, -6, 6, -8, 8, -10, 10, -12, 12 };
         internal Vector3 StickDir {
             get {
