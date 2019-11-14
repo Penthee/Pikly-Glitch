@@ -15,7 +15,7 @@ namespace Pikl.Enemy {
         internal override void Enter(StateObject so) {
             base.Enter(so);
 
-
+            so.ar.Play("Move");
         }
 
         internal override State Update() {
