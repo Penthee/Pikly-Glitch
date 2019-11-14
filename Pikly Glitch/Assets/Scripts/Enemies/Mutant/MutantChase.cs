@@ -44,10 +44,6 @@ namespace Pikl.Enemy {
             return base.Update();
         }
 
-        void DoPathFind() {
-          
-        }
-
         internal override State FixedUpdate() {
             return base.FixedUpdate();
         }

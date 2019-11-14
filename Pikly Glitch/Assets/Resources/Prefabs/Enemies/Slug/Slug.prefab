@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 1803677181431866765}
   - component: {fileID: 1834072703}
   - component: {fileID: 271149687}
+  - component: {fileID: 10729666}
   m_Layer: 10
   m_Name: Slug
   m_TagString: Enemy
@@ -279,6 +280,7 @@ MonoBehaviour:
     force: 60
     stepTime: 0
     actionDelay: 0
+    sineMagnitude: 4
     moveType: 1
     originalForce: 0
     currentDirection: 0
@@ -286,7 +288,7 @@ MonoBehaviour:
   meleeDmgObj: {fileID: 1803677181431866755, guid: 4b903f6c4f18a1a49bdc5ba3a4635013,
     type: 3}
   rockDamageObj: {fileID: 0}
-  meleeAttackRange: 0.3
+  meleeAttackRange: 0.45
   meleeAttackTime: 0.65
   rockThrowChance: 0
 --- !u!114 &1834072703
@@ -365,3 +367,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &10729666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803677181431866755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68db46abefa573849a4e803038e30135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surface: {fileID: 5459710686449601722, guid: 8b38663535903f44f9072a3192f06dbb, type: 3}
+  distance: 0.4
