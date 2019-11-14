@@ -20,7 +20,6 @@ namespace Pikl.Player.States {
         internal override State HandleInput() {
 
             if (!player.input.AimInput)
-                //player.StopAsync(stateID);
                 Exit();
 
             return base.HandleInput();
@@ -28,8 +27,7 @@ namespace Pikl.Player.States {
 
         internal override void Exit() {
 
-            player.ar.Play()
-            switch(previousAnim) {
+            switch (previousAnim) {
                 case "Idle":
                 case "Run":
                     player.ar.Play(previousAnim);

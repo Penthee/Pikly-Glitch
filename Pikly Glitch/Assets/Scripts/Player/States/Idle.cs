@@ -20,10 +20,10 @@ namespace Pikl.Player {
 
         internal override State Update() {
             //TODO - Remove this hack
-            //if (player.input.AimAxis)
-            //    player.ar.Play("Aim");
-            //else
-            //    player.ar.Play("Idle");
+            if (player.input.AimAxis)
+                player.ar.Play("Aim");
+            else if (!player.knife.swiping)
+                player.ar.Play("Idle");
 
             return base.Update();
         }
@@ -32,8 +32,8 @@ namespace Pikl.Player {
             if (player != null && player.input.MoveAxisRaw.magnitude != 0)
                 return new Walk();
 
-            if (player.aimID == 0 && player.input.AimAxis)
-                player.aimID = player.StartAsync(new States.Aim("Idle"));
+            //if (player.aimID == 0 && player.input.AimAxis)
+            //    player.aimID = player.StartAsync(new States.Aim("Idle"));
 
             if (player.input.EvadeAxis)
                 player.evadeID = player.StartAsync(new States.Evade(player.evade.Cooldown));
