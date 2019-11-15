@@ -62,12 +62,21 @@ namespace Pikl.Player {
 
             ar = GetComponent<Animator>();
 
+            StartCoroutine(WallCheckThing());
+
             base.Start();
 
             //Ref.I["PlayerObj"] = gameObject;
             //Ref.I["PlayerScript"] = this;
 
             //UIMgr.I.PauseFilterOff();
+        }
+
+        IEnumerator WallCheckThing() {
+            while (!isDead) {
+
+                yield return new WaitForSeconds(0.1f);
+            }
         }
 
         internal override void Update() {
