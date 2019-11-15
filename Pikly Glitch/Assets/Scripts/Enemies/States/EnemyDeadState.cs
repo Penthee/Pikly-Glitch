@@ -14,7 +14,7 @@ namespace Pikl.Enemy {
         internal override void Enter(StateObject _so) {
             base.Enter(_so);
             so.isDead = true;
-            Object.Destroy(so.gameObject);
+            so.ar.Play("Death");
         }
 
         internal override void Exit() {
