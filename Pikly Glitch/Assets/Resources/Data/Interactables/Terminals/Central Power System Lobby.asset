@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33faede1bf8ce6943a2195beb5934f37, type: 3}
-  m_Name: Terminal 1-1
+  m_Name: Central Power System Lobby
   m_EditorClassIdentifier: 
   name: Terminal 1-1
   sprite: {fileID: 0}
