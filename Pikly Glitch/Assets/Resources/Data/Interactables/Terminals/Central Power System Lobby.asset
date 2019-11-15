@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33faede1bf8ce6943a2195beb5934f37, type: 3}
-  m_Name: Terminal 1-1
+  m_Name: Central Power System Lobby
   m_EditorClassIdentifier: 
-  name: Terminal 1-1
+  name: Central Power System Lobby
   sprite: {fileID: 0}
-  text: 'I am some placeholder terminal text. Also I love you. (:
-
-    Here is some more text on a new line.
-
-    And what''s this? Even more text on another new line, how cool!
-
-    Four Twenty.'
+  text: It happened as fast as you could think. The generators surged and overloaded
+    the entire facility, hundreds were lost in seconds. Then came... them. I'm blocking
+    off the janitor storage in hope to hide from them. There should be enough food
+    to last until help arrives, I know he steals canned meat from the cafe.
