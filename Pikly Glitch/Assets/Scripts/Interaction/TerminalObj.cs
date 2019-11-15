@@ -10,6 +10,7 @@ namespace Pikl.Interaction {
         [Expandable]
         public Terminal terminal;
         public Door doorToOpen;
+        public Trap[] trapsToTrigger;
 
         [HideInInspector]
         public bool isOpen = false;
@@ -38,6 +39,12 @@ namespace Pikl.Interaction {
 
             if (doorToOpen)
                 doorToOpen.locked = false;
+
+            if (trapsToTrigger.Length > 0) {
+                foreach(Trap t in trapsToTrigger) {
+                    t.Trigger();
+                }
+            }
         }
 
         public void Close() {
@@ -49,6 +56,13 @@ namespace Pikl.Interaction {
         internal override void OnDrawGizmos() {
             if (doorToOpen)
                 Gizmos.DrawLine(transform.position, doorToOpen.transform.position);
+
+            if (trapsToTrigger.Length > 0) {
+                foreach (Trap t in trapsToTrigger) {
+                    if (t)
+                        Gizmos.DrawLine(transform.position, t.transform.position);
+                }
+            }
 
             base.OnDrawGizmos();
         }

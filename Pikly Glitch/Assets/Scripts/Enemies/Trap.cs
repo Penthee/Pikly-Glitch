@@ -33,8 +33,13 @@ public class Trap : MonoBehaviour
             return;
 
         if (PlayerInside()) {
-            StartCoroutine(Spawn());
+            Trigger();
         }
+    }
+
+    public void Trigger() {
+        if (!triggered)
+            StartCoroutine(Spawn());
     }
 
     bool PlayerInside() {
