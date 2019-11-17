@@ -38,8 +38,10 @@ public class Trap : MonoBehaviour
     }
 
     public void Trigger() {
-        if (!triggered)
+        if (!triggered) {
+            triggered = true;
             StartCoroutine(Spawn());
+        }
     }
 
     bool PlayerInside() {
@@ -52,7 +54,6 @@ public class Trap : MonoBehaviour
             }
 
             if (Time.time < triggerTime + insideTime) {
-                triggered = true;
                 return true;
             }
         }
