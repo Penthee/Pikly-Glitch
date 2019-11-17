@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6923724153032961606}
   - component: {fileID: 299937852039326647}
   - component: {fileID: 2872893661290736603}
+  - component: {fileID: 4721344078638147863}
   m_Layer: 8
   m_Name: Monitor
   m_TagString: Untagged
@@ -97,3 +98,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.165
+--- !u!50 &4721344078638147863
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4544478813342662957}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 20
+  m_LinearDrag: 5
+  m_AngularDrag: 5
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

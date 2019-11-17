@@ -149,7 +149,7 @@ MonoBehaviour:
     obj: {fileID: 0}
     pos: {x: 0, y: 0}
   maxHp: 60
-  invulTimer: 0.75
+  invulTimer: 0.02
   healTimer: 1.42
   lifetime: 0
   damageMultiplier: 1
@@ -314,7 +314,7 @@ MonoBehaviour:
     obj: {fileID: 0}
     pos: {x: 0, y: 0}
   maxHp: 60
-  invulTimer: 0.75
+  invulTimer: 0.02
   healTimer: 1.42
   lifetime: 0
   damageMultiplier: 1
@@ -518,7 +518,7 @@ MonoBehaviour:
     obj: {fileID: 0}
     pos: {x: 0, y: 0}
   maxHp: 60
-  invulTimer: 0.75
+  invulTimer: 0.02
   healTimer: 1.42
   lifetime: 0
   damageMultiplier: 1
@@ -683,7 +683,7 @@ MonoBehaviour:
     obj: {fileID: 0}
     pos: {x: 0, y: 0}
   maxHp: 60
-  invulTimer: 0.75
+  invulTimer: 0.02
   healTimer: 1.42
   lifetime: 0
   damageMultiplier: 1
@@ -848,7 +848,7 @@ MonoBehaviour:
     obj: {fileID: 0}
     pos: {x: 0, y: 0}
   maxHp: 60
-  invulTimer: 0.75
+  invulTimer: 0.02
   healTimer: 1.42
   lifetime: 0
   damageMultiplier: 1
@@ -1013,7 +1013,7 @@ MonoBehaviour:
     obj: {fileID: 0}
     pos: {x: 0, y: 0}
   maxHp: 60
-  invulTimer: 0.75
+  invulTimer: 0.02
   healTimer: 1.42
   lifetime: 0
   damageMultiplier: 1
@@ -1178,7 +1178,7 @@ MonoBehaviour:
     obj: {fileID: 0}
     pos: {x: 0, y: 0}
   maxHp: 60
-  invulTimer: 0.75
+  invulTimer: 0.02
   healTimer: 1.42
   lifetime: 0
   damageMultiplier: 1
@@ -1343,7 +1343,7 @@ MonoBehaviour:
     obj: {fileID: 0}
     pos: {x: 0, y: 0}
   maxHp: 60
-  invulTimer: 0.75
+  invulTimer: 0.02
   healTimer: 1.42
   lifetime: 0
   damageMultiplier: 1
@@ -1508,7 +1508,7 @@ MonoBehaviour:
     obj: {fileID: 0}
     pos: {x: 0, y: 0}
   maxHp: 60
-  invulTimer: 0.75
+  invulTimer: 0.02
   healTimer: 1.42
   lifetime: 0
   damageMultiplier: 1

@@ -289,7 +289,7 @@ namespace Pikl.States.Components {
             if (so)
                 so.SwitchTo(so.deadState);
 
-            Shaker.I.ShakeCameraOnce(ShakePresets.Bump);
+            //Shaker.I.ShakeCameraOnce(ShakePresets.Bump);
 
             if (deathPlosions.Length > 0) {
                 if (spawnFromPool) {

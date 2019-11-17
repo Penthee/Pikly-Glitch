@@ -29,7 +29,7 @@ namespace Pikl.Player {
         }
 
         public void Swipe() {
-            obj.SetActive(true);
+            //obj.SetActive(true);
             lastSwipeTime = Time.time;
             swiping = true;
             if (player.input.MoveAxis.magnitude > 0)
@@ -39,7 +39,7 @@ namespace Pikl.Player {
         }
 
         void Stop() {
-            obj.SetActive(false);
+            //obj.SetActive(false);
             swiping = false;
         }
     }
