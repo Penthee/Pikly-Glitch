@@ -52,7 +52,7 @@ namespace Pikl.Interaction {
             (UIMgr.I.CurrentMenu as GameUI).CloseTerminal();
             isOpen = false;
         }
-
+#if UNITY_EDITOR
         internal override void OnDrawGizmos() {
             if (doorToOpen)
                 Gizmos.DrawLine(transform.position, doorToOpen.transform.position);
@@ -66,5 +66,6 @@ namespace Pikl.Interaction {
 
             base.OnDrawGizmos();
         }
+#endif
     }
 }

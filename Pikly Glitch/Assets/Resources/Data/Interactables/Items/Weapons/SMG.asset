@@ -26,9 +26,6 @@ MonoBehaviour:
   fireRate: 0.25
   reloadSpeed: 3.75
   fireType: 1
-  lastReloadTime: 3.2521229
-  lastFireTime: 0
-  reloading: 0
   shot:
     stock: {fileID: 1973877913541264, guid: 1b38bb07d7e7ff74fb18b251f33f5773, type: 3}
     damage:
@@ -47,13 +44,17 @@ MonoBehaviour:
     entitiesToPierce: 1
     isTrigger: 0
   shakeOnShot:
-    positionInfluence: {x: 0.25, y: 0.25}
+    positionInfluence: {x: 0.15, y: 0.15}
     name: Shot
     magnitude: 0.75
     roughness: 4.2
     fadeOutTime: 0.25
-    fadeInTime: 0.15
+    fadeInTime: 0
     rotationInfluence: 1
     scaleInfluence: 0.05
     loop: 0
-    sustain: 1
+    sustain: 0
+  lastReloadTime: 3.2521229
+  lastFireTime: 0
+  reloadState: 0
+  reloading: 0

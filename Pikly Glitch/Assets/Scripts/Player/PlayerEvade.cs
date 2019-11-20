@@ -97,8 +97,8 @@ namespace Pikl.Player {
             //while (!player.health.isDead) {
                 yield return new WaitForSeconds(StaminaRecoverRate);
                 if (!coolingDown) {
-                    stamVal = player.asyncStates.ContainsKey(player.evadeID) && !coolingDown ? 0 : 1;
-                    stamVal *= player.input.SprintAxis ? -5 : 2;
+
+                    stamVal = 1 * (player.input.SprintAxis ? -1 : 1);
 
                     Stamina = Mathf.Clamp(Stamina + stamVal, 0, MaxStamina);
                     //if (Stamina % EvadeCost == 0 && stamVal == 1 && UIMgr.I.CurrentMenu is GameUI)

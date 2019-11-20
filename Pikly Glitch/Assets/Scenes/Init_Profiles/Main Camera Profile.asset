@@ -190,10 +190,10 @@ MonoBehaviour:
     value: 1
   centerX:
     overrideState: 1
-    value: 0
+    value: 1
   centerY:
     overrideState: 1
-    value: 0
+    value: 1
   scale:
     overrideState: 0
     value: 1
