@@ -3900,7 +3900,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8811895770189050815}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: SupplyArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6033,6 +6033,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756847146830651703, guid: c13af47af7002bb4db730dbd1a8da03c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7363662676544385321, guid: c13af47af7002bb4db730dbd1a8da03c,
         type: 3}
