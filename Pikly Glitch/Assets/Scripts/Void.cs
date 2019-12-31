@@ -6,10 +6,17 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
 public class Void : MonoBehaviour {
-    public Vector3[] points;
+    public Ease[] eases = new Ease[] {
+        Ease.InOutSine,
+        Ease.InOutElastic,
+        Ease.InOutBounce,
+        Ease.InOutCirc
+    };
+
+    public Vector3[] points, startingPoints;
 
     [Range(0.01f, 2f)]
-    public float moveVariation = 1.1f, speed = 0.1f;
+    public float moveVariation = 1.1f, minDuration = 0.1f, maxDuration = 0.5f;
 
     public Material material;
 
@@ -18,29 +25,42 @@ public class Void : MonoBehaviour {
     MeshRenderer meshRenderer;
     MeshFilter meshFilter;
 
-    public Vector3[] p;
+    public Vector3[] variation;
+
+    public Ease GetEase() {
+        return eases[Random.Range(0, eases.Length - 1)];
+    }
+
+    public float GetDuration() {
+        return Random.Range(minDuration, maxDuration);
+    }
 
     void Start() {
         meshRenderer = GetComponent<MeshRenderer>();
         meshFilter = GetComponent<MeshFilter>();
 
-        CalcVariations();
+        startingPoints = (Vector3[])points.Clone();
+
+        DoTheThing();
     }
 
+    int i = 0;
     void CalcVariations() {
-        p = new Vector3[points.Length];
+        variation = new Vector3[points.Length];
 
-        //int i = 0;
-        //foreach (Vector3 point in points) {
-        //    p[i] = new Vector3(Random.Range(-moveVariation, moveVariation), Random.Range(-moveVariation, moveVariation), Random.Range(-moveVariation, moveVariation));
-        //    DOTween.To(() => point, x => point = x, p[i], speed).SetEase(Ease.InExpo).SetLoops(-1, LoopType.Yoyo);
-        //    i++;
-        int i = 0;
         for (i = 0; i < points.Length; i++) {
-            p[i] = new Vector3(Random.Range(-moveVariation, moveVariation), Random.Range(-moveVariation, moveVariation), Random.Range(-moveVariation, moveVariation));
-            DOTween.To(() => points[i], x => points[i] = x, p[i], speed).SetEase(Ease.InExpo).SetLoops(-1, LoopType.Yoyo);
+            variation[i] = startingPoints[i] + new Vector3(Random.Range(-moveVariation, moveVariation), Random.Range(-moveVariation, moveVariation), 0);
+            //DOTween.To(() => points[i], x => points[i] = x, p[i], speed).SetEase(Ease.InExpo).SetLoops(-1, LoopType.Yoyo);
         }
         //}
+    }
+
+    void DoTheThing() {
+        CalcVariations();
+        float duration = GetDuration();
+        DOTween.To(() => points[0], x => points[0] = x, variation[0], duration).SetEase(GetEase());
+        DOTween.To(() => points[1], x => points[1] = x, variation[1], duration).SetEase(GetEase());
+        DOTween.To(() => points[2], x => points[2] = x, variation[2], duration).SetEase(GetEase()).OnComplete(DoTheThing);
     }
 
     void Update() {
