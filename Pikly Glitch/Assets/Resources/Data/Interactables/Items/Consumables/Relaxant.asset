@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Relaxant
   m_EditorClassIdentifier: 
   name: Relaxant
-  sprite: {fileID: 21300000, guid: e70d85bc99d160a4b843c17d777d28b9, type: 3}
+  sprite: {fileID: 21300000, guid: 0e492e0225632a44bac5943bb2eab130, type: 3}
   description: Temporarily decreases damage taken.
   quantity: 1
   maxStack: 5

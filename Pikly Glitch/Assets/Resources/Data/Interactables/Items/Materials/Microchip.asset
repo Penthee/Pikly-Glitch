@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Microchip
   m_EditorClassIdentifier: 
   name: Microchip
-  sprite: {fileID: 21300020, guid: 38e16aa33a6cc1f4bafcb498a0789d90, type: 3}
+  sprite: {fileID: 21300000, guid: e421053f886cd884488e4ad75bd91994, type: 3}
   description: Not a Raspberry Pi.
   quantity: 1
   maxStack: 5

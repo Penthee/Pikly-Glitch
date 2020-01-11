@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Large Tube
   m_EditorClassIdentifier: 
   name: Large Tube
-  sprite: {fileID: 21300020, guid: 38e16aa33a6cc1f4bafcb498a0789d90, type: 3}
+  sprite: {fileID: 21300000, guid: 781ebcfe77966c44d8068cec0f1bb9ae, type: 3}
   description: Large, tube shaped, idk.
   quantity: 1
   maxStack: 5

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Magnet
   m_EditorClassIdentifier: 
   name: Magnet
-  sprite: {fileID: 21300020, guid: 38e16aa33a6cc1f4bafcb498a0789d90, type: 3}
+  sprite: {fileID: 21300000, guid: 8e28351ed29d6cf409511ad9e3a0024c, type: 3}
   description: How do they work?
   quantity: 1
   maxStack: 5
