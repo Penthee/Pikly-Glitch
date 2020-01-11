@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Terminal 1-1
   sprite: {fileID: 0}
-  text: 'I am some placeholder terminal text. Also I love you. (:
+  text: 'I am some placeholder terminal text.
 
     Here is some more text on a new line.
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SMG
   m_EditorClassIdentifier: 
   name: SMG
-  sprite: {fileID: 21300000, guid: 2e85df72e32df7e41b7e17e222bf5efd, type: 3}
+  sprite: {fileID: 21300000, guid: b74caabcfbdad404fb3e11067dd3bf65, type: 3}
   description: Sprays bullets everywhere.
   quantity: 1
   maxStack: 1

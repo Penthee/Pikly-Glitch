@@ -10,6 +10,7 @@ using UnityEngine.Audio;
 using TeamUtility.IO;
 //using Pikl.Audio;
 using Pikl.Profile;
+using Pikl.Data;
 
 namespace Pikl.UI {
     public class UIMgr : Singleton<UIMgr> {
@@ -21,7 +22,8 @@ namespace Pikl.UI {
         [HideInInspector]
         //public GameSetup gs;
         public Modal modal, modalConfirm;
-        public Menu mainMenu, gameUI;
+        public Menu mainMenu, gameUI, textRead;
+        public LevelText[] levelTexts;
 
         public OpenStack<Menu> menuHistory = new OpenStack<Menu>();
         //GameSetup gameSetup;

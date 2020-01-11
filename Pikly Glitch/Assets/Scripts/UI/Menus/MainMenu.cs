@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace Pikl.UI {
     public class MainMenu : Menu {
-        
+
 
         void Start() {
         }
@@ -38,8 +38,9 @@ namespace Pikl.UI {
         }
 
         public void OnNewGameClick() {
-            UIMgr.I.OpenMenu(UIMgr.I.gameUI);
-            SceneMgr.I.LoadScene("Game Testing");
+            UIMgr.I.OpenMenu(UIMgr.I.textRead);
+            (UIMgr.I.textRead as LevelIntroText).StartScroll(UIMgr.I.levelTexts[0]);
+            //SceneMgr.I.LoadScene("Text Read Scene");
         }
     }
 }

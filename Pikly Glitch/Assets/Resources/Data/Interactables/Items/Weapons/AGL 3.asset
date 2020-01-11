@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AGL 3
   m_EditorClassIdentifier: 
   name: AGL 3
-  sprite: {fileID: 21300000, guid: c3006f43768ee0349a2b23ed7c894bfb, type: 3}
+  sprite: {fileID: 21300000, guid: fce054f82e2669a45aec916e00a3b885, type: 3}
   description: Sticky.
   quantity: 1
   maxStack: 1
