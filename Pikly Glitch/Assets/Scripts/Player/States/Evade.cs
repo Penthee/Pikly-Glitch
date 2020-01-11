@@ -39,15 +39,16 @@ namespace Pikl.Player.States {
             //DOTween.To(() => script.chromaticAberration, x => script.chromaticAberration = x, 20, player.evade.Cooldown * 0.5f)
                    //.OnComplete(() => DOTween.To(() => script.chromaticAberration, x => script.chromaticAberration = x, 0, player.evade.Cooldown * 0.5f));
 
-            //Physics2D.IgnoreLayerCollision(player.gameObject.layer, LayerMask.NameToLayer("EnemyDamage"), true);
+            Physics2D.IgnoreLayerCollision(player.gameObject.layer, LayerMask.NameToLayer("EnemyDamage"), true);
 
-            Shaker.I.ShakeCameraOnce(ShakePresets.Evade);
+            //Shaker.I.ShakeCameraOnce(ShakePresets.Evade);
             //AudioMgr.I.PlaySound(boostSound);
 
             //player.evade.particles.transform.rotation = Quaternion.AngleAxis(Mathf.Repeat((player.input.MoveAxisRaw).ToAngle() + 120, 360), Vector3.forward);
             //player.evade.particles.Play();
 
             //WaveExploPostProcessing.Get().StartIt(Camera.main.WorldToViewportPoint(player.t.position), -0.15f, 1.1f, 0.75f, 0.2f, 0.025f, Ease.Linear, 0.5f, Ease.Linear);
+
         }
 
 
@@ -56,8 +57,9 @@ namespace Pikl.Player.States {
 
             player.evadeID = 0;
 
-            //Physics2D.IgnoreLayerCollision(player.gameObject.layer, LayerMask.NameToLayer("EnemyDamage"), false);
-            player.evade.hasReleasedSinceLastEvade = !player.input.EvadeInput;
+            Physics2D.IgnoreLayerCollision(player.gameObject.layer, LayerMask.NameToLayer("EnemyDamage"), false);
+
+            //player.evade.hasReleasedSinceLastEvade = !player.input.EvadeInput;
 
             base.Exit();
         }

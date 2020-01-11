@@ -98,7 +98,7 @@ namespace Pikl.Player {
                 yield return new WaitForSeconds(StaminaRecoverRate);
                 if (!coolingDown) {
 
-                    stamVal = 1 * (player.input.SprintAxis ? -1 : 1);
+                    stamVal = 1 * (player.input.EvadeAxis ? -1 : 1);
 
                     Stamina = Mathf.Clamp(Stamina + stamVal, 0, MaxStamina);
                     //if (Stamina % EvadeCost == 0 && stamVal == 1 && UIMgr.I.CurrentMenu is GameUI)

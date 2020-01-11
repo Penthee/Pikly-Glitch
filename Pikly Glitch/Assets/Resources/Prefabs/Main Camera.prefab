@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 0
-  halfViewboxSize: {x: 597.32825, y: 500}
+  halfViewboxSize: {x: 693.2398, y: 500}
 --- !u!58 &7631419225901416974
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -837,6 +837,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 95703b29f49b899499233ea7308bb800, type: 3}
-  BlockCount: 1024
+  BlockCount: 720
   countMultiplierX: 1
   countMultiplierY: 1

@@ -247,7 +247,7 @@ namespace Pikl.Player {
             get {
                 return /*!PauseMgr.I.Paused &&*/
                        (player.stunID == 0 && player.evadeID == 0) &&
-                       player.evade.hasReleasedSinceLastEvade &&
+                       //player.evade.hasReleasedSinceLastEvade &&
                        HasCooledDown(player.evade.lastTime, player.evade.Cooldown) &&
                        EvadeInput &&
                        MoveAxisRaw.magnitude != 0 &&

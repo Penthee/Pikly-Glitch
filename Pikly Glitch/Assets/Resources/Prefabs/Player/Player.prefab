@@ -136,7 +136,7 @@ MonoBehaviour:
   health: {fileID: 0}
   move:
     so: {fileID: 0}
-    force: 50
+    force: 60
     stepTime: 0
     actionDelay: 0
     sineMagnitude: 1
@@ -144,7 +144,7 @@ MonoBehaviour:
     originalForce: 0
     currentDirection: 0
     walkForce: 37
-    sprintForce: 75
+    sprintForce: 50
   input:
     player: {fileID: 0}
     aimCameraDistance: 0.05
@@ -179,7 +179,7 @@ MonoBehaviour:
     trailFadeTime: 0
     force: 750
     cooldown: 1.2
-    maxStamina: 30
+    maxStamina: 15
     staminaRecoverRate: 0.275
     stamina: 30
     evadeCost: 10

@@ -12,15 +12,17 @@ namespace Pikl.UI {
     public class GameUI : Menu {
         public Player.Player player;
 
-        public GameObject craftingUI, inventoryCraftHighlights, craftingSelections;
+        public GameObject craftingUI, inventoryCraftHighlights, craftingSelections, debugPanel;
         public RecipeBook recipeBook;
-        public Text health, armour, stamina, terminalText, velocity, state;
+        public Text health, armour, stamina, terminalText, debugValues;
 
         public Image inventory, terminalDisplay;
         public Text[] inventoryItems = new Text[20];
         public Text[] craftingItems = new Text[20];
         public Color weaponColour, consumableColour, materialColour, toolColour;
         public Text ammo, description;
+
+        public bool debug;
 
         Color whiteAlpha = new Color(1, 1, 1, 0);
 
@@ -56,6 +58,10 @@ namespace Pikl.UI {
 
             CreateInventory();
 
+#if UNITY_EDITOR
+            debug = true;
+#endif 
+
             base.Open();
         }
 
@@ -74,6 +80,15 @@ namespace Pikl.UI {
                 //UpdateVelocity();
                 //UpdateState();
                 UpdateInventory();
+#if UNITY_EDITOR
+                if (debug) {
+                    debugPanel.SetActive(true);
+                    UpdateDebugValues();
+
+                } else {
+                    debugPanel.SetActive(false);
+                }
+#endif
 
                 if (craftingUI.activeSelf) {
                     ClearCraftingList();
@@ -252,13 +267,19 @@ namespace Pikl.UI {
             stamina.color = player.evade.Stamina < player.evade.EvadeCost ? Color.red : Color.white;
         }
 
-        void UpdateVelocity() {
-            velocity.text = string.Format("{0:f1}, {1:f1}", player.rb.velocity.x, player.rb.velocity.y);
+        void UpdateDebugValues() {
+            debugValues.text = string.Empty;
+
+            debugValues.text += string.Format("{0:f1}, {1:f1}", player.rb.velocity.x, player.rb.velocity.y);
+            debugValues.text += System.Environment.NewLine;
+            debugValues.text += player.CurrentState.ToString().Split('.').Last();
+            debugValues.text += System.Environment.NewLine;
+
+            foreach (var item in player.asyncStates) { 
+                debugValues.text += item.Value.ToString().Split('.').Last() + " ";
+            }
         }
 
-        void UpdateState() {
-            state.text = player.CurrentState.ToString().Split('.').Last();
-        }
 
         void UpdateInventory() {
             int i = 0;
