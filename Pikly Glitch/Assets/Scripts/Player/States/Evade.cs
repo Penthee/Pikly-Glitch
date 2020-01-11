@@ -40,6 +40,7 @@ namespace Pikl.Player.States {
                    //.OnComplete(() => DOTween.To(() => script.chromaticAberration, x => script.chromaticAberration = x, 0, player.evade.Cooldown * 0.5f));
 
             Physics2D.IgnoreLayerCollision(player.gameObject.layer, LayerMask.NameToLayer("EnemyDamage"), true);
+            Physics2D.IgnoreLayerCollision(player.gameObject.layer, LayerMask.NameToLayer("Enemy"), true);
 
             //Shaker.I.ShakeCameraOnce(ShakePresets.Evade);
             //AudioMgr.I.PlaySound(boostSound);
@@ -58,7 +59,7 @@ namespace Pikl.Player.States {
             player.evadeID = 0;
 
             Physics2D.IgnoreLayerCollision(player.gameObject.layer, LayerMask.NameToLayer("EnemyDamage"), false);
-
+            Physics2D.IgnoreLayerCollision(player.gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
             //player.evade.hasReleasedSinceLastEvade = !player.input.EvadeInput;
 
             base.Exit();
