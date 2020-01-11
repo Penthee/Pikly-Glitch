@@ -14,6 +14,7 @@ public class Void : MonoBehaviour {
     };
 
     public Vector3[] points, startingPoints;
+    public int[] index;
 
     [Range(0.01f, 2f)]
     public float moveVariation = 1.1f, minDuration = 0.1f, maxDuration = 0.5f;
@@ -22,6 +23,7 @@ public class Void : MonoBehaviour {
 
     GameObject voidObj;
 
+    PolygonCollider2D poly;
     MeshRenderer meshRenderer;
     MeshFilter meshFilter;
 
@@ -36,27 +38,31 @@ public class Void : MonoBehaviour {
     }
 
     void Start() {
-        meshRenderer = GetComponent<MeshRenderer>();
-        meshFilter = GetComponent<MeshFilter>();
+        GetComponents();
 
         startingPoints = (Vector3[])points.Clone();
 
         DoTheThing();
     }
 
+    void GetComponents() {
+        meshRenderer = GetComponent<MeshRenderer>();
+        meshFilter = GetComponent<MeshFilter>();
+        poly = GetComponent<PolygonCollider2D>();
+    }
+
     int i = 0;
     void CalcVariations() {
         variation = new Vector3[points.Length];
-
+        
         for (i = 0; i < points.Length; i++) {
             variation[i] = startingPoints[i] + new Vector3(Random.Range(-moveVariation, moveVariation), Random.Range(-moveVariation, moveVariation), 0);
-            //DOTween.To(() => points[i], x => points[i] = x, p[i], speed).SetEase(Ease.InExpo).SetLoops(-1, LoopType.Yoyo);
         }
-        //}
     }
 
     void DoTheThing() {
         CalcVariations();
+
         float duration = GetDuration();
         DOTween.To(() => points[0], x => points[0] = x, variation[0], duration).SetEase(GetEase());
         DOTween.To(() => points[1], x => points[1] = x, variation[1], duration).SetEase(GetEase());
@@ -64,12 +70,15 @@ public class Void : MonoBehaviour {
     }
 
     void Update() {
+        meshRenderer.material = material;
+        meshFilter.mesh = CreateMesh();
+
         UpdatePolygon();
     }
 
     void UpdatePolygon() {
-        meshRenderer.material = material;
-        meshFilter.mesh = CreateMesh();
+        poly.points = new Vector2[] { points[0], points[1], points[2] };
+        poly.SetPath(0, new Vector2[] { points[0], points[1], points[2] });
     }
 
     Mesh CreateMesh() {
@@ -117,5 +126,10 @@ public class Void : MonoBehaviour {
         mesh.name = "VoidMesh";
 
         return mesh;
+    }
+
+    void OnDrawGizmos() {
+        GetComponents();
+        UpdatePolygon();
     }
 }
