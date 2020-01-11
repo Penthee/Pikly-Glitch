@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   name: Pistol
-  sprite: {fileID: 21300000, guid: c3006f43768ee0349a2b23ed7c894bfb, type: 3}
+  sprite: {fileID: 21300000, guid: f3df59b634e016742b4991be8c73f5de, type: 3}
   description: A trusty 9mm.
   quantity: 1
   maxStack: 1
