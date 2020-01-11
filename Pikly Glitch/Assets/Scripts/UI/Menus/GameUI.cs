@@ -56,8 +56,6 @@ namespace Pikl.UI {
             terminalDisplay.enabled = false;
             terminalText.enabled = false;
 
-            CreateInventory();
-
 #if UNITY_EDITOR
             debug = true;
 #endif 
@@ -111,10 +109,14 @@ namespace Pikl.UI {
         {
             do {
                 //player = Ref.I["PlayerScript"] as Player.Player;
-                player = GameObject.Find("Player").GetComponent<Player.Player>();
+                var bah = GameObject.Find("Player");
+                if (bah)
+                    player = bah.GetComponent<Player.Player>();
 
                 yield return new WaitForEndOfFrame();
             } while (player == null);
+
+            CreateInventory();
         }
 
         void CreateInventory() {

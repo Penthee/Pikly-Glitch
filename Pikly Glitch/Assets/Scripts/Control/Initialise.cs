@@ -74,7 +74,7 @@ namespace Pikl {
         }
 
         void LoadScene() {
-            SceneMgr.I.LoadScene("Game");
+            SceneMgr.I.LoadScene("Menu");
         }
     }
 }

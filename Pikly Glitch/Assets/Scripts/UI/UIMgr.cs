@@ -21,7 +21,7 @@ namespace Pikl.UI {
         [HideInInspector]
         //public GameSetup gs;
         public Modal modal, modalConfirm;
-        public Menu gameUI;
+        public Menu mainMenu, gameUI;
 
         public OpenStack<Menu> menuHistory = new OpenStack<Menu>();
         //GameSetup gameSetup;
@@ -50,12 +50,13 @@ namespace Pikl.UI {
             //pauseSnapshot75 = audioMixer.FindSnapshot("75% Pause");
             //pauseSnapshot100 = audioMixer.FindSnapshot("100% Pause");
 
-            //if (SceneMgr.I.LoadedSceneName.Contains("Testing"))
-                CurrentMenu = gameUI;
-            //else
+            if (SceneMgr.I.LoadedSceneName.Contains("Testing"))
+                OpenMenu(gameUI);
+            else
+                OpenMenu(mainMenu);
             //    CurrentMenu = FileMgr.I.config.LastPlayer == "" ? profileSelect : mainMenu;
 
-            OpenMenu(CurrentMenu);
+            
 
             //MessageMgr.I.AddListener<string>("GameOver", OnGameOver);
             //MessageMgr.I.AddListener("GameWin", OnGameComplete);
@@ -75,11 +76,14 @@ namespace Pikl.UI {
         public void OpenMenu(Menu menu) {
             if (CurrentMenu != null) {
                 CurrentMenu.Close();
+                CurrentMenu.gameObject.SetActive(false);
                 menuHistory.Push(CurrentMenu);
             }
 
             CurrentMenu = menu;
+            CurrentMenu.gameObject.SetActive(true);
             CurrentMenu.Open();
+
         }
 
         public void ShowModal(string message) {
