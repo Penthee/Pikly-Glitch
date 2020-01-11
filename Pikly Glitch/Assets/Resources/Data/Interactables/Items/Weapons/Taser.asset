@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Taser
   m_EditorClassIdentifier: 
   name: Taser
-  sprite: {fileID: 21300000, guid: 2e85df72e32df7e41b7e17e222bf5efd, type: 3}
+  sprite: {fileID: 21300000, guid: f3b69845730ddd342a8158076554374b, type: 3}
   description: Zappy Zap.
   quantity: 1
   maxStack: 1

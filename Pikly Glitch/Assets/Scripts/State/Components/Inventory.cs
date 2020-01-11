@@ -44,6 +44,7 @@ namespace Pikl.Player {
         public Data.Material emptyCan;
         Player player;
         public readonly int size = 20;
+        public readonly float dropDist = 0.85f;
         [SerializeField]
         int selectedIndex = 0;
 
@@ -245,7 +246,7 @@ namespace Pikl.Player {
         }
 
         void CreatePickup(Item i) {
-            GameObject o = GameObject.Instantiate(emptyItemObj, player.transform.position + (player.fv2D.lastDir.normalized * 0.5f), Quaternion.identity);
+            GameObject o = Object.Instantiate(emptyItemObj, player.transform.position + (player.fv2D.lastDir.normalized * dropDist), Quaternion.identity);
             o.GetComponent<ItemPickup>().item = i;
 
             //switch(i.type) {

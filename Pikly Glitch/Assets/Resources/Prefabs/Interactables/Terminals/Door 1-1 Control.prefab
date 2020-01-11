@@ -58,6 +58,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &270599878147660157
@@ -110,6 +111,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableTransform: {fileID: 224629666787891473}
-  radius: 1
+  interactRadius: 1.25
+  labelRadius: 5
   autoInteract: 0
   terminal: {fileID: 11400000, guid: d4b2fae22fb26444f9e0532b04ef4772, type: 2}
+  doorToOpen: {fileID: 0}
+  trapsToTrigger: []
+  isOpen: 0

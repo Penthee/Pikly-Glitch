@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 2x Rifle
   m_EditorClassIdentifier: 
   name: 2x Rifle
-  sprite: {fileID: 21300000, guid: 2e85df72e32df7e41b7e17e222bf5efd, type: 3}
+  sprite: {fileID: 21300000, guid: b13d78e0947ad344ba15c9480f4e6366, type: 3}
   description: Duct tape is great.
   quantity: 1
   maxStack: 1

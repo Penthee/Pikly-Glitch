@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MG-HV
   m_EditorClassIdentifier: 
   name: MG-HV
-  sprite: {fileID: 21300000, guid: 2e85df72e32df7e41b7e17e222bf5efd, type: 3}
+  sprite: {fileID: 21300000, guid: cdddb9d13d2871a4eab99b467b96047c, type: 3}
   description: High calibur machine gun.
   quantity: 1
   maxStack: 1

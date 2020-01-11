@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5747219454846466135}
   - component: {fileID: 5166267298433480605}
   m_Layer: 8
-  m_Name: Terminal 1-1
+  m_Name: Central Power System Lobby Terminal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,6 +58,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &5747219454846466135
@@ -110,6 +111,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableTransform: {fileID: 5700835843522902075}
-  radius: 1
+  interactRadius: 1.25
+  labelRadius: 5
   autoInteract: 0
   terminal: {fileID: 11400000, guid: 01bfc0e20bfc0d34b8545835d469324d, type: 2}
+  doorToOpen: {fileID: 0}
+  trapsToTrigger: []
+  isOpen: 0

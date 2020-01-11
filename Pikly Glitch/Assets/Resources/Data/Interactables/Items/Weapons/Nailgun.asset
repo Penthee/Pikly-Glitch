@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nailgun
   m_EditorClassIdentifier: 
   name: Nailgun
-  sprite: {fileID: 21300000, guid: 2e85df72e32df7e41b7e17e222bf5efd, type: 3}
+  sprite: {fileID: 21300000, guid: 121476843b2982f43bb11e1dbd1c2657, type: 3}
   description: Crude, but works.
   quantity: 1
   maxStack: 1

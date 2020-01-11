@@ -72,12 +72,12 @@ SpriteRenderer:
   m_SortingLayerID: 1920366371
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c3006f43768ee0349a2b23ed7c894bfb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fce054f82e2669a45aec916e00a3b885, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.1, y: 0.06}
+  m_Size: {x: 0.6, y: 0.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableTransform: {fileID: 4757167843619650}
-  radius: 0.3
+  interactRadius: 0.35
+  labelRadius: 5
   autoInteract: 1
   item: {fileID: 11400000, guid: 5859fa28921d35548bf498287b8b668e, type: 2}

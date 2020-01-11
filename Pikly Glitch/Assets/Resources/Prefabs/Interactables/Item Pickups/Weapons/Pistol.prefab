@@ -59,6 +59,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 1920366371
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c3006f43768ee0349a2b23ed7c894bfb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f3df59b634e016742b4991be8c73f5de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -132,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableTransform: {fileID: 4757167843619650}
-  radius: 0.3
+  interactRadius: 0.35
+  labelRadius: 5
   autoInteract: 1
   item: {fileID: 11400000, guid: d63754158992a1c45a165aaafdaeef2e, type: 2}

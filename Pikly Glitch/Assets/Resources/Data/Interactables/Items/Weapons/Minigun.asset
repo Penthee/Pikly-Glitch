@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Minigun
   m_EditorClassIdentifier: 
   name: Minigun
-  sprite: {fileID: 21300000, guid: 2e85df72e32df7e41b7e17e222bf5efd, type: 3}
+  sprite: {fileID: 21300000, guid: f7e2e4f116a26c545b2ff2962e3192d8, type: 3}
   description: There's no such thing as overkill
   quantity: 1
   maxStack: 1

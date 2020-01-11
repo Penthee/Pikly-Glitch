@@ -22,7 +22,10 @@ namespace Pikl.Player.States {
         internal override void Enter(StateObject so) {
             base.Enter(so);
 
+
             evadeDir = player.input.MoveAxisRaw.normalized;
+
+            //player.fv2D.Override(evadeDir);
 
             if (evadeDir.magnitude == 0)
                 evadeDir = player.rb.velocity.normalized;

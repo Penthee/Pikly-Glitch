@@ -25,7 +25,7 @@ namespace Pikl.Interaction {
         }
 
         public override void Update() {
-            if (isOpen && Vector2.Distance(transform.position, Player.Player.I.t.position) > radius) {
+            if (isOpen && Vector2.Distance(transform.position, Player.Player.I.t.position) > interactRadius) {
                 Close();
             }
 

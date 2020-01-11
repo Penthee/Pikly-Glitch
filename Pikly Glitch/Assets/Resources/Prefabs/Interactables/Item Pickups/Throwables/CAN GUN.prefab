@@ -80,7 +80,7 @@ SpriteRenderer:
   m_Size: {x: 0.38, y: 0.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &61324280024056842
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableTransform: {fileID: 4445189124550904}
-  radius: 0.35
+  interactRadius: 0.35
+  labelRadius: 5
   autoInteract: 1
   item: {fileID: 11400000, guid: a06948116bdbbfd4a86974dd79cb8a76, type: 2}

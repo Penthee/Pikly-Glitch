@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Triple Nailgun
   m_EditorClassIdentifier: 
   name: Triple Nailgun
-  sprite: {fileID: 21300000, guid: 2e85df72e32df7e41b7e17e222bf5efd, type: 3}
+  sprite: {fileID: 21300000, guid: 121476843b2982f43bb11e1dbd1c2657, type: 3}
   description: Why did you make this?
   quantity: 1
   maxStack: 1

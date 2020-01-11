@@ -79,7 +79,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &270599878147660157
@@ -111,8 +111,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableTransform: {fileID: 224629666787891473}
-  radius: 1
+  interactRadius: 1.25
+  labelRadius: 5
   autoInteract: 0
   terminal: {fileID: 11400000, guid: e09468aae7a9e744aa84a9f8c52479be, type: 2}
   doorToOpen: {fileID: 0}
+  trapsToTrigger: []
   isOpen: 0

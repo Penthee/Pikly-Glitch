@@ -11,7 +11,7 @@ namespace Pikl.Interaction {
         public Transform interactableTransform;
         //TODO - Let InteractableObjs detect multiple things using layer
         //public LayerMask interactWith;
-        public float radius;
+        public float interactRadius, labelRadius = 10;
         public bool autoInteract;
 
         bool hasInteracted = false;
@@ -24,7 +24,7 @@ namespace Pikl.Interaction {
         public virtual void Update() {
             if (autoInteract) {
                 distance = Vector2.Distance(Player.Player.I.transform.position, interactableTransform.position);
-                if (distance <= radius) {
+                if (distance <= interactRadius) {
                     if (!hasInteracted) {
                         Debug.Log(name + " Auto-Interacting...");
                         hasInteracted = true;
@@ -33,11 +33,21 @@ namespace Pikl.Interaction {
                 } else {
                     hasInteracted = false;
                 }
+
+                if (distance <= labelRadius) {
+                    ItemLabelMgr.I.CreateNewLabel(name, interactableTransform);
+                } else {
+                    ItemLabelMgr.I.RemoveLabel(interactableTransform);
+                }
             }
         }
 
         public virtual void Interact() {
+        }
 
+        private void OnDestroy() {
+            if (ItemLabelMgr.I != null)
+                ItemLabelMgr.I.RemoveLabel(transform);
         }
 
         void SetTransform() {
@@ -49,7 +59,7 @@ namespace Pikl.Interaction {
             SetTransform();
 
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position, radius);
+            Gizmos.DrawWireSphere(transform.position, interactRadius);
 
             Handles.Label(transform.position, name);
         }

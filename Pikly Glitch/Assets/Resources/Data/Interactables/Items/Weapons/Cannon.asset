@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cannon
   m_EditorClassIdentifier: 
   name: Cannon
-  sprite: {fileID: 21300000, guid: 2e85df72e32df7e41b7e17e222bf5efd, type: 3}
+  sprite: {fileID: 21300000, guid: e23f5eb224d08d849bd9873d1afb2a13, type: 3}
   description: Big shooty.
   quantity: 1
   maxStack: 1
