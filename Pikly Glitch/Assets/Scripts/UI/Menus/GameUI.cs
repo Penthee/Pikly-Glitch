@@ -7,6 +7,7 @@ using TeamUtility.IO;
 using Pikl.Profile;
 using Pikl.Data;
 using System.Linq;
+using Pikl.States;
 
 namespace Pikl.UI {
     public class GameUI : Menu {
@@ -22,7 +23,6 @@ namespace Pikl.UI {
         public Color weaponColour, consumableColour, materialColour, toolColour;
         public Text ammo, description;
 
-        public bool debug;
 
         Color whiteAlpha = new Color(1, 1, 1, 0);
 
@@ -51,13 +51,11 @@ namespace Pikl.UI {
 
             //UIMgr.I.PauseFilterOff();
 
-            Debug.Log("GAME UI Open");
-
             terminalDisplay.enabled = false;
             terminalText.enabled = false;
 
 #if UNITY_EDITOR
-            debug = true;
+            debugPanel.SetActive(true);
 #endif 
 
             base.Open();
@@ -78,15 +76,15 @@ namespace Pikl.UI {
                 //UpdateVelocity();
                 //UpdateState();
                 UpdateInventory();
-#if UNITY_EDITOR
-                if (debug) {
-                    debugPanel.SetActive(true);
-                    UpdateDebugValues();
+//#if UNITY_EDITOR
+//                if (debug) {
+//                    debugPanel.SetActive(true);
+//                    UpdateDebugValues();
 
-                } else {
-                    debugPanel.SetActive(false);
-                }
-#endif
+//                } else {
+//                    debugPanel.SetActive(false);
+//                }
+//#endif
 
                 if (craftingUI.activeSelf) {
                     ClearCraftingList();
@@ -268,20 +266,6 @@ namespace Pikl.UI {
 
             stamina.color = player.evade.Stamina < player.evade.EvadeCost ? Color.red : Color.white;
         }
-
-        void UpdateDebugValues() {
-            debugValues.text = string.Empty;
-
-            debugValues.text += string.Format("{0:f1}, {1:f1}", player.rb.velocity.x, player.rb.velocity.y);
-            debugValues.text += System.Environment.NewLine;
-            debugValues.text += player.CurrentState.ToString().Split('.').Last();
-            debugValues.text += System.Environment.NewLine;
-
-            foreach (var item in player.asyncStates) { 
-                debugValues.text += item.Value.ToString().Split('.').Last() + " ";
-            }
-        }
-
 
         void UpdateInventory() {
             int i = 0;

@@ -29,6 +29,12 @@ namespace Pikl.Enemy {
             base.Update();
         }
 
+        public void SpawnRockObj() {
+            Vector3 pos = t.position + (t.right * meleeAttackRange);
+            GameObjectMgr.I.Spawn(rockDamageObj, pos, t.rotation);
+        }
+
+
         void OnDrawGizmos() {
         }
 

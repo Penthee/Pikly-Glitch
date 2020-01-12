@@ -20,12 +20,20 @@ namespace Pikl.Enemy {
             sight.Init(this);
             movement.Init(this);
 
+            pauseState = new EnemyPauseState();
+
             base.Start();
         }
 
         internal override void Update() {
             base.Update();
         }
+
+        public void SpawnDmgObj() {
+            Vector3 pos = t.position + (t.right * meleeAttackRange);
+            GameObjectMgr.I.Spawn(meleeDmgObj, pos);
+        }
+
 
         void OnDrawGizmos() {
         }

@@ -29,6 +29,11 @@ namespace Pikl.Enemy {
             base.Update();
         }
 
+        public void SpawnDmgObj() {
+            Vector3 pos = t.position + (t.right * meleeAttackRange);
+            GameObjectMgr.I.Spawn(meleeDmgObj, pos);
+        }
+
         void OnDrawGizmos() {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, meleeAttackRange);

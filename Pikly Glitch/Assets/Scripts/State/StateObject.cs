@@ -19,10 +19,14 @@ namespace Pikl.States {
 
         #region Fields
         /// <summary>Returns the current state.</summary>
-        [ExposeProperty]
+        //[ExposeProperty] 
         public State CurrentState {
             get {
                 return state.Peek();
+            }
+            set {
+                Debug.LogWarning("You shouldn't be setting this!");
+                SwitchTo(value);
             }
         }
         /// <summary>
@@ -53,6 +57,7 @@ namespace Pikl.States {
         /// </summary>
         public float localTickSpeed = 0;
         /// <summary>The StateHisory that hold the current and previous states/sequences.</summary>
+        //[SerializeField]
         public StateHistory state = new StateHistory();
         /// <summary>The states that are still to be used in the current sequence.</summary>
         public StateSequence buffer = new StateSequence();
@@ -103,7 +108,7 @@ namespace Pikl.States {
         /// </summary>
         internal virtual void Start() {
 #if UNITY_EDITOR
-            //VerifyCachedStates();
+            VerifyCachedStates();
 #endif
             CacheCommonComponents();
 

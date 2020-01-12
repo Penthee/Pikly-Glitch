@@ -168,14 +168,14 @@ MonoBehaviour:
   soundName: 
   spawnOnExplodeParent: 
   explodeShake:
-    positionInfluence: {x: 0.25, y: 0.25}
+    positionInfluence: {x: 0, y: 0}
     name: 
-    magnitude: 1
-    roughness: 1
+    magnitude: 0
+    roughness: 0
     fadeOutTime: 0
     fadeInTime: 0
-    rotationInfluence: 0.25
-    scaleInfluence: 0.1
+    rotationInfluence: 0
+    scaleInfluence: 0
     loop: 0
-    sustain: 1
+    sustain: 0
   exploding: 0

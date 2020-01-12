@@ -6,8 +6,6 @@ using Pikl.Data;
 namespace Pikl.Enemy {
     public class LargeMutantIdle : EnemyState {
 
-        Vector3 targetPos;
-
         internal override void Enter(StateObject so) {
             base.Enter(so);
 

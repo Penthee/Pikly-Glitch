@@ -44,8 +44,8 @@ namespace Pikl.Player {
             //missileLaunch = new AudioInfo("SFX/RocketLaunch");
             
             defaultState = new Idle();
-            //deadState = new Dead();
-            //pauseState = new Pause();
+            deadState = new Dead();
+            pauseState = new Pause();
 
             health = GetComponent<PlayerHealth>();
 

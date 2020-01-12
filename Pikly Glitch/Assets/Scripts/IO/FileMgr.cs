@@ -195,14 +195,14 @@ namespace Pikl.Profile {
                         xw.WriteAttributeString("times-logged-in", "0");
                         xw.WriteEndElement();
 
-                        xw.WriteStartElement("Highscores");
-                        xw.WriteAttributeString("highscore", "0");
-                        xw.WriteAttributeString("hardcore-highscore", "0");
-                        xw.WriteAttributeString("endless-highscore", "0");
-                        xw.WriteAttributeString("endless-hardcore-highscore", "0");
-                        xw.WriteAttributeString("bossrush-highscore", "0");
-                        xw.WriteAttributeString("bossrush-hardcore-highscore", "0");
-                        xw.WriteEndElement();
+                        //xw.WriteStartElement("Highscores");
+                        //xw.WriteAttributeString("highscore", "0");
+                        //xw.WriteAttributeString("hardcore-highscore", "0");
+                        //xw.WriteAttributeString("endless-highscore", "0");
+                        //xw.WriteAttributeString("endless-hardcore-highscore", "0");
+                        //xw.WriteAttributeString("bossrush-highscore", "0");
+                        //xw.WriteAttributeString("bossrush-hardcore-highscore", "0");
+                        //xw.WriteEndElement();
 
                         xw.WriteStartElement("Settings");
                         xw.WriteStartElement("Controller");
@@ -222,12 +222,12 @@ namespace Pikl.Profile {
                         xw.WriteAttributeString("master-vol", "1");
                         xw.WriteAttributeString("music-vol", "1");
                         xw.WriteAttributeString("sound-vol", "1");
-                        xw.WriteAttributeString("speech-vol", "1");
+                        //xw.WriteAttributeString("speech-vol", "1");
                         xw.WriteEndElement();
 
-                        xw.WriteStartElement("Quality");
-                        xw.WriteAttributeString("level", "5");
-                        xw.WriteEndElement();
+                        //xw.WriteStartElement("Quality");
+                        //xw.WriteAttributeString("level", "5");
+                        //xw.WriteEndElement();
 
                         xw.WriteStartElement("Resolution");
 #if UNITY_EDITOR

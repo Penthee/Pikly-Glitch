@@ -15,9 +15,9 @@ MonoBehaviour:
   name: Medpack 50
   sprite: {fileID: 21300000, guid: 126def17191aacc429ccb12557850754, type: 3}
   description: Restores 50 HP.
-  quantity: 1
-  maxStack: 5
+  quantity: 906
+  maxStack: 9999
   type: 4
-  selected: 0
+  selected: 1
   effect: 0
-  strength: 50
+  strength: 9999

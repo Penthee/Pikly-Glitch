@@ -38,7 +38,7 @@ namespace Pikl.Enemy {
             }
 
             if (Vector2.Distance(enemy.t.position, Player.Player.I.t.position) < enemy.meleeAttackRange)
-                return new MutantSmack(enemy.meleeAttackTime);
+                return new MutantSmack();
 
 
             return base.Update();

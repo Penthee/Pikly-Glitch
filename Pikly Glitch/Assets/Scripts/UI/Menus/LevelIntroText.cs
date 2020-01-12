@@ -36,8 +36,6 @@ namespace Pikl.UI {
 
             //Cursor.SetCursor(crosshairCursor, new Vector2(crosshairCursor.width / 2, crosshairCursor.height / 2), CursorMode.Auto);
 
-            Debug.Log("LEVEL INTRO TEXT UI Open");
-
             base.Open();
         }
 
@@ -47,9 +45,7 @@ namespace Pikl.UI {
             base.Close();
         }
 
-        bool isAlreadyDown = false;
         public override void OnUpdate() {
-
             base.OnUpdate();
         }
 

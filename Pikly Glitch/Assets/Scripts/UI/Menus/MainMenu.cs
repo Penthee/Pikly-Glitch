@@ -21,8 +21,6 @@ namespace Pikl.UI {
 
             //Cursor.SetCursor(crosshairCursor, new Vector2(crosshairCursor.width / 2, crosshairCursor.height / 2), CursorMode.Auto);
 
-            Debug.Log("MAIN MENU UI Open");
-
             base.Open();
         }
 

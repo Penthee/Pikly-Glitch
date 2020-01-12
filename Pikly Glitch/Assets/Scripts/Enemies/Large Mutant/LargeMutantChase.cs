@@ -38,9 +38,9 @@ namespace Pikl.Enemy {
             }
 
             if (Vector2.Distance(enemy.t.position, Player.Player.I.t.position) < enemy.meleeAttackRange)
-                return new LargeMutantSmack(enemy.meleeAttackTime);
+                return new LargeMutantSmack();
             else if (Random.Range(0, (int)enemy.rockThrowChance) == 0) {
-                return new LargeMutantThrow(enemy.meleeAttackTime * 0.5f);
+                return new LargeMutantThrow();
             }
 
             return base.Update();
