@@ -92,6 +92,8 @@ namespace Pikl.Player {
         }
 
         int stamVal = 0;
+        public float drag = 1;
+
         IEnumerator RecoverStamina() {
             while (true) { 
             //while (!player.health.isDead) {

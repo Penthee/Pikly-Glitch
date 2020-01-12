@@ -173,17 +173,18 @@ MonoBehaviour:
     player: {fileID: 0}
     lastTime: 0
     lastOverheatTime: 0
-    overheatCooldown: 0
+    overheatCooldown: 2
     coolingDown: 0
     particles: {fileID: 0}
     trailFadeTime: 0
-    force: 750
-    cooldown: 1.2
-    maxStamina: 15
+    force: 800
+    cooldown: 0.375
+    maxStamina: 30
     staminaRecoverRate: 0.275
     stamina: 30
     evadeCost: 10
     hasReleasedSinceLastEvade: 1
+    drag: 3
   inventory:
     items: []
     emptyItemObj: {fileID: 1253819208912148, guid: 90c2e8f3b7478b7459f8c7f0d44f5949,
@@ -360,7 +361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4326992968425920
 Transform:
   m_ObjectHideFlags: 0

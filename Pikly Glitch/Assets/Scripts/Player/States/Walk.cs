@@ -47,7 +47,7 @@ namespace Pikl.Player {
                 player.aimID = player.StartAsync(new States.Aim(0));
 
             if (player.input.EvadeAxis)
-                player.evadeID = player.StartAsync(new States.Evade(player.evade.Cooldown));
+                return new States.Evade(player.evade.Cooldown);
 
             if (player.input.ShootAxis())
                 player.shootID = player.StartAsync(new States.Shoot((player.inventory.SelectedItem as Weapon).fireRate));
