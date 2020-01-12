@@ -138,5 +138,28 @@ namespace Pikl.UI {
             }
         }
 
+        public void OnInfiniteHPPress() {
+            StateObject selected = GetSelected();
+            if (selected == null) {
+                Debug.Log("SO null in OnInfiniteHPPress()");
+                return;
+            }
+
+            var health = selected.GetComponent<MonoHealth>();
+
+            if (health != null) {
+                health.MaxHp = 999999;
+                health.HP = health.MaxHp;
+                return;
+            }
+
+            var pHealth = selected.GetComponent<PlayerHealth>();
+
+            if (pHealth != null) {
+                pHealth.MaxHp = 999999;
+                pHealth.HP = pHealth.MaxHp;
+            }
+        }
+
     }
 }

@@ -30,8 +30,7 @@ namespace Pikl.Enemy {
         }
 
         public void SpawnDmgObj() {
-            Vector3 pos = t.position + (t.right * meleeAttackRange);
-            GameObjectMgr.I.Spawn(meleeDmgObj, pos);
+            Instantiate(meleeDmgObj, t.position + (t.right * meleeAttackRange), Quaternion.identity);
         }
 
         void OnDrawGizmos() {

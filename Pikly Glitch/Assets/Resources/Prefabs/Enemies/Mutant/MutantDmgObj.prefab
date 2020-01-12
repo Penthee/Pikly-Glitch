@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 29bac00a8cda89f49994f2e3971d26f4, type: 3}
-  m_Color: {r: 0.6698113, g: 0, b: 0.13149676, a: 1}
+  m_Color: {r: 0.6698113, g: 0, b: 0.13149676, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,7 +98,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.11
+  m_Radius: 0.08
 --- !u!114 &468944735141880820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   damage:
     type: 4
     baseDmg: 4
-    knockbackForce: 300
+    knockbackForce: 100
     tickRepeatRate: 0
     effectDuration: 0
     cooldown: 0.6

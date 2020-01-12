@@ -123,7 +123,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.03, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.15
 --- !u!114 &4128414717354758631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
   meleeDmgObj: {fileID: 1803677181431866755, guid: 4b903f6c4f18a1a49bdc5ba3a4635013,
     type: 3}
   rockDamageObj: {fileID: 0}
-  meleeAttackRange: 0.45
+  meleeAttackRange: 0.4
   meleeAttackTime: 0.65
   rockThrowChance: 0
 --- !u!114 &1834072703
