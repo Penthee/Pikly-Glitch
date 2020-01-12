@@ -23,7 +23,7 @@ namespace Pikl.UI {
         //public GameSetup gs;
         public Modal modal, modalConfirm;
         public Menu mainMenu, gameUI, textRead;
-        public LevelText[] levelTexts;
+        public LevelInfo[] levelTexts;
 
         public OpenStack<Menu> menuHistory = new OpenStack<Menu>();
         //GameSetup gameSetup;

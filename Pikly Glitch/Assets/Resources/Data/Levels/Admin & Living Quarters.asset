@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954bd753f82bc58499e073f4fcbbeca2, type: 3}
+  m_Name: Admin & Living Quarters
+  m_EditorClassIdentifier: 
+  name: Admin & Living Quarters
+  sprite: {fileID: 0}
+  text: "Black tears in space suddenly start to appear while doing some maintenance
+    work in Administration.\r\n\nThrough the black came abominations. They are hungry.\r\n\nThe
+    room I'm in seems to be safe. They cannot find me here but I'm running out of
+    food.\r\n\nI need to get to the Main Teleporter, the one I came through when I
+    arrived here.\nI need to get back to Earth."
+  sceneToOpen: Game Testing
+  scrollSpeed: 15

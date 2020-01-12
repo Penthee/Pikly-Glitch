@@ -24,7 +24,7 @@ namespace Pikl.UI {
 
         public Text title, text;
         
-        public LevelText levelText;
+        public LevelInfo levelText;
         Tween tween;
 
         void Start() {
@@ -49,7 +49,7 @@ namespace Pikl.UI {
             base.OnUpdate();
         }
 
-        public void StartScroll(LevelText lt) {
+        public void StartScroll(LevelInfo lt) {
             levelText = lt;
 
             title.text = levelText.name;

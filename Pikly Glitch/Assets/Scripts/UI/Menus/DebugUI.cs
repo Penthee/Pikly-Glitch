@@ -60,6 +60,7 @@ namespace Pikl.UI {
         StateObject lastSelected;
 
         StateObject GetSelected() {
+#if UNITY_EDITOR
             GameObject selected = UnityEditor.Selection.activeObject as GameObject;
             if (selected) {
                 StateObject so = selected.GetComponent<StateObject>();
@@ -77,6 +78,9 @@ namespace Pikl.UI {
             } else {
                 return null;
             }
+#else
+            return null;
+#endif
         }
 
         void UpdateDebugValues() {
