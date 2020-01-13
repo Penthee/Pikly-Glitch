@@ -16,6 +16,8 @@ namespace Pikl {
         
         public override void Start() {
             CreatePool();
+            
+            DontDestroyOnLoad(this);
         }
 
         void CreatePool() {

@@ -199,6 +199,8 @@ namespace TeamUtility.IO
                 toSelect = eventSystem.firstSelectedGameObject;
 
             eventSystem.SetSelectedGameObject(toSelect, GetBaseEventData());
+
+            DontDestroyOnLoad(this);
         }
 
         public override void DeactivateModule()

@@ -38,24 +38,21 @@ namespace Pikl.Utils.Cameras {
 
         void Awake() {
             I = this;
+            camera = Camera.main;
+            origSize = camera.orthographicSize;
+            targetSize = origSize;
         }
 
         void Start() {
-            //StartCoroutine(FindPlayer());
-
-            camera = Camera.main;
-
+            StartCoroutine(FindPlayer());
+            
             if (scaleWidth)
                 ScaleWidth();
-
-            origSize = camera.orthographicSize;
-
-            targetSize = origSize;
-
+            
             //losCamera = GetComponentInChildren<Camera>();
             //CameraShaker.I.StartShake(ShakePresets.HandheldCamera);
         }
-
+        
         void ScaleWidth() {
             float TARGET_WIDTH = 2560f;
             float TARGET_HEIGHT = 1440f;
@@ -88,7 +85,7 @@ namespace Pikl.Utils.Cameras {
             }
 
             yield return new WaitForSeconds(1f);
-            target = null;
+            //target = null;
             //transform.SetParent((Ref.I["Mover"] as GameObject).transform);
         }
 

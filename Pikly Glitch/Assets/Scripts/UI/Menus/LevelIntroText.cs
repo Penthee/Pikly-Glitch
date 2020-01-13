@@ -70,6 +70,7 @@ namespace Pikl.UI {
         }
 
         void Continue() {
+            text.text = string.Empty;
             UIMgr.I.OpenMenu(UIMgr.I.gameUI);
             SceneMgr.I.LoadScene(levelText.sceneToOpen);
         }

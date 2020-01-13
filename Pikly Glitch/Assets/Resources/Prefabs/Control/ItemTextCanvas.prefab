@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8757943964764270672}
   - component: {fileID: 8869660031415319393}
   - component: {fileID: 3485831173063524567}
+  - component: {fileID: 88347173}
   m_Layer: 5
   m_Name: ItemTextCanvas
   m_TagString: Untagged
@@ -99,6 +100,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &88347173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3621329653695189442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 413e81ae77eaf404792dcf2b05edc9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inSceneAtStart: 0
+  label: {fileID: 8133372387267231761}
+  offset: {x: 0, y: -0.25, z: 0}
+  poolSize: 25
 --- !u!1 &8133372387267231761
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3503263104378900487
 RectTransform:
   m_ObjectHideFlags: 0

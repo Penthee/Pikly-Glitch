@@ -12,9 +12,9 @@ namespace Pikl.Enemy {
         public GameObject meleeDmgObj, rockDamageObj;
         public float meleeAttackRange, meleeAttackTime, rockThrowChance;
 
-        internal override void Awake() {
+/*        internal override void Awake() {
             base.Awake();
-        }
+        }*/
 
         internal override void Start() {
             sight.Init(this);
@@ -25,20 +25,20 @@ namespace Pikl.Enemy {
             base.Start();
         }
 
-        internal override void Update() {
+/*        internal override void Update() {
             base.Update();
-        }
+        }*/
 
         public void SpawnDmgObj() {
-            Vector3 pos = t.position + (t.right * meleeAttackRange);
+            var pos = t.position + (t.right * meleeAttackRange);
             GameObjectMgr.I.Spawn(meleeDmgObj, pos);
         }
 
 
-        void OnDrawGizmos() {
-        }
+/*        void OnDrawGizmos() {
+        }*/
 
-        void OnDestroy() {
-        }
+/*        void OnDestroy() {
+        }*/
     }
 }

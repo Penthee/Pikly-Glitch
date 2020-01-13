@@ -24,12 +24,11 @@ namespace Pikl {
         }
 
         IEnumerator DoTheFancy() {
-            CameraShakeInstance s = Shaker.I.StartCameraShake(ShakePresets.Vibration);
+            Shaker.I.ShakeOnce(ShakePresets.Explosion);
             yield return new WaitForSeconds(initialDelay);
 
             UIMgr.I.OpenMenu(UIMgr.I.textRead);
             (UIMgr.I.textRead as LevelIntroText).StartScroll(level);
-            Shaker.I.StopShake(s.s);
         }
 
         void OnTriggerEnter2D(Collider2D collision) {

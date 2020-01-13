@@ -859,7 +859,7 @@ MonoBehaviour:
   playerTwoDefault: 
   playerThreeDefault: 
   playerFourDefault: 
-  dontDestroyOnLoad: 0
+  dontDestroyOnLoad: 1
   ignoreTimescale: 0
 --- !u!114 &4877454225271571552
 MonoBehaviour:

@@ -7,6 +7,7 @@ using TeamUtility.IO;
 using Pikl.Profile;
 using Pikl.Data;
 using System.Linq;
+using Pikl.Player;
 using Pikl.States;
 using Pikl.States.Components;
 
@@ -162,6 +163,20 @@ namespace Pikl.UI {
             if (pHealth != null) {
                 pHealth.MaxHp = 999999;
                 pHealth.HP = pHealth.MaxHp;
+            }
+        }
+
+        public void OnInfiniteStaminaPress() {
+            StateObject selected = GetSelected();
+            if (selected == null) {
+                Debug.Log("SO null in OnInfiniteStaminaPress()");
+                return;
+            }
+
+            PlayerEvade evade = selected.GetComponent<Player.Player>().evade;
+
+            if (evade != null) {
+                evade.StaminaRecoverRate = 0;
             }
         }
 

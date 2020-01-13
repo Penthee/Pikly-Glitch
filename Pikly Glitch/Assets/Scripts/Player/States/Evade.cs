@@ -16,8 +16,6 @@ namespace Pikl.Player.States {
 
         //static AudioInfo boostSound = new AudioInfo("SFX/PlayerBoost");
 
-        public Evade() : base(0, LifetimeAction.Drop) { }
-
         public Evade(float lifetime) : base(lifetime, LifetimeAction.Default) { }
 
         internal override void Enter(StateObject so) {
@@ -54,7 +52,6 @@ namespace Pikl.Player.States {
 
             Physics2D.IgnoreLayerCollision(player.gameObject.layer, LayerMask.NameToLayer("EnemyDamage"), false);
             Physics2D.IgnoreLayerCollision(player.gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
-            //player.evade.hasReleasedSinceLastEvade = !player.input.EvadeInput;
 
             player.fv2D.StopOverride();
             player.rb.drag = drag;
