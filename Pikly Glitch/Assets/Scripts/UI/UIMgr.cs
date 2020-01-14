@@ -52,22 +52,28 @@ namespace Pikl.UI {
             //pauseSnapshot75 = audioMixer.FindSnapshot("75% Pause");
             //pauseSnapshot100 = audioMixer.FindSnapshot("100% Pause");
 
-            if (SceneMgr.I.LoadedSceneName.Contains("Testing"))
-                OpenMenu(gameUI);
-            else
-                OpenMenu(mainMenu);
+            CheckScene();
             //    CurrentMenu = FileMgr.I.config.LastPlayer == "" ? profileSelect : mainMenu;
-
-            
 
             //MessageMgr.I.AddListener<string>("GameOver", OnGameOver);
             //MessageMgr.I.AddListener("GameWin", OnGameComplete);
-            //MessageMgr.I.AddListener("BossAppear", PlayBossMusic);
+            MessageMgr.I.AddListener<string>("EnterScene", OnEnterScene);
 
             //PlayMenuMusic();
 
             InputAdapter.Instance.InputDeviceChanged += InputDeviceChanged;
 
+        }
+
+        void CheckScene() {
+            if (SceneMgr.I.LoadedSceneName != null && SceneMgr.I.LoadedSceneName.Contains("Menu"))
+                OpenMenu(mainMenu);
+            else
+                OpenMenu(gameUI);
+        }
+
+        void OnEnterScene(string scene) {
+            CheckScene();
         }
 
         void Update() {

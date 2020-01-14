@@ -4,6 +4,7 @@ using System.Collections;
 using Pikl.Collections;
 using Pikl.Components;
 using Pikl.States.Components;
+using Pikl.UI;
 using Pikl.Utils.Cameras;
 //using Pikl.Extensions;
 
@@ -38,7 +39,6 @@ namespace Pikl.Player {
         }
 
         internal override void Start() {
-            MessageMgr.I.AddListener("GameWin", OnGameWin);
 
             //laserSound = new AudioInfo("SFX/PlayerShoot");
             //missileLaunch = new AudioInfo("SFX/RocketLaunch");
@@ -56,27 +56,14 @@ namespace Pikl.Player {
             evade.Init(this);
             inventory.Init(this);
             knife.Init(this);
-
-            fv2D = GetComponent<FaceInput2D>();
             //powerup.Init(this);
 
+            fv2D = GetComponent<FaceInput2D>();
             ar = GetComponent<Animator>();
-
-            StartCoroutine(WallCheckThing());
 
             base.Start();
 
-            //Ref.I["PlayerObj"] = gameObject;
-            //Ref.I["PlayerScript"] = this;
-
             //UIMgr.I.PauseFilterOff();
-        }
-
-        IEnumerator WallCheckThing() {
-            while (!isDead) {
-
-                yield return new WaitForSeconds(0.1f);
-            }
         }
 
         internal override void Update() {
@@ -85,15 +72,11 @@ namespace Pikl.Player {
 
             base.Update();
 
-
             input.Update();
-            //shoot.Update();
             evade.Update();
             inventory.Update();
-            //powerup.Update();
             knife.Update();
-
-            //Debug.Log("Sprint Axis: " + input.SprintAxis);
+            //powerup.Update();
         }
 
         internal override void FixedUpdate() {
@@ -103,18 +86,14 @@ namespace Pikl.Player {
             base.FixedUpdate();
         }
 
+        public void EndGame() {
+            UIMgr.I.OpenMenu(UIMgr.I.textRead);
+            (UIMgr.I.textRead as LevelIntroText).StartDeathScroll();
+        }
+
         void OnDrawGizmos() {
             //foreach (Transform t in shoot.shootTransforms)
             //    Gizmos.DrawLine(transform.position, t.position);
-        }
-
-        void OnDestroy() {
-            if (MessageMgr.I != null)
-                MessageMgr.I.RemoveListener("GameWin", OnGameWin);
-        }
-
-        void OnGameWin() {
-            //SwitchTo(new Pause());
         }
     }
 }

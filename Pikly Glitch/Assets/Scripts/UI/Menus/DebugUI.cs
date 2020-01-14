@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Pikl.Extensions;
 using TeamUtility.IO;
 using Pikl.Profile;
@@ -17,22 +18,22 @@ namespace Pikl.UI {
     public class DebugUI : MonoBehaviour {
         public Player.Player player;
 
-        public GameObject debugPanel;
+        public GameObject debugPanel, container;
         public Text debugTitle, debugValues;
         public Dropdown itemList;
         public bool debug;
 
         List<GameObject> itemObjectList = new List<GameObject>();
-        
+
         public void Start() {
 #if UNITY_EDITOR || DEBUG
             debug = true;
 #else
             return;
 #endif
-            StartCoroutine(GetPlayer());
+            FindPlayer();
 
-            string[] folders = new[] {"Consumables", "Materials", "Throwables", "Tools", "Weapons" };
+            string[] folders = new[] {"Consumables", "Materials", "Throwables", "Tools", "Weapons"};
             for (int i = 0; i < folders.Length; i++) {
                 var items = Resources.LoadAll("Prefabs/Items/" + folders[i], typeof(GameObject))
                     .Cast<GameObject>().ToArray();
@@ -42,12 +43,11 @@ namespace Pikl.UI {
                     itemObjectList.Add(item);
                     options.Add(new Dropdown.OptionData(item.name));
                 }
-                
+
                 itemList.AddOptions(options);
                 itemList.value = 1;
                 itemList.value = 0;
             }
-
         }
 
 
@@ -57,16 +57,19 @@ namespace Pikl.UI {
                 if (debug) {
                     debugPanel.SetActive(true);
                     UpdateDebugValues();
-
-                } else {
+                }
+                else {
                     debugPanel.SetActive(false);
                 }
 #endif
             }
         }
 
-        IEnumerator GetPlayer() // In case the player isn't immediately available.
-        {
+        public void FindPlayer() {
+            StartCoroutine(FindPlayerCoroutine());
+        }
+
+        IEnumerator FindPlayerCoroutine() {
             do {
                 //player = Ref.I["PlayerScript"] as Player.Player;
                 var bah = GameObject.Find("Player");
@@ -78,7 +81,7 @@ namespace Pikl.UI {
 
             lastSelected = player;
         }
-        
+
         StateObject lastSelected;
 
         StateObject GetSelected() {
@@ -91,12 +94,13 @@ namespace Pikl.UI {
 
                 if (lastSelected == so) {
                     return so;
-                } else {
+                }
+                else {
                     lastSelected = so;
                     return so;
                 }
-
-            } else {
+            }
+            else {
                 return null;
             }
 #else
@@ -111,7 +115,7 @@ namespace Pikl.UI {
                 debugTitle.text = "Debug - None selected";
                 return;
             }
-            
+
             debugTitle.text = "Debug - " + selected.name;
 
             debugValues.text = string.Empty;
@@ -193,7 +197,7 @@ namespace Pikl.UI {
                 evade.StaminaRecoverRate = 0;
             }
         }
-        
+
         public void OnDamagePress() {
             StateObject selected = GetSelected();
             if (selected == null) return;
@@ -204,7 +208,7 @@ namespace Pikl.UI {
                 knife.obj.GetComponent<DamageObject>().damage.baseDmg = 9999;
             }
         }
-        
+
         public void OnSpeedPress() {
             StateObject selected = GetSelected();
             if (selected == null) return;
@@ -216,7 +220,7 @@ namespace Pikl.UI {
                 movement.walkForce *= 3;
             }
         }
-        
+
         public void OnCollisionPress() {
             StateObject selected = GetSelected();
             if (selected == null) return;
@@ -237,5 +241,8 @@ namespace Pikl.UI {
             player.inventory.Add(itemObjectList[itemList.value].GetComponent<ItemPickup>().item);
         }
 
+        public void ShowHidePress() {
+            container.SetActive(!container.activeSelf);
+        }
     }
 }

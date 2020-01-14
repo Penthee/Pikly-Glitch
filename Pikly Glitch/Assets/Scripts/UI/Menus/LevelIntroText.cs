@@ -22,9 +22,10 @@ using DG.Tweening;
 namespace Pikl.UI {
     public class LevelIntroText : Menu {
 
+        public LevelInfo levelText;
+        public LevelInfo[] deathTexts;
         public Text title, text;
         
-        public LevelInfo levelText;
         Tween tween;
 
         void Start() {
@@ -71,8 +72,24 @@ namespace Pikl.UI {
 
         void Continue() {
             text.text = string.Empty;
-            UIMgr.I.OpenMenu(UIMgr.I.gameUI);
             SceneMgr.I.LoadScene(levelText.sceneToOpen);
+        }
+
+        public void StartDeathScroll() {
+            levelText = GetDeathText();
+
+            if (levelText == null) {
+                print("Death Text NULL!!!!!"); return;
+            }
+            
+            title.text = levelText.name;
+            tween = DOTween.To(() => text.text, x => text.text = x, levelText.text, levelText.scrollSpeed).SetEase(Ease.Linear);
+        }
+
+        LevelInfo GetDeathText() {
+            if (deathTexts.Length == 0) return null;
+            
+            return deathTexts[Random.Range(0, deathTexts.Length)];
         }
     }
 }

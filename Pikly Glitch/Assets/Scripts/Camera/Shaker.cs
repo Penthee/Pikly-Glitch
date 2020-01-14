@@ -16,7 +16,7 @@ namespace Pikl.Utils.Shaker {
         ShakeInstance[] activeShakesArray;
 
         void Update() {
-            if (activeShakes.Count == 0)
+            if (activeShakes.Count == 0 || CameraShakeInstance.camera == null)
                 return;
 
             activeShakesArray = new ShakeInstance[activeShakes.Count];

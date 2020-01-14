@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Dynamic;
 using Pikl.States;
 using Pikl.Utils.Shaker;
 using DG.Tweening;
@@ -8,6 +9,7 @@ using Pikl.Profile;
 namespace Pikl.Player {
     public class Dead : PlayerState {
 
+        float duration = 3f;
         //GameObject front;
 
         internal override void Enter(StateObject _so) {
@@ -18,7 +20,7 @@ namespace Pikl.Player {
             //UI.UIMgr.I.PauseFilterOn();
 
             var s4 = Camera.main.GetComponent<Utils.Effects.ImageEffects.ColorCorrectionCurves>();
-            DOTween.To(() => s4.saturation, x => s4.saturation = x, 0.15f, 2.5f).SetEase(Ease.InSine);
+            DOTween.To(() => s4.saturation, x => s4.saturation = x, 0.15f, duration).SetEase(Ease.InSine);
 
             so.isDead = true;
             player.fv2D.locked = true;
@@ -29,8 +31,10 @@ namespace Pikl.Player {
 
             //player.ship.SetActive(false);
             player.ar.Play("Death");
-
+            
             Shaker.I.ShakeCameraOnce(ShakePresets.Death);
+            
+            player.Invoke(nameof(Player.EndGame), duration);
         }
         
         internal override void Exit() {

@@ -29,6 +29,7 @@ namespace Pikl {
 
             UIMgr.I.OpenMenu(UIMgr.I.textRead);
             (UIMgr.I.textRead as LevelIntroText).StartScroll(level);
+            Shaker.I.ActiveShakes.Clear();
         }
 
         void OnTriggerEnter2D(Collider2D collision) {

@@ -113,7 +113,10 @@ namespace Pikl.UI {
 
                 yield return new WaitForEndOfFrame();
             } while (player == null);
-
+            
+#if UNITY_EDITOR || DEBUG
+            debugPanel.GetComponent<DebugUI>().player = player;
+#endif
             CreateInventory();
         }
 
