@@ -39,7 +39,6 @@ namespace Pikl.Player {
         }
 
         internal override void Start() {
-
             //laserSound = new AudioInfo("SFX/PlayerShoot");
             //missileLaunch = new AudioInfo("SFX/RocketLaunch");
             
