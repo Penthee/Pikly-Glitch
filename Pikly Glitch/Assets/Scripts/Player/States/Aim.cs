@@ -28,7 +28,7 @@ namespace Pikl.Player.States {
         internal override State HandleInput() {
 
             if (!player.input.AimInput)
-                Exit();
+                player.StopAsync(player.aimID);
 
             return base.HandleInput();
         }

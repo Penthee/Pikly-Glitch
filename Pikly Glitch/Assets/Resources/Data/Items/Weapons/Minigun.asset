@@ -23,7 +23,7 @@ MonoBehaviour:
   clipSize: 90
   totalAmmo: 0
   ammoPerShot: 1
-  fireRate: 0.08
+  fireRate: 0.028
   reloadSpeed: 6
   fireType: 1
   shot:
@@ -39,8 +39,8 @@ MonoBehaviour:
       effectChance: 0
       origin: {fileID: 0}
     spawnOffset: {x: 0, y: 0}
-    force: 2000
-    accuracy: 12
+    force: 80
+    accuracy: 8
     entitiesToPierce: 1
     isTrigger: 0
   shakeOnShot:

@@ -147,7 +147,7 @@ namespace Pikl.Player {
                 return w &&
                        (w.fireType == FireType.Semi ? HasReleasedTrigger() : true) &&
                        !w.reloading &&
-                       w.clipAmmo > 0 &&
+                       //w.clipAmmo > 0 &&
                        AimAxis &&
                        ShootInput && 
                        (player.stunID == 0 && 

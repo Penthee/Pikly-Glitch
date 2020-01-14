@@ -39,7 +39,7 @@ MonoBehaviour:
       effectChance: 0
       origin: {fileID: 0}
     spawnOffset: {x: 0, y: 0}
-    force: 1000
+    force: 150
     accuracy: 0
     entitiesToPierce: 1
     isTrigger: 0

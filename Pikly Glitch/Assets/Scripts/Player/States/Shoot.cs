@@ -10,7 +10,7 @@ using Pikl.States.Components;
 
 namespace Pikl.Player.States {
     public class Shoot : PlayerState {
-
+        int counter;
         Weapon weapon;
 
         public Shoot(float lifetime) : base (lifetime, LifetimeAction.Drop) { }
@@ -27,7 +27,7 @@ namespace Pikl.Player.States {
 
             DoTheShoot();
 
-            Shaker.I.ShakeCameraOnce(ShakePresets.Shot);
+            Shaker.I.ShakeCameraOnce(weapon.shakeOnShot);
 
             //AudioMgr.I.PlaySound(Player.laserSound);
             weapon.lastFireTime = Time.time;
@@ -37,8 +37,9 @@ namespace Pikl.Player.States {
         void DoTheShoot() {
             for (int i = 0; i < weapon.ammoPerShot; i++) {
                 if (weapon.clipAmmo <= 0) {
+                    weapon.Reload();
                     Exit();
-                    break;
+                    return;
                 } else
                     SpawnShot(player.weaponSprite.transform.position.To2DXY() + weapon.shot.spawnOffset, i);
             }
@@ -54,6 +55,7 @@ namespace Pikl.Player.States {
             force.maxForce = weapon.shot.force;
 
             weapon.clipAmmo--;
+            counter++;
         }
 
         Quaternion CalcAccuracy() {
@@ -64,6 +66,7 @@ namespace Pikl.Player.States {
 
         internal override void Exit() {
             player.shootID = 0;
+            Debug.Log("Shots spawned this state: " + counter.ToString());
             base.Exit();
         }
     }
