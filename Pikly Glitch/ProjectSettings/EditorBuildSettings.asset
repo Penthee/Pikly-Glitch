@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Testing.unity
     guid: b1bc01f7a8540e04e958043770e8ba7d
   - enabled: 1
-    path: Assets/Scenes/Admin & Living Quarters.unity
+    path: Assets/Scenes/Levels/Admin & Living Quarters.unity
     guid: b48bc0da5b303eb4e8ef87fa07fa6d60
   m_configObjects: {}

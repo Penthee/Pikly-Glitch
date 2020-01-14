@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954bd753f82bc58499e073f4fcbbeca2, type: 3}
+  m_Name: 4 Robotronics
+  m_EditorClassIdentifier: 
+  name: Robotronics
+  sprite: {fileID: 0}
+  text: Not where I wanted to end up. Something went wrong with the teleporter's coordinates.
+    I know I put in the right numbers. Something is toying with me.
+  sceneToOpen: Robotronics
+  scrollSpeed: 10
