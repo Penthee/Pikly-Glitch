@@ -16,4 +16,4 @@ MonoBehaviour:
   sprite: {fileID: 0}
   text: AAAAAAAAAAAAAAA!!!!
   sceneToOpen: 3 Biochemistry
-  scrollSpeed: 15
+  scrollSpeed: 5

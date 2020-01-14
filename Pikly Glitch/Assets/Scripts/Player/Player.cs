@@ -85,6 +85,7 @@ namespace Pikl.Player {
             base.FixedUpdate();
         }
 
+
         public void EndGame() {
             UIMgr.I.OpenMenu(UIMgr.I.textRead);
             (UIMgr.I.textRead as LevelIntroText).StartDeathScroll();

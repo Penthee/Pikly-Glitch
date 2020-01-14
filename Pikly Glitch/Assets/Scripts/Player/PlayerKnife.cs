@@ -15,31 +15,30 @@ namespace Pikl.Player {
         [HideInInspector]
         public bool swiping;
 
-        Player player;
+        Player _player;
 
         public void Init(Player player) {
-            this.player = player;
+            _player = player;
         }
         
         public void Update() {
-            if (swiping) {
-                if (lastSwipeTime + activeTime < Time.time)
-                    Stop();
-            }
+            if (swiping && lastSwipeTime + activeTime < Time.time)
+                Stop();
         }
 
         public void Swipe() {
-            //obj.SetActive(true);
+            if (swiping) return;
+            
             lastSwipeTime = Time.time;
             swiping = true;
-            if (player.input.MoveAxis.magnitude > 0)
-                player.ar.Play("Knife Run");
+            
+            if (_player.input.MoveAxis.magnitude > 0)
+                _player.ar.Play("Knife Run");
             else
-                player.ar.Play("Knife");
+                _player.ar.Play("Knife");
         }
 
         void Stop() {
-            //obj.SetActive(false);
             swiping = false;
         }
     }
