@@ -22,12 +22,15 @@ using DG.Tweening;
 namespace Pikl.UI {
     public class LevelIntroText : Menu {
 
+        public GameObject panel;
         public LevelInfo levelText;
         public LevelInfo[] deathTexts;
         public Text title, text;
         
         Tween tween;
-
+        float startTime;
+        bool hasSkipped;
+        
         void Start() {
         }
 
@@ -52,26 +55,25 @@ namespace Pikl.UI {
 
         public void StartScroll(LevelInfo lt) {
             levelText = lt;
-
+            panel.SetActive(true);
             title.text = levelText.name;
             tween = DOTween.To(() => text.text, x => text.text = x, levelText.text, levelText.scrollSpeed).SetEase(Ease.Linear);
+            startTime = Time.time;
         }
 
         public void OnSkipButtonPress() {
-            if (tween != null) {
-                if (tween.IsComplete() || !tween.IsActive()) {
-                    Continue();
-                } else {
-                    tween.Complete();
-                }
-            } else {
-                Debug.Log("Tween was null in text scrolly what");
+            if (hasSkipped || startTime + levelText.scrollSpeed < Time.time) {
                 Continue();
+            } else {
+                tween.Complete();
+                hasSkipped = true;
             }
         }
 
         void Continue() {
+            hasSkipped = false;
             text.text = string.Empty;
+            panel.SetActive(false);
             SceneMgr.I.LoadScene(levelText.sceneToOpen);
         }
 
@@ -82,14 +84,13 @@ namespace Pikl.UI {
                 print("Death Text NULL!!!!!"); return;
             }
             
+            panel.SetActive(true);
             title.text = levelText.name;
             tween = DOTween.To(() => text.text, x => text.text = x, levelText.text, levelText.scrollSpeed).SetEase(Ease.Linear);
         }
 
         LevelInfo GetDeathText() {
-            if (deathTexts.Length == 0) return null;
-            
-            return deathTexts[Random.Range(0, deathTexts.Length)];
+            return deathTexts.Length == 0 ? null : deathTexts[Random.Range(0, deathTexts.Length)];
         }
     }
 }
