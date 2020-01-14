@@ -15,6 +15,27 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Testing.unity
     guid: b1bc01f7a8540e04e958043770e8ba7d
   - enabled: 1
-    path: Assets/Scenes/Levels/Admin & Living Quarters.unity
+    path: Assets/Scenes/Levels/1 Admin & Living Quarters.unity
     guid: b48bc0da5b303eb4e8ef87fa07fa6d60
+  - enabled: 1
+    path: Assets/Scenes/Levels/2 Facility Support Systems.unity
+    guid: a03c6953ce369c6438eeb5f0dfeacd86
+  - enabled: 1
+    path: Assets/Scenes/Levels/3 Biochemistry.unity
+    guid: 0f54549574f50204985fe523181f1f4e
+  - enabled: 1
+    path: Assets/Scenes/Levels/4 Robotronics.unity
+    guid: cf9c11824302c1c42865e483929bb648
+  - enabled: 1
+    path: Assets/Scenes/Levels/5 Teleportation Research.unity
+    guid: ea0f39fa7dd00c442bcfdb97cef01c64
+  - enabled: 1
+    path: Assets/Scenes/Levels/6 Weapons Research.unity
+    guid: 4dbdcb223c2831c428398559a8ffcaa6
+  - enabled: 1
+    path: Assets/Scenes/Levels/7 The Core.unity
+    guid: c9dfbd17a94644e4890c24b315ba44f0
+  - enabled: 1
+    path: Assets/Scenes/Levels/8 Unknown Facility.unity
+    guid: 801efc7b839a12b4b975d847bed755f3
   m_configObjects: {}

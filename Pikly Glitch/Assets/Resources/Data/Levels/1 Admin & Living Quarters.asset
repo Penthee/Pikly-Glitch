@@ -19,5 +19,5 @@ MonoBehaviour:
     room I'm in seems to be safe. They cannot find me here but I'm running out of
     food.\r\n\nI need to get to the Main Teleporter, the one I came through when I
     arrived here.\nI need to get back to Earth."
-  sceneToOpen: Admin & Living Quarters
+  sceneToOpen: 1 Admin & Living Quarters
   scrollSpeed: 15

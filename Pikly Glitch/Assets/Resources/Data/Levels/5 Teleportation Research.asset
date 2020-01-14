@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Teleportation Research
   sprite: {fileID: 0}
   text: If I'm to override the AI's control, I need to do it from the terminal directly.
-  sceneToOpen: Teleportation Research
+  sceneToOpen: 5 Teleportation Research
   scrollSpeed: 6

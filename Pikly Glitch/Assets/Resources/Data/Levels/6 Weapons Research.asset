@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Weapons Research
   sprite: {fileID: 0}
   text: I need guns. Lots of guns.
-  sceneToOpen: Weapons Research
+  sceneToOpen: 6 Weapons Research
   scrollSpeed: 5

@@ -16,5 +16,5 @@ MonoBehaviour:
   sprite: {fileID: 0}
   text: The first place I need to get to. I need to check that power is running correctly
     to the main teleporter.
-  sceneToOpen: Facility Support Systems
+  sceneToOpen: 2 Facility Support Systems
   scrollSpeed: 6

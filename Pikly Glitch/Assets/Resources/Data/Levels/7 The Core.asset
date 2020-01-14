@@ -15,5 +15,5 @@ MonoBehaviour:
   name: The Core
   sprite: {fileID: 0}
   text: The fight is on. That thing must be stopped.
-  sceneToOpen: The Core
+  sceneToOpen: 7 The Core
   scrollSpeed: 6

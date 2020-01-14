@@ -16,5 +16,5 @@ MonoBehaviour:
   sprite: {fileID: 0}
   text: Not where I wanted to end up. Something went wrong with the teleporter's coordinates.
     I know I put in the right numbers. Something is toying with me.
-  sceneToOpen: Robotronics
+  sceneToOpen: 4 Robotronics
   scrollSpeed: 10

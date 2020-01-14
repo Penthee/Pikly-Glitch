@@ -10,7 +10,8 @@ using System.Linq;
 
 namespace Pikl.UI {
     public class MainMenu : Menu {
-
+        public GameObject levelSelect;
+        bool _showLevelSelect;
 
         void Start() {
         }
@@ -30,15 +31,36 @@ namespace Pikl.UI {
         }
 
         bool isAlreadyDown = false;
-        public override void OnUpdate() {
 
+        public override void OnUpdate() {
             base.OnUpdate();
         }
 
-        public void OnNewGameClick() {
-            UIMgr.I.OpenMenu(UIMgr.I.textRead);
-            (UIMgr.I.textRead as LevelIntroText).StartScroll(UIMgr.I.levelTexts[0]);
+        public void ShowLevelSelect() {
+            _showLevelSelect = true;
+            levelSelect.SetActive(true);
+        }
+
+        public void HideLevelSelect() {
+            _showLevelSelect = false;
+            levelSelect.SetActive(false);
+        }
+
+        public void StartNewGame(int levelIndex) {
+            if (levelIndex >= 0 && levelIndex < UIMgr.I.levelTexts.Length) {
+                HideLevelSelect();
+                UIMgr.I.OpenMenu(UIMgr.I.textRead);
+                (UIMgr.I.textRead as LevelIntroText).StartScroll(UIMgr.I.levelTexts[levelIndex]);
+            }
+            else {
+                Debug.LogWarning($"Tried to load invalid level : {levelIndex.ToString()}", this);
+            }
+
             //SceneMgr.I.LoadScene("Text Read Scene");
+        }
+
+        public void ExitGame() {
+            Application.Quit();
         }
     }
 }

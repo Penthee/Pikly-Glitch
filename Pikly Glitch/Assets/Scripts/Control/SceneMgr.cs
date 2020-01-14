@@ -40,7 +40,7 @@ namespace Pikl {
         
         public AsyncOperation sceneAsync = null;
         IEnumerator LoadSceneAsync(string name) {
-            yield return new WaitForSeconds(1f);
+            //yield return new WaitForSeconds(1f);
 
             sceneAsync = SceneManager.LoadSceneAsync(name);
 

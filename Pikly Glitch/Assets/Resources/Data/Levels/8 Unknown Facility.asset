@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Unknown Facility (Secret)
   sprite: {fileID: 0}
   text: ???
-  sceneToOpen: Unknown Facility
+  sceneToOpen: 8 Unknown Facility
   scrollSpeed: 6

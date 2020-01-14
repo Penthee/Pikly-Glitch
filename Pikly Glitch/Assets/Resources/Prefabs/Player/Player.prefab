@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 114448180322751154}
   - component: {fileID: 114076586519559388}
   - component: {fileID: 5159330294419281707}
-  - component: {fileID: 58686925568649104}
   - component: {fileID: 68630208}
   - component: {fileID: 4871417395013544378}
   - component: {fileID: 5787094101993876347}
@@ -256,22 +255,6 @@ MonoBehaviour:
   flashOnDamage: 1
   damageMultiplier: 1
   maxArmour: 50
---- !u!58 &58686925568649104
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360749957067376}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.11
 --- !u!95 &68630208
 Animator:
   serializedVersion: 3

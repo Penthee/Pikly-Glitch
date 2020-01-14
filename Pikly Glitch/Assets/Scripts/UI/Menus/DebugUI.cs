@@ -7,6 +7,8 @@ using TeamUtility.IO;
 using Pikl.Profile;
 using Pikl.Data;
 using System.Linq;
+using Pikl.Components;
+using Pikl.Interaction;
 using Pikl.Player;
 using Pikl.States;
 using Pikl.States.Components;
@@ -17,16 +19,35 @@ namespace Pikl.UI {
 
         public GameObject debugPanel;
         public Text debugTitle, debugValues;
-        public Toggle invulnToggle;
+        public Dropdown itemList;
         public bool debug;
 
+        List<GameObject> itemObjectList = new List<GameObject>();
+        
         public void Start() {
-
+#if UNITY_EDITOR || DEBUG
+            debug = true;
+#else
+            return;
+#endif
             StartCoroutine(GetPlayer());
 
-#if UNITY_EDITOR
-            debug = true;
-#endif 
+            string[] folders = new[] {"Consumables", "Materials", "Throwables", "Tools", "Weapons" };
+            for (int i = 0; i < folders.Length; i++) {
+                var items = Resources.LoadAll("Prefabs/Items/" + folders[i], typeof(GameObject))
+                    .Cast<GameObject>().ToArray();
+
+                var options = new List<Dropdown.OptionData>();
+                foreach (GameObject item in items) {
+                    itemObjectList.Add(item);
+                    options.Add(new Dropdown.OptionData(item.name));
+                }
+                
+                itemList.AddOptions(options);
+                itemList.value = 1;
+                itemList.value = 0;
+            }
+
         }
 
 
@@ -71,7 +92,6 @@ namespace Pikl.UI {
                 if (lastSelected == so) {
                     return so;
                 } else {
-                    invulnToggle.isOn = GetInvuln(so);
                     lastSelected = so;
                     return so;
                 }
@@ -87,19 +107,22 @@ namespace Pikl.UI {
         void UpdateDebugValues() {
             StateObject selected = GetSelected();
 
-            if (selected != null) {
-                debugTitle.text = "Debug - " + selected.name;
+            if (selected == null) {
+                debugTitle.text = "Debug - None selected";
+                return;
+            }
+            
+            debugTitle.text = "Debug - " + selected.name;
 
-                debugValues.text = string.Empty;
+            debugValues.text = string.Empty;
 
-                debugValues.text += string.Format("{0:f1}, {1:f1}", selected.rb.velocity.x, selected.rb.velocity.y);
-                debugValues.text += System.Environment.NewLine;
-                debugValues.text += selected.CurrentState.ToString().Split('.').Last();
-                debugValues.text += System.Environment.NewLine;
+            debugValues.text += string.Format("{0:f1}, {1:f1}", selected.rb.velocity.x, selected.rb.velocity.y);
+            debugValues.text += System.Environment.NewLine;
+            debugValues.text += selected.CurrentState.ToString().Split('.').Last();
+            debugValues.text += System.Environment.NewLine;
 
-                foreach (var item in selected.asyncStates) {
-                    debugValues.text += "(A) " + item.Value.ToString().Split('.').Last() + " ";
-                }
+            foreach (var item in selected.asyncStates) {
+                debugValues.text += "(A) " + item.Value.ToString().Split('.').Last() + " ";
             }
         }
 
@@ -122,33 +145,27 @@ namespace Pikl.UI {
             return false;
         }
 
-        public void OnInvulnToggle(Toggle value) {
+        public void OnInvulnToggle() {
             StateObject selected = GetSelected();
-            if (selected == null) {
-                Debug.Log("SO null in invulnToggle()");
-                return;
-            }
+            if (selected == null) return;
 
             var health = selected.GetComponent<MonoHealth>();
 
             if (health != null) {
-                health.Invulnerable = value.isOn;
+                health.Invulnerable = !health.Invulnerable;
                 return;
             }
 
             var pHealth = selected.GetComponent<PlayerHealth>();
 
             if (pHealth != null) {
-                pHealth.Invulnerable = value.isOn;
+                pHealth.Invulnerable = !pHealth.Invulnerable;
             }
         }
 
         public void OnInfiniteHPPress() {
             StateObject selected = GetSelected();
-            if (selected == null) {
-                Debug.Log("SO null in OnInfiniteHPPress()");
-                return;
-            }
+            if (selected == null) return;
 
             var health = selected.GetComponent<MonoHealth>();
 
@@ -168,16 +185,56 @@ namespace Pikl.UI {
 
         public void OnInfiniteStaminaPress() {
             StateObject selected = GetSelected();
-            if (selected == null) {
-                Debug.Log("SO null in OnInfiniteStaminaPress()");
-                return;
-            }
+            if (selected == null) return;
 
             PlayerEvade evade = selected.GetComponent<Player.Player>().evade;
 
             if (evade != null) {
                 evade.StaminaRecoverRate = 0;
             }
+        }
+        
+        public void OnDamagePress() {
+            StateObject selected = GetSelected();
+            if (selected == null) return;
+
+            PlayerKnife knife = selected.GetComponent<Player.Player>().knife;
+
+            if (knife != null) {
+                knife.obj.GetComponent<DamageObject>().damage.baseDmg = 9999;
+            }
+        }
+        
+        public void OnSpeedPress() {
+            StateObject selected = GetSelected();
+            if (selected == null) return;
+
+            PlayerMovement movement = selected.GetComponent<Player.Player>().move;
+
+            if (movement != null) {
+                movement.force *= 3;
+                movement.walkForce *= 3;
+            }
+        }
+        
+        public void OnCollisionPress() {
+            StateObject selected = GetSelected();
+            if (selected == null) return;
+
+            var player = selected.GetComponent<Player.Player>();
+            if (player == null) return;
+            foreach (Collider2D c in player.GetComponents<Collider2D>()) {
+                c.enabled = !c.enabled;
+            }
+        }
+
+        public void OnGiveItemPress() {
+            StateObject selected = GetSelected();
+            if (selected == null) return;
+
+            var player = selected.GetComponent<Player.Player>();
+            if (player == null) return;
+            player.inventory.Add(itemObjectList[itemList.value].GetComponent<ItemPickup>().item);
         }
 
     }
