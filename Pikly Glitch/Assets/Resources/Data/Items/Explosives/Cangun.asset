@@ -19,4 +19,4 @@ MonoBehaviour:
   maxStack: 5
   type: 2
   selected: 0
-  liveObject: {fileID: 0}
+  liveObject: {fileID: 1089810898755744, guid: 7ebd987ad96fbf1448518b82fdada2ff, type: 3}

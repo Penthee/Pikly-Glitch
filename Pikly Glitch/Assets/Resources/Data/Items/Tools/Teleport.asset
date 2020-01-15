@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93dc81d6c82f87c42b09aeecf62f02c0, type: 3}
-  m_Name: Teleporter
+  m_Name: Teleport
   m_EditorClassIdentifier: 
-  name: Teleporter
-  sprite: {fileID: 21300000, guid: 126def17191aacc429ccb12557850754, type: 3}
+  name: Teleport
+  sprite: {fileID: 21300000, guid: 5cf6dd85321018f48ac05946169934b2, type: 3}
   description: 1up. used automatically upon death.
   quantity: 1
   maxStack: 2

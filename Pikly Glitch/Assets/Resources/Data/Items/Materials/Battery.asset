@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Battery
   m_EditorClassIdentifier: 
   name: Battery
-  sprite: {fileID: 21300020, guid: 38e16aa33a6cc1f4bafcb498a0789d90, type: 3}
+  sprite: {fileID: 21300000, guid: 42ffc35f325794b479940e9c9b4f51dd, type: 3}
   description: Juicy.
   quantity: 1
   maxStack: 5
