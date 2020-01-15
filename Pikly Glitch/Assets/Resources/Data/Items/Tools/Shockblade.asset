@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shockblade
   m_EditorClassIdentifier: 
   name: Shockblade
-  sprite: {fileID: 21300090, guid: 38e16aa33a6cc1f4bafcb498a0789d90, type: 3}
+  sprite: {fileID: 21300000, guid: e1b2be5d054131e4ba56aa4f8b2af4cb, type: 3}
   description: Improves Combat Knife
   quantity: 1
   maxStack: 1

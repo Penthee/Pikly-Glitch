@@ -33,7 +33,7 @@ namespace Pikl.UI {
 #endif
             FindPlayer();
 
-            string[] folders = new[] {"Consumables", "Materials", "Throwables", "Tools", "Weapons"};
+            string[] folders = new[] {"Consumables", "Materials", "Explosives", "Tools", "Weapons"};
             for (int i = 0; i < folders.Length; i++) {
                 var items = Resources.LoadAll("Prefabs/Items/" + folders[i], typeof(GameObject))
                     .Cast<GameObject>().ToArray();
@@ -80,6 +80,16 @@ namespace Pikl.UI {
             } while (player == null);
 
             lastSelected = player;
+        }
+
+        public void DisableUseActions() {
+            if (player != null)
+                player.input.DisableUseActions();
+        }
+
+        public void EnableUseActions() {
+            if (player != null)
+                player.input.EnableUseActions();
         }
 
         StateObject lastSelected;
@@ -245,7 +255,6 @@ namespace Pikl.UI {
         }
 
         public void ShowHidePress() {
-            debug = !debug;
             container.SetActive(!container.activeSelf);
         }
     }

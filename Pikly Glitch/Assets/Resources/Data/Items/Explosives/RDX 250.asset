@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b79f7e5be97a41f4b999ab54eeb8c985, type: 3}
-  m_Name: RPG
+  m_Name: RDX 250
   m_EditorClassIdentifier: 
-  name: RPG
-  sprite: {fileID: 21300044, guid: 4146545d56c052747b74700d0fb3eb00, type: 3}
-  description: Rocket Propelled Grenade.
+  name: RDX 250
+  sprite: {fileID: 21300000, guid: 52013123179e01f4681812761e0878ab, type: 3}
+  description: A handful of High Powered Explosive.
   quantity: 1
   maxStack: 5
   type: 2
   selected: 0
-  liveObject: {fileID: 1089810898755744, guid: e9c628cf3952a894c89656be8acb0bf6, type: 3}
+  liveObject: {fileID: 1089810898755744, guid: 29daef8db9a6bfd41a3a5ee8d4a31820, type: 3}

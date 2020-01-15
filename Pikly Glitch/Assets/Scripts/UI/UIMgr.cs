@@ -50,7 +50,7 @@ namespace Pikl.UI {
         protected UIMgr() { }
 
         public override void Start() {
-            //DontDestroyOnLoad(gameObject);
+            Application.runInBackground = true;
 
             //menuMusic = new AudioInfo("Music/MenuMusic");
             //gameMusic = new AudioInfo("Music/GameMusic");
@@ -73,7 +73,8 @@ namespace Pikl.UI {
             //PlayMenuMusic();
 
             InputAdapter.Instance.InputDeviceChanged += InputDeviceChanged;
-
+            
+            ProfileMgr.I.WakeUp();
         }
 
         void CheckScene() {

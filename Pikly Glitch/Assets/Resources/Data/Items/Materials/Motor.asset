@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Motor
   m_EditorClassIdentifier: 
   name: Motor
-  sprite: {fileID: 21300020, guid: 38e16aa33a6cc1f4bafcb498a0789d90, type: 3}
+  sprite: {fileID: 21300000, guid: 82af2ba2d37149b47b1a2d06a99d84d0, type: 3}
   description: In goes energy, out comes force.
   quantity: 1
   maxStack: 5

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Magshield
   m_EditorClassIdentifier: 
   name: Magshield
-  sprite: {fileID: 21300090, guid: 38e16aa33a6cc1f4bafcb498a0789d90, type: 3}
+  sprite: {fileID: 21300000, guid: 4a7c438b91698bf45b1449890564bd7e, type: 3}
   description: Reflects bullets. Will break.
   quantity: 1
   maxStack: 1

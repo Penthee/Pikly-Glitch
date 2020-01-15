@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b79f7e5be97a41f4b999ab54eeb8c985, type: 3}
-  m_Name: Nail Bomb
+  m_Name: RDX 500
   m_EditorClassIdentifier: 
-  name: Nail Bomb
-  sprite: {fileID: 21300000, guid: 5717b6a99f4fbbb42acecdd7f9b0f793, type: 3}
-  description: Take Cover.
+  name: RDX 500
+  sprite: {fileID: 21300000, guid: a2c355eec110c7546bdef822db7f29ff, type: 3}
+  description: Two handfuls of High Powered Explosive.
   quantity: 1
   maxStack: 5
   type: 2
   selected: 0
-  liveObject: {fileID: 1089810898755744, guid: 7ebd987ad96fbf1448518b82fdada2ff, type: 3}
+  liveObject: {fileID: 1089810898755744, guid: 86328bd73a1d5d84a92f4721637a0353, type: 3}

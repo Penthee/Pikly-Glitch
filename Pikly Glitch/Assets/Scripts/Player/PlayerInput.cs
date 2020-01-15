@@ -142,9 +142,8 @@ namespace Pikl.Player {
 
         public bool ShootAxis() {
                 Weapon w = (player.inventory.SelectedItem as Weapon);
-                if (!w) return false;
 
-                return w &&
+                return w && !cheatHover &&
                        (w.fireType == FireType.Semi ? HasReleasedTrigger() : true) &&
                        !w.reloading &&
                        //w.clipAmmo > 0 &&
@@ -313,6 +312,7 @@ namespace Pikl.Player {
                 }
 
                 return
+                    !cheatHover &&
                     !(UI.UIMgr.I.CurrentMenu as UI.GameUI).craftingUI.activeSelf &&
                     (player.inventory.SelectedType == ItemType.Consumable ||
                     player.inventory.SelectedType == ItemType.Throwable) &&
@@ -338,6 +338,8 @@ namespace Pikl.Player {
         }
 
         float dist, shortest;
+        bool cheatHover;
+
         public InteractableObj FindClosestInteractable() {
             InteractableObj i = null;
             dist = 420; shortest = 420;
@@ -356,7 +358,7 @@ namespace Pikl.Player {
 
         public bool SwipeAxis {
             get {
-                return !player.knife.swiping &&
+                return !cheatHover && !player.knife.swiping &&
                         (player.inventory.SelectedType != ItemType.Consumable) &&
                         HasCooledDown(player.knife.lastSwipeTime, player.knife.cooldown) &&
                         ShootInput &&
@@ -429,5 +431,12 @@ namespace Pikl.Player {
             }
         }
 
+        public void EnableUseActions() {
+            cheatHover = false;
+        }
+        
+        public void DisableUseActions() { 
+            cheatHover = true;
+        }
     }
 }

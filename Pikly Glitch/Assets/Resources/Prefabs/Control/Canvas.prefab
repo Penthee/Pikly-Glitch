@@ -34,11 +34,11 @@ RectTransform:
   m_Father: {fileID: 224836802739246110}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 441.64844, y: 423.84988}
-  m_SizeDelta: {x: 344.55, y: -859.58}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 417.80078, y: -5}
+  m_SizeDelta: {x: 345, y: 220.41998}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &84867969
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -725,8 +725,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 15, y: -10}
-  m_SizeDelta: {x: -30, y: 197.28}
+  m_AnchoredPosition: {x: 15, y: -20.000011}
+  m_SizeDelta: {x: -30, y: 242.61}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &222304049767982994
 CanvasRenderer:
@@ -756,36 +756,36 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ea1511be3f00e5248aa94e627490a053, type: 3}
-    m_FontSize: 16
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.7
   m_Text: 'wasd: move
 
-    wasd + shift: dodge
+    move + shift: dodge
 
-    r: reload
+    left click: use item or knife
 
-    E: move selected item
+    right click: aim gun
+
+    right + left click: shoot
+
+    Scroll: select item
+
+    E + Scroll: move item
+
+    R: reload
 
     F: interact
 
-    right click: aim
-
-    right + left click: use/shoot
-
-    scroll: select/move item
-
-    - +: zoom
-
-'
+    -+: zoom'
 --- !u!1 &1216704680134554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,9 +1015,10 @@ MonoBehaviour:
   weaponColour: {r: 0.9338235, g: 0.29525304, b: 0.29525304, a: 1}
   consumableColour: {r: 0.2527033, g: 0.9044118, b: 0.3380997, a: 1}
   materialColour: {r: 0.9117647, g: 0.8696904, b: 0.30168685, a: 1}
-  toolColour: {r: 0.380429, g: 0.44681293, b: 0.7830189, a: 1}
+  toolColour: {r: 0.485, g: 0.57000005, b: 1, a: 1}
   ammo: {fileID: 114522399634976214}
   description: {fileID: 114187775036278804}
+  selectDarkenAmount: 0.2
 --- !u!114 &1928243569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1709,11 +1710,11 @@ RectTransform:
   m_Father: {fileID: 224296177711232030}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 133.62, y: 423.85}
-  m_SizeDelta: {x: 257.25, y: -859.58}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 5, y: -5}
+  m_SizeDelta: {x: 406.88, y: 268.44}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &222608120597058072
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2191,6 +2192,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 37e978050dab9ff4f9e72543f29cb8bf, type: 2}
   - {fileID: 11400000, guid: cd11840d3fc3c304abedc81ce2473a92, type: 2}
   - {fileID: 11400000, guid: 3f7bc842928eda74aa52e1bb45e5a526, type: 2}
+  tempInventory: []
+  _hp: 0
+  _armour: 0
+  _maxArmour: 0
+  _maxHp: 0
+  _invulnerable: 0
+  _damageMultiplier: 0
 --- !u!1 &1797337289089678
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,16 +2500,16 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ea1511be3f00e5248aa94e627490a053, type: 3}
-    m_FontSize: 14
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Controls
 --- !u!1 &1982777860923894
@@ -6549,6 +6557,9 @@ MonoBehaviour:
   menuDepth: 1
   defaultSelected: {fileID: 0}
   levelSelect: {fileID: 7420213806489609906}
+  title: {fileID: 0}
+  panel: {fileID: 0}
+  effects: {fileID: 0}
 --- !u!1 &3005628398682629897
 GameObject:
   m_ObjectHideFlags: 0
@@ -9520,6 +9531,7 @@ GameObject:
   - component: {fileID: 764391929444557910}
   - component: {fileID: 2250134382262132443}
   - component: {fileID: 596182708221172905}
+  - component: {fileID: 5576206530576697649}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -9593,6 +9605,49 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5576206530576697649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5874955269224558493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2973027145679974749}
+          m_MethodName: DisableUseActions
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2973027145679974749}
+          m_MethodName: EnableUseActions
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5975542015557076118
 GameObject:
   m_ObjectHideFlags: 0

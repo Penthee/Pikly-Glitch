@@ -500,7 +500,7 @@ namespace Pikl.Profile {
                 //Debug.HBDebug.Log("hash = " + hash);
 
                 if (hash != Utils.Hash.Md5Sum(temp)) {
-                    Debug.Log("FILE HAS BEEN TAMPERED WITH!" + System.Environment.NewLine + temp);
+                    Debug.Log($"FILE HAS BEEN TAMPERED WITH!{System.Environment.NewLine}{temp}");
 
                     Debug.Log("Restoring Backups...");
                     RestoreBackups();

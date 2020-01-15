@@ -56,7 +56,6 @@ namespace Pikl.UI {
         }
 
         public void StartScroll(LevelInfo lt, List<Item> items, PlayerHealth ph) {
-            Debug.Log("START SCROLL!");
             levelText = lt;
             DoVisuals();
             
@@ -68,15 +67,13 @@ namespace Pikl.UI {
             if (hasSkipped || startTime + levelText.scrollSpeed < Time.time) {
                 Continue();
             } else {
-                Debug.Log("SKIP!");
                 tween.Complete();
-                text.text = levelText.text;
+                //text.text = levelText.text;
                 hasSkipped = true;
             }
         }
 
         void Continue() {
-            Debug.Log("CONTINUE!");
             hasSkipped = false;
             text.text = string.Empty;
             panel.SetActive(false);

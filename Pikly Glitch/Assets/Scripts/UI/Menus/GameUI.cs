@@ -23,11 +23,13 @@ namespace Pikl.UI {
         public Color weaponColour, consumableColour, materialColour, toolColour;
         public Text ammo, description;
 
-
         Color whiteAlpha = new Color(1, 1, 1, 0);
 
-        string emptyItemString = "-";
+        const string spaceX = " x";
+        const string selectSpacer = "   ";
+        const string emptyItemString = "-";
 
+        public float selectDarkenAmount = 0.125f;
         int selectedCraft = 0;
 
         List<Recipe> availableCrafts = new List<Recipe>();
@@ -117,13 +119,8 @@ namespace Pikl.UI {
 #if UNITY_EDITOR || DEBUG
             debugPanel.GetComponent<DebugUI>().player = player;
 #endif
-            CreateInventory();
         }
 
-        void CreateInventory() {
-            for(int i = 0; i < player.inventory.size; i++) {
-            }
-        }
 
         public void DisplayTerminal(Terminal t) {
             if (terminalDisplay.enabled) {
@@ -275,15 +272,15 @@ namespace Pikl.UI {
             foreach (Item item in player.inventory.items) {
                 switch(item.type) {
                     case ItemType.Throwable:
-                    case ItemType.Weapon: inventoryItems[i].color = item.selected ? weaponColour.Darker() : weaponColour; break;
+                    case ItemType.Weapon: inventoryItems[i].color = item.selected ? weaponColour.Darker(selectDarkenAmount) : weaponColour; break;
 
-                    case ItemType.Consumable: inventoryItems[i].color = item.selected ? consumableColour.Darker() : consumableColour; break;
+                    case ItemType.Consumable: inventoryItems[i].color = item.selected ? consumableColour.Darker(selectDarkenAmount) : consumableColour; break;
 
-                    case ItemType.Tool: inventoryItems[i].color = item.selected ? toolColour.Darker() : toolColour; break;
+                    case ItemType.Tool: inventoryItems[i].color = item.selected ? toolColour.Darker(selectDarkenAmount) : toolColour; break;
 
-                    case ItemType.Material: inventoryItems[i].color = item.selected ? materialColour.Darker() : materialColour; break;
+                    case ItemType.Material: inventoryItems[i].color = item.selected ? materialColour.Darker(selectDarkenAmount) : materialColour; break;
 
-                    default: inventoryItems[i].color = item.selected ? Color.white.Darker() : Color.white; break;
+                    default: inventoryItems[i].color = item.selected ? Color.white.Darker(selectDarkenAmount) : Color.white; break;
                 }
 
                 inventoryItems[i].text = ParseItem(item);
@@ -311,7 +308,7 @@ namespace Pikl.UI {
         }
 
         string ParseItem(Item i) {
-            return string.Concat(i.selected ? "  " : string.Empty, emptyItemString, i.name, i.quantity > 1 ? string.Concat(' ', 'x', i.quantity) : string.Empty);
+            return string.Concat(i.selected ? selectSpacer : string.Empty, emptyItemString, i.name, i.quantity > 1 ? string.Concat(spaceX, i.quantity) : string.Empty);
         }
     }
 }

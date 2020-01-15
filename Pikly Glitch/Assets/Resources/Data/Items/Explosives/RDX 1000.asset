@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b79f7e5be97a41f4b999ab54eeb8c985, type: 3}
-  m_Name: RPNB
+  m_Name: RDX 1000
   m_EditorClassIdentifier: 
-  name: RPNB
-  sprite: {fileID: 21300044, guid: 4146545d56c052747b74700d0fb3eb00, type: 3}
-  description: Rocket Propelled Nailbomb.
+  name: RDX 1000
+  sprite: {fileID: 21300000, guid: f6da9ad8fcb70594a9c8670e3c8b2fb6, type: 3}
+  description: A barrel full of High Powered Explosive.
   quantity: 1
   maxStack: 5
   type: 2
   selected: 0
-  liveObject: {fileID: 1089810898755744, guid: 06d5de9e858804a4ca3347f7402a9e8d, type: 3}
+  liveObject: {fileID: 1089810898755744, guid: 56bd30379f5106d409e69ccdce37ee92, type: 3}
