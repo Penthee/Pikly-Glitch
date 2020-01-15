@@ -19,6 +19,8 @@ namespace Pikl {
         List<Item> _items = new List<Item>();
         PlayerHealth _playerHealth;
         Camera main;
+        bool started;
+        
         void Start() {
             main = Camera.main;
         }
@@ -38,7 +40,7 @@ namespace Pikl {
         }
 
         void OnTriggerEnter2D(Collider2D collision) {
-            if (collision.gameObject.name == "Player") {
+            if (collision.gameObject.name == "Player" && !started) {
                 StateObject so = collision.GetComponent<StateObject>();
 
                 if (so == null) return;
@@ -50,8 +52,10 @@ namespace Pikl {
 
                 foreach (var c in collision.gameObject.GetComponents<Collider2D>()) {
                     c.enabled = false;
-                    StartCoroutine("DoTheFancy");
                 }
+                
+                StartCoroutine("DoTheFancy");
+                started = true;
             }
         }
     }
