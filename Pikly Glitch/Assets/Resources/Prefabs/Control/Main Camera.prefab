@@ -364,7 +364,7 @@ MonoBehaviour:
   mapCamera4: {fileID: 7631419225004636855}
   mapEase: 19
   target: {fileID: 0}
-  offset: {x: 5, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 0}
   shakeOffset: {x: 0, y: 0, z: 0}
   followSpeed: 0.175
   mapCameraSpeed: 0.35
