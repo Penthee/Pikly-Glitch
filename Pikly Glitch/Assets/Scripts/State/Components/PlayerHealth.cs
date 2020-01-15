@@ -5,6 +5,7 @@ using Pikl.Utils.Shaker;
 using Pikl.Audio;
 using DG.Tweening;
 using System;
+using Pikl.UI;
 
 namespace Pikl.States.Components {
     [System.Serializable]
@@ -77,14 +78,28 @@ namespace Pikl.States.Components {
         Color[] originalColours;
 
         public void Init(StateObject so) {
-            HP = maxHp;
             this.so = so;
             status = Damage.Status.Ok;
             deadState = new Player.Dead();
 
+            SetInfo();
             //originalColours = new Color[(so as Player.Player).ship.GetComponent<MeshRenderer>().materials.Length];
             //foreach (var mat in (so as Player.Player).ship.GetComponent<MeshRenderer>().materials)
             //    originalColours[i++] = mat.color;
+        }
+
+        void SetInfo() {
+            if (UIMgr.I._hp > 0) {
+                HP = UIMgr.I._hp;
+                Armour = UIMgr.I._armour;
+                maxArmour = UIMgr.I._maxArmour;
+                maxHp = UIMgr.I._maxHp;
+                invulnerable = UIMgr.I._invulnerable;
+                damageMultiplier = UIMgr.I._damageMultiplier;
+                UIMgr.I._hp = 0;
+            } else {
+                HP = maxHp;
+            }
         }
 
         public void TakeDamage(float dmg) {

@@ -9,6 +9,7 @@ using Pikl.Data;
 using System.Linq;
 using DG.Tweening;
 using Pikl.Player;
+using Pikl.States.Components;
 
 /*
  * open menu, giving scene to open after text
@@ -54,7 +55,7 @@ namespace Pikl.UI {
             base.OnUpdate();
         }
 
-        public void StartScroll(LevelInfo lt, List<Item> items) {
+        public void StartScroll(LevelInfo lt, List<Item> items, PlayerHealth ph) {
             levelText = lt;
             
             title.text = levelText.name;
@@ -65,6 +66,7 @@ namespace Pikl.UI {
             startTime = Time.time;
             
             UIMgr.I.HoldTemporaryItems(items);
+            UIMgr.I.HoldPlayerInfo(ph);
         }
 
         public void OnSkipButtonPress() {

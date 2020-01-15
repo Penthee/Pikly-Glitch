@@ -62,7 +62,7 @@ namespace Pikl.UI {
             if (levelIndex >= 0 && levelIndex < UIMgr.I.levelTexts.Length) {
                 HideLevelSelect();
                 UIMgr.I.OpenMenu(UIMgr.I.textRead);
-                (UIMgr.I.textRead as LevelIntroText).StartScroll(UIMgr.I.levelTexts[levelIndex], null);
+                (UIMgr.I.textRead as LevelIntroText).StartScroll(UIMgr.I.levelTexts[levelIndex], null, null);
             }
             else {
                 Debug.LogWarning($"Tried to load invalid level : {levelIndex.ToString()}", this);

@@ -12,6 +12,8 @@ using TeamUtility.IO;
 using Pikl.Profile;
 using Pikl.Data;
 using Pikl.Player;
+using Pikl.States.Components;
+using TMPro;
 
 namespace Pikl.UI {
     public class UIMgr : Singleton<UIMgr> {
@@ -33,6 +35,12 @@ namespace Pikl.UI {
         [Expandable]
         public List<Item> tempInventory = new List<Item>();
 
+        public float _hp;
+        public float _armour;
+        public float _maxArmour;
+        public float _maxHp;
+        public bool _invulnerable;
+        public float _damageMultiplier;
         AudioMixerSnapshot normalSnapshot;
         //AudioMixerSnapshot pauseSnapshot25;
         AudioMixerSnapshot pauseSnapshot50;
@@ -295,6 +303,17 @@ namespace Pikl.UI {
             if (items  == null || items.Count == 0) return;
             
             tempInventory = new List<Item>(items);
+        }
+
+        public void HoldPlayerInfo(PlayerHealth ph) {
+            if (ph == null) return;
+            
+            _hp = ph.HP;
+            _armour = ph.Armour;
+            _maxArmour = ph.maxArmour;
+            _maxHp = ph.maxHp;
+            _invulnerable = ph.invulnerable;
+            _damageMultiplier = ph.damageMultiplier;
         }
     }
 

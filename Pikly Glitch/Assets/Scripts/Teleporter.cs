@@ -7,6 +7,7 @@ using Pikl.UI;
 using Pikl.Data;
 using Pikl.Player;
 using Pikl.States;
+using Pikl.States.Components;
 using static Pikl.Utils.Shaker.Shaker;
 
 namespace Pikl {
@@ -16,7 +17,7 @@ namespace Pikl {
         public float initialDelay = 1.5f;
 
         List<Item> _items = new List<Item>();
-        
+        PlayerHealth _playerHealth;
         Camera main;
         void Start() {
             main = Camera.main;
@@ -31,7 +32,7 @@ namespace Pikl {
             yield return new WaitForSeconds(initialDelay);
 
             UIMgr.I.OpenMenu(UIMgr.I.textRead);
-            (UIMgr.I.textRead as LevelIntroText).StartScroll(level, _items);
+            (UIMgr.I.textRead as LevelIntroText).StartScroll(level, _items, _playerHealth);
             
             Shaker.I.ActiveShakes.Clear();
         }
@@ -45,6 +46,7 @@ namespace Pikl {
                 so.Pause();
                 
                 _items = (so as Player.Player).inventory.items;
+                _playerHealth = (so as Player.Player).health;
 
                 foreach (var c in collision.gameObject.GetComponents<Collider2D>()) {
                     c.enabled = false;
