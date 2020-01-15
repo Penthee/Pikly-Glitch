@@ -381,7 +381,7 @@ MonoBehaviour:
     m_Extent: {x: 420, y: 420, z: 0}
   mapMode: 0
   mapButtonIsDown: 0
-  scaleWidth: 1
+  scaleWidth: 0
   gizmo: 1
   UI: 0
   origSize: 0
