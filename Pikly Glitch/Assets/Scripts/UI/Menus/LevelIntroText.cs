@@ -8,6 +8,7 @@ using Pikl.Profile;
 using Pikl.Data;
 using System.Linq;
 using DG.Tweening;
+using Pikl.Player;
 
 /*
  * open menu, giving scene to open after text
@@ -53,12 +54,17 @@ namespace Pikl.UI {
             base.OnUpdate();
         }
 
-        public void StartScroll(LevelInfo lt) {
+        public void StartScroll(LevelInfo lt, List<Item> items) {
             levelText = lt;
-            panel.SetActive(true);
+            
             title.text = levelText.name;
+            text.text = string.Empty;
+            
+            panel.SetActive(true);
             tween = DOTween.To(() => text.text, x => text.text = x, levelText.text, levelText.scrollSpeed).SetEase(Ease.Linear);
             startTime = Time.time;
+            
+            UIMgr.I.HoldTemporaryItems(items);
         }
 
         public void OnSkipButtonPress() {

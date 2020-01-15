@@ -5,6 +5,7 @@ using Pikl.States;
 using TeamUtility.IO;
 using Pikl.Data;
 using Pikl.Interaction;
+using Pikl.UI;
 
 namespace Pikl.Player {
     [System.Serializable]
@@ -38,7 +39,7 @@ namespace Pikl.Player {
             }
         }
         [Expandable]
-        public List<Item> items;
+        public List<Item> items = new List<Item>();
         public GameObject emptyItemObj;
         public Item emptyItem;
         public Data.Material emptyCan;
@@ -50,13 +51,45 @@ namespace Pikl.Player {
 
         public void Init(Player player) {
             this.player = player;
+            
+            CreateNewInventory();
+        }
 
-            for(int i = 0; i < size; i++) {
+        void CreateNewInventory() {
+            /*for (int i = 0; i < size; i++)
                 items.Add(Item.CreateInstance(emptyItem));
+            
+            if (UIMgr.I.tempInventory != null && UIMgr.I.tempInventory.Count == size) {
+                //items = new List<Item>();
+                
+                for (int i = 0; i < size; i++)
+                    Add(UIMgr.I.tempInventory[i]);
+                
+                Debug.Log("Created inventory from temp");
+            } else {
+                items[0].selected = true;
+            }*/
+            
+            if (UIMgr.I.tempInventory != null && UIMgr.I.tempInventory.Count == size) {
+                items = new List<Item>();
+
+                int j = 0;
+                
+                for (int i = 0; i < size; i++) {
+                    Item item = (UIMgr.I.tempInventory[i]);
+                    items.Add(item);
+                    if (item.selected)
+                        j = i;
+                }
+
+                SelectedIndex = j;
+                UIMgr.I.tempInventory = null;
+
+            } else {
+                for (int i = 0; i < size; i++)
+                    items.Add(Item.CreateInstance(emptyItem));
+                items[0].selected = true;
             }
-
-
-            items[0].selected = true;
         }
 
         public void Update() {
@@ -80,7 +113,7 @@ namespace Pikl.Player {
                 }
             }
 
-            if (!(UI.UIMgr.I.gameUI as UI.GameUI).craftingUI.activeSelf) {
+            if (!(UIMgr.I.gameUI as GameUI).craftingUI.activeSelf) {
                 if (moveInput != 0 && (w == null || !w.reloading))
                     SelectedIndex += (int)moveInput;
             }
@@ -139,7 +172,7 @@ namespace Pikl.Player {
         }
 
         bool AddNew(Item item) {
-            Item empty = items.Find(e => e.name == "Empty");
+            Item empty = items.Find(e => e.name == "Empty" || e.name == string.Empty);
             if (empty != null) {
                 Item newItem = CreateInstance(item);
 

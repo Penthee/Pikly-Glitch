@@ -61,7 +61,7 @@ namespace Pikl.Player {
             ar = GetComponent<Animator>();
 
             base.Start();
-
+            
             //UIMgr.I.PauseFilterOff();
         }
 
@@ -84,7 +84,6 @@ namespace Pikl.Player {
 
             base.FixedUpdate();
         }
-
 
         public void EndGame() {
             UIMgr.I.OpenMenu(UIMgr.I.textRead);

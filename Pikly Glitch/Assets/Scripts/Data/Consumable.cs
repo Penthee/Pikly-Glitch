@@ -39,6 +39,8 @@ namespace Pikl.Data {
                 case ConsumableEffect.Armour:
                     if (Player.Player.I.health.Armour < Player.Player.I.health.maxArmour)
                         Player.Player.I.health.AddArmour(strength);
+                    else
+                        return;
                     break;
                 case ConsumableEffect.Berserk:
                     //Player.Player.I.powerup.Berserk();

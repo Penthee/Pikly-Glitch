@@ -11,6 +11,7 @@ using TeamUtility.IO;
 //using Pikl.Audio;
 using Pikl.Profile;
 using Pikl.Data;
+using Pikl.Player;
 
 namespace Pikl.UI {
     public class UIMgr : Singleton<UIMgr> {
@@ -29,6 +30,8 @@ namespace Pikl.UI {
         //GameSetup gameSetup;
         //AudioInfo menuMusic, /*gameMusic,*/ bossMusic, bossDeadMusic, boopSound;
         //public AudioMixer audioMixer;
+        [Expandable]
+        public List<Item> tempInventory = new List<Item>();
 
         AudioMixerSnapshot normalSnapshot;
         //AudioMixerSnapshot pauseSnapshot25;
@@ -286,6 +289,12 @@ namespace Pikl.UI {
                     break;
                 case InputDevice.KeyboardAndMouse: break;
             }
+        }
+
+        public void HoldTemporaryItems(List<Item> items) {
+            if (items  == null || items.Count == 0) return;
+            
+            tempInventory = new List<Item>(items);
         }
     }
 

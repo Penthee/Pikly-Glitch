@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Pikl.Player;
 
 namespace Pikl {
     public class SceneMgr : Singleton<SceneMgr> {
+
         protected SceneMgr() { }
 
         /// <summary>
