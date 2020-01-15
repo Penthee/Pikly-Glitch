@@ -57,13 +57,8 @@ namespace Pikl.UI {
 
         public void StartScroll(LevelInfo lt, List<Item> items, PlayerHealth ph) {
             levelText = lt;
-            
-            title.text = levelText.name;
-            text.text = string.Empty;
-            
-            panel.SetActive(true);
-            tween = DOTween.To(() => text.text, x => text.text = x, levelText.text, levelText.scrollSpeed).SetEase(Ease.Linear);
-            startTime = Time.time;
+
+            DoVisuals();
             
             UIMgr.I.HoldTemporaryItems(items);
             UIMgr.I.HoldPlayerInfo(ph);
@@ -87,14 +82,16 @@ namespace Pikl.UI {
 
         public void StartDeathScroll() {
             levelText = GetDeathText();
+            DoVisuals();
+        }
 
-            if (levelText == null) {
-                print("Death Text NULL!!!!!"); return;
-            }
+        void DoVisuals() {
+            title.text = levelText.name;
+            text.text = string.Empty;
             
             panel.SetActive(true);
-            title.text = levelText.name;
             tween = DOTween.To(() => text.text, x => text.text = x, levelText.text, levelText.scrollSpeed).SetEase(Ease.Linear);
+            startTime = Time.time;
         }
 
         LevelInfo GetDeathText() {

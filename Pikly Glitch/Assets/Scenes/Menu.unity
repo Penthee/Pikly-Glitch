@@ -126,6 +126,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5148406751237144245}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6353838 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3358260301889905528, guid: 3643404d43be08c49909056a0b1b2ed0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5148406751237144245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &6353839
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5461,6 +5473,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 423.85156
       objectReference: {fileID: 0}
+    - target: {fileID: 224631386714367754, guid: 7aec6e7b4f18c404fac0387257bbe2a5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -162.5
+      objectReference: {fileID: 0}
     - target: {fileID: 224637763311788366, guid: 7aec6e7b4f18c404fac0387257bbe2a5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5754,7 +5771,7 @@ PrefabInstance:
     - target: {fileID: 2462867425165751124, guid: 7aec6e7b4f18c404fac0387257bbe2a5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 209.7998
+      value: 209.79984
       objectReference: {fileID: 0}
     - target: {fileID: 2463597600698258701, guid: 7aec6e7b4f18c404fac0387257bbe2a5,
         type: 3}
@@ -6070,6 +6087,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5885138298985285028, guid: 7aec6e7b4f18c404fac0387257bbe2a5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -162.5
       objectReference: {fileID: 0}
     - target: {fileID: 5975542015557076118, guid: 7aec6e7b4f18c404fac0387257bbe2a5,
         type: 3}
@@ -6401,6 +6423,11 @@ PrefabInstance:
       propertyPath: titleShowDelay
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9181057448423188261, guid: 7aec6e7b4f18c404fac0387257bbe2a5,
+        type: 3}
+      propertyPath: effects
+      value: 
+      objectReference: {fileID: 6353838}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aec6e7b4f18c404fac0387257bbe2a5, type: 3}
 --- !u!1001 &1933646763

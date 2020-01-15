@@ -7,12 +7,15 @@ using TeamUtility.IO;
 using Pikl.Profile;
 using Pikl.Data;
 using System.Linq;
+using UnityEngine.Rendering.PostProcessing;
 
 namespace Pikl.UI {
     public class MainMenu : Menu {
         public GameObject levelSelect;
         public GameObject title;
         public GameObject panel;
+
+        public PostProcessVolume effects;
         //[Range(1,5)]
         //public float titleShowDelay = 3f;
         bool _showLevelSelect;
@@ -27,7 +30,8 @@ namespace Pikl.UI {
             //Cursor.SetCursor(crosshairCursor, new Vector2(crosshairCursor.width / 2, crosshairCursor.height / 2), CursorMode.Auto);
             
             //Invoke(nameof(EnableTitle), titleShowDelay);
-            
+            effects = Camera.main.GetComponent<PostProcessVolume>();
+            effects.enabled = true;
             base.Open();
         }
 
@@ -68,6 +72,7 @@ namespace Pikl.UI {
                 Debug.LogWarning($"Tried to load invalid level : {levelIndex.ToString()}", this);
             }
 
+            effects.enabled = false;
             //SceneMgr.I.LoadScene("Text Read Scene");
         }
 
