@@ -7,6 +7,7 @@ using Pikl.Enemy;
 using Pikl.Utils.Shaker;
 using Pikl.Audio;
 using Pikl.Utils.RDS;
+using Random = UnityEngine.Random;
 
 namespace Pikl.States.Components {
     [System.Serializable]
@@ -62,7 +63,8 @@ namespace Pikl.States.Components {
         }
 
         internal StateObject so;
-
+        public int lives = 0, reanimateChance = 0;
+        
         public float maxHp = 420,
                      invulTimer = 0.75f, healTimer = 1.42f,
                      lifetime, damageMultiplier = 1,
@@ -74,9 +76,11 @@ namespace Pikl.States.Components {
         public float healthDelta;
 
         public bool flashOnDamage,
-                    disableRenderer, disableCollider,
-                    destroy, recycle, updateGraph,
-                    takeDamage, broadcastDeath;
+            disableRenderer,
+            disableCollider,
+            destroy,
+            recycle,
+            takeDamage;
 
         public float lastDmgTime { get; internal set; }
         public float lastHealTime { get; internal set; }
@@ -286,8 +290,15 @@ namespace Pikl.States.Components {
         }
 
         public virtual void Die() {
+            if (lives >= 1 && Random.Range(reanimateChance, 101) == 100) {
+                StartCoroutine(nameof(Reanimate));
+            } else {
+                isDead = true;
+            }
+
             if (so)
                 so.SwitchTo(so.deadState);
+            
 
             //Shaker.I.ShakeCameraOnce(ShakePresets.Bump);
 
@@ -301,7 +312,6 @@ namespace Pikl.States.Components {
                 }
             }
 
-            isDead = true;
 
             if (playSoundOnDeath)
                 AudioMgr.I.PlaySound(new AudioInfo(deathSound.audioName));
@@ -312,11 +322,22 @@ namespace Pikl.States.Components {
             if (disableCollider)
                 StartCoroutine(DisableCollider());
 
-            if (destroy || recycle)
+            if (lives <= 0 && (destroy || recycle))
                 StartCoroutine(Destroy());
 
-            if (broadcastDeath)
-                MessageMgr.I.Broadcast("HeroDeath", gameObject.GetInstanceID());
+            lives--;
+        }
+
+        IEnumerator Reanimate() {
+            yield return new WaitForSeconds(Random.Range(1.2f, 5f));
+
+            hp = maxHp * (0.1f * Mathf.Clamp(lives, 1, 10));
+            
+            if (so)
+                so.SwitchToDefault();
+            
+            if (disableCollider) collider.enabled = true;
+            if (disableRenderer) renderer.enabled = true;
         }
 
         internal virtual IEnumerator Destroy() {

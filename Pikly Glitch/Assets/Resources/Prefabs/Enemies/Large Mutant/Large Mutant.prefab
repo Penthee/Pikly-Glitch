@@ -100,7 +100,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 3
   m_LinearDrag: 8
-  m_AngularDrag: 0.5
+  m_AngularDrag: 8
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -185,6 +185,8 @@ MonoBehaviour:
     paused: 0
     obj: {fileID: 0}
     pos: {x: 0, y: 0}
+  lives: 2
+  reanimateChance: 60
   maxHp: 90
   invulTimer: 0.1
   healTimer: 1.42
@@ -196,12 +198,10 @@ MonoBehaviour:
   healthDelta: 0
   flashOnDamage: 1
   disableRenderer: 0
-  disableCollider: 0
-  destroy: 1
+  disableCollider: 1
+  destroy: 0
   recycle: 0
-  updateGraph: 0
   takeDamage: 0
-  broadcastDeath: 0
 --- !u!114 &4225447598463995715
 MonoBehaviour:
   m_ObjectHideFlags: 0

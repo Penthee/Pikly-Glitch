@@ -6,39 +6,19 @@ using Pikl.Components;
 //using Pikl.Extensions;
 
 namespace Pikl.Enemy {
-    public class LargeMutant : EnemyStateObject {
-
-        internal override void Awake() {
-            base.Awake();
-        }
+    public class LargeMutant : Mutant {
 
         internal override void Start() {
+            base.Start();
+            
             defaultState = new LargeMutantIdle();
             deadState = new EnemyDeadState();
-            //pauseState = new Pause();
-
-            //health = GetComponent<PlayerHealth>();
-            //health.Init(this);
-
-            fv2D = GetComponent<FaceVector2D>();
-
-            base.Start();
-        }
-
-        internal override void Update() {
-            base.Update();
+            SwitchToDefault();
         }
 
         public void SpawnRockObj() {
             Vector3 pos = t.position + (t.right * meleeAttackRange);
             GameObjectMgr.I.Spawn(rockDamageObj, pos, t.rotation);
-        }
-
-
-        void OnDrawGizmos() {
-        }
-
-        void OnDestroy() {
         }
     }
 }

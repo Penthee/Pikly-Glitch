@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -788532913
-  m_SortingLayer: 4
+  m_SortingLayerID: 598436733
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8ee0cf402a9619246bcaf4e3aa2100f8, type: 3}
   m_Color: {r: 0.4651185, g: 0.4716981, b: 0, a: 1}
@@ -100,7 +100,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 3
   m_LinearDrag: 8
-  m_AngularDrag: 0.5
+  m_AngularDrag: 8
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -232,6 +232,8 @@ MonoBehaviour:
     paused: 0
     obj: {fileID: 0}
     pos: {x: 0, y: 0}
+  lives: 1
+  reanimateChance: 25
   maxHp: 20
   invulTimer: 0.1
   healTimer: 1.42
@@ -243,12 +245,10 @@ MonoBehaviour:
   healthDelta: 0
   flashOnDamage: 1
   disableRenderer: 0
-  disableCollider: 0
-  destroy: 1
+  disableCollider: 1
+  destroy: 0
   recycle: 0
-  updateGraph: 0
   takeDamage: 0
-  broadcastDeath: 0
 --- !u!95 &-2608525178347586951
 Animator:
   serializedVersion: 3
