@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nail Bomb
   m_EditorClassIdentifier: 
   name: Nail Bomb
-  sprite: {fileID: 21300044, guid: 4146545d56c052747b74700d0fb3eb00, type: 3}
+  sprite: {fileID: 21300000, guid: 5717b6a99f4fbbb42acecdd7f9b0f793, type: 3}
   description: Take Cover.
   quantity: 1
   maxStack: 5
