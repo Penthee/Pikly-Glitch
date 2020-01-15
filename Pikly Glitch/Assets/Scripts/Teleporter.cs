@@ -41,14 +41,12 @@ namespace Pikl {
 
         void OnTriggerEnter2D(Collider2D collision) {
             if (collision.gameObject.name == "Player" && !started) {
-                StateObject so = collision.GetComponent<StateObject>();
+                Player.Player player = collision.GetComponent<StateObject>() as Player.Player;
 
-                if (so == null) return;
-                
-                so.Pause();
-                
-                _items = (so as Player.Player).inventory.items;
-                _playerHealth = (so as Player.Player).health;
+                player.Pause();
+
+                _items = player.inventory.items;
+                _playerHealth = player.health;
 
                 foreach (var c in collision.gameObject.GetComponents<Collider2D>()) {
                     c.enabled = false;
