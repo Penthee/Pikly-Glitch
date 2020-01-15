@@ -101,7 +101,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 3
   m_LinearDrag: 8
-  m_AngularDrag: 2
+  m_AngularDrag: 8
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -186,6 +186,7 @@ MonoBehaviour:
     paused: 0
     obj: {fileID: 0}
     pos: {x: 0, y: 0}
+  lives: 0
   maxHp: 20
   invulTimer: 0.1
   healTimer: 1.42
@@ -284,3 +285,5 @@ MonoBehaviour:
   meleeAttackRange: 0.3
   meleeAttackTime: 0.65
   rockThrowChance: 50
+  canReanimate: 0
+  lives: {x: 0, y: 0}

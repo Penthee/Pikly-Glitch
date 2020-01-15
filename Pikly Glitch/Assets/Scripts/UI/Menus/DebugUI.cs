@@ -116,18 +116,21 @@ namespace Pikl.UI {
                 return;
             }
 
-            debugTitle.text = "Debug - " + selected.name;
+            try {
 
-            debugValues.text = string.Empty;
+                debugTitle.text = "Debug - " + selected.name;
 
-            debugValues.text += string.Format("{0:f1}, {1:f1}", selected.rb.velocity.x, selected.rb.velocity.y);
-            debugValues.text += System.Environment.NewLine;
-            debugValues.text += selected.CurrentState.ToString().Split('.').Last();
-            debugValues.text += System.Environment.NewLine;
+                debugValues.text = string.Empty;
 
-            foreach (var item in selected.asyncStates) {
-                debugValues.text += "(A) " + item.Value.ToString().Split('.').Last() + " ";
-            }
+                debugValues.text += string.Format("{0:f1}, {1:f1}", selected.rb.velocity.x, selected.rb.velocity.y);
+                debugValues.text += System.Environment.NewLine;
+                debugValues.text += selected.CurrentState.ToString().Split('.').Last();
+                debugValues.text += System.Environment.NewLine;
+
+                foreach (var item in selected.asyncStates) {
+                    debugValues.text += "(A) " + item.Value.ToString().Split('.').Last() + " ";
+                }
+            } catch { }
         }
 
         bool GetInvuln(StateObject so) {
@@ -242,6 +245,7 @@ namespace Pikl.UI {
         }
 
         public void ShowHidePress() {
+            debug = !debug;
             container.SetActive(!container.activeSelf);
         }
     }
