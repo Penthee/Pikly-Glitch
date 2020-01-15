@@ -62,6 +62,11 @@ namespace Pikl.UI {
             levelSelect.SetActive(false);
         }
 
+        public void ToggleLevelSelect() {
+            _showLevelSelect = !_showLevelSelect;
+            levelSelect.SetActive(_showLevelSelect);
+        }
+
         public void StartNewGame(int levelIndex) {
             if (levelIndex >= 0 && levelIndex < UIMgr.I.levelTexts.Length) {
                 HideLevelSelect();
