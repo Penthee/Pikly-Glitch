@@ -9,7 +9,7 @@ namespace Pikl.Interaction {
 
         [Expandable]
         public Terminal terminal;
-        public Door doorToOpen;
+        public Door[] doorsToOpen;
         public Trap[] trapsToTrigger;
 
         [HideInInspector]
@@ -37,8 +37,9 @@ namespace Pikl.Interaction {
 
             isOpen = true;
 
-            if (doorToOpen)
-                doorToOpen.locked = false;
+            foreach(Door d in doorsToOpen)
+                if (d != null)
+                    d.locked = false;
 
             if (trapsToTrigger.Length > 0) {
                 foreach(Trap t in trapsToTrigger) {
@@ -54,8 +55,10 @@ namespace Pikl.Interaction {
         }
 #if UNITY_EDITOR
         internal override void OnDrawGizmos() {
-            if (doorToOpen)
-                Gizmos.DrawLine(transform.position, doorToOpen.transform.position);
+            
+            foreach(Door d in doorsToOpen)
+                if (d != null)
+                    Gizmos.DrawLine(transform.position, d.transform.position);
 
             if (trapsToTrigger.Length > 0) {
                 foreach (Trap t in trapsToTrigger) {
