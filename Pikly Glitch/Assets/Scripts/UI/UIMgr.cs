@@ -13,7 +13,6 @@ using Pikl.Profile;
 using Pikl.Data;
 using Pikl.Player;
 using Pikl.States.Components;
-using TMPro;
 
 namespace Pikl.UI {
     public class UIMgr : Singleton<UIMgr> {
