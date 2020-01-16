@@ -185,38 +185,6 @@
             </e>
           </e>
         </e>
-        <e p="ProCore" t="Include">
-          <e p="ProGrids" t="Include">
-            <e p="About" t="Include">
-              <e p="Changelog.txt" t="Include" />
-              <e p="Editor" t="Include">
-                <e p="pg_AboutWindow.cs" t="Include" />
-              </e>
-              <e p="pc_AboutEntry_ProGrids.txt" t="Include" />
-            </e>
-            <e p="Classes" t="Include">
-              <e p="pg_Constant.cs" t="Include" />
-              <e p="pg_Enum.cs" t="Include" />
-              <e p="pg_IconUtility.cs" t="Include" />
-              <e p="pg_IgnoreSnapAttribute.cs" t="Include" />
-              <e p="pg_SceneMeshRender.cs" t="Include" />
-              <e p="pg_Util.cs" t="Include" />
-            </e>
-            <e p="Editor" t="Include">
-              <e p="pg_Editor.cs" t="Include" />
-              <e p="pg_GridRenderer.cs" t="Include" />
-              <e p="pg_ParameterWindow.cs" t="Include" />
-              <e p="pg_Preferences.cs" t="Include" />
-              <e p="pg_ToggleContent.cs" t="Include" />
-            </e>
-            <e p="MonoBehaviour" t="Include">
-              <e p="pg_IgnoreSnap.cs" t="Include" />
-            </e>
-            <e p="Shader" t="Include">
-              <e p="pg_GridShader.shader" t="Include" />
-            </e>
-          </e>
-        </e>
         <e p="Resources" t="Include">
           <e p="Lookups" t="Include">
             <e p="ControllerConfigs.xml" t="Include" />
