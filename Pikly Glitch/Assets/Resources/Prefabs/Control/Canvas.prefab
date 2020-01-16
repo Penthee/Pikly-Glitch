@@ -1018,6 +1018,7 @@ MonoBehaviour:
   toolColour: {r: 0.485, g: 0.57000005, b: 1, a: 1}
   ammo: {fileID: 114522399634976214}
   description: {fileID: 114187775036278804}
+  crosshairCursor: {fileID: 2800000, guid: b302b4d2056ee0a46b5caf2c46574ce2, type: 3}
   selectDarkenAmount: 0.2
 --- !u!114 &1928243569
 MonoBehaviour:
@@ -6560,6 +6561,7 @@ MonoBehaviour:
   title: {fileID: 0}
   panel: {fileID: 0}
   effects: {fileID: 0}
+  pointerCursor: {fileID: 2800000, guid: d3011c3a4d030154f9ea0cce9e94062c, type: 3}
 --- !u!1 &3005628398682629897
 GameObject:
   m_ObjectHideFlags: 0

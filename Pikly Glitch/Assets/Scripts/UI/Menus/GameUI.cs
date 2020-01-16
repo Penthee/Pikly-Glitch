@@ -22,6 +22,7 @@ namespace Pikl.UI {
         public Text[] craftingItems = new Text[20];
         public Color weaponColour, consumableColour, materialColour, toolColour;
         public Text ammo, description;
+        public Texture2D crosshairCursor;
 
         Color whiteAlpha = new Color(1, 1, 1, 0);
 

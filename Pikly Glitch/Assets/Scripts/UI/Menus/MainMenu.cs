@@ -14,8 +14,9 @@ namespace Pikl.UI {
         public GameObject levelSelect;
         public GameObject title;
         public GameObject panel;
-
         public PostProcessVolume effects;
+        public Texture2D pointerCursor;
+        
         //[Range(1,5)]
         //public float titleShowDelay = 3f;
         bool _showLevelSelect;
@@ -27,7 +28,7 @@ namespace Pikl.UI {
             if (InputMgr.PlayerOneConfiguration.name == InputAdapter.JoystickConfiguration)
                 Cursor.visible = false;
 
-            //Cursor.SetCursor(crosshairCursor, new Vector2(crosshairCursor.width / 2, crosshairCursor.height / 2), CursorMode.Auto);
+            //Cursor.SetCursor(pointerCursor, new Vector2(pointerCursor.width * 0.05f, pointerCursor.height * 0.05f), CursorMode.Auto);
             
             //Invoke(nameof(EnableTitle), titleShowDelay);
             effects = Camera.main.GetComponent<PostProcessVolume>();
