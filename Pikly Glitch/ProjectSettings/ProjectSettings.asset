@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: Pikl
   productName: Pikly Glitch
-  defaultCursor: {fileID: 2800000, guid: d3011c3a4d030154f9ea0cce9e94062c, type: 3}
+  defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0.5, y: 0.9}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -279,7 +279,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: cfedecceba041ce4491dfc3e71a28e3e, type: 3}
+      m_Icon: {fileID: 2800000, guid: cced5e263952b9d4db7736160e793943, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

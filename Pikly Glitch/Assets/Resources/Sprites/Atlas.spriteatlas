@@ -68,11 +68,11 @@ SpriteAtlas:
     - {fileID: 102900000, guid: 26efc0b8bc7445f47be47d393b05f619, type: 3}
     - {fileID: 102900000, guid: 20714de346b5f49468d11bf5de6000cc, type: 3}
     - {fileID: 102900000, guid: 99d0c75138e5b55418e88ed0fd05a2e3, type: 3}
-    totalSpriteSurfaceArea: 361450
+    totalSpriteSurfaceArea: 362518
     bindAsDefault: 1
     storedHash:
       serializedVersion: 2
-      Hash: 33ddfc166f0696ede169eed2789271bb
+      Hash: efeb3a196c8c24222edd968007140f5b
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: e8219010591b1c943b62d742d4e55926, type: 3}
@@ -101,6 +101,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 8dc4a721d15d061479ec044975889445, type: 3}
   - {fileID: 21300000, guid: 52910a21ff2110f4881fb422c5db725d, type: 3}
   - {fileID: 21300000, guid: 94f410313246d2142a4ac91a82033c00, type: 3}
+  - {fileID: 21300000, guid: b9b3c7413f4eddd4aa4c4cb6efdeceac, type: 3}
   - {fileID: 21300000, guid: b8123a41d191e4c4a9d6705b8cc8b7cc, type: 3}
   - {fileID: 21300000, guid: 290bf05146d4cba46823f09dd328f673, type: 3}
   - {fileID: 21300000, guid: c49577818cdeba24598038e31e53a261, type: 3}
@@ -142,6 +143,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f07639257c7680c4dbb6d0bae7aeab23, type: 3}
   - {fileID: 21300000, guid: 643c864594a943147b785123dfce5650, type: 3}
   - {fileID: 21300000, guid: f3b69845730ddd342a8158076554374b, type: 3}
+  - {fileID: 21300000, guid: 4f83e455608488041820a36d9c0f7e3f, type: 3}
   - {fileID: 21300000, guid: 8b5ab175f9de4554ab675a4076b8bef7, type: 3}
   - {fileID: 21300000, guid: 806a2a85a39a61c4ba394d6d90d01aba, type: 3}
   - {fileID: 21300000, guid: 5cf6dd85321018f48ac05946169934b2, type: 3}
@@ -260,8 +262,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: dc9a606dafef73c43b7424b20e9b4aab, type: 3}
   - {fileID: 21300000, guid: 08e9238d77b948f4883e07e1664a9d79, type: 3}
   - {fileID: 21300000, guid: 0655d4bd157cf744f8b58d9d8cc37f27, type: 3}
+  - {fileID: 21300000, guid: 80427abd6c23f784da9a350db6645e08, type: 3}
   - {fileID: 21300000, guid: 785d0cbdb85d7fb458652de49b7dc6d8, type: 3}
   - {fileID: 21300000, guid: 8b928bcd4e121f3458ea8dee42c010cb, type: 3}
+  - {fileID: 21300000, guid: 70e876dd6fb23774cb1e0d54ef1f11b7, type: 3}
   - {fileID: 21300000, guid: 3fbd52edd0ce26044900fbbbcf2785af, type: 3}
   - {fileID: 21300000, guid: 02e972ed73c8ae147a5eaa9cf9943725, type: 3}
   - {fileID: 21300000, guid: a90fe60e7361bde4c9de348d82e84840, type: 3}
@@ -315,6 +319,7 @@ SpriteAtlas:
   - hardware
   - Zombie Punch 1
   - Slug Spitter Death  5
+  - Tree
   - Meat Trap
   - Enemy Melee Rec Aiming
   - Nail Turret
@@ -356,6 +361,7 @@ SpriteAtlas:
   - Enemy Melee Rec Knife 3
   - Floor16x16_3
   - Laser Gun
+  - Bed 2
   - Zombie Torso Crawl 1
   - grey_box
   - Teleport
@@ -474,8 +480,10 @@ SpriteAtlas:
   - Pump Controller 1
   - Zombie Torso Crawl 2
   - Floor Cover
+  - Bed 3
   - Square Table
   - Enemy Melee Rec Death 4
+  - Bed 4
   - Roof Support 1 Broken
   - Mask triple
   - Enemy Ranged Rec Aiming
