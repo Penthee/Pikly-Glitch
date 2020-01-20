@@ -1,5 +1,5 @@
 ﻿using Pikl.Profile;
-using TeamUtility.IO;
+using Luminosity.IO;
 using UnityEngine;
 
 namespace Pikl.Components
@@ -19,7 +19,7 @@ namespace Pikl.Components
 
         internal override Vector3 GetDir()
         {
-            if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration) {
+            if (InputMgr.PlayerOneControlScheme.Name == "BAH") {
                 rotateSpeed = origRotateSpeed;
                 //return player.input.IsAiming ? (player.input.MoveAxis.magnitude != 0 ? player.input.MoveAxis : player.input.MouseDir.normalized) : lastDir;
 

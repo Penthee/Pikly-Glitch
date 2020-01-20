@@ -1,9 +1,9 @@
-﻿#region [Copyright (c) 2015 Cristian Alexandru Geambasu]
+﻿#region [Copyright (c) 2018 Cristian Alexandru Geambasu]
 //	Distributed under the terms of an MIT-style license:
 //
 //	The MIT License
 //
-//	Copyright (c) 2015 Cristian Alexandru Geambasu
+//	Copyright (c) 2018 Cristian Alexandru Geambasu
 //
 //	Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
 //	and associated documentation files (the "Software"), to deal in the Software without restriction, 
@@ -21,52 +21,66 @@
 //	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 using UnityEngine;
-using System;
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.Callbacks;
+#endif
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
-namespace TeamUtility.IO
+namespace Luminosity.IO.Events
 {
 	public class InputEventManager : MonoBehaviour
 	{
 		[SerializeField]
-        private List<InputEvent> _inputEvents;
+        private List<InputEvent> m_inputEvents = null;
 
-        private Dictionary<string, InputEvent> _eventLookup;
-		
-		public int EventCount
-        {
-            get { return _inputEvents.Count; }
-        }
+        private Dictionary<string, InputEvent> m_eventLookup;
+
+		public ReadOnlyCollection<InputEvent> Events
+		{
+			get { return m_inputEvents.AsReadOnly(); }
+		}
+
+		public bool ReceiveInput { get; set; }
 		
 		private void Awake()
 		{
-			_eventLookup = new Dictionary<string, InputEvent>();
-			foreach(var evt in _inputEvents)
+			ReceiveInput = true;
+			Initialize();
+		}
+
+		private void Initialize()
+		{
+			m_eventLookup = new Dictionary<string, InputEvent>();
+			foreach(var evt in m_inputEvents)
 			{
-				if(!_eventLookup.ContainsKey(evt.name))
-					_eventLookup.Add(evt.name, evt);
-				else
-					Debug.LogWarning(string.Format("An input event named \'{0}\' already exists in the lookup table", evt.name), this);
+				m_eventLookup[evt.Name] = evt;
 			}
 		}
 		
 		private void Update()
 		{
-			for(int i = 0; i < _inputEvents.Count; i++)
-				_inputEvents[i].Evaluate();
+			if(ReceiveInput)
+			{
+				for(int i = 0; i < m_inputEvents.Count; i++)
+					m_inputEvents[i].Update();
+			}
 		}
 		
 		public InputEvent CreateAxisEvent(string name, string axisName, PlayerID playerID = PlayerID.One)
 		{
-			if(!_eventLookup.ContainsKey(name))
+			if(!m_eventLookup.ContainsKey(name))
 			{
-				InputEvent evt = new InputEvent(name);
-				evt.axisName = axisName;
-				evt.eventType = InputEventType.Axis;
-                evt.playerID = playerID;
-				
-				_inputEvents.Add(evt);
-				_eventLookup.Add(name, evt);
+				InputEvent evt = new InputEvent(name)
+				{
+					ActionName = axisName,
+					EventType = InputEventType.Axis,
+					PlayerID = playerID
+				};
+
+				m_inputEvents.Add(evt);
+				m_eventLookup.Add(name, evt);
 				return evt;
 			}
 			else
@@ -78,16 +92,18 @@ namespace TeamUtility.IO
 		
 		public InputEvent CreateButtonEvent(string name, string buttonName, InputState inputState, PlayerID playerID = PlayerID.One)
 		{
-			if(!_eventLookup.ContainsKey(name))
+			if(!m_eventLookup.ContainsKey(name))
 			{
-				InputEvent evt = new InputEvent(name);
-				evt.buttonName = buttonName;
-				evt.eventType = InputEventType.Button;
-				evt.inputState = inputState;
-                evt.playerID = playerID;
-				
-				_inputEvents.Add(evt);
-				_eventLookup.Add(name, evt);
+				InputEvent evt = new InputEvent(name)
+				{
+					ActionName = buttonName,
+					EventType = InputEventType.Button,
+					InputState = inputState,
+					PlayerID = playerID
+				};
+
+				m_inputEvents.Add(evt);
+				m_eventLookup.Add(name, evt);
 				return evt;
 			}
 			else
@@ -99,15 +115,17 @@ namespace TeamUtility.IO
 		
 		public InputEvent CreateKeyEvent(string name, KeyCode key, InputState inputState)
 		{
-			if(!_eventLookup.ContainsKey(name))
+			if(!m_eventLookup.ContainsKey(name))
 			{
-				InputEvent evt = new InputEvent(name);
-				evt.keyCode = key;
-				evt.eventType = InputEventType.Key;
-				evt.inputState = inputState;
-				
-				_inputEvents.Add(evt);
-				_eventLookup.Add(name, evt);
+				InputEvent evt = new InputEvent(name)
+				{
+					KeyCode = key,
+					EventType = InputEventType.Key,
+					InputState = inputState
+				};
+
+				m_inputEvents.Add(evt);
+				m_eventLookup.Add(name, evt);
 				return evt;
 			}
 			else
@@ -119,11 +137,11 @@ namespace TeamUtility.IO
 		
 		public InputEvent CreateEmptyEvent(string name)
 		{
-			if(!_eventLookup.ContainsKey(name))
+			if(!m_eventLookup.ContainsKey(name))
 			{
 				InputEvent evt = new InputEvent(name);
-				_inputEvents.Add(evt);
-				_eventLookup.Add(name, evt);
+				m_inputEvents.Add(evt);
+				m_eventLookup.Add(name, evt);
 				return evt;
 			}
 			else
@@ -136,10 +154,10 @@ namespace TeamUtility.IO
 		public void DeleteEvent(string name)
 		{
 			InputEvent evt = null;
-			if(_eventLookup.TryGetValue(name, out evt))
+			if(m_eventLookup.TryGetValue(name, out evt))
 			{
-				_eventLookup.Remove(name);
-				_inputEvents.Remove(evt);
+				m_eventLookup.Remove(name);
+				m_inputEvents.Remove(evt);
 			}
 		}
 		
@@ -149,7 +167,7 @@ namespace TeamUtility.IO
 		public InputEvent GetEvent(string name)
 		{
 			InputEvent evt = null;
-			if(_eventLookup.TryGetValue(name, out evt))
+			if(m_eventLookup.TryGetValue(name, out evt))
 				return evt;
 			
 			return null;
@@ -160,10 +178,30 @@ namespace TeamUtility.IO
 		/// </summary>
 		public InputEvent GetEvent(int index)
 		{
-			if(index >= 0 && index < _inputEvents.Count)
-				return _inputEvents[index];
+			if(index >= 0 && index < m_inputEvents.Count)
+				return m_inputEvents[index];
 			else
 				return null;
 		}
+
+		public void OnInitializeAfterScriptReload()
+		{
+			Initialize();
+		}
+
+#if UNITY_EDITOR
+		[DidReloadScripts(1)]
+		private static void OnScriptReload()
+		{
+			if(EditorApplication.isPlaying)
+			{
+				InputEventManager[] inputEventManagers = FindObjectsOfType<InputEventManager>();
+				for(int i = 0; i < inputEventManagers.Length; i++)
+				{
+					inputEventManagers[i].OnInitializeAfterScriptReload();
+				}
+			}
+		}
+#endif
 	}
 }

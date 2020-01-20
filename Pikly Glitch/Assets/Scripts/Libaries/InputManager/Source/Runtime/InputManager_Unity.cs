@@ -1,9 +1,9 @@
-#region [Copyright (c) 2015 Cristian Alexandru Geambasu]
+#region [Copyright (c) 2018 Cristian Alexandru Geambasu]
 //	Distributed under the terms of an MIT-style license:
 //
 //	The MIT License
 //
-//	Copyright (c) 2015 Cristian Alexandru Geambasu
+//	Copyright (c) 2018 Cristian Alexandru Geambasu
 //
 //	Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
 //	and associated documentation files (the "Software"), to deal in the Software without restriction, 
@@ -21,10 +21,8 @@
 //	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 using UnityEngine;
-using System;
-using System.Collections;
 
-namespace TeamUtility.IO
+namespace Luminosity.IO
 {
 	public partial class InputMgr : MonoBehaviour
 	{
@@ -41,8 +39,8 @@ namespace TeamUtility.IO
 		public static string inputString { get { return Input.inputString; } }
 		public static LocationService location { get { return Input.location; } }
 		public static Vector2 mousePosition { get { return Input.mousePosition; } }
-        public static Vector2 lastMousePosition { get; set; }
 		public static bool mousePresent { get { return Input.mousePresent; } }
+		public static Vector2 mouseScrollDelta { get { return Input.mouseScrollDelta; } }
 		public static bool touchSupported { get { return Input.touchSupported; } }
 		public static int touchCount { get { return Input.touchCount; } }
 		public static Touch[] touches { get { return Input.touches; } }
@@ -78,89 +76,70 @@ namespace TeamUtility.IO
 		
 		public static float GetAxis(string name, PlayerID playerID = PlayerID.One)
 		{
-			AxisConfiguration axisConfig = GetAxisConfiguration(playerID, name);
-			if(axisConfig != null)
+			InputAction action = GetAction(playerID, name);
+			if(action != null)
 			{
-				return axisConfig.GetAxis();
+				return action.GetAxis();
 			}
 			else
 			{
-				//Debug.LogWarning(string.Format("An axis named \'{0}\' does not exist in the active input configuration for player {1}", name, playerID));
+				Debug.LogError(string.Format("An axis named \'{0}\' does not exist in the active input configuration for player {1}", name, playerID));
 				return 0.0f;
 			}
 		}
 		
 		public static float GetAxisRaw(string name, PlayerID playerID = PlayerID.One)
 		{
-			AxisConfiguration axisConfig = GetAxisConfiguration(playerID, name);
-			if(axisConfig != null)
+			InputAction action = GetAction(playerID, name);
+			if(action != null)
 			{
-				return axisConfig.GetAxisRaw();
+				return action.GetAxisRaw();
 			}
 			else
 			{
-                //Debug.LogWarning(string.Format("An axis named \'{0}\' does not exist in the active input configuration for player {1}", name, playerID));
+                Debug.LogError(string.Format("An axis named \'{0}\' does not exist in the active input configuration for player {1}", name, playerID));
                 return 0.0f;
 			}
 		}
-
-        public static Vector2 GetAxisVector(string horizontal, string vertical, PlayerID playerID = PlayerID.One) {
-            Vector2 axis = Vector2.zero;
-            AxisConfiguration horizontalAxisConfig = GetAxisConfiguration(playerID, horizontal);
-            AxisConfiguration verticalAxisConfig = GetAxisConfiguration(playerID, vertical);
-
-            if  (horizontalAxisConfig != null) {
-                axis.x = horizontalAxisConfig.GetAxis(false);
-            }
-
-            if (verticalAxisConfig != null) {
-                axis.y = verticalAxisConfig.GetAxis(false);
-            }
-
-            if (axis.magnitude < horizontalAxisConfig.deadZone || axis.magnitude < verticalAxisConfig.deadZone)
-                axis = Vector2.zero;
-
-            return axis;
-        }
 		
 		public static bool GetButton(string name, PlayerID playerID = PlayerID.One)
 		{
-			AxisConfiguration axisConfig = GetAxisConfiguration(playerID, name);
-			if(axisConfig != null)
+			InputAction action = GetAction(playerID, name);
+			if(action != null)
 			{
-				return axisConfig.GetButton();
+				return action.GetButton();
 			}
 			else
 			{
-				//Debug.LogWarning(string.Format("An button named \'{0}\' does not exist in the active input configuration for player {1}", name, playerID));
+				Debug.LogError(string.Format("An button named \'{0}\' does not exist in the active input configuration for player {1}", name, playerID));
 				return false;
 			}
 		}
 		
 		public static bool GetButtonDown(string name, PlayerID playerID = PlayerID.One)
 		{
-			AxisConfiguration axisConfig = GetAxisConfiguration(playerID, name);
-			if(axisConfig != null)
+			InputAction action = GetAction(playerID, name);
+			if(action != null)
 			{
-				return axisConfig.GetButtonDown();
+				return action.GetButtonDown();
 			}
 			else
 			{
-                //Debug.LogWarning(string.Format("An button named \'{0}\' does not exist in the active input configuration for player {1}", name, playerID));
+                Debug.LogError(string.Format("An button named \'{0}\' does not exist in the active input configuration for player {1}", name, playerID));
                 return false;
 			}
 		}
 		
 		public static bool GetButtonUp(string name, PlayerID playerID = PlayerID.One)
 		{
-			AxisConfiguration axisConfig = GetAxisConfiguration(playerID, name);
-			if(axisConfig != null)
+			InputAction action = GetAction(playerID, name);
+			if(action != null)
 			{
-				return axisConfig.GetButtonUp();
+				return action.GetButtonUp();
 			}
 			else
 			{
-                //Debug.LogWarning(string.Format("An button named \'{0}\' does not exist in the active input configuration for player {1}", name, playerID));
+                Debug.LogError(string.Format("An button named \'{0}\' does not exist in the active input configuration for player {1}", name, playerID));
                 return false;
 			}
 		}

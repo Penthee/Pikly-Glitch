@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using Pikl.Extensions;
-using TeamUtility.IO;
+using Luminosity.IO;
 using Pikl.Profile;
 using Pikl.Data;
 using System.Linq;
@@ -44,7 +44,7 @@ namespace Pikl.UI {
         //}
 
         public override void Open() {
-            if (InputMgr.PlayerOneConfiguration.name == InputAdapter.JoystickConfiguration)
+            if (InputMgr.PlayerOneControlScheme.Name == "BAH")
                 Cursor.visible = false;
 
             //Cursor.SetCursor(crosshairCursor, new Vector2(crosshairCursor.width / 2, crosshairCursor.height / 2), CursorMode.Auto);

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-using TeamUtility.IO;
+using Luminosity.IO;
 //using Pikl.Audio;
 
 namespace Pikl.Profile {
@@ -189,31 +189,31 @@ namespace Pikl.Profile {
         //}
 
         public void OnLSDeadzoneChange(float val) {
-            AxisConfiguration axisConfig = InputMgr.GetAxisConfiguration("Windows_Gamepad", "LeftStickHorizontal");
+            /*AxisConfiguration axisConfig = InputMgr.GetAxisConfiguration("Windows_Gamepad", "LeftStickHorizontal");
             axisConfig.deadZone = val;
             axisConfig = InputMgr.GetAxisConfiguration("Windows_Gamepad", "LeftStickVertical");
             axisConfig.deadZone = val;
-            FileMgr.I.CreateNewInputFile(Name);
+            FileMgr.I.CreateNewInputFile(Name);*/
         }
 
         public void OnRSDeadzoneChange(float val) {
-            AxisConfiguration axisConfig = InputMgr.GetAxisConfiguration("Windows_Gamepad", "RightStickHorizontal");
+            /*AxisConfiguration axisConfig = InputMgr.GetAxisConfiguration("Windows_Gamepad", "RightStickHorizontal");
             axisConfig.deadZone = val;
             axisConfig = InputMgr.GetAxisConfiguration("Windows_Gamepad", "RightStickVertical");
             axisConfig.deadZone = val;
-            FileMgr.I.CreateNewInputFile(Name);
+            FileMgr.I.CreateNewInputFile(Name);*/
         }
 
         public void OnLTDeadzoneChange(float val) {
-            AxisConfiguration axisConfig = InputMgr.GetAxisConfiguration("Windows_Gamepad", "LeftTrigger");
+            /*AxisConfiguration axisConfig = InputMgr.GetAxisConfiguration("Windows_Gamepad", "LeftTrigger");
             axisConfig.deadZone = val;
-            FileMgr.I.CreateNewInputFile(Name);
+            FileMgr.I.CreateNewInputFile(Name);*/
         }
 
         public void OnRTDeadzoneChange(float val) {
-            AxisConfiguration axisConfig = InputMgr.GetAxisConfiguration("Windows_Gamepad", "RightTrigger");
+            /*AxisConfiguration axisConfig = InputMgr.GetAxisConfiguration("Windows_Gamepad", "RightTrigger");
             axisConfig.deadZone = val;
-            FileMgr.I.CreateNewInputFile(Name);
+            FileMgr.I.CreateNewInputFile(Name);*/
         }
     }
 

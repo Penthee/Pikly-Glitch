@@ -2,7 +2,7 @@
 using UnityEngine;
 using Pikl.States;
 using Pikl.Extensions;
-using TeamUtility.IO;
+using Luminosity.IO;
 using Pikl.Utils.Cameras;
 using Pikl.Data;
 using Pikl.Components;
@@ -48,7 +48,7 @@ namespace Pikl.Player {
                 }
 
                 Vector2 targetOffset = Vector2.zero;
-                if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration) {
+                if (InputMgr.PlayerOneControlScheme.Name == "BAH") {
                     targetOffset = player.input.MouseDir * player.input.aimCameraDistance;
                 } else {
                     targetOffset = player.input.StickDir * player.input.aimCameraDistance * 2.5f;

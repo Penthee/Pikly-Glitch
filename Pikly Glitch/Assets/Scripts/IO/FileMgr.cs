@@ -4,7 +4,7 @@ using System.Xml;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
-using TeamUtility.IO;
+using Luminosity.IO;
 
 namespace Pikl.Profile {
     public class FileMgr : Singleton<FileMgr> {

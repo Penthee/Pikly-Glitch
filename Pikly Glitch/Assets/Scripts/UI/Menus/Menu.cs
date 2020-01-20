@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using TeamUtility.IO;
+using Luminosity.IO;
 using UnityEngine.EventSystems;
 
 namespace Pikl.UI {
@@ -66,11 +66,13 @@ namespace Pikl.UI {
             //if (UIMgr.I.CurrentMenu is GameUI || UIMgr.I.CurrentMenu is MainMenu || UIMgr.I.CurrentMenu is GameComplete || UIMgr.I.CurrentMenu is End)
             //    return false;
 
-            if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration) {
+            /*if (InputMgr.PlayerOneControlScheme.Name == XInputDotNetAdapter.) {
                 return (InputMgr.GetKeyDown(KeyCode.Escape));
             } else {
                 return (InputMgr.GetButtonDown("Cancel"));
-            }
+            */
+            //}
+            return false;
         }
     }
 }

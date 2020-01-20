@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using System.Linq;
 using UnityEngine.Audio;
 //using Pikl.Utils.Coroutines;
-using TeamUtility.IO;
+using Luminosity.IO;
 //using Pikl.Audio;
 using Pikl.Profile;
 using Pikl.Data;
@@ -71,7 +71,7 @@ namespace Pikl.UI {
 
             //PlayMenuMusic();
 
-            InputAdapter.Instance.InputDeviceChanged += InputDeviceChanged;
+            //InputAdapter.Instance.InputDeviceChanged += InputDeviceChanged;
             
             ProfileMgr.I.WakeUp();
         }
@@ -294,7 +294,7 @@ namespace Pikl.UI {
 
         void InputDeviceChanged(InputDevice inputDevice) {
             switch(inputDevice) {
-                case InputDevice.Joystick:
+                case InputDevice.Gamepad:
                     CurrentMenu.SetFocus();
                     break;
                 case InputDevice.KeyboardAndMouse: break;

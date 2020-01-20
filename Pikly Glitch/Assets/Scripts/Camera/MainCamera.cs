@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Pikl.Extensions;
-using TeamUtility.IO;
+using Luminosity.IO;
 using DG.Tweening;
 
 namespace Pikl.Utils.Cameras {
@@ -233,7 +233,7 @@ namespace Pikl.Utils.Cameras {
         void StackScrollInput() {
             float input = 0;
 
-            if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration)
+            if (InputMgr.PlayerOneControlScheme.Name == "BAH")
                 input = -InputMgr.GetAxisRaw("Zoom") * zoomMagnitude;
 
             if (input != 0)
