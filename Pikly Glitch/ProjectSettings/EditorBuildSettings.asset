@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: e83c89fcb39b89b479fbc8d42911926c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing - Pikl.unity
     guid: b1bc01f7a8540e04e958043770e8ba7d
   - enabled: 1

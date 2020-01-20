@@ -177,6 +177,7 @@ namespace Pikl.Profile {
         
         public void OnFullscreenChange(bool val) {
             Screen.SetResolution(resolution.width.Value, resolution.height.Value, resolution.fullscreen.Value);
+            
         }
 
         //public void OnMouseSensitivityChange(float val) {

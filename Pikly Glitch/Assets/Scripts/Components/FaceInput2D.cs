@@ -51,7 +51,7 @@ namespace Pikl.Components
                     }
                 } else {
                     //if not moving or aiming, face last direction, if aiming, face aim direction
-                    return player.input.StickDir.magnitude == 0 ? lastDir : player.input.StickDir.normalized;
+                    return !player.input.AimAxis && player.input.StickDir.magnitude == 0 ? lastDir : player.input.StickDir.normalized;
                 }
             }
 

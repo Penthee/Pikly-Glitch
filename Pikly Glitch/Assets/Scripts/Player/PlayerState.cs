@@ -6,6 +6,7 @@ using TeamUtility.IO;
 using Pikl.Utils.Cameras;
 using Pikl.Data;
 using Pikl.Components;
+using UnityEditor.Experimental.GraphView;
 
 namespace Pikl.Player {
     public class PlayerState : State {
@@ -46,7 +47,12 @@ namespace Pikl.Player {
                     offsetConstraint = Vector2.Distance(player.t.position, r.point) * 0.1125f;
                 }
 
-                Vector2 targetOffset = player.input.MouseDir * player.input.aimCameraDistance;
+                Vector2 targetOffset = Vector2.zero;
+                if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration) {
+                    targetOffset = player.input.MouseDir * player.input.aimCameraDistance;
+                } else {
+                    targetOffset = player.input.StickDir * player.input.aimCameraDistance * 2.5f;
+                }
                 //Debug.Log("constraint: " + offsetConstraint + ", magnitude: " + targetOffset.magnitude);
                 targetOffset = Vector2.ClampMagnitude(targetOffset, offsetConstraint);
 

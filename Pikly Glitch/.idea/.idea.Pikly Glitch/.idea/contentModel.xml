@@ -188,6 +188,7 @@
         <e p="Resources" t="Include">
           <e p="Lookups" t="Include">
             <e p="ControllerConfigs.xml" t="Include" />
+            <e p="Default Input Configuration.xml" t="Include" />
             <e p="ItemDB.xml" t="Include" />
           </e>
         </e>
@@ -238,7 +239,6 @@
             <e p="Initialise.cs" t="Include" />
             <e p="MessageMgr.cs" t="Include" />
             <e p="SceneMgr.cs" t="Include" />
-            <e p="SceneObjCounter.cs" t="Include" />
             <e p="TitleControl.cs" t="Include" />
           </e>
           <e p="Data" t="Include">

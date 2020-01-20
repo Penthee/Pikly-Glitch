@@ -1,68 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ControllerConfigs>
   <Config name="Default">
-    <Mapping type="Stick" name="Move" h-axis="LeftStickHorizontal" v-axis="LeftStickVertical"/>
-    <Mapping type="Stick" name="Shoot" h-axis="RightStickHorizontal" v-axis="RightStickVertical"/>
-    <Mapping type="Button" name="Primary" axis="RightTrigger"/>
-    <Mapping type="Button" name="Secondary" axis="LeftTrigger"/>
-    <Mapping type="Button" name="Evade" axis="RightBumper"/>
-    <Mapping type="Button" name="Cycle Secondary" axis="LeftBumper"/>
-  </Config>
-  <Config name="LeftySticks">
-    <Mapping type="Stick" name="Move" h-axis="RightStickHorizontal" v-axis="RightStickVertical"/>
-    <Mapping type="Stick" name="Shoot" h-axis="LeftStickHorizontal" v-axis="LeftStickVertical"/>
-    <Mapping type="Button" name="Primary" axis="RightTrigger"/>
-    <Mapping type="Button" name="Secondary" axis="LeftTrigger"/>
-    <Mapping type="Button" name="Evade" axis="RightBumper"/>
-    <Mapping type="Button" name="Cycle Secondary" axis="LeftBumper"/>
-  </Config>
-  <Config name="LeftyTriggers">
-    <Mapping type="Stick" name="Move" h-axis="LeftStickHorizontal" v-axis="LeftStickVertical"/>
-    <Mapping type="Stick" name="Shoot" h-axis="RightStickHorizontal" v-axis="RightStickVertical"/>
-    <Mapping type="Button" name="Primary" axis="LeftTrigger"/>
-    <Mapping type="Button" name="Secondary" axis="RightTrigger"/>
-    <Mapping type="Button" name="Evade" axis="LeftBumper"/>
-    <Mapping type="Button" name="Cycle Secondary" axis="RightBumper"/>
-  </Config>
-  <Config name="LeftyFull">
-    <Mapping type="Stick" name="Move" h-axis="RightStickHorizontal" v-axis="RightStickVertical"/>
-    <Mapping type="Stick" name="Shoot" h-axis="LeftStickHorizontal" v-axis="LeftStickVertical"/>
-    <Mapping type="Button" name="Primary" axis="LeftTrigger"/>
-    <Mapping type="Button" name="Secondary" axis="RightTrigger"/>
-    <Mapping type="Button" name="Evade" axis="LeftBumper"/>
-    <Mapping type="Button" name="Cycle Secondary" axis="RightBumper"/>
-  </Config>
-  
-  <Config name="BumperShooter">
-    <Mapping type="Stick" name="Move" h-axis="LeftStickHorizontal" v-axis="LeftStickVertical"/>
-    <Mapping type="Stick" name="Shoot" h-axis="RightStickHorizontal" v-axis="RightStickVertical"/>
-    <Mapping type="Button" name="Primary" axis="RightBumper"/>
-    <Mapping type="Button" name="Secondary" axis="LeftBumper"/>
-    <Mapping type="Button" name="Evade" axis="Submit"/>
-    <Mapping type="Button" name="Cycle Secondary" axis="Cancel"/>
-  </Config>
-  <Config name="BumperShooterLefty">
-    <Mapping type="Stick" name="Move" h-axis="LeftStickHorizontal" v-axis="LeftStickVertical"/>
-    <Mapping type="Stick" name="Shoot" h-axis="RightStickHorizontal" v-axis="RightStickVertical"/>
-    <Mapping type="Button" name="Primary" axis="RightBumper"/>
-    <Mapping type="Button" name="Secondary" axis="LeftBumper"/>
-    <Mapping type="Button" name="Evade" axis="Submit"/>
-    <Mapping type="Button" name="Cycle Secondary" axis="Cancel"/>
-  </Config>
-  <Config name="BumperShooterLeftySticks">
-    <Mapping type="Stick" name="Move" h-axis="RightStickHorizontal" v-axis="RightStickVertical"/>
-    <Mapping type="Stick" name="Shoot" h-axis="LeftStickHorizontal" v-axis="LeftStickVertical"/>
-    <Mapping type="Button" name="Primary" axis="RightBumper"/>
-    <Mapping type="Button" name="Secondary" axis="LeftBumper"/>
-    <Mapping type="Button" name="Evade" axis="Submit"/>
-    <Mapping type="Button" name="Cycle Secondary" axis="Cancel"/>
-  </Config>
-  <Config name="BumperShooterLeftyFull">
-    <Mapping type="Stick" name="Move" h-axis="RightStickHorizontal" v-axis="RightStickVertical"/>
-    <Mapping type="Stick" name="Shoot" h-axis="LeftStickHorizontal" v-axis="LeftStickVertical"/>
-    <Mapping type="Button" name="Primary" axis="RightBumper"/>
-    <Mapping type="Button" name="Secondary" axis="LeftBumper"/>
-    <Mapping type="Button" name="Evade" axis="Submit"/>
-    <Mapping type="Button" name="Cycle Secondary" axis="Cancel"/>
+    <Mapping type="Stick" name="Move" h-axis="MoveHorizontal" v-axis="MoveVertical"/>
+    <Mapping type="Stick" name="Shoot" h-axis="ShootHorizontal" v-axis="ShootVertical"/>
+    <Mapping type="Button" name="Shoot" axis="Shoot"/>
+    <Mapping type="Button" name="Aim" axis="Aim"/>
+    <Mapping type="Button" name="Evade" axis="Evade"/>
+    <Mapping type="Button" name="Zoom" axis="Zoom"/>
+    <Mapping type="Button" name="Drop" axis="Drop"/>
+    <Mapping type="Button" name="Melee" axis="Melee"/>
+    <Mapping type="Button" name="Interact" axis="Interact"/>
+    <Mapping type="Button" name="Crafting" axis="Crafting"/>
+    <Mapping type="Button" name="Reorder" axis="Reorder"/>
   </Config>
 </ControllerConfigs>

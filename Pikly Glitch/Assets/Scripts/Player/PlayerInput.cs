@@ -32,10 +32,16 @@ namespace Pikl.Player {
             mappings.Add("MoveVertical", LookupMgr.I.controllerConfigs.FindMapping("Move").altAxis);
             mappings.Add("ShootHorizontal", LookupMgr.I.controllerConfigs.FindMapping("Shoot").axis);
             mappings.Add("ShootVertical", LookupMgr.I.controllerConfigs.FindMapping("Shoot").altAxis);
-            mappings.Add("Primary", LookupMgr.I.controllerConfigs.FindMapping("Primary").axis);
-            mappings.Add("Secondary", LookupMgr.I.controllerConfigs.FindMapping("Secondary").axis);
+            
+            mappings.Add("Shoot", LookupMgr.I.controllerConfigs.FindMapping("Shoot").axis);
+            mappings.Add("Aim", LookupMgr.I.controllerConfigs.FindMapping("Aim").axis);
             mappings.Add("Evade", LookupMgr.I.controllerConfigs.FindMapping("Evade").axis);
-            mappings.Add("Cycle", LookupMgr.I.controllerConfigs.FindMapping("Cycle Secondary").axis);
+            mappings.Add("Zoom", LookupMgr.I.controllerConfigs.FindMapping("Zoom").axis);
+            mappings.Add("Drop", LookupMgr.I.controllerConfigs.FindMapping("Drop").axis);
+            mappings.Add("Melee", LookupMgr.I.controllerConfigs.FindMapping("Melee").axis);
+            mappings.Add("Interact", LookupMgr.I.controllerConfigs.FindMapping("Interact").axis);
+            mappings.Add("Crafting", LookupMgr.I.controllerConfigs.FindMapping("Crafting").axis);
+            mappings.Add("Reorder", LookupMgr.I.controllerConfigs.FindMapping("Reorder").axis);
         }
 
         public static bool Pause {
@@ -205,9 +211,9 @@ namespace Pikl.Player {
                 if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration)
                     return InputMgr.GetAxisRaw("Aim") != 0;
                 else {
-                    if (mappings["Secondary"].Contains("Bumper"))
-                        return InputMgr.GetButton(mappings["Secondary"]);
-                    return InputMgr.GetAxis(mappings["Secondary"]) != 0;
+                    if (mappings["Aim"].Contains("Bumper"))
+                        return InputMgr.GetButton(mappings["Aim"]);
+                    return InputMgr.GetAxis(mappings["Aim"]) != 0;
                 }
             }
         }

@@ -237,7 +237,7 @@ namespace Pikl.Profile {
                         xw.WriteAttributeString("width", Screen.width.ToString());
                         xw.WriteAttributeString("height", Screen.height.ToString());
 #endif
-                        xw.WriteAttributeString("fullscreen", "true");
+                        xw.WriteAttributeString("fullscreen", "false");
                         xw.WriteEndElement();
                         xw.WriteEndElement();
 

@@ -302,7 +302,7 @@ MonoBehaviour:
     isExpanded: 1
   - name: Windows_Gamepad
     axes:
-    - name: Horizontal
+    - name: MoveHorizontal
       description: 
       positive: 0
       negative: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
       type: 3
       axis: 0
       joystick: 0
-    - name: Vertical
+    - name: MoveVertical
       description: 
       positive: 0
       negative: 0
@@ -330,7 +330,7 @@ MonoBehaviour:
       type: 3
       axis: 1
       joystick: 0
-    - name: LookHorizontal
+    - name: ShootHorizontal
       description: 
       positive: 0
       negative: 0
@@ -344,7 +344,7 @@ MonoBehaviour:
       type: 3
       axis: 3
       joystick: 0
-    - name: LookVertical
+    - name: ShootVertical
       description: 
       positive: 0
       negative: 0
@@ -386,7 +386,105 @@ MonoBehaviour:
       type: 3
       axis: 1
       joystick: 0
-    - name: Jump
+    - name: Evade
+      description: 
+      positive: 350
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: Drop
+      description: 
+      positive: 355
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: Zoom
+      description: 
+      positive: 355
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: Reload
+      description: 
+      positive: 355
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: Reorder
+      description: 
+      positive: 355
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: Crafting
+      description: 
+      positive: 355
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: Interact
+      description: 
+      positive: 355
+      negative: 0
+      altPositive: 0
+      altNegative: 0
+      deadZone: 0
+      gravity: 0
+      sensitivity: 0
+      snap: 0
+      invert: 0
+      type: 0
+      axis: 0
+      joystick: 0
+    - name: Melee
       description: 
       positive: 350
       negative: 0
@@ -456,7 +554,7 @@ MonoBehaviour:
       type: 3
       axis: 6
       joystick: 0
-    - name: RightTrigger
+    - name: Shoot
       description: 
       positive: 0
       negative: 0
@@ -470,7 +568,7 @@ MonoBehaviour:
       type: 3
       axis: 9
       joystick: 0
-    - name: LeftTrigger
+    - name: Aim
       description: 
       positive: 0
       negative: 0
@@ -484,7 +582,7 @@ MonoBehaviour:
       type: 3
       axis: 8
       joystick: 0
-    isExpanded: 0
+    isExpanded: 1
   - name: OSX_Gamepad
     axes:
     - name: Horizontal
