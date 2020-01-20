@@ -35,8 +35,11 @@ namespace Pikl.Player {
                 //TODO - Take player out of sprint state when reloading
             }
 
-            if (player.input.InteractAxis)
-                player.interactID = player.StartAsync(new States.Interact(0));
+            if (player.input.InteractAxis) {
+                var obj = player.input.FindClosestInteractable();
+                if (obj)
+                    player.interactID = player.StartAsync(new States.Interact(obj));
+            }
 
             if (player.input.DropAxis)
                 player.inventory.Drop();

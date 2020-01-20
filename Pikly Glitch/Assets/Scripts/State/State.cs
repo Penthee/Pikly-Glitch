@@ -57,6 +57,7 @@ namespace Pikl.States {
             this.lifetime = lifetime;
             this.lifetimeAciton = la;
             this.nextStateOverride = nextStateOverride;
+            stateID = StateObjectMgr.NextStateID;
         }
 
         internal virtual void Enter(StateObject so) {

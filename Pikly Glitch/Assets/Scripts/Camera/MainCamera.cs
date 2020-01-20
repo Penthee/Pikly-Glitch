@@ -118,13 +118,21 @@ namespace Pikl.Utils.Cameras {
             }
         }
 
+        bool mapInput;
         void Update() {
             //if (shaker.scaleAddShake == 0)
                 StackScrollInput();
 
             //if (target != null)
             //    bounds = target.GetComponent<StupidBounds>().bounds;
-            if (InputMgr.GetAxisRaw("Map") != 0) {
+            if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse")
+                mapInput = InputMgr.GetAxisRaw("Map") != 0;
+            else {
+                //TODO move all input stuff here into the PlayerInput - consistency and mappings
+                mapInput = InputMgr.GetButtonDown("Map");
+            }
+
+            if (mapInput) {
                 if (!mapButtonIsDown) {
                     if (mapLastToggle + mapTransitionTime < Time.time) {
                         mapMode = !mapMode;
@@ -203,7 +211,12 @@ namespace Pikl.Utils.Cameras {
         }
 
         void CalcMapCamera() {
-            Vector2 input = new Vector2(InputMgr.GetAxis("Horizontal"), InputMgr.GetAxis("Vertical"));
+            Vector2 input;
+            
+            if (InputMgr.PlayerOneControlScheme.Name == "Gamepad")
+                input = new Vector2(InputMgr.GetAxis("MoveHorizontal"), InputMgr.GetAxis("MoveVertical"));
+            else
+                input = new Vector2(InputMgr.GetAxis("Horizontal"), InputMgr.GetAxis("Vertical"));
 
             //camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, Mathf.Clamp(targetSize + scaleOffset, 0, bounds.extents.y), zoomSmoothing);
 
@@ -233,7 +246,7 @@ namespace Pikl.Utils.Cameras {
         void StackScrollInput() {
             float input = 0;
 
-            if (InputMgr.PlayerOneControlScheme.Name == "BAH")
+            if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse")
                 input = -InputMgr.GetAxisRaw("Zoom") * zoomMagnitude;
 
             if (input != 0)

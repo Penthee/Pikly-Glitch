@@ -48,7 +48,7 @@ namespace Pikl.Player {
                 }
 
                 Vector2 targetOffset = Vector2.zero;
-                if (InputMgr.PlayerOneControlScheme.Name == "BAH") {
+                if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
                     targetOffset = player.input.MouseDir * player.input.aimCameraDistance;
                 } else {
                     targetOffset = player.input.StickDir * player.input.aimCameraDistance * 2.5f;

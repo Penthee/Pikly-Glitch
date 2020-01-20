@@ -39,6 +39,7 @@ namespace Pikl {
 
                         switch(type) {
                             case Mapping.Type.Button:
+                            case Mapping.Type.Trigger:
                                 axis = mapping.Attributes["axis"].InnerText;
                                 break;
                             case Mapping.Type.Stick:

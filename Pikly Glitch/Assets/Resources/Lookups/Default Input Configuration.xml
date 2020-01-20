@@ -1,986 +1,1216 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<Input playerOneDefault="KeyboardAndMouse" playerTwoDefault="" playerThreeDefault="" playerFourDefault="">
-  <InputConfiguration name="KeyboardAndMouse">
-    <AxisConfiguration name="Horizontal">
-      <description />
-      <positive>D</positive>
-      <altPositive>None</altPositive>
-      <negative>A</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>3</gravity>
-      <sensitivity>3</sensitivity>
-      <snap>true</snap>
-      <invert>false</invert>
-      <type>DigitalAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Vertical">
-      <description />
-      <positive>W</positive>
-      <altPositive>None</altPositive>
-      <negative>S</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>3</gravity>
-      <sensitivity>3</sensitivity>
-      <snap>true</snap>
-      <invert>false</invert>
-      <type>DigitalAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="LookHorizontal">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>1</gravity>
-      <sensitivity>0.1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>MouseAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="LookVertical">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>1</gravity>
-      <sensitivity>0.1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>MouseAxis</type>
-      <axis>1</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="MenuHorizontal">
-      <description />
-      <positive>D</positive>
-      <altPositive>RightArrow</altPositive>
-      <negative>A</negative>
-      <altNegative>LeftArrow</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>3</gravity>
-      <sensitivity>3</sensitivity>
-      <snap>true</snap>
-      <invert>false</invert>
-      <type>DigitalAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="MenuVertical">
-      <description />
-      <positive>W</positive>
-      <altPositive>UpArrow</altPositive>
-      <negative>S</negative>
-      <altNegative>DownArrow</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>3</gravity>
-      <sensitivity>3</sensitivity>
-      <snap>true</snap>
-      <invert>false</invert>
-      <type>DigitalAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Shoot">
-      <description />
-      <positive>Mouse0</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>DigitalAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Aim">
-      <description />
-      <positive>Mouse1</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>DigitalAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Cancel">
-      <description />
-      <positive>Escape</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Mouse Scrollwheel">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>1</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>MouseAxis</type>
-      <axis>2</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Evade">
-      <description />
-      <positive>LeftShift</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>1</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>DigitalAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Zoom">
-      <description />
-      <positive>Equals</positive>
-      <altPositive>None</altPositive>
-      <negative>Minus</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>1</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>DigitalAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Reload">
-      <description />
-      <positive>R</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>1</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>DigitalAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Interact">
-      <description />
-      <positive>F</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>1</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>DigitalAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Drop">
-      <description />
-      <positive>Q</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>1</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>DigitalAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Reorder">
-      <description />
-      <positive>E</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>1</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>DigitalAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Crafting">
-      <description />
-      <positive>C</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>1</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>DigitalAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Map">
-      <description />
-      <positive>Tab</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>1</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>DigitalAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-  </InputConfiguration>
-  <InputConfiguration name="Windows_Gamepad">
-    <AxisConfiguration name="MoveHorizontal">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="MoveVertical">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>true</invert>
-      <type>AnalogAxis</type>
-      <axis>1</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="ShootHorizontal">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>3</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="ShootVertical">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>true</invert>
-      <type>AnalogAxis</type>
-      <axis>4</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="MenuHorizontal">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="MenuVertical">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>true</invert>
-      <type>AnalogAxis</type>
-      <axis>1</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Evade">
-      <description />
-      <positive>Joystick1Button1</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Drop">
-      <description />
-      <positive>Joystick1Button3</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Zoom">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1000</sensitivity>
-      <snap>true</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>6</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Reload">
-      <description />
-      <positive>Joystick1Button5</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Reorder">
-      <description />
-      <positive>Joystick1Button4</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Crafting">
-      <description />
-      <positive>Joystick1Button6</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Interact">
-      <description />
-      <positive>Joystick1Button0</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Melee">
-      <description />
-      <positive>Joystick1Button2</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Submit">
-      <description />
-      <positive>Joystick1Button0</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Pause">
-      <description />
-      <positive>Joystick1Button7</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Cancel">
-      <description />
-      <positive>Joystick1Button1</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="DPADHorizontal">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1000</sensitivity>
-      <snap>true</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>5</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="DPADVertical">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1000</sensitivity>
-      <snap>true</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>6</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Shoot">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1000</sensitivity>
-      <snap>true</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>9</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Aim">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1000</sensitivity>
-      <snap>true</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>8</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-  </InputConfiguration>
-  <InputConfiguration name="OSX_Gamepad">
-    <AxisConfiguration name="Horizontal">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Vertical">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>true</invert>
-      <type>AnalogAxis</type>
-      <axis>1</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="LookHorizontal">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>2</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="LookVertical">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>3</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="MenuHorizontal">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="MenuVertical">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>1</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Jump">
-      <description />
-      <positive>Joystick1Button16</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Submit">
-      <description />
-      <positive>Joystick1Button16</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Cancel">
-      <description />
-      <positive>Joystick1Button9</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="DPADHorizontal">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="DPADVertical">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="RightTrigger">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1000</sensitivity>
-      <snap>true</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>5</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="LeftTrigger">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1000</sensitivity>
-      <snap>true</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>4</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-  </InputConfiguration>
-  <InputConfiguration name="Linux_Gamepad">
-    <AxisConfiguration name="Horizontal">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Vertical">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>1</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="LookHorizontal">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>3</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="LookVertical">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>4</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="MenuHorizontal">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="MenuVertical">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0.2</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>1</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Jump">
-      <description />
-      <positive>Joystick1Button0</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Submit">
-      <description />
-      <positive>Joystick1Button0</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="Cancel">
-      <description />
-      <positive>Joystick1Button7</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>0</sensitivity>
-      <snap>false</snap>
-      <invert>false</invert>
-      <type>Button</type>
-      <axis>0</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="DPADHorizontal">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1000</sensitivity>
-      <snap>true</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>6</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="DPADVertical">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1000</sensitivity>
-      <snap>true</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>7</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="RightTrigger">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1000</sensitivity>
-      <snap>true</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>5</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-    <AxisConfiguration name="LeftTrigger">
-      <description />
-      <positive>None</positive>
-      <altPositive>None</altPositive>
-      <negative>None</negative>
-      <altNegative>None</altNegative>
-      <deadZone>0</deadZone>
-      <gravity>0</gravity>
-      <sensitivity>1000</sensitivity>
-      <snap>true</snap>
-      <invert>false</invert>
-      <type>AnalogAxis</type>
-      <axis>2</axis>
-      <joystick>0</joystick>
-    </AxisConfiguration>
-  </InputConfiguration>
+<Input version="2">
+  <PlayerOneScheme>75e7a09fa25d4eca8d4381b09945eb67</PlayerOneScheme>
+  <PlayerTwoScheme />
+  <PlayerThreeScheme />
+  <PlayerFourScheme />
+  <ControlScheme name="KeyboardAndMouse" id="46a2720798a0458a896604a48acf704d">
+    <Description />
+    <Action name="Horizontal">
+      <Description />
+      <Binding>
+        <Positive>D</Positive>
+        <Negative>A</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>3</Gravity>
+        <Sensitivity>3</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>3</Gravity>
+        <Sensitivity>3</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Vertical">
+      <Description />
+      <Binding>
+        <Positive>W</Positive>
+        <Negative>S</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>3</Gravity>
+        <Sensitivity>3</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>3</Gravity>
+        <Sensitivity>3</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="LookHorizontal">
+      <Description />
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>0.1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>MouseAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="LookVertical">
+      <Description />
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>0.1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>MouseAxis</Type>
+        <Axis>1</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="UI_Left">
+      <Description />
+      <Binding>
+        <Positive>A</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>3</Gravity>
+        <Sensitivity>3</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>RightArrow</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>3</Gravity>
+        <Sensitivity>3</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="UI_Right">
+      <Description />
+      <Binding>
+        <Positive>D</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>3</Gravity>
+        <Sensitivity>3</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>RightArrow</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>3</Gravity>
+        <Sensitivity>3</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="UI_Up">
+      <Description />
+      <Binding>
+        <Positive>W</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>3</Gravity>
+        <Sensitivity>3</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>UpArrow</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>3</Gravity>
+        <Sensitivity>3</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="UI_Down">
+      <Description />
+      <Binding>
+        <Positive>S</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>3</Gravity>
+        <Sensitivity>3</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>DownArrow</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>3</Gravity>
+        <Sensitivity>3</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Shoot">
+      <Description />
+      <Binding>
+        <Positive>Mouse0</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Aim">
+      <Description />
+      <Binding>
+        <Positive>Mouse1</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="UI_Cancel">
+      <Description />
+      <Binding>
+        <Positive>Escape</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>Button</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>Backspace</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>Button</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Mouse Scrollwheel">
+      <Description />
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>MouseAxis</Type>
+        <Axis>2</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Evade">
+      <Description />
+      <Binding>
+        <Positive>LeftShift</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Zoom">
+      <Description />
+      <Binding>
+        <Positive>Equals</Positive>
+        <Negative>Minus</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Reload">
+      <Description />
+      <Binding>
+        <Positive>R</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Interact">
+      <Description />
+      <Binding>
+        <Positive>F</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Drop">
+      <Description />
+      <Binding>
+        <Positive>Q</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Reorder">
+      <Description />
+      <Binding>
+        <Positive>E</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Crafting">
+      <Description />
+      <Binding>
+        <Positive>C</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Map">
+      <Description />
+      <Binding>
+        <Positive>Tab</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="UI_Submit">
+      <Description />
+      <Binding>
+        <Positive>Space</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>DigitalAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+  </ControlScheme>
+  <ControlScheme name="Gamepad" id="75e7a09fa25d4eca8d4381b09945eb67">
+    <Description />
+    <Action name="MoveHorizontal">
+      <Description />
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0.2</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="MoveVertical">
+      <Description />
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0.2</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadAxis</Type>
+        <Axis>1</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickY</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="LookHorizontal">
+      <Description />
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0.2</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadAxis</Type>
+        <Axis>3</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>RightThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="LookVertical">
+      <Description />
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0.2</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadAxis</Type>
+        <Axis>4</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>RightThumbstickY</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="UI_Left">
+      <Description />
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0.2</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>DPadLeft</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="UI_Right">
+      <Description />
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0.2</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadAxis</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>DPadRight</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="UI_Up">
+      <Description />
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0.2</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>true</Invert>
+        <Type>AnalogAxis</Type>
+        <Axis>1</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>DPadUp</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="UI_Down">
+      <Description />
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0.2</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>true</Invert>
+        <Type>AnalogAxis</Type>
+        <Axis>1</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>DPadDown</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Evade">
+      <Description />
+      <Binding>
+        <Positive>Joystick1Button1</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>ActionRight</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Drop">
+      <Description />
+      <Binding>
+        <Positive>Joystick1Button3</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>ActionTop</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Reload">
+      <Description />
+      <Binding>
+        <Positive>Joystick1Button5</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>RightBumper</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Reorder">
+      <Description />
+      <Binding>
+        <Positive>Joystick1Button4</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftBumper</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Crafting">
+      <Description />
+      <Binding>
+        <Positive>Joystick1Button6</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>Back</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Interact">
+      <Description />
+      <Binding>
+        <Positive>Joystick1Button0</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>ActionBottom</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Melee">
+      <Description />
+      <Binding>
+        <Positive>Joystick1Button2</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>ActionLeft</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="UI_Submit">
+      <Description />
+      <Binding>
+        <Positive>Joystick1Button0</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>ActionBottom</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Pause">
+      <Description />
+      <Binding>
+        <Positive>Joystick1Button7</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>Start</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="UI_Cancel">
+      <Description />
+      <Binding>
+        <Positive>Joystick1Button1</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>ActionRight</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="DPADHorizontal">
+      <Description />
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>1000</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>AnalogAxis</Type>
+        <Axis>5</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="DPADVertical">
+      <Description />
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>1000</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>AnalogAxis</Type>
+        <Axis>6</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Shoot">
+      <Description>Right Trigger</Description>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>1000</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadAxis</Type>
+        <Axis>9</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>RightTrigger</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Aim">
+      <Description>Left Trigger</Description>
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>1000</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>true</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadAxis</Type>
+        <Axis>8</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>LeftStick</GamepadButton>
+        <GamepadAxis>LeftTrigger</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="Map">
+      <Description />
+      <Binding>
+        <Positive>None</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>1</Gravity>
+        <Sensitivity>1</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>DPadLeft</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+  </ControlScheme>
 </Input>

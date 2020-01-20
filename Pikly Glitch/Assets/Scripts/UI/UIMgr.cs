@@ -99,6 +99,9 @@ namespace Pikl.UI {
                 menuHistory.Push(CurrentMenu);
             }
 
+            if (menu == null)
+                return;
+            
             CurrentMenu = menu;
             CurrentMenu.gameObject.SetActive(true);
             CurrentMenu.Open();

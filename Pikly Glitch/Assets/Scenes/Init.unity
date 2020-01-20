@@ -379,7 +379,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558907734}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
@@ -565,10 +565,10 @@ MonoBehaviour:
   loadingText: {fileID: 422650183}
   loadingBar: {fileID: 483925216}
   post: {fileID: 558907736}
-  splashTimeDelay: 1.5
-  splashLength: 6
+  splashTimeDelay: 0.5
+  splashLength: 5
   loadingAnimationSpeed: 1.2
-  bloomIntensity: 12
+  bloomIntensity: 5
   vignetteIntensity: 0.75
   loadingEase: 16
 --- !u!4 &1444891582

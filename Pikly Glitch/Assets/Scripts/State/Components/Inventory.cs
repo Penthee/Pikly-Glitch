@@ -92,12 +92,24 @@ namespace Pikl.Player {
             }
         }
 
+        float controllerSelectionCooldown = 0.2f, lastMoveInputTime;
         public void Update() {
             float moveInput = 0, reorderInput = 0;
 
             if (!(UI.UIMgr.I.gameUI as UI.GameUI).craftingUI.activeSelf) {
-                moveInput = -InputMgr.GetAxisRaw("Mouse Scrollwheel");
-                reorderInput = InputMgr.GetAxisRaw("Reorder");
+                if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
+                    moveInput = -InputMgr.GetAxisRaw("Mouse Scrollwheel");
+                    reorderInput = InputMgr.GetAxisRaw("Reorder");
+                } else if (lastMoveInputTime + controllerSelectionCooldown < Time.time || InputMgr.GetAxisRaw("DPADVertical") == 0) {
+                    moveInput = -InputMgr.GetAxisRaw("DPADVertical");
+                    reorderInput = InputMgr.GetButton("Interact") ? 1 : 0;
+
+                    if (moveInput != 0) {
+                        lastMoveInputTime = Time.time;
+                    } else {
+                        lastMoveInputTime = 0;
+                    }
+                }
             }
 
             Weapon w = (SelectedItem as Weapon);

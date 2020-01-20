@@ -2,12 +2,11 @@
 <ControllerConfigs>
   <Config name="Default">
     <Mapping type="Stick" name="Move" h-axis="MoveHorizontal" v-axis="MoveVertical"/>
-    <Mapping type="Stick" name="Look" h-axis="ShootHorizontal" v-axis="ShootVertical"/>
+    <Mapping type="Stick" name="Look" h-axis="LookHorizontal" v-axis="LookVertical"/>
     <Mapping type="Trigger" name="Shoot" axis="Shoot"/>
     <Mapping type="Trigger" name="Aim" axis="Aim"/>
     <Mapping type="Button" name="Reload" axis="Reload"/>
     <Mapping type="Button" name="Evade" axis="Evade"/>
-    <Mapping type="Button" name="Zoom" axis="Zoom"/>
     <Mapping type="Button" name="Drop" axis="Drop"/>
     <Mapping type="Button" name="Melee" axis="Melee"/>
     <Mapping type="Button" name="Interact" axis="Interact"/>

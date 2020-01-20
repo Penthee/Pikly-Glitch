@@ -26,6 +26,8 @@ namespace Pikl {
         void Start() {
             Random.InitState((int)System.DateTime.Today.Ticks);
 
+            Application.runInBackground = true;
+            
             Cursor.SetCursor(Resources.Load<Texture2D>("Sprites/UI/Cursors/pointer"), Vector2.zero, CursorMode.Auto);
 
             //if (FileMgr.I.config.LastPlayer == "")

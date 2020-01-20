@@ -44,7 +44,7 @@ namespace Pikl.Player.States {
             //}
             player.weaponSprite.gameObject.SetActive(false);
 
-            player.aimID = 0;
+            //player.aimID = 0;
 
             base.Exit();
         }

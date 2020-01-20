@@ -48,6 +48,9 @@ namespace Pikl.UI {
 
         public virtual void Open()
         {
+            if (InputMgr.PlayerOneControlScheme.Name != "KeyboardAndMouse")
+                Cursor.visible = false;
+            
             SetFocus();
             IsOpen = true;
         }

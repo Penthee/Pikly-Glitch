@@ -25,10 +25,6 @@ namespace Pikl.UI {
         }
 
         public override void Open() {
-            
-            if (InputMgr.PlayerOneControlScheme.Name == "BAH")
-                Cursor.visible = false;
-
             //Cursor.SetCursor(pointerCursor, new Vector2(pointerCursor.width * 0.05f, pointerCursor.height * 0.05f), CursorMode.Auto);
             
             //Invoke(nameof(EnableTitle), titleShowDelay);

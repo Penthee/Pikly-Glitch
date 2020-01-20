@@ -11,35 +11,24 @@ namespace Pikl.Player.States {
 
         InteractableObj io = null;
 
-        public Interact(float lifetime) : base (lifetime, LifetimeAction.Drop) {
+        public Interact(InteractableObj obj) : base (0, LifetimeAction.Drop) {
+            io = obj;
         }
 
         internal override void Enter(StateObject so) {
             base.Enter(so);
 
-            player.lastInteractTime = Time.time;
-
-            //AudioMgr.I.PlaySound(Player.laserSound);
-
-            io = player.input.FindClosestInteractable();
-
             if (io == null) {
-                Debug.Log("no interactable found.");
-                Exit();
-            } else {
-                //Debug.Log("interactable found... activating");
-                io.Interact();
+                so.StopAsync(stateID);
+                return;
             }
+            
+            player.lastInteractTime = Time.time;
+            
+            io.Interact();
         }
-
-        internal override State Update() {
-
-            return base.Update();
-        }
-
+        
         internal override void Exit() {
-            player.interactID = 0;
-
             if (io && io as TerminalObj) {
                 (io as TerminalObj).isOpen = false;
                 (UIMgr.I.CurrentMenu as GameUI).CloseTerminal();

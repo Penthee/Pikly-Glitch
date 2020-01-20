@@ -55,8 +55,11 @@ namespace Pikl.Player {
             if (player.input.ReloadAxis)
                 (player.inventory.SelectedItem as Weapon).Reload();
 
-            if (player.input.InteractAxis)
-                player.interactID = player.StartAsync(new States.Interact(0));
+            if (player.input.InteractAxis) {
+                var obj = player.input.FindClosestInteractable();
+                if (obj)
+                    player.interactID = player.StartAsync(new States.Interact(obj));
+            }
 
             if (player.input.UseAxis) {
                 switch (player.inventory.SelectedItem.type) {

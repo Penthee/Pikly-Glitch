@@ -34,11 +34,10 @@ namespace Pikl.Player {
             mappings.Add("Look", LookupMgr.I.controllerConfigs.FindMapping("Look"));
             mappings.Add("Shoot", LookupMgr.I.controllerConfigs.FindMapping("Shoot"));
             mappings.Add("Aim", LookupMgr.I.controllerConfigs.FindMapping("Aim"));
+            mappings.Add("Reload", LookupMgr.I.controllerConfigs.FindMapping("Reload"));
             mappings.Add("Evade", LookupMgr.I.controllerConfigs.FindMapping("Evade"));
-            mappings.Add("Zoom", LookupMgr.I.controllerConfigs.FindMapping("Zoom"));
             mappings.Add("Drop", LookupMgr.I.controllerConfigs.FindMapping("Drop"));
             mappings.Add("Melee", LookupMgr.I.controllerConfigs.FindMapping("Melee"));
-            mappings.Add("Reload", LookupMgr.I.controllerConfigs.FindMapping("Reload"));
             mappings.Add("Interact", LookupMgr.I.controllerConfigs.FindMapping("Interact"));
             mappings.Add("Crafting", LookupMgr.I.controllerConfigs.FindMapping("Crafting"));
             mappings.Add("Reorder", LookupMgr.I.controllerConfigs.FindMapping("Reorder"));
@@ -47,7 +46,7 @@ namespace Pikl.Player {
 
         public static bool Pause {
             get {
-                if (InputMgr.PlayerOneControlScheme.Name == "BAH")
+                if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse")
                     return Input.GetKeyDown(KeyCode.Escape);
                 else
                     return InputMgr.GetButtonDown("Pause");
@@ -108,7 +107,7 @@ namespace Pikl.Player {
 
         public Vector3 MoveAxis {
             get {
-                if (InputMgr.PlayerOneControlScheme.Name == "BAH")
+                if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse")
                     return new Vector3(InputMgr.GetAxis("Horizontal"), InputMgr.GetAxis("Vertical"), 0);
                 else
                     return new Vector3(InputMgr.GetAxis(mappings["Move"].axis),  InputMgr.GetAxis(mappings["Move"].altAxis));
@@ -117,7 +116,7 @@ namespace Pikl.Player {
 
         public Vector3 MoveAxisRaw {
             get {
-                if (InputMgr.PlayerOneControlScheme.Name == "BAH")
+                if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse")
                     return new Vector3(InputMgr.GetAxisRaw("Horizontal"), InputMgr.GetAxisRaw("Vertical"), 0);
                 else
                     return new Vector3(InputMgr.GetAxis(mappings["Move"].axis),  InputMgr.GetAxis(mappings["Move"].altAxis));
@@ -179,12 +178,12 @@ namespace Pikl.Player {
 
         bool ShootInput {
             get {
-                if (InputMgr.PlayerOneControlScheme.Name == "BAH")
+                if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse")
                     return InputMgr.GetAxisRaw("Shoot") != 0;
                 else {
                     if (mappings["Shoot"].type == LookupMgr.ControllerConfigs.Mapping.Type.Button)
                         return InputMgr.GetButton(mappings["Shoot"].axis);
-                    return InputMgr.GetAxisRaw(mappings["Shoot"].axis) != 0;
+                    return InputMgr.GetAxis(mappings["Shoot"].axis) != 0;
                 }
             }
         }
@@ -195,7 +194,7 @@ namespace Pikl.Player {
 
         public bool AimInput {
             get {
-                if (InputMgr.PlayerOneControlScheme.Name == "BAH")
+                if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse")
                     return InputMgr.GetAxisRaw("Aim") != 0;
                 else {
                     if (mappings["Aim"].type == LookupMgr.ControllerConfigs.Mapping.Type.Button)
@@ -207,7 +206,7 @@ namespace Pikl.Player {
 
         public bool InteractInput {
             get {
-                if (InputMgr.PlayerOneControlScheme.Name == "BAH")
+                if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse")
                     return InputMgr.GetAxisRaw("Interact") != 0;
                 else {
                     if (mappings["Interact"].type == LookupMgr.ControllerConfigs.Mapping.Type.Button)
@@ -239,7 +238,7 @@ namespace Pikl.Player {
 
         public bool EvadeInput {
             get {
-                if (InputMgr.PlayerOneControlScheme.Name == "BAH")
+                if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse")
                     return InputMgr.GetAxis("Evade") != 0;
                 else {
                     if (mappings["Evade"].type == LookupMgr.ControllerConfigs.Mapping.Type.Button)
@@ -251,7 +250,7 @@ namespace Pikl.Player {
 
         bool ReloadInput {
             get {
-                if (InputMgr.PlayerOneControlScheme.Name == "BAH") {
+                if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
                     return InputMgr.GetAxisRaw("Reload") != 0;
                 } else {
                     if (mappings["Reload"].type == LookupMgr.ControllerConfigs.Mapping.Type.Button)
@@ -277,7 +276,7 @@ namespace Pikl.Player {
 
         bool DropInput {
             get {
-                if (InputMgr.PlayerOneControlScheme.Name == "BAH") {
+                if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
                     return InputMgr.GetAxisRaw("Drop") != 0;
                 } else {
                     if (mappings["Drop"].type == LookupMgr.ControllerConfigs.Mapping.Type.Button)
@@ -306,7 +305,7 @@ namespace Pikl.Player {
 
         public bool CraftingInput {
             get {
-                if (InputMgr.PlayerOneControlScheme.Name == "BAH")
+                if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse")
                     return InputMgr.GetAxis("Crafting") != 0;
                 else {
                     if (mappings["Crafting"].type == LookupMgr.ControllerConfigs.Mapping.Type.Button)
@@ -339,10 +338,21 @@ namespace Pikl.Player {
 
         public bool SwipeAxis =>
             !cheatHover && !player.knife.swiping &&
-            (player.inventory.SelectedType != ItemType.Consumable) &&
             HasCooledDown(player.knife.lastSwipeTime, player.knife.cooldown) &&
-            ShootInput &&
+            ((player.inventory.SelectedType != ItemType.Consumable && ShootInput) || ControllerMeleeInput) &&
             !AimAxis;
+
+        public bool ControllerMeleeInput {
+            get {
+                if (InputMgr.PlayerOneControlScheme.Name != "Gamepad")
+                    return false;
+                
+                if (mappings["Melee"].type == LookupMgr.ControllerConfigs.Mapping.Type.Button)
+                    return InputMgr.GetButton(mappings["Melee"].axis);
+                
+                return InputMgr.GetAxis(mappings["Melee"].axis) != 0;
+            }
+        }
 
         public bool HasCooledDown(float lastTime, float cooldown) {
             return lastTime + cooldown < Time.time;
@@ -375,7 +385,7 @@ namespace Pikl.Player {
             if (axis != lastMouseDir)
                 lastMouseDir = axis;
 
-            if (InputMgr.PlayerOneControlScheme.Name == "BAH") {
+            if (InputMgr.PlayerOneControlScheme.Name != "KeyboardAndMouse") {
                 axis = StickDir;
 
                 if (axis != Vector3.zero && axis.magnitude >= lastStickDir.magnitude) {

@@ -37,9 +37,6 @@ namespace Pikl.UI {
         }
 
         public override void Open() {
-            if (InputMgr.PlayerOneControlScheme.Name == "BAH")
-                Cursor.visible = false;
-
             //Cursor.SetCursor(crosshairCursor, new Vector2(crosshairCursor.width / 2, crosshairCursor.height / 2), CursorMode.Auto);
 
             base.Open();

@@ -480,6 +480,7 @@ namespace Luminosity.IO
 			get { return m_instance.m_scanService.IsScanning; }
 		}
 
+		[SerializeField]
 		public static ControlScheme PlayerOneControlScheme
 		{
 			get { return m_instance.m_playerOneScheme; }

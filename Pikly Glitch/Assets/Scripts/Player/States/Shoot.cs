@@ -22,17 +22,9 @@ namespace Pikl.Player.States {
 
             weapon = (player.inventory.SelectedItem as Weapon);
 
-            if (!weapon)
-                Exit();
-
-            //player.shoot.lastTime = Time.time;
-
-            DoTheShoot();
-
-            Shaker.I.ShakeCameraOnce(weapon.shakeOnShot);
-
-            //AudioMgr.I.PlaySound(Player.laserSound);
-            weapon.lastFireTime = Time.time;
+            if (weapon)
+                DoTheShoot();
+            
             Exit();
         }
 
@@ -45,6 +37,10 @@ namespace Pikl.Player.States {
                 } else
                     SpawnShot(player.weaponSprite.transform.position.To2DXY() + weapon.shot.spawnOffset, i);
             }
+            
+            //AudioMgr.I.PlaySound(Player.laserSound);
+            weapon.lastFireTime = Time.time;
+            Shaker.I.ShakeCameraOnce(weapon.shakeOnShot);
         }
 
         void SpawnShot(Vector3 pos, int i) {
@@ -63,7 +59,7 @@ namespace Pikl.Player.States {
         Quaternion CalcAccuracy() {
             float accuracy = Random.Range(-weapon.shot.accuracy, weapon.shot.accuracy) + 90;
             
-            if (InputMgr.PlayerOneControlScheme.Name == "BAH") {
+            if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
                 return Quaternion.LookRotation(Vector3.forward, player.input.MouseDirFromWeapon.normalized.Rotate(accuracy));
             } else {
                 return Quaternion.LookRotation(Vector3.forward, player.input.StickDir.normalized.Rotate(accuracy));

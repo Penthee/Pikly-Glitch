@@ -44,9 +44,6 @@ namespace Pikl.UI {
         //}
 
         public override void Open() {
-            if (InputMgr.PlayerOneControlScheme.Name == "BAH")
-                Cursor.visible = false;
-
             //Cursor.SetCursor(crosshairCursor, new Vector2(crosshairCursor.width / 2, crosshairCursor.height / 2), CursorMode.Auto);
 
             StartCoroutine(GetPlayer());
@@ -215,7 +212,12 @@ namespace Pikl.UI {
         }
 
         void UpdateCraftingSelection() {
-            float selectionDir = InputMgr.GetAxisRaw("Mouse Scrollwheel");
+
+            float selectionDir = 0;
+            if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse")
+                selectionDir = InputMgr.GetAxisRaw("Mouse Scrollwheel");
+            else
+                selectionDir = InputMgr.GetAxisRaw("DPADVertical");
 
             selectedCraft -= (int)selectionDir;
             selectedCraft = Mathf.Clamp(selectedCraft, 0, 19);

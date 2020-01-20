@@ -19,7 +19,7 @@ namespace Pikl.Components
 
         internal override Vector3 GetDir()
         {
-            if (InputMgr.PlayerOneControlScheme.Name == "BAH") {
+            if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
                 rotateSpeed = origRotateSpeed;
                 //return player.input.IsAiming ? (player.input.MoveAxis.magnitude != 0 ? player.input.MoveAxis : player.input.MouseDir.normalized) : lastDir;
 

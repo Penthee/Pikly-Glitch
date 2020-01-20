@@ -87,7 +87,7 @@ namespace Luminosity.IO
 			m_currentState = new GamePadState[4];
 			m_dpadState = new DPADState[4];
 			m_vibration = new GamepadVibration[4];
-			InputManager.BeforeUpdate += OnUpdate;
+			InputMgr.BeforeUpdate += OnUpdate;
 
 			if(GamepadState.Adapter == null)
 			{
@@ -101,7 +101,7 @@ namespace Luminosity.IO
 
 		private void OnDestroy()
 		{
-			InputManager.BeforeUpdate -= OnUpdate;
+			InputMgr.BeforeUpdate -= OnUpdate;
 			if(GamepadState.Adapter == (IGamepadStateAdapter)this)
 			{
 				GamepadState.Adapter = null;
