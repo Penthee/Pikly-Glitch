@@ -66,7 +66,7 @@ namespace Pikl {
             }
 
             public class Mapping {
-                public enum Type { Stick, Button };
+                public enum Type { Stick, Button, Trigger };
                 public readonly string name, axis, altAxis;
                 public readonly Type type;
 

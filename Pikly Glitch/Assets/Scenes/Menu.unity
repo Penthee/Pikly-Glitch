@@ -549,6 +549,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
         type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
       propertyPath: inputConfigurations.Array.data[1].axes.Array.data[6].positive
       value: 351
       objectReference: {fileID: 0}
@@ -581,6 +586,121 @@ PrefabInstance:
         type: 3}
       propertyPath: inputConfigurations.Array.data[1].axes.Array.data[8].sensitivity
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[11].positive
+      value: 356
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[15].positive
+      value: 357
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[13].positive
+      value: 352
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[12].positive
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[10].positive
+      value: 354
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[15].name
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[16].name
+      value: Cancel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[16].positive
+      value: 351
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[16].sensitivity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[16].snap
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[16].type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[16].axis
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[17].name
+      value: DPADHorizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[17].axis
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[18].name
+      value: DPADVertical
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[18].axis
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[19].name
+      value: Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[19].axis
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[20].name
+      value: Aim
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[20].sensitivity
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[20].snap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[20].type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877454225271571554, guid: 81af36f21aa87c04f8e499452af569bc,
+        type: 3}
+      propertyPath: inputConfigurations.Array.data[1].axes.Array.data[20].axis
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4877454225271571555, guid: 81af36f21aa87c04f8e499452af569bc,
         type: 3}

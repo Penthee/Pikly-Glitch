@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using TeamUtility.IO;
+using UnityEngine.EventSystems;
 
 namespace Pikl.UI {
 	public class Menu : MonoBehaviour
@@ -57,8 +58,8 @@ namespace Pikl.UI {
         }
 
         public virtual void SetFocus() {
-            //if (defaultSelected != null)
-            //    HBEventSystem.current.SetSelectedGameObject(defaultSelected);
+            if (defaultSelected != null)
+                EventSystem.current.SetSelectedGameObject(defaultSelected);
         }
 
         bool CheckBackButton() {

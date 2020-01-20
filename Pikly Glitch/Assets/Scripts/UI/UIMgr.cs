@@ -131,6 +131,8 @@ namespace Pikl.UI {
 
         public void OnBackButtonPress() {
             //PlayBoop();
+            if (!modal)
+                return;
 
             if (modal.IsOpen) {
                 modal.Close();

@@ -7,6 +7,8 @@ using Pikl.Extensions;
 using System.Collections.Generic;
 using Pikl.Interaction;
 using Pikl.Data;
+using Pikl.Profile;
+
 //using Pikl.Profile;
 
 namespace Pikl.Player {
@@ -16,7 +18,7 @@ namespace Pikl.Player {
         public Player player;
         public float aimCameraDistance = 0.5f;
         public bool useLocked;
-        static Dictionary<string, string> mappings = new Dictionary<string, string>();
+        static Dictionary<string, LookupMgr.ControllerConfigs.Mapping> mappings = new Dictionary<string, LookupMgr.ControllerConfigs.Mapping>();
         Vector3 lastMoveAxis, lastMoveAxisRaw, lastMouseDir, lastStickDir;
         internal bool aimAssist;
 
@@ -25,23 +27,22 @@ namespace Pikl.Player {
         public void Init(Player player) {
             this.player = player;
 
-            aimAssist = false;// ProfileMgr.I.profile.aimAssist.Value;
+            aimAssist = ProfileMgr.I.profile.aimAssist.Value;
 
             mappings.Clear();
-            mappings.Add("MoveHorizontal", LookupMgr.I.controllerConfigs.FindMapping("Move").axis);
-            mappings.Add("MoveVertical", LookupMgr.I.controllerConfigs.FindMapping("Move").altAxis);
-            mappings.Add("ShootHorizontal", LookupMgr.I.controllerConfigs.FindMapping("Shoot").axis);
-            mappings.Add("ShootVertical", LookupMgr.I.controllerConfigs.FindMapping("Shoot").altAxis);
-            
-            mappings.Add("Shoot", LookupMgr.I.controllerConfigs.FindMapping("Shoot").axis);
-            mappings.Add("Aim", LookupMgr.I.controllerConfigs.FindMapping("Aim").axis);
-            mappings.Add("Evade", LookupMgr.I.controllerConfigs.FindMapping("Evade").axis);
-            mappings.Add("Zoom", LookupMgr.I.controllerConfigs.FindMapping("Zoom").axis);
-            mappings.Add("Drop", LookupMgr.I.controllerConfigs.FindMapping("Drop").axis);
-            mappings.Add("Melee", LookupMgr.I.controllerConfigs.FindMapping("Melee").axis);
-            mappings.Add("Interact", LookupMgr.I.controllerConfigs.FindMapping("Interact").axis);
-            mappings.Add("Crafting", LookupMgr.I.controllerConfigs.FindMapping("Crafting").axis);
-            mappings.Add("Reorder", LookupMgr.I.controllerConfigs.FindMapping("Reorder").axis);
+            mappings.Add("Move", LookupMgr.I.controllerConfigs.FindMapping("Move"));
+            mappings.Add("Look", LookupMgr.I.controllerConfigs.FindMapping("Look"));
+            mappings.Add("Shoot", LookupMgr.I.controllerConfigs.FindMapping("Shoot"));
+            mappings.Add("Aim", LookupMgr.I.controllerConfigs.FindMapping("Aim"));
+            mappings.Add("Evade", LookupMgr.I.controllerConfigs.FindMapping("Evade"));
+            mappings.Add("Zoom", LookupMgr.I.controllerConfigs.FindMapping("Zoom"));
+            mappings.Add("Drop", LookupMgr.I.controllerConfigs.FindMapping("Drop"));
+            mappings.Add("Melee", LookupMgr.I.controllerConfigs.FindMapping("Melee"));
+            mappings.Add("Reload", LookupMgr.I.controllerConfigs.FindMapping("Reload"));
+            mappings.Add("Interact", LookupMgr.I.controllerConfigs.FindMapping("Interact"));
+            mappings.Add("Crafting", LookupMgr.I.controllerConfigs.FindMapping("Crafting"));
+            mappings.Add("Reorder", LookupMgr.I.controllerConfigs.FindMapping("Reorder"));
+            mappings.Add("Pause", LookupMgr.I.controllerConfigs.FindMapping("Pause"));
         }
 
         public static bool Pause {
@@ -57,7 +58,6 @@ namespace Pikl.Player {
             get {
                 Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 pos.z = 0;
-                //Debug.HBDebug.Log("MouseDir : " + (pos));
                 return pos - player.transform.position;
             }
         }
@@ -66,7 +66,6 @@ namespace Pikl.Player {
             get {
                 Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 pos.z = 0;
-                //Debug.HBDebug.Log("MouseDirFromWeapon : " + (pos));
                 return pos - player.weaponSprite.transform.position;
             }
         }
@@ -74,7 +73,7 @@ namespace Pikl.Player {
         int[] aimAssistDegrees = new int[] { -2, 2, -4, 4, -6, 6, -8, 8, -10, 10, -12, 12 };
         internal Vector3 StickDir {
             get {
-                Vector3 actualStickDir = InputMgr.GetAxisVector(mappings["ShootHorizontal"], mappings["ShootVertical"]);
+                Vector3 actualStickDir = InputMgr.GetAxisVector(mappings["Look"].axis, mappings["Look"].altAxis);
 
                 if (aimAssist && !Physics2D.Raycast(player.t.position, actualStickDir, 42, 1 << LayerMask.NameToLayer("Enemy")))
                 {
@@ -112,7 +111,7 @@ namespace Pikl.Player {
                 if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration)
                     return new Vector3(InputMgr.GetAxis("Horizontal"), InputMgr.GetAxis("Vertical"), 0);
                 else
-                    return InputMgr.GetAxisVector(mappings["MoveHorizontal"], mappings["MoveVertical"]);
+                    return InputMgr.GetAxisVector(mappings["Move"].axis, mappings["Move"].altAxis);
             }
         }
 
@@ -121,29 +120,21 @@ namespace Pikl.Player {
                 if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration)
                     return new Vector3(InputMgr.GetAxisRaw("Horizontal"), InputMgr.GetAxisRaw("Vertical"), 0);
                 else
-                    return InputMgr.GetAxisVector(mappings["MoveHorizontal"], mappings["MoveVertical"]);
+                    return InputMgr.GetAxisVector(mappings["Move"].axis, mappings["Move"].altAxis);
             }
         }
         
-        internal Vector3 LastMouseDir {
-            get { return lastMouseDir; }
-        }
+        internal Vector3 LastMouseDir => lastMouseDir;
 
-        internal Vector3 MouseVelocity {
-            get { return MouseDir - LastMouseDir; }
-        }
+        internal Vector3 MouseVelocity => MouseDir - LastMouseDir;
 
-        internal Vector3 LastStickDir {
-            get { return lastStickDir; }
-        }
+        internal Vector3 LastStickDir => lastStickDir;
 
-        public Vector3 LastMoveAxis {
-            get { return lastMoveAxis; }
-        }
+        public Vector3 LastMoveAxis => lastMoveAxis;
 
         public Vector3 LastMoveAxisRaw {
-            get { return lastMoveAxisRaw; }
-            internal set { lastMoveAxisRaw = value; }
+            get => lastMoveAxisRaw;
+            internal set => lastMoveAxisRaw = value;
         }
 
         public bool ShootAxis() {
@@ -188,32 +179,28 @@ namespace Pikl.Player {
 
         bool ShootInput {
             get {
-                //if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration)
+                if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration)
                     return InputMgr.GetAxisRaw("Shoot") != 0;
-                //else {
-                //    if (mappings["Primary"].Contains("Bumper"))
-                //        return InputMgr.GetButton(mappings["Primary"]);
-                //    return InputMgr.GetAxis(mappings["Primary"]) != 0;
-                //}
+                else {
+                    if (mappings["Shoot"].type == LookupMgr.ControllerConfigs.Mapping.Type.Button)
+                        return InputMgr.GetButton(mappings["Shoot"].axis);
+                    return InputMgr.GetAxisRaw(mappings["Shoot"].axis) != 0;
+                }
             }
         }
 
-        public bool AimAxis {
-            get {
-                return
-                    (player.inventory.SelectedType == ItemType.Weapon) &&
-                    AimInput;
-            }
-        }
+        public bool AimAxis =>
+            (player.inventory.SelectedType == ItemType.Weapon) &&
+            AimInput;
 
         public bool AimInput {
             get {
                 if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration)
                     return InputMgr.GetAxisRaw("Aim") != 0;
                 else {
-                    if (mappings["Aim"].Contains("Bumper"))
-                        return InputMgr.GetButton(mappings["Aim"]);
-                    return InputMgr.GetAxis(mappings["Aim"]) != 0;
+                    if (mappings["Aim"].type == LookupMgr.ControllerConfigs.Mapping.Type.Button)
+                        return InputMgr.GetButton(mappings["Aim"].axis);
+                    return InputMgr.GetAxisRaw(mappings["Aim"].axis) != 0;
                 }
             }
         }
@@ -221,63 +208,56 @@ namespace Pikl.Player {
         public bool InteractInput {
             get {
                 if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration)
-                    return InputMgr.GetAxis("Interact") != 0;
-                else
-                    return InputMgr.GetButton(mappings["Interact"]);
+                    return InputMgr.GetAxisRaw("Interact") != 0;
+                else {
+                    if (mappings["Interact"].type == LookupMgr.ControllerConfigs.Mapping.Type.Button)
+                        return InputMgr.GetButton(mappings["Interact"].axis);
+                    return InputMgr.GetAxisRaw(mappings["Interact"].axis) != 0;
+                }
             }
         }
 
-        public bool InteractAxis {
-            get {
-                return HasReleasedInteract() && 
-                       InteractInput &&
-                       HasCooledDown(player.lastInteractTime, player.interactCooldown);// && 
-                       //FindClosestInteractable() != null;
-            }
-        }
+        public bool InteractAxis =>
+            HasReleasedInteract() && 
+            InteractInput &&
+            HasCooledDown(player.lastInteractTime, player.interactCooldown);
 
-        public bool SprintAxis {
-            get {
-                return
-                    player.stunID == 0 && //player.evadeID == 0) &&
-                    //!player.evade.hasReleasedSinceLastEvade &&
-                    MoveAxisRaw.magnitude != 0 &&
-                    player.evade.Stamina >= 1 &&
-                    EvadeInput;// &&
-                    //HasCooledDown(player.evade.lastTime, player.evade.Cooldown);
-            }
-        }
+        public bool SprintAxis =>
+            player.stunID == 0 && //player.evadeID == 0) &&
+            //!player.evade.hasReleasedSinceLastEvade &&
+            MoveAxisRaw.magnitude != 0 &&
+            player.evade.Stamina >= 1 &&
+            EvadeInput;
 
-        public bool EvadeAxis {
-            get {
-                return /*!PauseMgr.I.Paused &&*/
-                       (player.stunID == 0 && player.evadeID == 0) &&
-                       //player.evade.hasReleasedSinceLastEvade &&
-                       HasCooledDown(player.evade.lastTime, player.evade.Cooldown) &&
-                       EvadeInput &&
-                       MoveAxisRaw.magnitude != 0 &&
-                       player.evade.Stamina >= player.evade.EvadeCost;
-            }
-        }
+        public bool EvadeAxis =>
+            (player.stunID == 0 && player.evadeID == 0) &&
+            //player.evade.hasReleasedSinceLastEvade &&
+            HasCooledDown(player.evade.lastTime, player.evade.Cooldown) &&
+            EvadeInput &&
+            MoveAxisRaw.magnitude != 0 &&
+            player.evade.Stamina >= player.evade.EvadeCost;
 
         public bool EvadeInput {
             get {
                 if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration)
                     return InputMgr.GetAxis("Evade") != 0;
-                else
-                    return InputMgr.GetButton(mappings["Evade"]);
+                else {
+                    if (mappings["Evade"].type == LookupMgr.ControllerConfigs.Mapping.Type.Button)
+                        return InputMgr.GetButton(mappings["Evade"].axis);
+                    return InputMgr.GetAxis(mappings["Evade"].axis) != 0;
+                }
             }
         }
 
         bool ReloadInput {
             get {
-                //if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration)
-                return InputMgr.GetAxisRaw("Reload") != 0;
-                //else {
-                //    if (mappings["Primary"].Contains("Bumper"))
-                //        return InputMgr.GetButton(mappings["Primary"]);
-                //    return InputMgr.GetAxis(mappings["Primary"]) != 0;
-                //}
+                if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration) {
+                    return InputMgr.GetAxisRaw("Reload") != 0;
+                } else {
+                    if (mappings["Reload"].type == LookupMgr.ControllerConfigs.Mapping.Type.Button)
+                        return InputMgr.GetButton(mappings["Reload"].axis);
+                    return InputMgr.GetAxis(mappings["Reload"].axis) != 0f;
+                }
             }
         }
 
@@ -293,21 +273,17 @@ namespace Pikl.Player {
             }
         }
 
-        public bool DropAxis {
-            get {
-                return DropInput;
-            }
-        }
+        public bool DropAxis => DropInput;
 
         bool DropInput {
             get {
-                //if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration)
-                return InputMgr.GetAxisRaw("Drop") != 0;
-                //else {
-                //    if (mappings["Primary"].Contains("Bumper"))
-                //        return InputMgr.GetButton(mappings["Primary"]);
-                //    return InputMgr.GetAxis(mappings["Primary"]) != 0;
-                //}
+                if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration) {
+                    return InputMgr.GetAxisRaw("Drop") != 0;
+                } else {
+                    if (mappings["Drop"].type == LookupMgr.ControllerConfigs.Mapping.Type.Button)
+                        return InputMgr.GetButton(mappings["Drop"].axis);
+                    return InputMgr.GetAxis(mappings["Drop"].axis) != 0;
+                }
             }
         }
 
@@ -332,16 +308,15 @@ namespace Pikl.Player {
             get {
                 if (InputMgr.PlayerOneConfiguration.name == InputAdapter.KeyboardConfiguration)
                     return InputMgr.GetAxis("Crafting") != 0;
-                else
-                    return InputMgr.GetButton(mappings["Crafting"]);
+                else {
+                    if (mappings["Crafting"].type == LookupMgr.ControllerConfigs.Mapping.Type.Button)
+                        return InputMgr.GetButton(mappings["Crafting"].axis);
+                    return InputMgr.GetAxis(mappings["Crafting"].axis) != 0;
+                }
             }
         }
 
-        public bool CraftingAxis {
-            get {
-                return HasCooledDown(lastCraftToggle, craftToggleCooldown) && CraftingInput;
-            }
-        }
+        public bool CraftingAxis => HasCooledDown(lastCraftToggle, craftToggleCooldown) && CraftingInput;
 
         float dist, shortest;
         bool cheatHover;
@@ -362,15 +337,12 @@ namespace Pikl.Player {
             return i;
         }
 
-        public bool SwipeAxis {
-            get {
-                return !cheatHover && !player.knife.swiping &&
-                        (player.inventory.SelectedType != ItemType.Consumable) &&
-                        HasCooledDown(player.knife.lastSwipeTime, player.knife.cooldown) &&
-                        ShootInput &&
-                        !AimAxis;
-            }
-        }
+        public bool SwipeAxis =>
+            !cheatHover && !player.knife.swiping &&
+            (player.inventory.SelectedType != ItemType.Consumable) &&
+            HasCooledDown(player.knife.lastSwipeTime, player.knife.cooldown) &&
+            ShootInput &&
+            !AimAxis;
 
         public bool HasCooledDown(float lastTime, float cooldown) {
             return lastTime + cooldown < Time.time;
@@ -403,13 +375,13 @@ namespace Pikl.Player {
             if (axis != lastMouseDir)
                 lastMouseDir = axis;
 
-            //if (InputMgr.PlayerOneConfiguration.name == InputAdapter.JoystickConfiguration) {
-            //    axis = StickDir;
+            if (InputMgr.PlayerOneConfiguration.name == InputAdapter.JoystickConfiguration) {
+                axis = StickDir;
 
-            //    if (axis != Vector3.zero && axis.magnitude >= lastStickDir.magnitude) {
-            //        lastStickDir = axis;
-            //    }
-            //}
+                if (axis != Vector3.zero && axis.magnitude >= lastStickDir.magnitude) {
+                    lastStickDir = axis;
+                }
+            }
         }
 
         void UpdateStateInput() {

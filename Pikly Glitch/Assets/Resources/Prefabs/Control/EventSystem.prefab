@@ -65,6 +65,6 @@ MonoBehaviour:
   m_VerticalAxisAlt: DPADVertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
-  m_InputActionsPerSecond: 3
+  m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.6
   m_ForceModuleActive: 0

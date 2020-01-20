@@ -425,7 +425,7 @@
     </AxisConfiguration>
     <AxisConfiguration name="Reorder">
       <description />
-      <positive>Joystick1Button5</positive>
+      <positive>Joystick1Button4</positive>
       <altPositive>None</altPositive>
       <negative>None</negative>
       <altNegative>None</altNegative>
@@ -440,7 +440,7 @@
     </AxisConfiguration>
     <AxisConfiguration name="Crafting">
       <description />
-      <positive>Joystick1Button5</positive>
+      <positive>Joystick1Button6</positive>
       <altPositive>None</altPositive>
       <negative>None</negative>
       <altNegative>None</altNegative>
@@ -455,7 +455,7 @@
     </AxisConfiguration>
     <AxisConfiguration name="Interact">
       <description />
-      <positive>Joystick1Button5</positive>
+      <positive>Joystick1Button0</positive>
       <altPositive>None</altPositive>
       <negative>None</negative>
       <altNegative>None</altNegative>
@@ -470,7 +470,7 @@
     </AxisConfiguration>
     <AxisConfiguration name="Melee">
       <description />
-      <positive>Joystick1Button0</positive>
+      <positive>Joystick1Button2</positive>
       <altPositive>None</altPositive>
       <negative>None</negative>
       <altNegative>None</altNegative>
@@ -498,9 +498,24 @@
       <axis>0</axis>
       <joystick>0</joystick>
     </AxisConfiguration>
+    <AxisConfiguration name="Pause">
+      <description />
+      <positive>Joystick1Button7</positive>
+      <altPositive>None</altPositive>
+      <negative>None</negative>
+      <altNegative>None</altNegative>
+      <deadZone>0</deadZone>
+      <gravity>0</gravity>
+      <sensitivity>0</sensitivity>
+      <snap>false</snap>
+      <invert>false</invert>
+      <type>Button</type>
+      <axis>0</axis>
+      <joystick>0</joystick>
+    </AxisConfiguration>
     <AxisConfiguration name="Cancel">
       <description />
-      <positive>Joystick1Button6</positive>
+      <positive>Joystick1Button1</positive>
       <altPositive>None</altPositive>
       <negative>None</negative>
       <altNegative>None</altNegative>
