@@ -149,7 +149,7 @@ MonoBehaviour:
     aimCameraDistance: 0.05
     useLocked: 0
     lastCraftToggle: 0
-    craftToggleCooldown: 1.5
+    craftToggleCooldown: 0.3
   shoot:
     so: {fileID: 0}
     lastTime: 0
@@ -190,6 +190,7 @@ MonoBehaviour:
       type: 3}
     emptyItem: {fileID: 11400000, guid: 88b56ecbb38ee984bb723efa1a786b93, type: 2}
     emptyCan: {fileID: 11400000, guid: b0da19c13229ec9498e0247a9548ad48, type: 2}
+    controllerSelectionCooldown: 0.125
     selectedIndex: 0
   knife:
     activeTime: 0.15

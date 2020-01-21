@@ -46,9 +46,11 @@ namespace Pikl.Player {
         Player player;
         public readonly int size = 20;
         public readonly float dropDist = 0.85f;
+        public float controllerSelectionCooldown = 0.2f;
         [SerializeField]
         int selectedIndex = 0;
-
+        float lastMoveInputTime;
+        
         public void Init(Player player) {
             this.player = player;
             
@@ -92,7 +94,6 @@ namespace Pikl.Player {
             }
         }
 
-        float controllerSelectionCooldown = 0.2f, lastMoveInputTime;
         public void Update() {
             float moveInput = 0, reorderInput = 0;
 
@@ -100,9 +101,9 @@ namespace Pikl.Player {
                 if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
                     moveInput = -InputMgr.GetAxisRaw("Mouse Scrollwheel");
                     reorderInput = InputMgr.GetAxisRaw("Reorder");
-                } else if (lastMoveInputTime + controllerSelectionCooldown < Time.time || InputMgr.GetAxisRaw("DPADVertical") == 0) {
-                    moveInput = -InputMgr.GetAxisRaw("DPADVertical");
-                    reorderInput = InputMgr.GetButton("Interact") ? 1 : 0;
+                } else if (lastMoveInputTime + controllerSelectionCooldown < Time.time || (!InputMgr.GetButton("MoveItemUp") && !InputMgr.GetButton("MoveItemDown"))) {
+                    moveInput = (InputMgr.GetButton("MoveItemUp") ? -1 : 0) + (InputMgr.GetButton("MoveItemDown") ? 1 : 0);
+                    reorderInput = InputMgr.GetButton("Reorder") ? 1 : 0;
 
                     if (moveInput != 0) {
                         lastMoveInputTime = Time.time;

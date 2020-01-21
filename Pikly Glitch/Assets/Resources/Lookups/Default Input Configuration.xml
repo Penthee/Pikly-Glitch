@@ -987,7 +987,47 @@
         <Type>GamepadButton</Type>
         <Axis>0</Axis>
         <Joystick>0</Joystick>
+        <GamepadButton>ActionBottom</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="MoveItemUp">
+      <Description />
+      <Binding>
+        <Positive>Joystick1Button4</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
         <GamepadButton>LeftBumper</GamepadButton>
+        <GamepadAxis>LeftThumbstickX</GamepadAxis>
+        <GamepadIndex>GamepadOne</GamepadIndex>
+      </Binding>
+    </Action>
+    <Action name="MoveItemDown">
+      <Description />
+      <Binding>
+        <Positive>Joystick1Button4</Positive>
+        <Negative>None</Negative>
+        <DeadZoneType>CutOff</DeadZoneType>
+        <DeadZone>0</DeadZone>
+        <Gravity>0</Gravity>
+        <Sensitivity>0</Sensitivity>
+        <Scale>1</Scale>
+        <Snap>false</Snap>
+        <Invert>false</Invert>
+        <Type>GamepadButton</Type>
+        <Axis>0</Axis>
+        <Joystick>0</Joystick>
+        <GamepadButton>RightBumper</GamepadButton>
         <GamepadAxis>LeftThumbstickX</GamepadAxis>
         <GamepadIndex>GamepadOne</GamepadIndex>
       </Binding>
@@ -1007,7 +1047,7 @@
         <Type>GamepadButton</Type>
         <Axis>0</Axis>
         <Joystick>0</Joystick>
-        <GamepadButton>Back</GamepadButton>
+        <GamepadButton>DPadRight</GamepadButton>
         <GamepadAxis>LeftThumbstickX</GamepadAxis>
         <GamepadIndex>GamepadOne</GamepadIndex>
       </Binding>
@@ -1207,7 +1247,7 @@
         <Type>GamepadButton</Type>
         <Axis>0</Axis>
         <Joystick>0</Joystick>
-        <GamepadButton>DPadLeft</GamepadButton>
+        <GamepadButton>Back</GamepadButton>
         <GamepadAxis>LeftThumbstickX</GamepadAxis>
         <GamepadIndex>GamepadOne</GamepadIndex>
       </Binding>

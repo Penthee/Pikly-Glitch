@@ -657,7 +657,7 @@ MonoBehaviour:
         m_gamepadIndex: 0
   - m_name: Gamepad
     m_description: 
-    m_isExpanded: 0
+    m_isExpanded: 1
     m_uniqueID: 75e7a09fa25d4eca8d4381b09945eb67
     m_actions:
     - m_name: MoveHorizontal
@@ -933,7 +933,43 @@ MonoBehaviour:
         m_type: 7
         m_axis: 0
         m_joystick: 0
+        m_gamepadButton: 10
+        m_gamepadAxis: 0
+        m_gamepadIndex: 0
+    - m_name: MoveItemUp
+      m_description: 
+      m_bindings:
+      - m_positive: 354
+        m_negative: 0
+        m_deadZoneType: 0
+        m_deadZone: 0
+        m_gravity: 0
+        m_sensitivity: 0
+        m_scale: 1
+        m_snap: 0
+        m_invert: 0
+        m_type: 7
+        m_axis: 0
+        m_joystick: 0
         m_gamepadButton: 2
+        m_gamepadAxis: 0
+        m_gamepadIndex: 0
+    - m_name: MoveItemDown
+      m_description: 
+      m_bindings:
+      - m_positive: 354
+        m_negative: 0
+        m_deadZoneType: 0
+        m_deadZone: 0
+        m_gravity: 0
+        m_sensitivity: 0
+        m_scale: 1
+        m_snap: 0
+        m_invert: 0
+        m_type: 7
+        m_axis: 0
+        m_joystick: 0
+        m_gamepadButton: 3
         m_gamepadAxis: 0
         m_gamepadIndex: 0
     - m_name: Crafting
@@ -951,7 +987,7 @@ MonoBehaviour:
         m_type: 7
         m_axis: 0
         m_joystick: 0
-        m_gamepadButton: 8
+        m_gamepadButton: 7
         m_gamepadAxis: 0
         m_gamepadIndex: 0
     - m_name: Interact
@@ -1131,7 +1167,7 @@ MonoBehaviour:
         m_type: 7
         m_axis: 0
         m_joystick: 0
-        m_gamepadButton: 6
+        m_gamepadButton: 8
         m_gamepadAxis: 0
         m_gamepadIndex: 0
   m_playerOneDefault: 75e7a09fa25d4eca8d4381b09945eb67
