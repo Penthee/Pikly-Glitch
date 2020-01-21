@@ -19,10 +19,10 @@ namespace Pikl.Components
         internal override Vector3 GetDir()
         {
             //if (Input.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
-                rotateSpeed = origRotateSpeed;
+                //rotateSpeed = origRotateSpeed;
                 //return player.input.IsAiming ? (player.input.MoveAxis.magnitude != 0 ? player.input.MoveAxis : player.input.MouseDir.normalized) : lastDir;
 
-                if (player.knife.swiping)
+                /*if (player.knife.swiping)
                     return player.input.MouseDirFromWeapon.normalized;
 
                 if (player.input.MoveAxis.magnitude != 0) {
@@ -35,7 +35,7 @@ namespace Pikl.Components
                 } else {
                     //if not moving or aiming, face last direction, if aiming, face aim direction
                     return !player.input.AimAxis ? lastDir : player.input.MouseDirFromWeapon.normalized;
-                }
+                }*/
 
             /*} else {
                 rotateSpeed = smoothValue;

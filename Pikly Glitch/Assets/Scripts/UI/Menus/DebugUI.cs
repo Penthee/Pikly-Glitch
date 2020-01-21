@@ -15,7 +15,7 @@ using Pikl.States.Components;
 
 namespace Pikl.UI {
     public class DebugUI : MonoBehaviour {
-        public Player.Player player;
+        /*public Player.Player player;
 
         public GameObject debugPanel, container;
         public Text debugTitle, debugValues;
@@ -255,6 +255,6 @@ namespace Pikl.UI {
 
         public void ShowHidePress() {
             container.SetActive(!container.activeSelf);
-        }
+        }*/
     }
 }

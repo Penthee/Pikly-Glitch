@@ -113,9 +113,9 @@ namespace Pikl.UI {
                 yield return new WaitForEndOfFrame();
             } while (player == null);
             
-#if UNITY_EDITOR || DEBUG
+/*#if UNITY_EDITOR || DEBUG
             debugPanel.GetComponent<DebugUI>().player = player;
-#endif
+#endif*/
         }
 
 
@@ -143,7 +143,7 @@ namespace Pikl.UI {
                 selectedCraft = 0;
             }
             
-            player.input.lastCraftToggle = Time.time;
+            //player.input.lastCraftToggle = Time.time;
         }
 
         void ClearCraftingList() {
@@ -256,17 +256,17 @@ namespace Pikl.UI {
         }
 
         void UpdateHealth() {
-            health.text = player.health.HP.ToString();
+            //health.text = player.health.HP.ToString();
         }
 
         void UpdateArmour() {
-            armour.text = player.health.Armour.ToString();
+            //armour.text = player.health.Armour.ToString();
         }
 
         void UpdateStamina() {
-            stamina.text = string.Concat(player.evade.Stamina, "/", player.evade.MaxStamina);
+            //stamina.text = string.Concat(player.evade.Stamina, "/", player.evade.MaxStamina);
 
-            stamina.color = player.evade.Stamina < player.evade.EvadeCost ? Color.red : Color.white;
+            //stamina.color = player.evade.Stamina < player.evade.EvadeCost ? Color.red : Color.white;
         }
 
         void UpdateInventory() {

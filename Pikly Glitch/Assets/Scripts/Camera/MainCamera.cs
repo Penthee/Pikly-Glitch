@@ -232,7 +232,7 @@ namespace Pikl.Utils.Cameras {
 
                 insidePoint = rh.collider.bounds.ClosestPoint(rh.point);
                 insidePoint.z = transform.position.z;
-                insidePoint -= Player.Player.I.input.MouseDir * 0.01f;
+                //insidePoint -= Player.Player.I.input.MouseDir * 0.01f;
 
                 transform.position = insidePoint;
             }

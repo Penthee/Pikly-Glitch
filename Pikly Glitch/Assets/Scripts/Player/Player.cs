@@ -12,29 +12,25 @@ using UnityEngine.InputSystem;
 //using Pikl.Extensions;
 
 namespace Pikl.Player {
-    public class Player : LivingStateObject, PlayerControls.IPlayerActions {
+    public class Player : MonoBehaviour, PlayerControls.IPlayerActions {
 
         public static Player I;
 
-        [Space][SerializeField] PlayerControls inputAsset;
+        [Space] PlayerControls playerControls;
         
-        [Space][HideInInspector]
-        public PlayerHealth health;
-        public PlayerMovement move;
-        public PlayerInput input;
-        public PlayerShoot shoot;
-        public PlayerEvade evade;
-        public Inventory inventory;
-        public PlayerKnife knife;
-        public SpriteRenderer weaponSprite;
+        //public PlayerHealth health;
+        //public PlayerMovement move;
+        //public PlayerInput input;
+        //public PlayerShoot shoot;
+        //public PlayerEvade evade;
+        //public PlayerKnife knife;
         //public PlayerPowerup powerup = new PlayerPowerup();
-        public float interactRadius, interactCooldown, lastInteractTime, useCooldown, lastUseTime;
+        //public float interactRadius, interactCooldown, lastInteractTime, useCooldown, lastUseTime;
+        
+        public Inventory inventory;
+        public SpriteRenderer weaponSprite;
 
-        public int evadeID, shootID, secondaryID, stunID, interactID, aimID;
-
-        //static internal AudioInfo laserSound/*, missileLaunch*/;
-
-        internal override void Awake() {
+        internal void Awake() {
             if (I == null)
                 I = this;
             else
@@ -42,64 +38,33 @@ namespace Pikl.Player {
 
             //var actionMap = inputAsset.FindActionMap("Anomaly");
             
-            inputAsset.Player.SetCallbacks(this); 
-            
-            base.Awake();
+            playerControls.Player.SetCallbacks(this); 
         }
 
         void OnEnable() {
-            inputAsset.Enable();
+            playerControls.Enable();
         }
 
         void OnDisable() {
-            inputAsset.Disable();
+            playerControls.Disable();
         }
 
-        internal override void Start() {
-            //laserSound = new AudioInfo("SFX/PlayerShoot");
-            //missileLaunch = new AudioInfo("SFX/RocketLaunch");
-            
-            defaultState = new Idle();
-            deadState = new Dead();
-            pauseState = new Pause();
-
-            health = GetComponent<PlayerHealth>();
-
-            health.Init(this);
-            move.Init(this);
-            input.Init(this);
-            shoot.Init(this);
-            evade.Init(this);
+        internal void Start() {
             inventory.Init(this);
-            knife.Init(this);
-            //powerup.Init(this);
 
-            fv2D = GetComponent<FaceInput2D>();
             ar = GetComponent<Animator>();
-
-            base.Start();
-            
-            //UIMgr.I.PauseFilterOff();
         }
 
-        internal override void Update() {
+        internal void Update() {
             if (MainCamera.I.mapMode)
                 return;
 
-            base.Update();
-
-            input.Update();
-            evade.Update();
             inventory.Update();
-            knife.Update();
-            //powerup.Update();
         }
         
-        internal override void FixedUpdate() {
+        internal void FixedUpdate() {
             if (MainCamera.I.mapMode)
                 return;
-
-            base.FixedUpdate();
         }
 
         public void EndGame() {
