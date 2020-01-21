@@ -28,8 +28,8 @@ namespace Pikl.UI {
             //Cursor.SetCursor(pointerCursor, new Vector2(pointerCursor.width * 0.05f, pointerCursor.height * 0.05f), CursorMode.Auto);
             
             //Invoke(nameof(EnableTitle), titleShowDelay);
-            effects = Camera.main.GetComponent<PostProcessVolume>();
-            effects.enabled = true;
+            //effects = Camera.main.GetComponent<PostProcessVolume>();
+            //effects.enabled = true;
             base.Open();
         }
 
