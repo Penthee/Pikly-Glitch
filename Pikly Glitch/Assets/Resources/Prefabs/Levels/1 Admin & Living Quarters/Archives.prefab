@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &-1686787865703290269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 5305085369475906661}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: -8255639055601487807}
+  m_Layer: 0
+  m_Name: Pipe Bend Flip (1) (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &-8255639055601487807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 5305085369475906661}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: -1686787865703290269}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7693294981426627108}
+  m_Father: {fileID: 3089686852952811563}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &-33985822593101995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 5305085369475906661}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7693294981426627108}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7693294981426627108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 2547735633602903617, guid: 92a8a69352f88d94e8dbdb49b13f5c69,
+    type: 3}
+  m_PrefabInstance: {fileID: 5305085369475906661}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: -33985822593101995}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: -8255639055601487807}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3089686852338342103
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,8 +245,8 @@ Transform:
   - {fileID: 3089686853578009342}
   - {fileID: 3089686852425411784}
   - {fileID: 8491731307508904579}
-  - {fileID: 5735892936193598616}
-  - {fileID: 7693294981426627108}
+  - {fileID: -947225834892689567}
+  - {fileID: -8255639055601487807}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -391,6 +453,68 @@ Transform:
   - {fileID: 5572010697202021196}
   m_Father: {fileID: 3089686852952811563}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6268150402660976505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 7836998045206878937}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: -947225834892689567}
+  m_Layer: 0
+  m_Name: Pipe Bend Flip (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &-947225834892689567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 7836998045206878937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268150402660976505}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5735892936193598616}
+  m_Father: {fileID: 3089686852952811563}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6546923916990955624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 7836998045206878937}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5735892936193598616}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5735892936193598616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 2547735633602903617, guid: 92a8a69352f88d94e8dbdb49b13f5c69,
+    type: 3}
+  m_PrefabInstance: {fileID: 7836998045206878937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546923916990955624}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: -947225834892689567}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &15826472155640612
 PrefabInstance:
@@ -8685,12 +8809,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9012635203541546526, guid: 92a8a69352f88d94e8dbdb49b13f5c69, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 92a8a69352f88d94e8dbdb49b13f5c69, type: 3}
---- !u!4 &7693294981426627108 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2547735633602903617, guid: 92a8a69352f88d94e8dbdb49b13f5c69,
-    type: 3}
-  m_PrefabInstance: {fileID: 5305085369475906661}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5460198539657449917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11012,12 +11130,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9012635203541546526, guid: 92a8a69352f88d94e8dbdb49b13f5c69, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 92a8a69352f88d94e8dbdb49b13f5c69, type: 3}
---- !u!4 &5735892936193598616 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2547735633602903617, guid: 92a8a69352f88d94e8dbdb49b13f5c69,
-    type: 3}
-  m_PrefabInstance: {fileID: 7836998045206878937}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7853342827533585218
 PrefabInstance:
   m_ObjectHideFlags: 0

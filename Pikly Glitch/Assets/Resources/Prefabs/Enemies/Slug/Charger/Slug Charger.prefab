@@ -52,10 +52,11 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -193,8 +194,6 @@ MonoBehaviour:
   meleeAttackRange: 0.4
   meleeAttackTime: 0.65
   rockThrowChance: 0
-  canReanimate: 0
-  lives: {x: 0, y: 0}
 --- !u!114 &1834072703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +235,7 @@ MonoBehaviour:
     obj: {fileID: 0}
     pos: {x: 0, y: 0}
   lives: 0
+  reanimateChance: 0
   maxHp: 20
   invulTimer: 0.1
   healTimer: 1.42
@@ -250,9 +250,7 @@ MonoBehaviour:
   disableCollider: 1
   destroy: 0
   recycle: 0
-  updateGraph: 0
   takeDamage: 0
-  broadcastDeath: 0
 --- !u!95 &271149687
 Animator:
   serializedVersion: 3

@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4125342434564232485}
   m_Layer: 0
-  m_Name: TemplateArea
+  m_Name: Marketing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
