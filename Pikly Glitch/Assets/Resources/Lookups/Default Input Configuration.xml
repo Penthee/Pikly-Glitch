@@ -715,7 +715,7 @@
         <Sensitivity>1</Sensitivity>
         <Scale>1</Scale>
         <Snap>false</Snap>
-        <Invert>false</Invert>
+        <Invert>true</Invert>
         <Type>GamepadAxis</Type>
         <Axis>1</Axis>
         <Joystick>0</Joystick>
@@ -755,7 +755,7 @@
         <Sensitivity>1</Sensitivity>
         <Scale>1</Scale>
         <Snap>false</Snap>
-        <Invert>false</Invert>
+        <Invert>true</Invert>
         <Type>GamepadAxis</Type>
         <Axis>4</Axis>
         <Joystick>0</Joystick>
