@@ -773,13 +773,15 @@ MonoBehaviour:
 
     left click: use item or knife
 
-    right click: aim gun
+    right
+    click: aim gun
 
     right + left click: shoot
 
     Scroll: select item
 
-    E + Scroll: move item
+    E
+    + Scroll: move item
 
     R: reload
 
@@ -2075,6 +2077,7 @@ GameObject:
   - component: {fileID: 114458711265873118}
   - component: {fileID: 114591749072259352}
   - component: {fileID: 114462425281999318}
+  - component: {fileID: 4124394871934813542}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2200,6 +2203,21 @@ MonoBehaviour:
   _maxHp: 0
   _invulnerable: 0
   _damageMultiplier: 0
+--- !u!114 &4124394871934813542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759777646333320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 8078395728324917316}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &1797337289089678
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,10 +11,6 @@
       <e p="Assets" t="Include">
         <e p="Editor" t="Include">
           <e p="ExpandableObjectDrawer.cs" t="Include" />
-          <e p="LOSFullScreenLightEditor.cs" t="Include" />
-          <e p="LOSLightBaseEditor.cs" t="Include" />
-          <e p="LOSMenu.cs" t="Include" />
-          <e p="LOSRadialLightEditor.cs" t="Include" />
           <e p="UberLoggerEditorWindow.cs" t="Include" />
           <e p="UnityObjectEditor.cs" t="Include" />
         </e>
@@ -148,6 +144,9 @@
             <e p="ControllerConfigs.xml" t="Include" />
             <e p="Default Input Configuration.xml" t="Include" />
           </e>
+          <e p="Scripts" t="Include">
+            <e p="PlayerControls.cs" t="Include" />
+          </e>
         </e>
         <e p="Scripts" t="Include">
           <e p="Attributes" t="Include">
@@ -249,7 +248,6 @@
             <e p="AesEncryptor.cs" t="Include" />
             <e p="FileMgr.cs" t="Include" />
             <e p="Hash.cs" t="Include" />
-            <e p="LookupMgr.cs" t="Include" />
             <e p="XmlAttribute.cs" t="Include" />
           </e>
           <e p="Libaries" t="Include">

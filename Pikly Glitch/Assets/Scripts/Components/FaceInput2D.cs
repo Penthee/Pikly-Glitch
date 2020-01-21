@@ -13,7 +13,7 @@ namespace Pikl.Components
         {
             base.Start();
 
-            smoothValue = ProfileMgr.I.profile.stickSmoothing.Value ? 0.35f : origRotateSpeed;
+            //smoothValue = ProfileMgr.I.profile.stickSmoothing.Value ? 0.35f : origRotateSpeed;
         }
 
         internal override Vector3 GetDir()

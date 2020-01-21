@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Pikl.States;
 using System.Collections;
 using Pikl.Collections;
@@ -6,14 +7,18 @@ using Pikl.Components;
 using Pikl.States.Components;
 using Pikl.UI;
 using Pikl.Utils.Cameras;
+using UnityEngine.InputSystem;
+
 //using Pikl.Extensions;
 
 namespace Pikl.Player {
-    public class Player : LivingStateObject {
+    public class Player : LivingStateObject, PlayerControls.IPlayerActions {
 
         public static Player I;
 
-        [HideInInspector]
+        [Space][SerializeField] PlayerControls inputAsset;
+        
+        [Space][HideInInspector]
         public PlayerHealth health;
         public PlayerMovement move;
         public PlayerInput input;
@@ -35,7 +40,19 @@ namespace Pikl.Player {
             else
                 Debug.LogError("More than one instance of Player.");
 
+            //var actionMap = inputAsset.FindActionMap("Anomaly");
+            
+            inputAsset.Player.SetCallbacks(this); 
+            
             base.Awake();
+        }
+
+        void OnEnable() {
+            inputAsset.Enable();
+        }
+
+        void OnDisable() {
+            inputAsset.Disable();
         }
 
         internal override void Start() {
@@ -77,7 +94,7 @@ namespace Pikl.Player {
             knife.Update();
             //powerup.Update();
         }
-
+        
         internal override void FixedUpdate() {
             if (MainCamera.I.mapMode)
                 return;
@@ -89,10 +106,40 @@ namespace Pikl.Player {
             UIMgr.I.OpenMenu(UIMgr.I.textRead);
             (UIMgr.I.textRead as LevelIntroText).StartDeathScroll();
         }
-
+        
         void OnDrawGizmos() {
             //foreach (Transform t in shoot.shootTransforms)
             //    Gizmos.DrawLine(transform.position, t.position);
+        }
+
+        public void OnMove(InputAction.CallbackContext context) {
+            var v = context.ReadValue<Vector2>();
+            Debug.Log("Move! : " + v.ToString());
+        }
+
+        public void OnLook(InputAction.CallbackContext context) {
+            var v = context.ReadValue<Vector2>();
+            Debug.Log("Look! : " + v.ToString());
+        }
+
+        public void OnAim(InputAction.CallbackContext context) {
+            throw new NotImplementedException();
+        }
+
+        public void OnFire(InputAction.CallbackContext context) {
+            throw new NotImplementedException();
+        }
+
+        public void OnInteract(InputAction.CallbackContext context) {
+            throw new NotImplementedException();
+        }
+
+        public void OnDropItem(InputAction.CallbackContext context) {
+            throw new NotImplementedException();
+        }
+
+        public void OnSelectItem(InputAction.CallbackContext context) {
+            throw new NotImplementedException();
         }
     }
 }

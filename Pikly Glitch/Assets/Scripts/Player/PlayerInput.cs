@@ -17,7 +17,6 @@ namespace Pikl.Player {
         public Player player;
         public float aimCameraDistance = 0.5f;
         public bool useLocked;
-        static Dictionary<string, LookupMgr.ControllerConfigs.Mapping> mappings = new Dictionary<string, LookupMgr.ControllerConfigs.Mapping>();
         Vector3 lastMoveAxis, lastMoveAxisRaw, lastMouseDir, lastStickDir;
         internal bool aimAssist;
 
@@ -26,21 +25,7 @@ namespace Pikl.Player {
         public void Init(Player player) {
             this.player = player;
 
-            aimAssist = ProfileMgr.I.profile.aimAssist.Value;
-
-            mappings.Clear();
-            mappings.Add("Move", LookupMgr.I.controllerConfigs.FindMapping("Move"));
-            mappings.Add("Look", LookupMgr.I.controllerConfigs.FindMapping("Look"));
-            mappings.Add("Shoot", LookupMgr.I.controllerConfigs.FindMapping("Shoot"));
-            mappings.Add("Aim", LookupMgr.I.controllerConfigs.FindMapping("Aim"));
-            mappings.Add("Reload", LookupMgr.I.controllerConfigs.FindMapping("Reload"));
-            mappings.Add("Evade", LookupMgr.I.controllerConfigs.FindMapping("Evade"));
-            mappings.Add("Drop", LookupMgr.I.controllerConfigs.FindMapping("Drop"));
-            mappings.Add("Melee", LookupMgr.I.controllerConfigs.FindMapping("Melee"));
-            mappings.Add("Interact", LookupMgr.I.controllerConfigs.FindMapping("Interact"));
-            mappings.Add("Crafting", LookupMgr.I.controllerConfigs.FindMapping("Crafting"));
-            mappings.Add("Reorder", LookupMgr.I.controllerConfigs.FindMapping("Reorder"));
-            mappings.Add("Pause", LookupMgr.I.controllerConfigs.FindMapping("Pause"));
+            //aimAssist = ProfileMgr.I.profile.aimAssist.Value;
         }
 
         public static bool Pause {
@@ -55,7 +40,8 @@ namespace Pikl.Player {
         
         internal Vector3 MouseDir {
             get {
-                Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                //Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 pos = Vector3.zero;
                 pos.z = 0;
                 return pos - player.transform.position;
             }
