@@ -38,6 +38,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/8 Unknown Facility.unity
     guid: 801efc7b839a12b4b975d847bed755f3
-  m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: c1e228e228597c84b8ba45d89d6d5bc0,
-      type: 2}
+  m_configObjects: {}
