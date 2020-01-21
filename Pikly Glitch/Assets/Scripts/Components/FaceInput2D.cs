@@ -1,5 +1,4 @@
 ﻿using Pikl.Profile;
-using Luminosity.IO;
 using UnityEngine;
 
 namespace Pikl.Components
@@ -19,7 +18,7 @@ namespace Pikl.Components
 
         internal override Vector3 GetDir()
         {
-            if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
+            //if (Input.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
                 rotateSpeed = origRotateSpeed;
                 //return player.input.IsAiming ? (player.input.MoveAxis.magnitude != 0 ? player.input.MoveAxis : player.input.MouseDir.normalized) : lastDir;
 
@@ -38,7 +37,7 @@ namespace Pikl.Components
                     return !player.input.AimAxis ? lastDir : player.input.MouseDirFromWeapon.normalized;
                 }
 
-            } else {
+            /*} else {
                 rotateSpeed = smoothValue;
 
                 //if moving, then face move direction, if moving and aiming, face aim direction
@@ -53,7 +52,7 @@ namespace Pikl.Components
                     //if not moving or aiming, face last direction, if aiming, face aim direction
                     return !player.input.AimAxis && player.input.StickDir.magnitude == 0 ? lastDir : player.input.StickDir.normalized;
                 }
-            }
+            }*/
 
         }
     }

@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using Pikl.Extensions;
-using Luminosity.IO;
 using Pikl.Profile;
 using Pikl.Data;
 using System.Linq;
@@ -90,12 +89,12 @@ namespace Pikl.UI {
                     ClearCraftingList();
                     if (CheckAvailableCrafts()) {
                         UpdateCraftingSelection();
-                        if (!isAlreadyDown && InputMgr.GetAxisRaw("Shoot") != 0) {
+                        /*if (!isAlreadyDown && InputMgr.GetAxisRaw("Shoot") != 0) {
                             isAlreadyDown = true;
                             availableCrafts[selectedCraft].Craft();
                         } else if (InputMgr.GetAxisRaw("Shoot") == 0) {
                             isAlreadyDown = false;
-                        }
+                        }*/
                     }
                 }
             }
@@ -214,10 +213,10 @@ namespace Pikl.UI {
         void UpdateCraftingSelection() {
 
             float selectionDir = 0;
-            if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse")
+            /*if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse")
                 selectionDir = InputMgr.GetAxisRaw("Mouse Scrollwheel");
             else
-                selectionDir = InputMgr.GetAxisRaw("DPADVertical");
+                selectionDir = InputMgr.GetAxisRaw("DPADVertical");*/
 
             selectedCraft -= (int)selectionDir;
             selectedCraft = Mathf.Clamp(selectedCraft, 0, 19);

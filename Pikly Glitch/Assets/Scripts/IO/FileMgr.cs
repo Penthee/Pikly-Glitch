@@ -4,7 +4,6 @@ using System.Xml;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
-using Luminosity.IO;
 
 namespace Pikl.Profile {
     public class FileMgr : Singleton<FileMgr> {
@@ -261,7 +260,7 @@ namespace Pikl.Profile {
 
         public void CreateNewInputFile(string profileName) {
             string filename = Path.Combine(profileInputPath, profileName + ".xml");
-            InputMgr.Save(filename);
+            //InputMgr.Save(filename);
 
             XmlDocument doc = new XmlDocument();
             doc.Load(filename);

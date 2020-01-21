@@ -6,7 +6,6 @@ using Pikl.Data;
 using Pikl.Extensions;
 using Pikl.Components;
 using Pikl.States.Components;
-using Luminosity.IO;
 
 //using Pikl.Audio;
 
@@ -59,11 +58,11 @@ namespace Pikl.Player.States {
         Quaternion CalcAccuracy() {
             float accuracy = Random.Range(-weapon.shot.accuracy, weapon.shot.accuracy) + 90;
             
-            if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
+            //if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
                 return Quaternion.LookRotation(Vector3.forward, player.input.MouseDirFromWeapon.normalized.Rotate(accuracy));
-            } else {
+            /*} else {
                 return Quaternion.LookRotation(Vector3.forward, player.input.StickDir.normalized.Rotate(accuracy));
-            }
+            }*/
         }
 
 

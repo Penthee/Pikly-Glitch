@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using LOS;
 using UnityEngine;
 
 namespace Pikl {
@@ -40,10 +39,6 @@ namespace Pikl {
                     setLastTime = false;
                 }
             }
-        }
-
-        void SetDirty() {
-            LOSManager.instance._isDirty = true;
         }
     }
 }

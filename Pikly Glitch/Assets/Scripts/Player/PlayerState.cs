@@ -2,7 +2,6 @@
 using UnityEngine;
 using Pikl.States;
 using Pikl.Extensions;
-using Luminosity.IO;
 using Pikl.Utils.Cameras;
 using Pikl.Data;
 using Pikl.Components;
@@ -47,11 +46,11 @@ namespace Pikl.Player {
                 }
 
                 Vector2 targetOffset = Vector2.zero;
-                if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
+                //if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
                     targetOffset = player.input.MouseDir * player.input.aimCameraDistance;
-                } else {
-                    targetOffset = player.input.StickDir * player.input.aimCameraDistance * 2.5f;
-                }
+                //} else {
+//                    targetOffset = player.input.StickDir * player.input.aimCameraDistance * 2.5f;
+//                }
                 //Debug.Log("constraint: " + offsetConstraint + ", magnitude: " + targetOffset.magnitude);
                 targetOffset = Vector2.ClampMagnitude(targetOffset, offsetConstraint);
 

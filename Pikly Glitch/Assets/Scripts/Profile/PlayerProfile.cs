@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-using Luminosity.IO;
 //using Pikl.Audio;
 
 namespace Pikl.Profile {

@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 using System.Linq;
 using UnityEngine.Audio;
 //using Pikl.Utils.Coroutines;
-using Luminosity.IO;
 //using Pikl.Audio;
 using Pikl.Profile;
 using Pikl.Data;
@@ -295,14 +294,14 @@ namespace Pikl.UI {
         //    endSnapshot.TransitionTo(0f);
         //}
 
-        void InputDeviceChanged(InputDevice inputDevice) {
+        /*void InputDeviceChanged(InputDevice inputDevice) {
             switch(inputDevice) {
                 case InputDevice.Gamepad:
                     CurrentMenu.SetFocus();
                     break;
                 case InputDevice.KeyboardAndMouse: break;
             }
-        }
+        }*/
 
         public void HoldTemporaryItems(List<Item> items) {
             if (items  == null || items.Count == 0) return;

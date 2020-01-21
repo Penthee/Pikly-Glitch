@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Pikl.States.Components;
 using Pikl.States;
-using Luminosity.IO;
 using Pikl.Data;
 using Pikl.Interaction;
 using Pikl.UI;
@@ -98,7 +97,7 @@ namespace Pikl.Player {
             float moveInput = 0, reorderInput = 0;
 
             if (!(UI.UIMgr.I.gameUI as UI.GameUI).craftingUI.activeSelf) {
-                if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
+                /*if (InputMgr.PlayerOneControlScheme.Name == "KeyboardAndMouse") {
                     moveInput = -InputMgr.GetAxisRaw("Mouse Scrollwheel");
                     reorderInput = InputMgr.GetAxisRaw("Reorder");
                 } else if (lastMoveInputTime + controllerSelectionCooldown < Time.time || (!InputMgr.GetButton("MoveItemUp") && !InputMgr.GetButton("MoveItemDown"))) {
@@ -110,7 +109,7 @@ namespace Pikl.Player {
                     } else {
                         lastMoveInputTime = 0;
                     }
-                }
+                }*/
             }
 
             Weapon w = (SelectedItem as Weapon);
