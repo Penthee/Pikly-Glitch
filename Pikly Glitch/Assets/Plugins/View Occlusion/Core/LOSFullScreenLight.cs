@@ -219,9 +219,11 @@ namespace LOS {
 				}
 				
 				if (LOSRaycast(direction, out hit, _raycastDistance) && CheckRaycastHit(hit, 0)) {		// Hit a collider.
-					Vector3 hitPoint = hit.point;
+					Vector3 hitPoint = hit.point;// + (direction * 1);
 					GameObject hitGo = hit.hitGo;
 					Vector3 hitNormal = hit.normal;
+					
+					//Debug.Log("hitpoint: " + hit.point.ToString() + ", direction: " + hit.normal.ToString() + ", hitpoint+Direction: " + hitPoint);
 					
 					if (degree == _startAngle) {
 						farPointIndex = firstFarPointIndex;

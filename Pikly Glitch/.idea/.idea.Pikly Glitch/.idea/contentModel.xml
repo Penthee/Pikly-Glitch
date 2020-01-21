@@ -621,6 +621,28 @@
                 </e>
               </e>
             </e>
+            <e p="Light2D" t="Include">
+              <e p="Editor" t="Include">
+                <e p="Light2DRendererEditor.cs" t="Include" />
+              </e>
+              <e p="Examples" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="ConstantRotation.cs" t="Include" />
+                  <e p="Screenshot.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="Light2DObject.cs" t="Include" />
+                <e p="Light2DRenderer.cs" t="Include" />
+              </e>
+              <e p="Shaders" t="Include">
+                <e p="DebugRaytracer.shader" t="Include" />
+                <e p="Jump Flood.shader" t="Include" />
+                <e p="Light2D Object.shader" t="Include" />
+                <e p="Raytracer.shader" t="Include" />
+                <e p="UV Encoding.shader" t="Include" />
+              </e>
+            </e>
             <e p="RDS" t="Include">
               <e p="Interfaces.cs" t="Include" />
               <e p="Objects" t="Include">
@@ -655,7 +677,6 @@
               <e p="Idle.cs" t="Include" />
               <e p="Interact.cs" t="Include" />
               <e p="Shoot.cs" t="Include" />
-              <e p="Sprint.cs" t="Include" />
               <e p="Walk.cs" t="Include" />
             </e>
           </e>

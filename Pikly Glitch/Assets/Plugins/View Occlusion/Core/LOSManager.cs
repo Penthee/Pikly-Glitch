@@ -10,7 +10,6 @@ namespace LOS {
 	/// </summary>
 	[ExecuteInEditMode]
 	public class LOSManager : MonoBehaviour {
-		public PhysicsOpt physicsOpt;
 		public float viewboxExtension = 1.01f;
 		public bool debugMode;
 
@@ -20,16 +19,13 @@ namespace LOS {
 		[HideInInspector]
 		public Vector2 halfViewboxSize {get {return losCamera.halfViewboxSize;}}
 
-		[HideInInspector]
-		public bool is2D {get {return physicsOpt == PhysicsOpt.Physics_2D;}}
-
 		private static LOSManager _instance;
 
 		private List<LOSObstacle> _obstacles;
 		private List<LOSLightBase> _lights;
 		private Transform _losCameraTrans;
 		private LOSCamera _losCamera;
-		private bool _isDirty;
+		public bool _isDirty;
 
 
 		/// <summary>
