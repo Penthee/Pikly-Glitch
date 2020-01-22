@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4226970206412451516}
   - component: {fileID: 611857616499866050}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,6 +45,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

@@ -197,7 +197,7 @@ namespace Pikl.Utils.Cameras {
             camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, Mathf.Clamp(targetSize + scaleOffset, 0, bounds.extents.y), zoomSmoothing);
             camera.orthographicSize = Mathf.Clamp(camera.orthographicSize, minSize, Mathf.Clamp(origSize + scaleOffset, 0, bounds.extents.y));
 
-            losCamera.orthographicSize = Mathf.Clamp(camera.orthographicSize - losSizeDiff, minSize - losSizeDiff, bounds.extents.y);
+            //losCamera.orthographicSize = Mathf.Clamp(camera.orthographicSize - losSizeDiff, minSize - losSizeDiff, bounds.extents.y);
 
             ClampCameraInBounds();
         }
