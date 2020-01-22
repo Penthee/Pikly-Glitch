@@ -11,8 +11,8 @@ using UnityEngine;
 
 public class ZippyLights2D : MonoBehaviour {
 
-	[HideInInspector]	public bool idle;                                   // When idle the mesh generation is in pause mode, mesh is refreshed if light ray points move.
-	[HideInInspector]	public bool lightEnabled = true;                    // Rays will only be cast if this property is enabled.
+	public bool idle;                                   // When idle the mesh generation is in pause mode, mesh is refreshed if light ray points move.
+	public bool lightEnabled = true;                    // Rays will only be cast if this property is enabled.
 
 	//[Header("Light Settings")]
 

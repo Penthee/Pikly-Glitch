@@ -14,221 +14,6 @@
           <e p="UberLoggerEditorWindow.cs" t="Include" />
           <e p="UnityObjectEditor.cs" t="Include" />
         </e>
-        <e p="FunkyCode" t="Include">
-          <e p="Demos - SmartLighting2D" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="DemoCollisionEvents.cs" t="Include" />
-              <e p="DemoFollowMouse.cs" t="Include" />
-              <e p="DemoFpsHelper.cs" t="Include" />
-              <e p="DemoLightColorChange.cs" t="Include" />
-              <e p="DemoLightFlicker.cs" t="Include" />
-              <e p="DemoLightSpriteInstance.cs" t="Include" />
-              <e p="DemoLightSpriteSpawner.cs" t="Include" />
-              <e p="DemoMainManager.cs" t="Include" />
-              <e p="DemoPlayerController.cs" t="Include" />
-              <e p="DemoTabs.cs" t="Include" />
-              <e p="LightingDemoScene.cs" t="Include" />
-            </e>
-          </e>
-          <e p="SmartLighting2D" t="Include">
-            <e p="Changelog.txt" t="Include" />
-            <e p="Components" t="Include">
-              <e p="Lighting2DSettings.cs" t="Include" />
-              <e p="LightingCollider2D.cs" t="Include" />
-              <e p="LightingManager2D.cs" t="Include" />
-              <e p="LightingRoom2D.cs" t="Include" />
-              <e p="LightingSource2D.cs" t="Include" />
-              <e p="LightingSpriteRenderer2D.cs" t="Include" />
-              <e p="LightingTextureRenderer2D.cs" t="Include" />
-              <e p="LightingTilemapCollider2D.cs" t="Include" />
-              <e p="LightingTilemapRoom2D.cs" t="Include" />
-            </e>
-            <e p="Editor" t="Include">
-              <e p="Lighting2DBufferEditor.cs" t="Include" />
-              <e p="Lighting2DMainBufferEditor.cs" t="Include" />
-              <e p="Lighting2DSettingsEditor.cs" t="Include" />
-              <e p="Lighting2DSettingsWindowEditor.cs" t="Include" />
-              <e p="LightingCollider2DEditor.cs" t="Include" />
-              <e p="LightingManager2DEditor.cs" t="Include" />
-              <e p="LightingRoom2DEditor.cs" t="Include" />
-              <e p="LightingSource2DEditor.cs" t="Include" />
-              <e p="LightingTilemapCollider2DEditor.cs" t="Include" />
-            </e>
-            <e p="Resources" t="Include">
-              <e p="Shaders" t="Include">
-                <e p="SpriteBlack.shader" t="Include" />
-                <e p="SpriteWhite.shader" t="Include" />
-              </e>
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="AtlasSystem" t="Include">
-                <e p="SpriteAtlasManager.cs" t="Include" />
-                <e p="SpriteAtlasTexture.cs" t="Include" />
-              </e>
-              <e p="Batching" t="Include">
-                <e p="PartiallyBatched.cs" t="Include" />
-              </e>
-              <e p="Blur" t="Include">
-                <e p="BlurManager.cs" t="Include" />
-                <e p="BlurObject.cs" t="Include" />
-                <e p="LinearBlur.cs" t="Include" />
-              </e>
-              <e p="CustomPhysicsShape" t="Include">
-                <e p="CustomPhysicsShape.cs" t="Include" />
-                <e p="CustomPhysicsShapeManager.cs" t="Include" />
-              </e>
-              <e p="DayLighting" t="Include">
-                <e p="DayLighting.cs" t="Include" />
-                <e p="DayLightingCollider.cs" t="Include" />
-                <e p="DayLightingTilemap.cs" t="Include" />
-              </e>
-              <e p="Debug" t="Include">
-                <e p="LightingDebug.cs" t="Include" />
-              </e>
-              <e p="Enums" t="Include">
-                <e p="ColliderDepth.cs" t="Include" />
-                <e p="LightCollision.cs" t="Include" />
-              </e>
-              <e p="Graphics" t="Include">
-                <e p="GraphicsLighting.cs" t="Include" />
-                <e p="Max2D.cs" t="Include" />
-              </e>
-              <e p="LightingBuffer" t="Include">
-                <e p="FBOManager.cs" t="Include" />
-                <e p="LightingBuffer2D.cs" t="Include" />
-                <e p="LightingBufferDefault.cs" t="Include" />
-                <e p="LightingBufferShadow.cs" t="Include" />
-                <e p="LightingBufferSorted.cs" t="Include" />
-                <e p="LightingMainBuffer2D.cs" t="Include" />
-                <e p="Objects" t="Include">
-                  <e p="LightingBufferBase.cs" t="Include" />
-                  <e p="LightingBufferCollider.cs" t="Include" />
-                  <e p="LightingBufferMesh.cs" t="Include" />
-                  <e p="LightingBufferSkinnedMesh.cs" t="Include" />
-                  <e p="LightingBufferSprite.cs" t="Include" />
-                  <e p="LightingBufferTile.cs" t="Include" />
-                  <e p="LightingBufferTilemapComponent.cs" t="Include" />
-                  <e p="LightingBufferTilemapIsometric.cs" t="Include" />
-                  <e p="LightingBufferTilemapRectangle.cs" t="Include" />
-                </e>
-              </e>
-              <e p="LightingCollider" t="Include">
-                <e p="DayLightingShadowCollider.cs" t="Include" />
-                <e p="LightingColliderMovement.cs" t="Include" />
-                <e p="LightingShadowCollider.cs" t="Include" />
-              </e>
-              <e p="LightingOcclusion" t="Include">
-                <e p="LightingOcclusionCollider.cs" t="Include" />
-                <e p="LightingOcclussion.cs" t="Include" />
-                <e p="LightingOcclussionShape.cs" t="Include" />
-              </e>
-              <e p="LightingRoom" t="Include">
-                <e p="LightingRoomCollider.cs" t="Include" />
-                <e p="LightingRoomColliderMovement.cs" t="Include" />
-                <e p="LightingRoomTilemap.cs" t="Include" />
-              </e>
-              <e p="LightingSource" t="Include">
-                <e p="LayerSetting.cs" t="Include" />
-                <e p="LightingSource2DMovement.cs" t="Include" />
-                <e p="LightingSourceTexture.cs" t="Include" />
-              </e>
-              <e p="LightingSprite" t="Include">
-                <e p="LightingSpriteBuffer.cs" t="Include" />
-                <e p="LightingTextureBuffer.cs" t="Include" />
-              </e>
-              <e p="LightingTilemap" t="Include">
-                <e p="LightingTile.cs" t="Include" />
-              </e>
-              <e p="LWRP" t="Include">
-                <e p="BufferLightingSourceRenderer.cs" t="Include" />
-                <e p="BufferLightTextureRenderer.cs" t="Include" />
-                <e p="BufferShadowRenderer.cs" t="Include" />
-              </e>
-              <e p="Material" t="Include">
-                <e p="LightingManager2DMaterials.cs" t="Include" />
-                <e p="LightingMaterial.cs" t="Include" />
-              </e>
-              <e p="MeshRenderer" t="Include">
-                <e p="LightingMeshRenderer.cs" t="Include" />
-                <e p="MeshRendererManager.cs" t="Include" />
-              </e>
-              <e p="OnRender" t="Include">
-                <e p="OnRenderMode.cs" t="Include" />
-              </e>
-              <e p="Settings" t="Include">
-                <e p="Lighting2D.cs" t="Include" />
-                <e p="Lighting2DProfiler.cs" t="Include" />
-                <e p="Lighting2DSettingsProfile.cs" t="Include" />
-              </e>
-              <e p="SpriteMesh" t="Include">
-                <e p="SpriteMesh.cs" t="Include" />
-              </e>
-            </e>
-          </e>
-          <e p="SmartUtilities2D" t="Include">
-            <e p="Components" t="Include">
-              <e p="ColliderBevelRenderer2D.cs" t="Include" />
-              <e p="ColliderLineRenderer2D.cs" t="Include" />
-              <e p="JointLineRenderer2D.cs" t="Include" />
-              <e p="Mesh2D.cs" t="Include" />
-              <e p="Mesh3D.cs" t="Include" />
-            </e>
-            <e p="Graphics" t="Include">
-              <e p="MaterialManager.cs" t="Include" />
-              <e p="Max2DMesh.cs" t="Include" />
-              <e p="SmartMaterial.cs" t="Include" />
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="Editor" t="Include">
-                <e p="ColliderLineRenderer2DEditor.cs" t="Include" />
-                <e p="Mesh2DEditor.cs" t="Include" />
-              </e>
-              <e p="Graphics" t="Include">
-                <e p="Max2D.cs" t="Include" />
-                <e p="Max2DMatrix.cs" t="Include" />
-              </e>
-              <e p="Triangulation" t="Include">
-                <e p="Advanced Triangulator" t="Include">
-                  <e p="DelaunayTriangle.cs" t="Include" />
-                  <e p="DTSweepUtility.cs" t="Include" />
-                  <e p="PolygonUtility.cs" t="Include" />
-                  <e p="TriangulationAlgorithm.cs" t="Include" />
-                  <e p="TriangulationAlgorithmUtility.cs" t="Include" />
-                  <e p="TriangulationSets.cs" t="Include" />
-                  <e p="TriangulationUtility.cs" t="Include" />
-                  <e p="TriangulationWrapper.cs" t="Include" />
-                </e>
-                <e p="DefaultTriagulator" t="Include">
-                  <e p="UnityDefaultTriangulator.cs" t="Include" />
-                </e>
-                <e p="PolygonTriangulator2D.cs" t="Include" />
-              </e>
-              <e p="Utilities" t="Include">
-                <e p="DoublePair2D.cs" t="Include" />
-                <e p="Joint2D.cs" t="Include" />
-                <e p="Math2D.cs" t="Include" />
-                <e p="Mathd.cs" t="Include" />
-                <e p="Misc" t="Include">
-                  <e p="DestroyTimer.cs" t="Include" />
-                  <e p="TimerHelper.cs" t="Include" />
-                </e>
-                <e p="Pair2D.cs" t="Include" />
-                <e p="Particle2D.cs" t="Include" />
-                <e p="Physics2DHelper.cs" t="Include" />
-                <e p="Polygon2D.cs" t="Include" />
-                <e p="Polygon2DList.cs" t="Include" />
-                <e p="Vector2D.cs" t="Include" />
-                <e p="Vector2DList.cs" t="Include" />
-                <e p="VirtualSpriteRenderer.cs" t="Include" />
-                <e p="VirtualTransform.cs" t="Include" />
-              </e>
-            </e>
-            <e p="UI" t="Include">
-              <e p="UICanvasScale.cs" t="Include" />
-              <e p="UITextScale.cs" t="Include" />
-            </e>
-          </e>
-        </e>
         <e p="Plugins" t="Include">
           <e p="DOTween" t="Include">
             <e p="Readme.txt" t="Include" />
@@ -392,11 +177,13 @@
             <e p="AimTarget.cs" t="Include" />
             <e p="DamageObject.cs" t="Include" />
             <e p="Destroy.cs" t="Include" />
+            <e p="DisableFarAwayChild.cs" t="Include" />
             <e p="Explode.cs" t="Include" />
             <e p="FaceInput2D.cs" t="Include" />
             <e p="FaceVector2D.cs" t="Include" />
             <e p="FollowTarget.cs" t="Include" />
             <e p="ForceOnStart.cs" t="Include" />
+            <e p="ForegroundParallax.cs" t="Include" />
             <e p="MoveTowards.cs" t="Include" />
             <e p="ProjectileCollisionTrigger2D.cs" t="Include" />
             <e p="Sight.cs" t="Include" />
@@ -737,6 +524,50 @@
               <e p="RDSUniqueTable.cs" t="Include" />
               <e p="ResultEventArgs.cs" t="Include" />
             </e>
+            <e p="Zippy 2D" t="Include">
+              <e p="Shared" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="SortingLayerDrawer.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Zippy Lights 2D" t="Include">
+                <e p="Demo" t="Include">
+                  <e p="Demo Scripts" t="Include">
+                    <e p="ChildObjectBrowser.cs" t="Include" />
+                    <e p="MoveToMousePos.cs" t="Include" />
+                    <e p="Rotate.cs" t="Include" />
+                    <e p="TextMeshFPS.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="Known Issues.txt" t="Include" />
+                <e p="Scripts" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="ZippyLights2DEditor.cs" t="Include" />
+                  </e>
+                  <e p="SetRenderQueue.cs" t="Include" />
+                  <e p="ZippyLights2D.cs" t="Include" />
+                </e>
+                <e p="Shaders" t="Include">
+                  <e p="ZippyLight2D DepthShader.shader" t="Include" />
+                  <e p="ZippyLight2DDesktop1L.shader" t="Include" />
+                  <e p="ZippyLight2DDesktop1LC.shader" t="Include" />
+                  <e p="ZippyLight2DDesktop1LStencil.shader" t="Include" />
+                  <e p="ZippyLight2DDesktop2L.shader" t="Include" />
+                  <e p="ZippyLight2DDesktop2LC.shader" t="Include" />
+                  <e p="ZippyLight2DDesktop2LStencil.shader" t="Include" />
+                  <e p="ZippyLight2DDesktop3L.shader" t="Include" />
+                  <e p="ZippyLight2DDesktop3LC.shader" t="Include" />
+                  <e p="ZippyLight2DDesktop3LStencil.shader" t="Include" />
+                  <e p="ZippyLight2DDesktopC.shader" t="Include" />
+                  <e p="ZippyLight2DMobile.shader" t="Include" />
+                  <e p="ZippyLight2DMobile1L.shader" t="Include" />
+                  <e p="ZippyLight2DMobile1LC.shader" t="Include" />
+                  <e p="ZippyLight2DMobile2L.shader" t="Include" />
+                  <e p="ZippyLight2DMobile2LC.shader" t="Include" />
+                  <e p="ZippyLight2DMobile3L.shader" t="Include" />
+                </e>
+              </e>
+            </e>
           </e>
           <e p="Player" t="Include">
             <e p="Pause.cs" t="Include" />
@@ -803,50 +634,6 @@
             <e p="UIMgr.cs" t="Include" />
           </e>
           <e p="Void.cs" t="Include" />
-        </e>
-        <e p="Zippy 2D" t="Include">
-          <e p="Shared" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="SortingLayerDrawer.cs" t="Include" />
-            </e>
-          </e>
-          <e p="Zippy Lights 2D" t="Include">
-            <e p="Demo" t="Include">
-              <e p="Demo Scripts" t="Include">
-                <e p="ChildObjectBrowser.cs" t="Include" />
-                <e p="MoveToMousePos.cs" t="Include" />
-                <e p="Rotate.cs" t="Include" />
-                <e p="TextMeshFPS.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Known Issues.txt" t="Include" />
-            <e p="Scripts" t="Include">
-              <e p="Editor" t="Include">
-                <e p="ZippyLights2DEditor.cs" t="Include" />
-              </e>
-              <e p="SetRenderQueue.cs" t="Include" />
-              <e p="ZippyLights2D.cs" t="Include" />
-            </e>
-            <e p="Shaders" t="Include">
-              <e p="ZippyLight2D DepthShader.shader" t="Include" />
-              <e p="ZippyLight2DDesktop1L.shader" t="Include" />
-              <e p="ZippyLight2DDesktop1LC.shader" t="Include" />
-              <e p="ZippyLight2DDesktop1LStencil.shader" t="Include" />
-              <e p="ZippyLight2DDesktop2L.shader" t="Include" />
-              <e p="ZippyLight2DDesktop2LC.shader" t="Include" />
-              <e p="ZippyLight2DDesktop2LStencil.shader" t="Include" />
-              <e p="ZippyLight2DDesktop3L.shader" t="Include" />
-              <e p="ZippyLight2DDesktop3LC.shader" t="Include" />
-              <e p="ZippyLight2DDesktop3LStencil.shader" t="Include" />
-              <e p="ZippyLight2DDesktopC.shader" t="Include" />
-              <e p="ZippyLight2DMobile.shader" t="Include" />
-              <e p="ZippyLight2DMobile1L.shader" t="Include" />
-              <e p="ZippyLight2DMobile1LC.shader" t="Include" />
-              <e p="ZippyLight2DMobile2L.shader" t="Include" />
-              <e p="ZippyLight2DMobile2LC.shader" t="Include" />
-              <e p="ZippyLight2DMobile3L.shader" t="Include" />
-            </e>
-          </e>
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

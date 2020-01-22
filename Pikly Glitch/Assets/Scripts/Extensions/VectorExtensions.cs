@@ -193,5 +193,10 @@ namespace Pikl.Extensions {
 
         //    return angle360;
         //}
+        
+        public static Vector2 Abs (this Vector2 v) {
+            return new Vector2(Mathf.Abs(v.x), Mathf.Abs(v.y));
+        }
+
     }
 }
