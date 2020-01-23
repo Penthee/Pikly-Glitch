@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8296728567765394323}
   - component: {fileID: 7551974532680478500}
   - component: {fileID: 5668011984578013114}
+  - component: {fileID: 4627487163854778283}
   m_Layer: 8
   m_Name: Tree
   m_TagString: Untagged
@@ -46,6 +47,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -97,3 +99,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.43
+--- !u!114 &4627487163854778283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042654489152544433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eaa6e08c022da24d8cec4c215baa2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 2
+  range: 1.03
+  updateRange: 15
+  updateInterval: 0.2
