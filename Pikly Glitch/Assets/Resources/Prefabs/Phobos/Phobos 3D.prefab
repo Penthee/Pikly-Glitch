@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1695619225}
   - component: {fileID: 1695619226}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,8 +39,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695619224}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 3.17
   m_Range: 4.9
@@ -102,8 +103,8 @@ GameObject:
   - component: {fileID: 3920584407929186997}
   - component: {fileID: 5418868291311685763}
   - component: {fileID: 1733667515039034490}
-  - component: {fileID: 8291692551242761629}
-  m_Layer: 0
+  - component: {fileID: 830462378691875937}
+  m_Layer: 8
   m_Name: Phobos 3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,6 +148,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -171,7 +173,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &8291692551242761629
+--- !u!114 &830462378691875937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,9 +182,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 14618453182453926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51bbf07bcf8194e57bd7ee21b97d9180, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f8d49827e78a8f4bb63df861733ad93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _trans: {fileID: 0}
-  speed: 5
+  spinSpeed: 3
   axis: 2

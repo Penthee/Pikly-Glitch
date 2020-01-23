@@ -34,7 +34,7 @@ namespace Pikl {
             yield return new WaitForSeconds(initialDelay);
 
             UIMgr.I.OpenMenu(UIMgr.I.textRead);
-            (UIMgr.I.textRead as LevelIntroText).StartScroll(level, _items, _playerHealth);
+            (UIMgr.I.textRead as LevelIntroText)?.StartScroll(level, _items, _playerHealth);
             
             Shaker.I.ActiveShakes.Clear();
         }
@@ -43,10 +43,10 @@ namespace Pikl {
             if (collision.gameObject.name == "Player" && !started) {
                 Player.Player player = collision.GetComponent<StateObject>() as Player.Player;
 
-                player.Pause();
+                player?.Pause();
 
-                _items = player.inventory.items;
-                _playerHealth = player.health;
+                _items = player?.inventory.items;
+                _playerHealth = player?.health;
 
                 foreach (var c in collision.gameObject.GetComponents<Collider2D>()) {
                     c.enabled = false;

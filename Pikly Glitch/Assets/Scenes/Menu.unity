@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -740,8 +741,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358448896}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 0.8259958, b: 0.6084906, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -1282,19 +1284,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1695619224, guid: cd2ea0dfe25ed4e47b4392168c30f748, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 14618453182453926, guid: cd2ea0dfe25ed4e47b4392168c30f748,
         type: 3}
       propertyPath: m_Name
       value: Phobos 3D
-      objectReference: {fileID: 0}
-    - target: {fileID: 14618453182453926, guid: cd2ea0dfe25ed4e47b4392168c30f748,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3920584407929186997, guid: cd2ea0dfe25ed4e47b4392168c30f748,
         type: 3}
@@ -1350,11 +1343,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8291692551242761629, guid: cd2ea0dfe25ed4e47b4392168c30f748,
-        type: 3}
-      propertyPath: speed
-      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd2ea0dfe25ed4e47b4392168c30f748, type: 3}

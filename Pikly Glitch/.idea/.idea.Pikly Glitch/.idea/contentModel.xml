@@ -185,6 +185,7 @@
             <e p="ForceOnStart.cs" t="Include" />
             <e p="ForegroundParallax.cs" t="Include" />
             <e p="MoveTowards.cs" t="Include" />
+            <e p="Phobos.cs" t="Include" />
             <e p="ProjectileCollisionTrigger2D.cs" t="Include" />
             <e p="Sight.cs" t="Include" />
             <e p="SimpleSingleton.cs" t="Include" />
