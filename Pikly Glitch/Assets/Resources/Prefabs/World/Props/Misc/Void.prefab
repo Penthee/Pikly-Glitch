@@ -46,10 +46,11 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bde4c208d58764b899f0108461cf8c87, type: 2}
+  - {fileID: 2100000, guid: 32fc433b151c19c4aadfc20a380d8b7a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -142,10 +143,10 @@ MonoBehaviour:
   moveVariation: 0.082
   minDuration: 0.145
   maxDuration: 0.536
-  material: {fileID: 2100000, guid: bde4c208d58764b899f0108461cf8c87, type: 2}
-  red: {fileID: 2100000, guid: e2c366b4b9819c64b9d56a5c17e72706, type: 2}
-  yellow: {fileID: 2100000, guid: 72fa991de57c64040bebf503f18ae858, type: 2}
-  green: {fileID: 2100000, guid: 4550768e4b7cffb47b813fe2d096e09b, type: 2}
+  material: {fileID: 2100000, guid: 8f1e4e9cb08dff94a80baae457b1d625, type: 2}
+  red: {fileID: 2100000, guid: 4f48d32f453ab374595d35848a933ce4, type: 2}
+  yellow: {fileID: 2100000, guid: f9003a7f3c40d8e4f9466e00e17e98c0, type: 2}
+  green: {fileID: 2100000, guid: 6a372e78289146d4e857ad235c302884, type: 2}
   variation: []
   abVariation: []
 --- !u!33 &7346559181629034369
@@ -170,10 +171,11 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 8f1e4e9cb08dff94a80baae457b1d625, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4936,10 +4938,11 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bde4c208d58764b899f0108461cf8c87, type: 2}
+  - {fileID: 2100000, guid: 8f1e4e9cb08dff94a80baae457b1d625, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

@@ -84,10 +84,8 @@ namespace Pikl.States {
         //[HideInInspector]
         public bool isDead;
         [HideInInspector]
-        /// <summary>
-        /// False by default, when there are no more states in the buffer or queue, this is used as a fall-back sequence.
-        /// This will most commonly be used when coming out of a sequence automatically using Switch().
-        /// </summary>
+        // False by default, when there are no more states in the buffer or queue, this is used as a fall-back sequence.
+        // This will most commonly be used when coming out of a sequence automatically using Switch().
         public bool useDefaultSequence = false;
         internal Transform t = null;
         /// <summary>The gameObject's Rigidbody2D.</summary>
@@ -96,16 +94,14 @@ namespace Pikl.States {
         internal Animator ar = null;
         /// <summary>The gameObject's SpriteRenderer.</summary>
         internal new SpriteRenderer renderer = null;
-        /// <summary>The gameObject's EntityRenderer - for spriter.</summary>
+        // <summary>The gameObject's EntityRenderer - for spriter.</summary>
         //internal EntityRenderer e_renderer;
-        /// <summary>The gameObject's Collider2D.</summary>
+        // <summary>The gameObject's Collider2D.</summary>
         internal Collider2D c2d = null;
         #endregion
 
         #region Initialization
-        /// <summary>
-        /// Set the default/dead/pause states before you call base.Start().
-        /// </summary>
+        // Set the default/dead/pause states before you call base.Start().
         internal virtual void Start() {
 #if UNITY_EDITOR
             VerifyCachedStates();

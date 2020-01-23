@@ -43,10 +43,12 @@ namespace Pikl {
             if (collision.gameObject.name == "Player" && !started) {
                 Player.Player player = collision.GetComponent<StateObject>() as Player.Player;
 
-                player?.Pause();
+                if (player != null) {
+                    player.Pause();
 
-                _items = player?.inventory.items;
-                _playerHealth = player?.health;
+                    _items = player.inventory.items;
+                    _playerHealth = player.health;
+                }
 
                 foreach (var c in collision.gameObject.GetComponents<Collider2D>()) {
                     c.enabled = false;

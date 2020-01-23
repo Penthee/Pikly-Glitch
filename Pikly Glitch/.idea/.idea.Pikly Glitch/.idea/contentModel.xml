@@ -585,7 +585,6 @@
               <e p="Idle.cs" t="Include" />
               <e p="Interact.cs" t="Include" />
               <e p="Shoot.cs" t="Include" />
-              <e p="Sprint.cs" t="Include" />
               <e p="Walk.cs" t="Include" />
             </e>
           </e>

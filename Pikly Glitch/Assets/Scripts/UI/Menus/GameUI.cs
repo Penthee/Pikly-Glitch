@@ -158,24 +158,20 @@ namespace Pikl.UI {
         bool CheckAvailableCrafts() {
             availableCrafts = new List<Recipe>();
             //Find the craftables
-            foreach(Recipe recipe in recipeBook.recipes) {
-                if (recipe.Craftable()) {
-                    availableCrafts.Add(recipe);
-                }
+            foreach (Recipe recipe in recipeBook.recipes.Where(recipe => recipe.Craftable())) {
+                availableCrafts.Add(recipe);
             }
 
             //Display the craftables in ui
-            if (availableCrafts.Count > 0) {
-                for (int i = 0; i < availableCrafts.Count; i++) {
-                    craftingItems[i].text = availableCrafts[i].item.name;
-                    for (int j = 0; j < availableCrafts.Count; j++) {
-                        inventoryCraftHighlights.transform.GetChild(j).gameObject.SetActive(availableCrafts[i].item.name == player.inventory.items[j].name);
-                    }
+            if (availableCrafts.Count <= 0) return false;
+            
+            for (int i = 0; i < availableCrafts.Count; i++) {
+                craftingItems[i].text = availableCrafts[i].item.name;
+                for (int j = 0; j < availableCrafts.Count; j++) {
+                    inventoryCraftHighlights.transform.GetChild(j).gameObject.SetActive(availableCrafts[i].item.name == player.inventory.items[j].name);
                 }
-                return true;
             }
-
-            return false;
+            return true;
 
             //bool atLeastOneCraftable = false;
             //List<Item> availableCrafts = new List<Item>();
@@ -274,14 +270,11 @@ namespace Pikl.UI {
                 switch(item.type) {
                     case ItemType.Throwable:
                     case ItemType.Weapon: inventoryItems[i].color = item.selected ? weaponColour.Darker(selectDarkenAmount) : weaponColour; break;
-
                     case ItemType.Consumable: inventoryItems[i].color = item.selected ? consumableColour.Darker(selectDarkenAmount) : consumableColour; break;
-
                     case ItemType.Tool: inventoryItems[i].color = item.selected ? toolColour.Darker(selectDarkenAmount) : toolColour; break;
-
                     case ItemType.Material: inventoryItems[i].color = item.selected ? materialColour.Darker(selectDarkenAmount) : materialColour; break;
-
                     default: inventoryItems[i].color = item.selected ? Color.white.Darker(selectDarkenAmount) : Color.white; break;
+                    case ItemType.None: break;
                 }
 
                 inventoryItems[i].text = ParseItem(item);

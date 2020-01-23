@@ -1,17 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using Pikl.Collections;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using System.Linq;
 using UnityEngine.Audio;
-//using Pikl.Utils.Coroutines;
 using TeamUtility.IO;
-//using Pikl.Audio;
 using Pikl.Profile;
 using Pikl.Data;
-using Pikl.Player;
 using Pikl.States.Components;
 
 namespace Pikl.UI {
@@ -102,9 +95,8 @@ namespace Pikl.UI {
             CurrentMenu = menu;
             CurrentMenu.gameObject.SetActive(true);
             CurrentMenu.Open();
-
         }
-
+        
         public void ShowModal(string message) {
             modal.Close();
             modal.Message = message;
@@ -140,8 +132,7 @@ namespace Pikl.UI {
             } else if(modalConfirm.IsOpen) {
                 modalConfirm.Close();
                 modalConfirm.result = true;
-            }
-             else {
+            } else {
                 for (int i = 0; i < menuHistory.Peek().menuDepth - 1; i++)
                     menuHistory.Pop();
 
