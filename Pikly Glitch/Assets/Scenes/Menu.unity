@@ -1058,6 +1058,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7403501669740180300, guid: 7983b88e7ba2088428b9ee21a2491375,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7403501669740180303, guid: 7983b88e7ba2088428b9ee21a2491375,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1250,7 +1255,7 @@ PrefabInstance:
     - target: {fileID: 3358260301889905529, guid: 3643404d43be08c49909056a0b1b2ed0,
         type: 3}
       propertyPath: volumeLayer.m_Bits
-      value: 261942
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3358260301889905529, guid: 3643404d43be08c49909056a0b1b2ed0,
         type: 3}
