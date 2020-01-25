@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1243913645675685040}
   - component: {fileID: 2384759561611585441}
+  - component: {fileID: 7049251781997981240}
+  - component: {fileID: -2000894575921817135}
   m_Layer: 17
   m_Name: Corridor T
   m_TagString: Untagged
@@ -90,13 +92,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b35eedad1caa9a4ab5920feb8c4bae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   connectPoints:
-  - {fileID: 6442719011294591438}
-  - {fileID: 8599110670542498421}
-  - {fileID: 8550248325736918639}
-  bounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 3, y: 6.14, z: 0}
+  - t: {fileID: 6442719011294591438}
+    isConnected: 0
+  - t: {fileID: 8599110670542498421}
+    isConnected: 0
+  - t: {fileID: 8550248325736918639}
+    isConnected: 0
+  polygonBounds: {fileID: 0}
+--- !u!60 &7049251781997981240
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243913645675685041}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.6106452, y: 6.051053}
+      - {x: -1.8494108, y: 6.002995}
+      - {x: -1.9649739, y: -1.3682785}
+      - {x: -2.8042743, y: -1.4033965}
+      - {x: -2.8865142, y: -4.719499}
+      - {x: -1.6900237, y: -5.1237726}
+      - {x: -0.38612136, y: -6.424579}
+      - {x: 1.5913677, y: -5.2723556}
+      - {x: 2.8072476, y: -4.851609}
+      - {x: 2.7213414, y: -1.3820019}
+      - {x: 1.8362, y: -1.3159468}
+--- !u!50 &-2000894575921817135
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243913645675685041}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1596953086020623587
 GameObject:
   m_ObjectHideFlags: 0

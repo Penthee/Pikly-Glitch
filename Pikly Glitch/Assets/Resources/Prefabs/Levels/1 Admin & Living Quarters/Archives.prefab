@@ -147,6 +147,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3089686852952811563}
   - component: {fileID: -874210028272569016}
+  - component: {fileID: 3453676325740389931}
+  - component: {fileID: 8342437269709622441}
   m_Layer: 17
   m_Name: Archives
   m_TagString: Untagged
@@ -190,12 +192,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b35eedad1caa9a4ab5920feb8c4bae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   connectPoints:
-  - {fileID: 7209963756506818556}
-  - {fileID: 2211137850853619271}
-  bounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 8.41, y: 14.22, z: 0}
+  - t: {fileID: 7209963756506818556}
+    isConnected: 0
+  - t: {fileID: 2211137850853619271}
+    isConnected: 0
+  polygonBounds: {fileID: 0}
+--- !u!60 &3453676325740389931
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089686852952811562}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 5.535918, y: 12.260503}
+      - {x: 3.5165749, y: 14.145551}
+      - {x: -2.651496, y: 14.135104}
+      - {x: -5.0794444, y: 12.371105}
+      - {x: -11.682617, y: 9.816773}
+      - {x: -7.2264547, y: 5.724944}
+      - {x: -7.3554397, y: -0.873958}
+      - {x: -8.92842, y: -1.3625929}
+      - {x: -8.8374, y: -3.9292169}
+      - {x: -7.521718, y: -4.3637333}
+      - {x: -7.0737524, y: -14.10729}
+      - {x: 8.827817, y: -14.229665}
+      - {x: 8.783169, y: 11.322924}
+--- !u!50 &8342437269709622441
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089686852952811562}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &3089686852993802797
 GameObject:
   m_ObjectHideFlags: 0

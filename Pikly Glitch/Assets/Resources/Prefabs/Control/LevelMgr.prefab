@@ -43,9 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abaf2fe84ab27cb48b1214cc0e3993c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iterationMax: 100
+  iterationMax: 1
   startingRoom: {fileID: 0}
   player: {fileID: 0}
   cam: {fileID: 0}
-  connectorPool: []
-  <IsDone>k__BackingField: 0
+  roomPool: []
+  corridorPool: []
+  deadEnd: {fileID: -6618697312922701058, guid: b2fcedc51e5a4c44d97003ba1239e2d2,
+    type: 3}
+  isRandomising: 0

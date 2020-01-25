@@ -132,6 +132,26 @@
           </e>
         </e>
         <e p="Plugins" t="Include">
+          <e p="AsyncAwaitUtil" t="Include">
+            <e p="Source" t="Include">
+              <e p="Awaiters.cs" t="Include" />
+              <e p="AwaitExtensions.cs" t="Include" />
+              <e p="IEnumeratorAwaitExtensions.cs" t="Include" />
+              <e p="Internal" t="Include">
+                <e p="AsyncCoroutineRunner.cs" t="Include" />
+                <e p="SyncContextUtil.cs" t="Include" />
+              </e>
+              <e p="TaskExtensions.cs" t="Include" />
+              <e p="WaitForBackgroundThread.cs" t="Include" />
+              <e p="WaitForUpdate.cs" t="Include" />
+            </e>
+            <e p="Tests" t="Include">
+              <e p="AsyncUtilTests.cs" t="Include" />
+              <e p="Util" t="Include">
+                <e p="TestButtonHandler.cs" t="Include" />
+              </e>
+            </e>
+          </e>
           <e p="DOTween" t="Include">
             <e p="Readme.txt" t="Include" />
           </e>

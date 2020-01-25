@@ -130,6 +130,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8437300293108025768}
   - component: {fileID: -3851718102918620803}
+  - component: {fileID: 5482716538068713690}
+  - component: {fileID: -999174502161052564}
   m_Layer: 17
   m_Name: Corridor T Three Exit
   m_TagString: Untagged
@@ -207,14 +209,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b35eedad1caa9a4ab5920feb8c4bae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   connectPoints:
-  - {fileID: 2354641914687799369}
-  - {fileID: 7949126756945152288}
-  - {fileID: 3538999660519153594}
-  - {fileID: 3776911983625946440}
-  bounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 2.98, y: 5.36, z: 0}
+  - t: {fileID: 2354641914687799369}
+    isConnected: 0
+  - t: {fileID: 7949126756945152288}
+    isConnected: 0
+  - t: {fileID: 3538999660519153594}
+    isConnected: 0
+  - t: {fileID: 3776911983625946440}
+    isConnected: 0
+  polygonBounds: {fileID: 0}
+--- !u!60 &5482716538068713690
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8437300293108025769}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.7661614, y: 5.2191644}
+      - {x: -1.9182401, y: -2.1860368}
+      - {x: -2.819252, y: -2.2179255}
+      - {x: -2.9006164, y: -5.490748}
+      - {x: 2.8445482, y: -5.462714}
+      - {x: 2.8024368, y: -2.0455775}
+      - {x: 1.8268894, y: -2.1261666}
+      - {x: 1.7220013, y: 5.229039}
+--- !u!50 &-999174502161052564
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8437300293108025769}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1001 &330438759641547945
 PrefabInstance:
   m_ObjectHideFlags: 0

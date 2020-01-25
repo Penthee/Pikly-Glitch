@@ -40,6 +40,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6901121014345097041}
   - component: {fileID: 7203119371399391753}
+  - component: {fileID: 3674878535961123419}
+  - component: {fileID: -2076230308457804060}
   m_Layer: 17
   m_Name: Corridor L
   m_TagString: Untagged
@@ -92,12 +94,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b35eedad1caa9a4ab5920feb8c4bae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   connectPoints:
-  - {fileID: 201549598428088025}
-  - {fileID: 1364267360996888165}
-  bounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 1.51, y: 3.15, z: 0}
+  - t: {fileID: 201549598428088025}
+    isConnected: 0
+  - t: {fileID: 1364267360996888165}
+    isConnected: 0
+  polygonBounds: {fileID: 0}
+--- !u!60 &3674878535961123419
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901121014345097040}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.5927254, y: 3.248032}
+      - {x: -1.362808, y: 3.206183}
+      - {x: -1.3564171, y: -3.0209014}
+      - {x: 1.6881193, y: -2.9951713}
+--- !u!50 &-2076230308457804060
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901121014345097040}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &9131208178072167933
 GameObject:
   m_ObjectHideFlags: 0

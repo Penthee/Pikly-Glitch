@@ -56,7 +56,7 @@ public class Void : MonoBehaviour {
     }
 
     void GetComponents() {
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("Player")?.transform;
 
         meshRenderer = GetComponent<MeshRenderer>();
         meshFilter = GetComponent<MeshFilter>();

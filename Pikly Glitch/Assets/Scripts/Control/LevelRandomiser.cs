@@ -2,12 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using UnityEngine;
 using Pikl.Utils.RDS;
-using UnityEditor.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
-using UnityEngine.XR.WSA.Input;
 using Random = UnityEngine.Random;
 using NaughtyAttributes;
 using Pikl.States.Components;
@@ -19,16 +18,16 @@ namespace Pikl.Control {
         public Room startingRoom;
         public Transform player, cam;
         
-        [SerializeField] Dictionary<Room, bool> roomPool = new Dictionary<Room, bool>();
+        [SerializeField] List<Room> roomPool = new List<Room>();
         [SerializeField] List<Room> corridorPool = new List<Room>();
-        List<GameObject> tempListToDestroy = new List<GameObject>();
+        [SerializeField] List<GameObject> _tempListToDisable = new List<GameObject>();
+        [SerializeField] Room deadEnd;
 
         [ReadOnly] public bool isRandomising;
         readonly WaitForEndOfFrame _waitForFrame = new WaitForEndOfFrame();
         string _currentSceneName;
         int _i = 0;
-        bool Failsafe => _i < iterationMax;
-        
+        bool Failsafe => _i >= iterationMax;
         void Awake() {
             _currentSceneName = SceneManager.GetActiveScene().name;
             
@@ -38,72 +37,106 @@ namespace Pikl.Control {
         void Start() {
             //StartCoroutine(Randomise());
         }
-
         void LoadRooms() {
+            roomPool.Clear();
             foreach (GameObject o in Resources.LoadAll<GameObject>("Prefabs/Levels/" + _currentSceneName)) {
-                roomPool.Add(o.GetComponent<Room>(), false);
+                if (o.name.Contains("Teleporter") || o.name.Contains("StartingRoom"))
+                    continue;
+                
+                Room r = Instantiate(o).GetComponent<Room>();
+                r.gameObject.SetActive(false);
+                roomPool.Add(r);
             }
+
             Debug.Log($"Loaded Rooms: {roomPool.Count}");
             //Remove teleporter room from this list
         }
         void LoadConnectors() {
             foreach (GameObject o in Resources.LoadAll<GameObject>("Prefabs/Levels/Connectors")) {
+                if (o.name.Contains("Dead End"))
+                    continue;
+                
                 corridorPool.Add(o.GetComponent<Room>());
             }
             Debug.Log($"Loaded Connectors: {corridorPool.Count}");
         }
-
-        
-        [Button]
-        void ManualRandomise() {
+        [Button] void ManualRandomise() {
             if (isRandomising)
                 return;
+
+            Randomise();
+        }
+
+        void Reset() {
+            roomPool.RemoveAll(room => room != null);
+
+            foreach (ConnectPoint cp in startingRoom.connectPoints) cp.isConnected = false;
+            startingRoom.isPlaced = false;
             
-            foreach (GameObject o in tempListToDestroy) {
-                Destroy(o);
+            foreach (GameObject room in _tempListToDisable.ToList()) {
+                _tempListToDisable.Remove(room);
+                GameObject.Destroy(room);
             }
 
-            tempListToDestroy.Clear();
-            
-            StartCoroutine(Randomise());
+            LoadRooms();
+
+            _tempListToDisable.Clear();
         }
-        IEnumerator Randomise() {
+        async void Randomise() {
             isRandomising = true;
             PlaceStartingRoom();
             PlacePlayer();
 
-            Room currentRoom = startingRoom;
             _i = 0;
-            
-            do {
-                Room roomPlaced = null;
-                foreach (Transform cp in currentRoom.connectPoints) {
-                    Room connector = PlaceCorridor(cp);
-                    tempListToDestroy.Add(connector.gameObject);
-                    
-                    yield return _waitForFrame;
 
-                    foreach (Transform _cp in connector.connectPoints) {
-                        roomPlaced = PlaceRoom(_cp);
-                        tempListToDestroy.Add(roomPlaced.gameObject);
-                        yield return _waitForFrame;
+            do {
+                if (_tempListToDisable.Count > 0 || _i > 0) Reset();
+                await Branch(startingRoom);
+                
+                Debug.Log(string.Format("Iteration: {0}, Rooms Placed: {1}/{2}", 
+                    _i++.ToString(), roomPool.Count(e => e.isPlaced).ToString(), roomPool.Count.ToString()));
+                
+                await _waitForFrame;
+            } while (!Failsafe && roomPool.Any(e => !e.isPlaced));
+
+            Debug.Log(Failsafe ? "Failsafe hit." : "Completed Randomisation.");
+            isRandomising = false;
+            await _waitForFrame;
+        }
+
+        //Starting Room
+        //Loop through all connect points
+        //    add a random corridor to them
+        //    if no corridor could be placed, use a dead end.
+        //    check all the free connect points on the placed corridor
+        //        try placing a room to each
+        //        if room placement fail, use dead end
+        
+        async Task Branch(Room room) {
+            foreach (ConnectPoint cp in room.connectPoints.Where(e => !e.isConnected)) {
+                Debug.Log(string.Format("Branching {0} : {1}", room.gameObject.name, cp.t.name));
+                Room corridor = await PlaceCorridor(cp, GetRandomCorridor());
+                await _waitForFrame;
+                
+                if (!corridor) {
+                    await PlaceDeadEnd(cp);
+                    continue;
+                }
+
+                _tempListToDisable.Add(corridor.gameObject);
+                foreach (ConnectPoint _cp in corridor.connectPoints.Where(e => !e.isConnected)) {
+                    Room roomPlaced = await PlaceRoom(_cp);
+                    await _waitForFrame;
+                    if (roomPlaced) {
+                        _tempListToDisable.Add(roomPlaced.gameObject);
+                        roomPool[roomPool.IndexOf(roomPlaced)].isPlaced = true;
+                        await Branch(roomPlaced);
+                    } else {
+                        await PlaceDeadEnd(_cp);
                     }
                 }
-
-                Debug.Log(string.Format("Iteration: {0}, Rooms Placed: {1}/{2}", 
-                    _i++.ToString(), roomPool.Count(e => e.Value == true).ToString(), roomPool.Count.ToString()));
-
-                if (roomPlaced != null) {
-                    roomPool[roomPlaced] = true;
-                    currentRoom = roomPlaced;
-                }
-                yield return _waitForFrame;
-            } while (Failsafe && roomPool.Any(e => e.Value == false));
-
-            Debug.Log(!Failsafe ? "Completed Randomisation, Failsafe hit." : "Completed Randomisation.");
-            //TODO - refactor
-            player.GetComponent<PlayerHealth>().Invulnerable = false;
-            isRandomising = false;
+                await _waitForFrame;
+            }
         }
         void PlaceStartingRoom() {
             startingRoom.transform.position = Vector3.zero;
@@ -118,50 +151,75 @@ namespace Pikl.Control {
                 player.position = center.Value;
 
             cam.position = new Vector3(player.position.x, player.position.y, -10);
-
+            //TODO - refactor player control stuff - do the colliders
             player.GetComponent<PlayerHealth>().Invulnerable = true;
         }
-        Room PlaceCorridor(Transform toConnectTo) {
-            Room corridor = GetRandomCorridor();
+
+        async Task PlaceDeadEnd(ConnectPoint _cp) {
+            Room _deadEnd = await PlaceCorridor(_cp, Instantiate(deadEnd));
+            if (_deadEnd)
+                _tempListToDisable.Add(_deadEnd.gameObject);
+        }
+        //TODO - Merge PlaceRoom and PlaceCorridor, add type enum in Room
+        async Task<Room> PlaceCorridor(ConnectPoint toConnectTo, Room corridor) {
+            if (!corridor)
+                return null;
+            
             int attempts = 0;
             do {
-                //Debug.Log($"Attempting Connector: {corridor.name}");
+                Debug.Log($"Attempting Connector: {corridor.name}");
                 
                 if (attempts >= corridor.connectPoints.Count) {
-                    Destroy(corridor);
+                    foreach (ConnectPoint cp in corridor.connectPoints) cp.isConnected = false;
+                    corridor.gameObject.SetActive(false);
                     corridor = GetRandomCorridor();
                     attempts = 0;
                 }
 
-                AlignConnectors(corridor.transform, corridor.connectPoints[attempts], toConnectTo);
+                AlignConnectors(corridor.transform, corridor.connectPoints[attempts++].t, toConnectTo.t);
+                await new WaitForFixedUpdate();
 
-            } while (!Validate(corridor));
-            
+            } while (attempts < corridor.connectPoints.Count && corridor.IsOverlapping());
+
+            corridor.connectPoints[attempts - 1].isConnected = true;
+            toConnectTo.isConnected = true;
             Debug.Log($"Placed Connector: {corridor.name}");
-            
             return corridor;
         }
-        Room PlaceRoom(Transform toConnectTo) {
+        async Task<Room> PlaceRoom(ConnectPoint toConnectTo) {
             Room room = GetRandomRoom();
+            if (!room)
+                return null;
+            
             int attempts = 0;
+            room.gameObject.SetActive(true);
             do {
-                //Debug.Log($"Attempting Room: {room.name}");
+                Debug.Log($"Attempting Room: {room.name}");
 
                 if (attempts >= room.connectPoints.Count) {
-                    Destroy(room);
+                    foreach (ConnectPoint cp in room.connectPoints) cp.isConnected = false;
+                    room.gameObject.SetActive(false);
                     room = GetRandomRoom();
+                    room.gameObject.SetActive(true);
                     attempts = 0;
                 }
                 
-                AlignConnectors(room.transform, room.connectPoints[attempts], toConnectTo);
-                
-            } while (!Validate(room));
-            
+                AlignConnectors(room.transform, room.connectPoints[attempts++].t, toConnectTo.t);
+                await new WaitForFixedUpdate();
+
+                if (AvailableRooms().Count == 1 && attempts >= room.connectPoints.Count) {
+                    toConnectTo = FindFreeConnectPoint();
+                    if (toConnectTo == null)
+                        return null;
+                }
+
+            } while (room.IsOverlapping());
+
+            room.connectPoints[attempts - 1].isConnected = true;
+            toConnectTo.isConnected = true;
             Debug.Log($"Placed Room: {room.name}");
-            
             return room;
         }
-
         void AlignConnectors(Transform t1, Transform t1C, Transform t2C) {
             t1.rotation = t2C.rotation * Quaternion.Inverse(t1C.localRotation);
             t1.position = t2C.position + (t1.position - t1C.position);
@@ -170,16 +228,22 @@ namespace Pikl.Control {
             return Instantiate(corridorPool[Random.Range(0, corridorPool.Count)]);
         }
         Room GetRandomRoom() {
-            List<KeyValuePair<Room, bool>> ununsedRooms = roomPool.Where(e => e.Value == false).ToList();
-            return ununsedRooms.Count > 0 ? Instantiate(ununsedRooms[Random.Range(0, ununsedRooms.Count)].Key) : null;
+            List<Room> ununsedRooms = AvailableRooms();
+            return ununsedRooms.Count > 0 ? ununsedRooms[Random.Range(0, ununsedRooms.Count)] : null;
         }
-        bool CheckBoundingBox(Bounds one, Bounds two) {
-            return one.Intersects(two);
+
+        List<Room> AvailableRooms() {
+            return roomPool.Where(e => !e.isPlaced && e.connectPoints.Any(c => !c.isConnected)).ToList();
         }
-        bool Validate(Room room) {
-            //Check whether anything intersects with this room's bounding box
-            return true;
+
+        ConnectPoint FindFreeConnectPoint() {
+            List<GameObject> validPoints = _tempListToDisable.Where(e => e.GetComponent<Room>().connectPoints.Any(x => !x.isConnected)).ToList();
+            
+            if (validPoints.Count == 0)
+                return null;
+            
+            Room r = validPoints[Random.Range(0, validPoints.Count)].GetComponent<Room>();
+            return r.connectPoints[Random.Range(0, r.connectPoints.Count)];
         }
     }
-
 }
