@@ -326,12 +326,12 @@ namespace Pikl.Player {
             dist = 420; shortest = 420;
 
             foreach (Collider2D o in Physics2D.OverlapCircleAll(player.transform.position, player.interactRadius, 1 << LayerMask.NameToLayer("Object"))) {
-                //Debug.Log("interactable found");
                 dist = Vector2.Distance(o.transform.position, player.transform.position);
-                if (dist < shortest) {
-                    shortest = dist;
-                    i = o.GetComponent<InteractableObj>();
-                }
+                if (!(dist < shortest)) continue;
+                InteractableObj io = o.GetComponent<InteractableObj>();
+                if (!io) continue;
+                shortest = dist;
+                i = io;
             }
 
             return i;

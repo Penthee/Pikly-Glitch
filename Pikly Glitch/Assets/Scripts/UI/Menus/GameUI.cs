@@ -50,12 +50,7 @@ namespace Pikl.UI {
             //Cursor.SetCursor(crosshairCursor, new Vector2(crosshairCursor.width / 2, crosshairCursor.height / 2), CursorMode.Auto);
 
             StartCoroutine(GetPlayer());
-            //StartCoroutine(UpdateLevelProgress());
-
             //UIMgr.I.PauseFilterOff();
-
-            terminalDisplay.enabled = false;
-            terminalText.enabled = false;
 
 #if UNITY_EDITOR
             debugPanel.SetActive(true);
@@ -124,19 +119,19 @@ namespace Pikl.UI {
 
 
         public void DisplayTerminal(Terminal t) {
-            if (terminalDisplay.enabled) {
+            /*if (terminalDisplay.enabled) {
                 terminalDisplay.enabled = false;
                 terminalText.enabled = false;
-            } else {
-                terminalText.text = t.name + ": " + t.text;
-                terminalDisplay.enabled = true;
-                terminalText.enabled = true;
-            }
+            } else {*/
+            terminalText.text = t.name + ": " + t.text;
+            terminalDisplay.gameObject.SetActive(true);
+            //}
         }
 
         public void CloseTerminal() {
-            terminalDisplay.enabled = false;
-            terminalText.enabled = false;
+            terminalDisplay.gameObject.SetActive(false);
+            /*terminalDisplay.enabled = false;
+            terminalText.enabled = false;*/
         }
 
         public void ToggleCraftingUI() {

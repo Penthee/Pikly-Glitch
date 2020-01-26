@@ -8,8 +8,7 @@ namespace Pikl {
         public bool locked = false;
         public LayerMask openingLayers;
         public float closeTime;
-        [HideInInspector]
-        public bool isOpen, isClosed, setLastTime;
+        public bool isOpen, setLastTime;
         public float lastInRangeTime;
         Collider2D c2d;
         Animator animator;

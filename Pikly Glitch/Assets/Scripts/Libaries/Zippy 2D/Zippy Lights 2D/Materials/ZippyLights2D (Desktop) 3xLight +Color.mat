@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: ZippyLights2D (Desktop) 3xLight +Color
   m_Shader: {fileID: 4800000, guid: 3da9dab1182ad1a4e8ee5e4889283fa8, type: 3}
   m_ShaderKeywords: 
@@ -65,7 +66,7 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _ColorFactor: 2.26
-    - _ColorMultiply: 1
+    - _ColorMultiply: 4
     - _Contrast: 1.5
     - _ContrastFactor: 6.27
     - _Cutoff: 0.5

@@ -40,7 +40,7 @@ namespace Pikl.Control {
         void LoadRooms() {
             roomPool.Clear();
             foreach (GameObject o in Resources.LoadAll<GameObject>("Prefabs/Levels/" + _currentSceneName)) {
-                if (o.name.Contains("Teleporter") || o.name.Contains("StartingRoom"))
+                if (/*o.name.Contains("Teleporter") || */o.name.Contains("StartingRoom"))
                     continue;
                 
                 Room r = Instantiate(o).GetComponent<Room>();
@@ -49,7 +49,6 @@ namespace Pikl.Control {
             }
 
             Debug.Log($"Loaded Rooms: {roomPool.Count}");
-            //Remove teleporter room from this list
         }
         void LoadConnectors() {
             foreach (GameObject o in Resources.LoadAll<GameObject>("Prefabs/Levels/Connectors")) {
@@ -126,6 +125,7 @@ namespace Pikl.Control {
                 _tempListToDisable.Add(corridor.gameObject);
                 foreach (ConnectPoint _cp in corridor.connectPoints.Where(e => !e.isConnected)) {
                     Room roomPlaced = await PlaceRoom(_cp);
+                    
                     await _waitForFrame;
                     if (roomPlaced) {
                         _tempListToDisable.Add(roomPlaced.gameObject);
@@ -191,7 +191,7 @@ namespace Pikl.Control {
             if (!room)
                 return null;
             
-            int attempts = 0;
+            int attempts = 0, fails = 0;
             room.gameObject.SetActive(true);
             do {
                 Debug.Log($"Attempting Room: {room.name}");
@@ -208,11 +208,12 @@ namespace Pikl.Control {
                 await new WaitForFixedUpdate();
 
                 if (AvailableRooms().Count == 1 && attempts >= room.connectPoints.Count) {
-                    toConnectTo = FindFreeConnectPoint();
-                    if (toConnectTo == null)
+                    toConnectTo = GetFreeConnectPoint();
+                    if (fails++ > 10 || toConnectTo == null) {
+                        room.gameObject.SetActive(false);
                         return null;
+                    }
                 }
-
             } while (room.IsOverlapping());
 
             room.connectPoints[attempts - 1].isConnected = true;
@@ -233,17 +234,29 @@ namespace Pikl.Control {
         }
 
         List<Room> AvailableRooms() {
-            return roomPool.Where(e => !e.isPlaced && e.connectPoints.Any(c => !c.isConnected)).ToList();
+            return roomPool.Where(e => !e.isPlaced && e.connectPoints.Any(c => !c.t.gameObject.activeSelf && !c.isConnected)).ToList();
         }
+        List<ConnectPoint> GetFreeConnectPoints() {
+            ConnectPoint startingPoint = startingRoom.connectPoints.First(e => !e.isConnected);
 
-        ConnectPoint FindFreeConnectPoint() {
-            List<GameObject> validPoints = _tempListToDisable.Where(e => e.GetComponent<Room>().connectPoints.Any(x => !x.isConnected)).ToList();
+            List<ConnectPoint> validPoints = new List<ConnectPoint>();
+            foreach (GameObject obj in _tempListToDisable.Where(e => e.GetComponent<Room>().connectPoints.Any(x => !x.isConnected))) {
+                foreach(ConnectPoint point in obj.GetComponent<Room>().connectPoints.Where(e => !e.isConnected))
+                    validPoints.Add(point);
+            }
+
+            if (startingPoint.t != null)
+                validPoints.Add(startingPoint);
             
             if (validPoints.Count == 0)
                 return null;
             
-            Room r = validPoints[Random.Range(0, validPoints.Count)].GetComponent<Room>();
-            return r.connectPoints[Random.Range(0, r.connectPoints.Count)];
+            return validPoints;
+        }
+        ConnectPoint GetFreeConnectPoint() {
+            List<ConnectPoint> freeConnectPoints = GetFreeConnectPoints();
+            
+            return freeConnectPoints[Random.Range(0, freeConnectPoints.Count)];
         }
     }
 }
