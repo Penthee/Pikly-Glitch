@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Configuration;
 using System.Runtime.CompilerServices;
 using NaughtyAttributes;
 using UnityEngine;
@@ -42,9 +43,14 @@ namespace Pikl.Control {
     public class ConnectPoint {
         public Transform t;
         [ReadOnly] public bool isConnected;
+
+        static float minimumSpaceRequired = 10f;
         
         public ConnectPoint(Transform t) {
             this.t = t;
         }
+
+        public bool HasSpaceInfront => !Physics2D.Raycast(t.position, t.right, minimumSpaceRequired,
+            1 << LayerMask.NameToLayer("Level"));
     }
 }
