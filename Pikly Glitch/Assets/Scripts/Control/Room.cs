@@ -7,11 +7,12 @@ using UnityEngine;
 
 namespace Pikl.Control {
     public enum RoomType { Corridor, Room }
+    public enum RoomStatus { Inactive, Placed, PlacedAndValid }
     [Serializable]
     public class Room : MonoBehaviour {
         
         public RoomType type;
-        public bool isPlaced;
+        [ReadOnly] public RoomStatus status;
         public List<ConnectPoint> connectPoints = new List<ConnectPoint>();
         [HideInInspector]
         public PolygonCollider2D polygonBounds;
@@ -19,12 +20,19 @@ namespace Pikl.Control {
         void Awake() {
             polygonBounds = GetComponent<PolygonCollider2D>();
         }
-        [Button("Validate Overlap")] public bool IsOverlapping() {
+
+        [Button("Validate Overlap")] void IsOverlapButton() {
+            Debug.Log(string.Format("Overlap: {0} : {1}", gameObject.name, IsOverlapping().ToString()));
+        }
+        
+        public bool IsOverlapping() {
             Physics2D.Simulate(Time.fixedDeltaTime);
             Physics2D.SyncTransforms();
-            bool overlap = polygonBounds.IsTouchingLayers(1 << LayerMask.NameToLayer("Level"));
-            Debug.Log(string.Format("Validating {0} : {1}", gameObject.name, overlap.ToString()));
-            return overlap;
+            return polygonBounds.IsTouchingLayers(1 << LayerMask.NameToLayer("Level"));
+        }
+
+        public void DisconnectAllPoints() {
+            foreach(ConnectPoint cp in connectPoints) cp.Disconnect();
         }
 
         public void OnDrawGizmos() {
@@ -33,9 +41,16 @@ namespace Pikl.Control {
                     continue;
                 
                 Vector3 position = cp.t.position;
+                Gizmos.color = Color.white;
                 Gizmos.DrawIcon(position, "DotPoint", true);
                 Gizmos.DrawLine(position, position + cp.t.right);
+
+                if (cp.isConnected && cp.connectedTo != null) {
+                    Gizmos.color = Color.red;
+                    Gizmos.DrawLine(position, cp.connectedTo.t.position);
+                }
             }
+            Gizmos.color = Color.white;
         }
     }
 
@@ -43,14 +58,41 @@ namespace Pikl.Control {
     public class ConnectPoint {
         public Transform t;
         [ReadOnly] public bool isConnected;
-
+        [ReadOnly] public ConnectPoint connectedTo;
         static float minimumSpaceRequired = 10f;
         
         public ConnectPoint(Transform t) {
             this.t = t;
         }
 
-        public bool HasSpaceInfront => !Physics2D.Raycast(t.position, t.right, minimumSpaceRequired,
-            1 << LayerMask.NameToLayer("Level"));
+        public bool HasSpaceInfront {
+
+            get {
+                bool levelCast = !Physics2D.Raycast(t.position, t.right, minimumSpaceRequired, 1 << LayerMask.NameToLayer("Level"));
+                bool doorCast = !Physics2D.Raycast(t.position, t.right, 1, 1 << LayerMask.NameToLayer("Ground"));
+                return !levelCast || !doorCast;
+            }
+        }
+
+        public void Connect(ConnectPoint cp) {
+            if (cp.t == null)
+                return;
+            
+            isConnected = true;
+            connectedTo = cp;
+
+            cp.isConnected = true;
+            cp.connectedTo = this;
+        }
+
+        public void Disconnect() {
+            if (connectedTo != null) {
+                connectedTo.connectedTo = null;
+                connectedTo.isConnected = false;
+            }
+
+            isConnected = false;
+            connectedTo = null;
+        }
     }
 }
