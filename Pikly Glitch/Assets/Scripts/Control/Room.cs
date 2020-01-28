@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Configuration;
 using System.Runtime.CompilerServices;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 namespace Pikl.Control {
     public enum RoomType { Corridor, Room }
     public enum RoomStatus { Waiting, Active, Invalid, PlacedAndValid }
     [Serializable]
     public class Room : MonoBehaviour {
-        
         public RoomType type;
         [ReadOnly] public RoomStatus status;
         public List<ConnectPoint> connectPoints = new List<ConnectPoint>();
@@ -18,6 +19,9 @@ namespace Pikl.Control {
 
         void Awake() {
             polygonBounds = GetComponent<PolygonCollider2D>();
+            
+            foreach(ConnectPoint cp in connectPoints)
+                cp.connectFails = new List<ConnectPoint>();
         }
 
         [Button("Validate Overlap")] void IsOverlapButton() {
@@ -33,6 +37,25 @@ namespace Pikl.Control {
         public void DisconnectAllPoints() {
             foreach(ConnectPoint cp in connectPoints) cp.Disconnect();
         }
+
+        public void ClearAllFails() {
+            foreach (ConnectPoint point in connectPoints) {
+                if (point == null || point.connectFails.Count == 0)
+                    continue;
+                
+                point.ClearFails();
+            }
+        }
+        
+        public bool FailedToConnect(ConnectPoint cp) {
+            foreach(ConnectPoint thisCp in connectPoints) {
+                if (cp.connectFails.Contains(thisCp))
+                    return true;
+            }
+
+            return false;
+        }
+        
 
         public void OnDrawGizmos() {
             foreach (ConnectPoint cp in connectPoints) {
@@ -55,15 +78,15 @@ namespace Pikl.Control {
 
     [Serializable]
     public class ConnectPoint {
+        public List<ConnectPoint> connectFails = new List<ConnectPoint>();
         public Transform t;
         [ReadOnly] public bool isConnected;
-        [ReadOnly] public ConnectPoint connectedTo;
+        [ReadOnly][SerializeField] public ConnectPoint connectedTo;
         static float minimumSpaceRequired = 10f;
-        
+
         public ConnectPoint(Transform t) {
             this.t = t;
         }
-
         public bool HasSpaceInfront {
 
             get {
@@ -72,7 +95,6 @@ namespace Pikl.Control {
                 return !levelCast || !doorCast;
             }
         }
-
         public void Connect(ConnectPoint cp) {
             if (cp.t == null)
                 return;
@@ -83,7 +105,6 @@ namespace Pikl.Control {
             cp.isConnected = true;
             cp.connectedTo = this;
         }
-
         public void Disconnect() {
             if (connectedTo != null) {
                 connectedTo.connectedTo = null;
@@ -92,6 +113,15 @@ namespace Pikl.Control {
 
             isConnected = false;
             connectedTo = null;
+        }
+        public void RecordFail(ConnectPoint cp) {
+            if (!cp.t) return;
+            
+            if (!connectFails.Contains(cp))  connectFails.Add(cp);
+            if (!cp.connectFails.Contains(this))  cp.connectFails.Add(this);
+        }
+        public void ClearFails() {
+            connectFails.Clear();
         }
     }
 }

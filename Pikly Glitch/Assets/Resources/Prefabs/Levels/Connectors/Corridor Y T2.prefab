@@ -84,13 +84,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  isPlaced: 0
+  status: 0
   connectPoints:
-  - t: {fileID: 6442719011294591438}
+  - connectFails: []
+    t: {fileID: 6442719011294591438}
     isConnected: 0
-  - t: {fileID: 8599110670542498421}
+  - connectFails: []
+    t: {fileID: 8599110670542498421}
     isConnected: 0
-  - t: {fileID: 8550248325736918639}
+  - connectFails: []
+    t: {fileID: 8550248325736918639}
     isConnected: 0
   polygonBounds: {fileID: 0}
 --- !u!60 &7049251781997981240
@@ -171,13 +174,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596953086020623587}
-  m_LocalRotation: {x: -0, y: -0, z: 0.25881392, w: -0.96592724}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9659272, w: 0.25881395}
   m_LocalPosition: {x: 3.685, y: -0.264, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1243913645675685040}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -389.999}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -569.999}
 --- !u!1 &2244373581973968098
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,13 +204,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2244373581973968098}
-  m_LocalRotation: {x: -0, y: -0, z: -0.9659254, w: 0.25882083}
+  m_LocalRotation: {x: -0, y: -0, z: -0.25882086, w: -0.9659254}
   m_LocalPosition: {x: -3.796, y: -0.183, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1243913645675685040}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -150}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -330}
 --- !u!1 &4593059709937611667
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,13 +234,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4593059709937611667}
-  m_LocalRotation: {x: -0, y: -0, z: -0.707109, w: -0.7071046}
+  m_LocalRotation: {x: -0, y: -0, z: 0.70710456, w: -0.7071091}
   m_LocalPosition: {x: 0, y: 6.072, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1243913645675685040}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -450}
 --- !u!1001 &323020330787198719
 PrefabInstance:
   m_ObjectHideFlags: 0

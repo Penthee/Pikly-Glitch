@@ -480,13 +480,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  isPlaced: 0
+  status: 0
   connectPoints:
-  - t: {fileID: 7869841634066154208}
+  - connectFails: []
+    t: {fileID: 7869841634066154208}
     isConnected: 0
-  - t: {fileID: 7015537111558254556}
+  - connectFails: []
+    t: {fileID: 7015537111558254556}
     isConnected: 0
-  - t: {fileID: 6092778912821109345}
+  - connectFails: []
+    t: {fileID: 6092778912821109345}
     isConnected: 0
   polygonBounds: {fileID: 0}
 --- !u!60 &8275748190872602075
@@ -573,13 +576,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3096063986251475263}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071058, w: 0.7071078}
+  m_LocalRotation: {x: -0, y: -0, z: -0.70710814, w: -0.70710546}
   m_LocalPosition: {x: 8.302, y: -12.877, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1186477465518916897}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
 --- !u!1 &6050378791306373092
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,13 +606,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6050378791306373092}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071058, w: 0.7071078}
+  m_LocalRotation: {x: -0, y: -0, z: -0.70710814, w: -0.70710546}
   m_LocalPosition: {x: -5.858, y: -12.859, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1186477465518916897}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
 --- !u!1 &8126996163890672871
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,13 +636,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8126996163890672871}
-  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0.00000078976143}
+  m_LocalRotation: {x: -0, y: -0, z: -0.00000049173826, w: -1}
   m_LocalPosition: {x: -4.886, y: 9.684, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1186477465518916897}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180.00002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -360}
 --- !u!1001 &6264244401565638
 PrefabInstance:
   m_ObjectHideFlags: 0

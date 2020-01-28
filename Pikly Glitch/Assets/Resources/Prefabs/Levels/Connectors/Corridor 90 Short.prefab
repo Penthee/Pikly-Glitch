@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3841795829468497814}
-  m_LocalRotation: {x: -0, y: -0, z: 0.000000049358277, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -1, w: -0.0000001490116}
   m_LocalPosition: {x: 2.225, y: -0.769, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5349939815501116949}
   m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -179.99998}
 --- !u!1 &5349939815501116948
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,11 +98,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  isPlaced: 0
+  status: 0
   connectPoints:
-  - t: {fileID: 4750113305273229230}
+  - connectFails: []
+    t: {fileID: 4750113305273229230}
     isConnected: 0
-  - t: {fileID: 6678690705631976027}
+  - connectFails: []
+    t: {fileID: 6678690705631976027}
     isConnected: 0
   polygonBounds: {fileID: 0}
 --- !u!60 &4687048724212879797
@@ -180,13 +182,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8642740520454924200}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7070926, w: 0.7071211}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071212, w: 0.70709246}
   m_LocalPosition: {x: -0.806, y: 2.111, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5349939815501116949}
   m_RootOrder: 20
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.998}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00201}
 --- !u!1001 &182854868140446836
 PrefabInstance:
   m_ObjectHideFlags: 0
