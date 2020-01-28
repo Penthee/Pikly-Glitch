@@ -7,15 +7,14 @@ using UnityEngine;
 
 namespace Pikl.Control {
     public enum RoomType { Corridor, Room }
-    public enum RoomStatus { Inactive, Placed, PlacedAndValid }
+    public enum RoomStatus { Waiting, Active, Invalid, PlacedAndValid }
     [Serializable]
     public class Room : MonoBehaviour {
         
         public RoomType type;
         [ReadOnly] public RoomStatus status;
         public List<ConnectPoint> connectPoints = new List<ConnectPoint>();
-        [HideInInspector]
-        public PolygonCollider2D polygonBounds;
+        [ReadOnly] public PolygonCollider2D polygonBounds;
 
         void Awake() {
             polygonBounds = GetComponent<PolygonCollider2D>();

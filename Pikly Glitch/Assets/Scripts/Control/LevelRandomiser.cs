@@ -11,6 +11,7 @@ using Random = UnityEngine.Random;
 using NaughtyAttributes;
 using Pikl.States.Components;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine.Windows;
 
 namespace Pikl.Control {
     public class LevelRandomiser : MonoBehaviour {
@@ -39,6 +40,7 @@ namespace Pikl.Control {
 
             LoadRooms();
             LoadConnectors();
+
         }
 
         void Start() {
@@ -80,7 +82,7 @@ namespace Pikl.Control {
         
         void Reset() {
             startingRoom.DisconnectAllPoints();
-            startingRoom.status = RoomStatus.Inactive;
+            startingRoom.status = RoomStatus.Waiting;
 
             foreach (Room room in placedRooms.ToList()) {
                 room.DisconnectAllPoints();
@@ -115,7 +117,7 @@ namespace Pikl.Control {
                 }
 
                 Debug.Log(string.Format("Iteration: {0}, Rooms Placed: {1}/{2}/{3}",
-                    _i++.ToString(), roomPool.Count(e => e.status == RoomStatus.Placed).ToString(),
+                    _i++.ToString(), roomPool.Count(e => e.status == RoomStatus.PlacedAndValid).ToString(),
                     roomPool.Count(e => e.status == RoomStatus.PlacedAndValid).ToString(),
                     roomPool.Count.ToString()));
 
@@ -186,7 +188,7 @@ namespace Pikl.Control {
                             foreach (Room _r in rooms) {
                                 _r.DisconnectAllPoints();
                                 
-                                _r.status = RoomStatus.Inactive;
+                                _r.status = RoomStatus.Waiting;
                                 _r.gameObject.SetActive(false);
                                 placedRooms.Remove(_r);
                             }
@@ -325,8 +327,8 @@ namespace Pikl.Control {
                 placedRooms.Add(r);
                 placedRooms.Add(cp.t.parent.GetComponent<Room>());
             } else {
-                r.status = RoomStatus.Placed;
-                cp.t.parent.GetComponent<Room>().status = RoomStatus.Placed;
+                r.status = RoomStatus.PlacedAndValid;
+                cp.t.parent.GetComponent<Room>().status = RoomStatus.PlacedAndValid;
             }
             
             cp.Connect(r.connectPoints[attempts - 1]);

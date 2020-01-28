@@ -328,6 +328,7 @@
             <e p="SimpleSingleton.cs" t="Include" />
           </e>
           <e p="Control" t="Include">
+            <e p="BetterLevelRandomiser.cs" t="Include" />
             <e p="GameObjectMgr.cs" t="Include" />
             <e p="Initialise.cs" t="Include" />
             <e p="LevelRandomiser.cs" t="Include" />
@@ -374,6 +375,7 @@
             <e p="ColorExtensions.cs" t="Include" />
             <e p="HSBColor.cs" t="Include" />
             <e p="LayerMaskExtensions.cs" t="Include" />
+            <e p="ListExtensions.cs" t="Include" />
             <e p="TransformExtensions.cs" t="Include" />
             <e p="VectorExtensions.cs" t="Include" />
           </e>
