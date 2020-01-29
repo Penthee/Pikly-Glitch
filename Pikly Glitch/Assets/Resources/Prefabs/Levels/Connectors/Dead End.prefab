@@ -59,7 +59,8 @@ MonoBehaviour:
   type: 0
   status: 0
   connectPoints:
-  - t: {fileID: 4261345284125651768}
+  - connectFails: []
+    t: {fileID: 4261345284125651768}
     isConnected: 0
   polygonBounds: {fileID: 0}
 --- !u!60 &5661764442642551012
@@ -136,13 +137,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8851357980350439813}
-  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0.00000016391276}
+  m_LocalRotation: {x: -0, y: -0, z: 0.00000023841855, w: -1}
   m_LocalPosition: {x: 0.9461876, y: 0.73691356, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3884551393944298379}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180.00002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -360}
 --- !u!1001 &1352519337578704646
 PrefabInstance:
   m_ObjectHideFlags: 0

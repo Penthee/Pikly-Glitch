@@ -84,7 +84,7 @@ namespace Pikl.Control {
         }
 #if LOGGING
         void LoadLogs() {
-            string[] list = new[] {"SuccessTime", "FailTime", "Success", "Iteration", "PlacementSuccess" };
+            string[] list = new[] {"SuccessTime", "FailTime", "Success", "Iteration", "PlacementSuccess", "speeeeeed" };
             string directory = Path.Combine(FileMgr.I.gameDataPath, "LOGGING");
             
             if (!Directory.Exists(directory))
@@ -146,18 +146,19 @@ namespace Pikl.Control {
                     _iterationFail += status == RoomStatus.Invalid ? 1 : -1;
                 }
 
-                Debug.Log(string.Format("Iteration:{0} | Total:{5} Active:{1}/{2} Valid:{3}/{4}",
+                /*Debug.Log(string.Format("Iteration:{0} | Total:{5} Active:{1}/{2} Valid:{3}/{4}",
                     (++_iterations).ToString(), 
                     roomPool.Count(e => e.status == RoomStatus.Active).ToString(), roomPool.Count(e => e.status == RoomStatus.Waiting).ToString(),
                     roomPool.Count(e => e.status == RoomStatus.PlacedAndValid).ToString(), roomPool.Count(e => e.status == RoomStatus.Invalid).ToString(),
-                    roomPool.Count.ToString()));
+                    roomPool.Count.ToString()));*/
 
             } while (!Failsafe && !GenerationFail && InvalidRoomCount > 0);
-#if LOGGING
+            
             watch.Stop();
-#endif
+            
             if (InvalidRoomCount == 0) {
                 sprite.color = success;
+                //TODO: Before sealing exits, remove any corridors that are connected to only one room
                 SealAllExits();
                 Debug.Log($"Generation Success!");
                 if (generateOnSuccess)
@@ -174,6 +175,7 @@ namespace Pikl.Control {
                     Invoke("DoTheThing", 1);
             }
 #if LOGGING
+            //WriteLineToLog(5, $"{InvalidRoomCount == 0},{watch.ElapsedMilliseconds}");
             WriteLineToLog(InvalidRoomCount != 0 ? 1 : 0, watch.ElapsedMilliseconds.ToString());
             WriteLineToLog(2, (InvalidRoomCount == 0).ToString());
             WriteLineToLog(3, string.Join(":", _iterations, _iterationFail));
@@ -211,11 +213,11 @@ namespace Pikl.Control {
                 r.gameObject.SetActive(true);
                 r.status = RoomStatus.Active;
                 
-                Debug.Log($"Trying: {r.name} -> {cp.t.parent.name} : {cp.t.name}");
+                //Debug.Log($"Trying: {r.name} -> {cp.t.parent.name} : {cp.t.name}");
 
                 for (int i = 0; i < r.connectPoints.Count; i++) {
-                    if (r.FailedToConnect(cp)) {
-                        Debug.Log($"Already failed, skipping: {r.name} -> {cp.t.parent.name} : {cp.t.name}");
+                    if (r.FailedToConnect(cp) || cp.ConnectionFailCount() > connectFailTolerance) {
+                        //Debug.Log($"Already failed, skipping: {r.name} -> {cp.t.parent.name} : {cp.t.name}");
                         continue;
                     }
 
@@ -227,7 +229,7 @@ namespace Pikl.Control {
                     bool overlap = r.IsOverlapping();
                     bool space = r.connectPoints.Any(e => !e.isConnected && e.HasSpaceInfront);
                     valid = !overlap && space;
-                    Debug.Log($"Overlap: {overlap}, Space: {space}, Attempts: {i}, totalCPoints: {r.connectPoints.Count}");
+                    //Debug.Log($"Overlap: {overlap}, Space: {space}, Attempts: {i}, totalCPoints: {r.connectPoints.Count}");
 
                     if (!valid) {
                         MarkRoomAsInvalid(r, i, cp);
@@ -237,9 +239,9 @@ namespace Pikl.Control {
                     break;
                 }
 
-                Debug.Log(valid
+                /*Debug.Log(valid
                     ? $"Placement Success: {r.name} -> {cp.t.parent.name} : {cp.t.name}"
-                    : $"Placement Fail: {r.name} -> {cp.t.parent.name} : {cp.t.name}");
+                    : $"Placement Fail: {r.name} -> {cp.t.parent.name} : {cp.t.name}");*/
                 
                 if (valid) break;
             }
@@ -285,12 +287,8 @@ namespace Pikl.Control {
             target.position = sourceC.position + (target.position - targetC.position);
         }
         void Align2(Transform target, Transform targetChild, Transform source) {
-            target.rotation = source.rotation * Quaternion.Inverse(target.rotation * targetChild.rotation);
+            target.rotation = source.rotation * Quaternion.Inverse(target.rotation * Quaternion.Inverse(targetChild.rotation));
             target.position = source.position + (target.position - targetChild.position);
-        }
-        void Align3(Transform p2, Transform c2, Transform c1) {
-            p2.rotation = Quaternion.Inverse(c2.localRotation)*c1.rotation;
-            //p2.rotation = c1.rotation*Quaternion.Inverse(c2.localRotation);
         }
         Room GetRandomCorridor() {
             return Instantiate(corridorPool[Random.Range(0, corridorPool.Count)]);

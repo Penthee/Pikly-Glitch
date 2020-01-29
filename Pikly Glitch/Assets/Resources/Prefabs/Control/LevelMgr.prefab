@@ -94,10 +94,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecdb5c7b04a5ce34f84f0f5a2d0f083d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iterationMax: 25
+  iterationMax: 12
+  genFailTolerance: 0
+  connectFailTolerance: 5
+  generateOnSuccess: 1
+  generateOnFail: 1
   generationSlowdown: 0
   generationSpeed: 1
-  startingRoom: {fileID: 0}
+  startRoom: {fileID: 0}
   player: {fileID: 0}
   cam: {fileID: 0}
   working: {r: 0.22583659, g: 0.2735849, b: 0.27311236, a: 1}

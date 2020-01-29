@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Configuration;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using NaughtyAttributes;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Analytics;
 
@@ -17,6 +19,8 @@ namespace Pikl.Control {
         public List<ConnectPoint> connectPoints = new List<ConnectPoint>();
         [ReadOnly] public PolygonCollider2D polygonBounds;
 
+        GUIStyle style;
+        
         void Awake() {
             polygonBounds = GetComponent<PolygonCollider2D>();
             
@@ -55,6 +59,7 @@ namespace Pikl.Control {
 
             return false;
         }
+
         
 
         public void OnDrawGizmos() {
@@ -66,11 +71,15 @@ namespace Pikl.Control {
                 Gizmos.color = Color.white;
                 Gizmos.DrawIcon(position, "DotPoint", true);
                 Gizmos.DrawLine(position, position + cp.t.right);
+                
+                string label = new Regex(@"\d").Match(cp.t.name).Value;
+                Handles.color = Color.white;
+                Handles.Label(position,  label == string.Empty ? "0" : label, new GUIStyle { fontSize = 42 });
 
-                if (cp.isConnected && cp.connectedTo != null) {
-                    Gizmos.color = Color.red;
-                    Gizmos.DrawLine(position, cp.connectedTo.t.position);
-                }
+                if (!cp.isConnected || cp.connectedTo == null) continue;
+                
+                Gizmos.color = Color.red;
+                Gizmos.DrawLine(position, cp.connectedTo.t.position);
             }
             Gizmos.color = Color.white;
         }
@@ -119,6 +128,9 @@ namespace Pikl.Control {
             
             if (!connectFails.Contains(cp))  connectFails.Add(cp);
             if (!cp.connectFails.Contains(this))  cp.connectFails.Add(this);
+        }
+        public int ConnectionFailCount() {
+            return connectFails.Count;
         }
         public void ClearFails() {
             connectFails.Clear();
