@@ -11,11 +11,15 @@ namespace Pikl.Utils.RDS {
     /// </summary>
     public class RDSTable : IRDSTable {
         #region CONSTRUCTORS
+        public RDSTable() 
+            : this(null, 1, "", 1, -1, false, false, true) {
+        }
         /// <summary>
         /// Initializes a new instance of the <see cref="RDSTable"/> class.
         /// </summary>
-        public RDSTable()
-            : this(null, 1, "", 1, -1, false, false, true) {
+        /// <param name="contents"></param>
+        public RDSTable(List<RDSItem> contents)
+            : this(contents, 1, "", 1, -1, false, false, true) {
         }
 
         /// <summary>
@@ -24,7 +28,7 @@ namespace Pikl.Utils.RDS {
         /// <param name="contents">The contents.</param>
         /// <param name="count">The count.</param>
         /// <param name="probability">The probability.</param>
-        public RDSTable(IEnumerable<IRDSObject> contents, int count, double probability)
+        public RDSTable(IEnumerable<IRDSObject> contents, int count, float probability)
             : this(contents, count, "", probability, -1, false, false, true) {
         }
 
@@ -37,7 +41,7 @@ namespace Pikl.Utils.RDS {
         /// <param name="unique">if set to <c>true</c> any item of this table (or contained sub tables) can be in the result only once.</param>
         /// <param name="always">if set to <c>true</c> the probability is disabled and the result will always contain (count) entries of this table.</param>
         /// <param name="enabled">if set to <c>true</c> [enabled].</param>
-        public RDSTable(IEnumerable<IRDSObject> contents, int count, string name, double probability, int amount, bool unique, bool always, bool enabled) {
+        public RDSTable(IEnumerable<IRDSObject> contents, int count, string name, float probability, int amount, bool unique, bool always, bool enabled) {
             if (contents != null)
                 mcontents = contents.ToList();
             else
@@ -135,7 +139,7 @@ namespace Pikl.Utils.RDS {
         /// </summary>
         /// <param name="entry">The entry.</param>
         /// <param name="probability">The probability.</param>
-        public virtual void AddEntry(IRDSObject entry, double probability) {
+        public virtual void AddEntry(IRDSObject entry, float probability) {
             mcontents.Add(entry);
             entry.rdsProbability = probability;
             entry.rdsTable = this;
@@ -153,7 +157,7 @@ namespace Pikl.Utils.RDS {
         /// <param name="unique">if set to <c>true</c> this object can only occur once per result.</param>
         /// <param name="always">if set to <c>true</c> [always] this object will appear always in the result.</param>
         /// <param name="enabled">if set to <c>false</c> [enabled] this object will never be part of the result (even if it is set to always=true!).</param>
-        public virtual void AddEntry(IRDSObject entry, double probability, int amount, bool unique, bool always, bool enabled) {
+        public virtual void AddEntry(IRDSObject entry, float probability, int amount, bool unique, bool always, bool enabled) {
             mcontents.Add(entry);
             entry.rdsProbability = probability;
             entry.rdsAmount = amount;
@@ -302,7 +306,7 @@ namespace Pikl.Utils.RDS {
         /// <summary>
         /// Gets or sets the probability for this object to be (part of) the result
         /// </summary>
-        public double rdsProbability { get; set; }
+        public float rdsProbability { get; set; }
         /// <summary>
         /// Gets or sets how many times this object may be in a result set, -1 is infinite
         /// </summary>

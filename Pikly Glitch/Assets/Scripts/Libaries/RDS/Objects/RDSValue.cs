@@ -20,7 +20,7 @@ namespace Pikl.Utils.RDS {
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="probability">The probability.</param>
-        public RDSValue(T value, double probability)
+        public RDSValue(T value, float probability)
             : this(value, "", probability, -1, false, false, true) { }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Pikl.Utils.RDS {
         /// <param name="unique">if set to <c>true</c> [unique].</param>
         /// <param name="always">if set to <c>true</c> [always].</param>
         /// <param name="enabled">if set to <c>true</c> [enabled].</param>
-        public RDSValue(T value, string name, double probability, int amount, bool unique, bool always, bool enabled) {
+        public RDSValue(T value, string name, float probability, int amount, bool unique, bool always, bool enabled) {
             mvalue = value;
             rdsName = name;
             rdsProbability = probability;
@@ -102,7 +102,7 @@ namespace Pikl.Utils.RDS {
         /// <summary>
         /// Gets or sets the probability for this object to be (part of) the result
         /// </summary>
-        public double rdsProbability { get; set; }
+        public float rdsProbability { get; set; }
         /// <summary>
         /// Gets or sets how many times this object may be in a result set, -1 is infinite
         /// </summary>

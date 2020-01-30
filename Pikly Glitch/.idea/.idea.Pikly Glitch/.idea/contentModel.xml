@@ -11,6 +11,10 @@
       <e p="Assets" t="Include">
         <e p="Editor" t="Include">
           <e p="ExpandableObjectDrawer.cs" t="Include" />
+          <e p="ExposeProperties.cs" t="Include" />
+          <e p="Inspectors" t="Include">
+            <e p="DropTableEditor.cs" t="Include" />
+          </e>
           <e p="UberLoggerEditorWindow.cs" t="Include" />
           <e p="UnityObjectEditor.cs" t="Include" />
         </e>
@@ -285,7 +289,6 @@
         <e p="Scripts" t="Include">
           <e p="Attributes" t="Include">
             <e p="ExpandableAttribute.cs" t="Include" />
-            <e p="ExposeProperties.cs" t="Include" />
             <e p="ExposePropertyAttribute.cs" t="Include" />
           </e>
           <e p="Audio" t="Include">
@@ -321,6 +324,8 @@
             <e p="FollowTarget.cs" t="Include" />
             <e p="ForceOnStart.cs" t="Include" />
             <e p="ForegroundParallax.cs" t="Include" />
+            <e p="LootArea.cs" t="Include" />
+            <e p="LootBox.cs" t="Include" />
             <e p="MoveTowards.cs" t="Include" />
             <e p="Phobos.cs" t="Include" />
             <e p="ProjectileCollisionTrigger2D.cs" t="Include" />
@@ -331,7 +336,7 @@
             <e p="BetterLevelRandomiser.cs" t="Include" />
             <e p="GameObjectMgr.cs" t="Include" />
             <e p="Initialise.cs" t="Include" />
-            <e p="LevelRandomiser.cs" t="Include" />
+            <e p="ItemRandomiser.cs" t="Include" />
             <e p="MessageMgr.cs" t="Include" />
             <e p="Room.cs" t="Include" />
             <e p="SceneMgr.cs" t="Include" />
@@ -339,6 +344,8 @@
           </e>
           <e p="Data" t="Include">
             <e p="Consumable.cs" t="Include" />
+            <e p="Droppable.cs" t="Include" />
+            <e p="DropTable.cs" t="Include" />
             <e p="Interactable.cs" t="Include" />
             <e p="Item.cs" t="Include" />
             <e p="LevelInfo.cs" t="Include" />
@@ -466,7 +473,7 @@
                 </e>
               </e>
             </e>
-            <e p="Graphy - Ultimate Stats Monitor" t="Include">
+            <e p="Graphy" t="Include">
               <e p="Changelog.txt" t="Include" />
               <e p="Font" t="Include">
                 <e p="Northwest-Bold" t="Include">
@@ -653,11 +660,9 @@
               <e p="Objects" t="Include">
                 <e p="RDSAudioItem.cs" t="Include" />
                 <e p="RDSCreatableObject.cs" t="Include" />
-                <e p="RDSDynamicItem.cs" t="Include" />
                 <e p="RDSItem.cs" t="Include" />
                 <e p="RDSObject.cs" t="Include" />
                 <e p="RDSStateItem.cs" t="Include" />
-                <e p="RDSUniqueItem.cs" t="Include" />
                 <e p="RDSValue.cs" t="Include" />
               </e>
               <e p="RDSNullValue.cs" t="Include" />

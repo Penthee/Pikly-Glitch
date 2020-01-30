@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
+using UnityEngine;
 
 namespace Pikl.Utils.RDS {
     /// <summary>
@@ -23,7 +25,7 @@ namespace Pikl.Utils.RDS {
         /// Initializes a new instance of the <see cref="RDSObject"/> class.
         /// </summary>
         /// <param name="probability">The probability.</param>
-        public RDSObject(double probability)
+        public RDSObject(float probability)
             : this("", probability, -1, false, false, true) { }
 
         /// <summary>
@@ -33,7 +35,7 @@ namespace Pikl.Utils.RDS {
         /// <param name="unique">if set to <c>true</c> this object can only occur once per result.</param>
         /// <param name="always">if set to <c>true</c> [always] this object will appear always in the result.</param>
         /// <param name="enabled">if set to <c>false</c> [enabled] this object will never be part of the result (even if it is set to always=true!).</param>
-        public RDSObject(string name, double probability, int amount, bool unique, bool always, bool enabled) {
+        public RDSObject(string name, float probability, int amount, bool unique, bool always, bool enabled) {
             rdsName = name;
             rdsProbability = probability;
             rdsAmount = amount;
@@ -89,10 +91,15 @@ namespace Pikl.Utils.RDS {
         /// Gets or sets the name for this object
         /// </summary>
         public string rdsName { get; set; }
+
         /// <summary>
         /// Gets or sets the probability for this object to be (part of) the result
         /// </summary>
-        public double rdsProbability { get; set; }
+        [ExposeProperty] public float rdsProbability {
+            get { return _rdsProbability; }
+            set { _rdsProbability = value; } }
+
+        [HideInInspector] [SerializeField] float _rdsProbability;
         /// <summary>
         /// Gets or sets how many times this object may be in a result set, -1 is infinite
         /// </summary>

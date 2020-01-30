@@ -24,7 +24,7 @@ namespace Pikl.Utils.RDS {
         /// <param name="contents">The contents.</param>
         /// <param name="count">The count.</param>
         /// <param name="probability">The probability.</param>
-        public RDSUniqueTable(IEnumerable<IRDSObject> contents, int count, double probability)
+        public RDSUniqueTable(IEnumerable<IRDSObject> contents, int count, float probability)
             : this(contents, count, probability, -1, true, false, true) {
         }
 
@@ -37,7 +37,7 @@ namespace Pikl.Utils.RDS {
         /// <param name="unique">if set to <c>true</c> any item of this table (or contained sub tables) can be in the result only once.</param>
         /// <param name="always">if set to <c>true</c> the probability is disabled and the result will always contain (count) entries of this table.</param>
         /// <param name="enabled">if set to <c>true</c> [enabled].</param>
-        public RDSUniqueTable(IEnumerable<IRDSObject> contents, int count, double probability, int amount, bool unique, bool always, bool enabled) {
+        public RDSUniqueTable(IEnumerable<IRDSObject> contents, int count, float probability, int amount, bool unique, bool always, bool enabled) {
             if (contents != null)
                 mcontents = contents.ToList();
             else

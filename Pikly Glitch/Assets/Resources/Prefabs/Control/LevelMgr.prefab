@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7419982176361936186}
   - component: {fileID: 776051282}
   - component: {fileID: 776051284}
+  - component: {fileID: 5842477484237523542}
   m_Layer: 0
   m_Name: LevelMgr
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7419982176361936188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.8002744, y: -64.74521, z: -693.1576}
-  m_LocalScale: {x: 500, y: 500, z: 1}
+  m_LocalScale: {x: 250, y: 250, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -100
   m_Sprite: {fileID: 21300000, guid: 3531157c2f87b1149a57c4088fdafa09, type: 3}
   m_Color: {r: 0.21176471, g: 0.32156864, b: 0.22410686, a: 1}
   m_FlipX: 0
@@ -101,6 +102,8 @@ MonoBehaviour:
   generateOnFail: 1
   generationSlowdown: 0
   generationSpeed: 1
+  randomiseItems: 0
+  itemRandomiser: {fileID: 5842477484237523542}
   startRoom: {fileID: 0}
   player: {fileID: 0}
   cam: {fileID: 0}
@@ -108,9 +111,25 @@ MonoBehaviour:
   fail: {r: 0.3207547, g: 0.21333215, b: 0.23481704, a: 1}
   success: {r: 0.21176471, g: 0.32156864, b: 0.22410686, a: 1}
   sprite: {fileID: 0}
+  deadEnd: {fileID: -6618697312922701058, guid: b2fcedc51e5a4c44d97003ba1239e2d2,
+    type: 3}
   roomPool: []
   corridorPool: []
   placedAndValidRooms: []
-  deadEnd: {fileID: -6618697312922701058, guid: b2fcedc51e5a4c44d97003ba1239e2d2,
-    type: 3}
-  isRandomising: 0
+  state: 0
+--- !u!114 &5842477484237523542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7419982176361936188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88538881fc488524c9780d67a1305109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelRandomiser: {fileID: 776051284}
+  _dropTable: {fileID: 0}
+  _lootBoxes: []
+  _rngAreas: []

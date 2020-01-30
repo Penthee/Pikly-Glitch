@@ -18,7 +18,7 @@ namespace Pikl.Utils.RDS {
         /// <summary>
         /// Gets or sets the probability for this object to be (part of) the result
         /// </summary>
-        double rdsProbability { get; set; }
+        float rdsProbability { get; set; }
 
         /// <summary>
         /// Gets or sets how many times this object may be in a result set, -1 is infinite

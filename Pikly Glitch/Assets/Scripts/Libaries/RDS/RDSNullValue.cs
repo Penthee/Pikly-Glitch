@@ -14,7 +14,7 @@ namespace Pikl.Utils.RDS {
         /// Initializes a new instance of the <see cref="RDSNullValue"/> class.
         /// </summary>
         /// <param name="probability">The probability.</param>
-        public RDSNullValue(double probability)
+        public RDSNullValue(float probability)
             : base("", null, probability, -1, false, false, true) { }
     }
 }

@@ -7,6 +7,7 @@ namespace Pikl.Interaction {
 
         [Expandable]
         public Item item;
+        public bool randomise;
 
         void Start() {
             if (item != null) {

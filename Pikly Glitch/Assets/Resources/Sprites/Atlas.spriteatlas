@@ -68,7 +68,7 @@ SpriteAtlas:
     - {fileID: 102900000, guid: 26efc0b8bc7445f47be47d393b05f619, type: 3}
     - {fileID: 102900000, guid: 20714de346b5f49468d11bf5de6000cc, type: 3}
     - {fileID: 102900000, guid: 99d0c75138e5b55418e88ed0fd05a2e3, type: 3}
-    totalSpriteSurfaceArea: 383614
+    totalSpriteSurfaceArea: 383684
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -172,6 +172,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 29518077b296a8140997038156845103, type: 3}
   - {fileID: 21300000, guid: d460e587a1ae10640bb700a19e3a6cae, type: 3}
   - {fileID: 21300000, guid: cc1677877415cf34195c6bcae77347c4, type: 3}
+  - {fileID: 5768856809450871944, guid: 95f387976c97a424db532fbe28b29f99, type: 3}
+  - {fileID: 6047703769011812054, guid: 95f387976c97a424db532fbe28b29f99, type: 3}
   - {fileID: 21300000, guid: c4f9c0a720c37b34eb0ae3c51b26afda, type: 3}
   - {fileID: 21300000, guid: 7107f8a7d3df0e0408fdc0a194f8c952, type: 3}
   - {fileID: 21300000, guid: ff4aeda7d8cb31249b58f5d5cd85bde6, type: 3}
@@ -401,6 +403,8 @@ SpriteAtlas:
   - Slug Charger 1st Move
   - Slug Charger Death 3
   - Response Bot
+  - Loot Box_1
+  - Loot Box_0
   - glassPanel_corners_noTrans
   - Pumping Station 1
   - Big Mutant Punch 1

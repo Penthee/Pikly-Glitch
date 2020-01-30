@@ -52,11 +52,11 @@ namespace Pikl.Audio {
 
             int j = 0;
             foreach (AudioClip clip in Resources.LoadAll("Audio/" + tableName + "/" + audioName + "/", typeof(AudioClip))) {
-                double probability = 1;
+                float probability = 1;
 
                 if (weights != null) {
                     try {
-                        probability = Convert.ToDouble(weights[j]);
+                        probability = Convert.ToInt32(weights[j]);
                     } catch {
                         Debug.Log(string.Format("The weight ({0}) for the ({1}) audio is not a number!", weights[j], clip.name));
                     }

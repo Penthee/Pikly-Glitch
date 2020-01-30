@@ -11,7 +11,7 @@ namespace Pikl.Utils.RDS {
             this.rdsName = rdsName;
         }
 
-        public RDSStateItem(State state, string name, double probability) {
+        public RDSStateItem(State state, string name, float probability) {
             rdsState = state;
             rdsName = name;
             rdsProbability = probability;

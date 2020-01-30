@@ -10,7 +10,7 @@ namespace Pikl.Utils.RDS {
             this.rdsName = rdsName;
         }
 
-        public RDSAudioItem(AudioClip clip, string name, double probability) {
+        public RDSAudioItem(AudioClip clip, string name, float probability) {
             rdsClip = clip;
             rdsName = name;
             rdsProbability = probability;

@@ -1,19 +1,23 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
+using Pikl.Data;
 
 namespace Pikl.Utils.RDS {
-    public class RDSItem : RDSObject {
-        public GameObject rdsObj;
+    [Serializable] public class RDSItem : RDSObject {
+        public Item item;
+        public int supply;
+        public float probability;
 
-        public RDSItem(GameObject obj, string rdsName) {
-            rdsObj = obj;
-            this.rdsName = rdsName;
-        }
-
-        public RDSItem(GameObject obj, string name, double probability) {
-            rdsObj = obj;
-            rdsName = name;
+        public RDSItem() {
             rdsProbability = probability;
+        }
+        
+        public override void OnRDSHit(System.EventArgs e) {
+            base.OnRDSHit(e);
+
+            if (--supply <= 0)
+                rdsProbability = 0f;
         }
 
         public override string ToString() {

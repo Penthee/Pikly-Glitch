@@ -20,26 +20,35 @@ using Directory = System.IO.Directory;
 using File = System.IO.File;
 
 namespace Pikl.Control {
+    public enum RandomiserState {
+        Idle,
+        Randomising,
+        Fail,
+        Success
+    };
+    
     public class BetterLevelRandomiser : MonoBehaviour {
 
-        [Range(1, 100)] public int iterationMax = 1;
-        [Range(0, 20)] public int genFailTolerance, connectFailTolerance;
-        public bool generateOnSuccess, generateOnFail, generationSlowdown;
-        [EnableIf("generationSlowdown")][Range(0.02f, 5)]
-        public float generationSpeed = 1;
+        [BoxGroup("Randomiser Settings")] [Range(1, 100)] public int iterationMax = 1;
+        [BoxGroup("Randomiser Settings")] [Range(0, 20)] public int genFailTolerance, connectFailTolerance;
+        [BoxGroup("Randomiser Settings")] public bool generateOnSuccess, generateOnFail, generationSlowdown;
+        [BoxGroup("Randomiser Settings")] [ShowIf("generationSlowdown")][Range(0.02f, 5)] public float generationSpeed = 1;
+        [BoxGroup("Randomiser Settings")] public bool randomiseItems;
+
+        public ItemRandomiser itemRandomiser;
         public Room startRoom;
         public Transform player, cam;
 
         public Color working, fail, success;
         public SpriteRenderer sprite;
 
+        [SerializeField] Room deadEnd;
         [SerializeField] List<Room> roomPool = new List<Room>();
         [SerializeField] List<Room> corridorPool = new List<Room>();
         [SerializeField] List<Room> placedAndValidRooms = new List<Room>();
         
-        [SerializeField] Room deadEnd;
 
-        [ReadOnly] public bool isRandomising;
+        [ReadOnly] public RandomiserState state;
         readonly WaitForEndOfFrame _waitForFrame = new WaitForEndOfFrame();
         readonly WaitForFixedUpdate _waitForFixed = new WaitForFixedUpdate();
         
@@ -84,7 +93,7 @@ namespace Pikl.Control {
         }
 #if LOGGING
         void LoadLogs() {
-            string[] list = new[] {"SuccessTime", "FailTime", "Success", "Iteration", "PlacementSuccess", "speeeeeed" };
+            string[] list = new[] {"SuccessTime", "FailTime", "Success", "Iteration", "PlacementSuccess" };
             string directory = Path.Combine(FileMgr.I.gameDataPath, "LOGGING");
             
             if (!Directory.Exists(directory))
@@ -96,7 +105,7 @@ namespace Pikl.Control {
 #endif 
         [Button]
         void DoTheThing() {
-            if (isRandomising)
+            if (state == RandomiserState.Randomising)
                 return;
 
             Randomise();
@@ -122,7 +131,7 @@ namespace Pikl.Control {
 
         async void Randomise() {
             Stopwatch watch = Stopwatch.StartNew();
-            isRandomising = true;
+            state = RandomiserState.Randomising;
             Reset();
             PlaceStartingRoom();
             PlacePlayer();
@@ -131,16 +140,20 @@ namespace Pikl.Control {
             _iterationFail = 0;
             
             do {
-                foreach (Room corridor in corridorPool.Shuffle()) {
-                    List<ConnectPoint> points = GetFreeConnectPoints(RoomType.Room);
-                    if (points.Count <= 0) continue;
-                    
-                    await TryPlaceCorridor(corridor, points);
+                List<Room> availableRooms = AvailableRoomsToPlace();
+
+                if (availableRooms.Count > 0) {
+                    foreach (Room corridor in corridorPool.Shuffle().Take(availableRooms.Count)) {
+                        List<ConnectPoint> points = GetFreeConnectPoints(RoomType.Room);
+                        if (points.Count <= 0) break;
+
+                        await TryPlaceCorridor(corridor, points);
+                    }
                 }
 
-                foreach (Room room in AvailableRoomsToPlace().Shuffle()) {
+                foreach (Room room in availableRooms.Shuffle()) {
                     List<ConnectPoint> points = GetFreeConnectPoints(RoomType.Corridor);
-                    if (points.Count <= 0) continue;
+                    if (points.Count <= 0) break;
 
                     RoomStatus status = await TryPlaceRoom(room, points);
                     _iterationFail += status == RoomStatus.Invalid ? 1 : -1;
@@ -158,29 +171,35 @@ namespace Pikl.Control {
             
             if (InvalidRoomCount == 0) {
                 sprite.color = success;
-                //TODO: Before sealing exits, remove any corridors that are connected to only one room
+                CleanupEmptyCorridors();
                 SealAllExits();
-                Debug.Log($"Generation Success!");
                 if (generateOnSuccess)
                     Invoke("DoTheThing", 1);
+                state = RandomiserState.Success;
+                Debug.Log($"Generation Success!");
+                if (randomiseItems)
+                    itemRandomiser.Randomise();
             } else if (Failsafe) {
                 sprite.color = fail;
-                Debug.Log($"Failsafe hit");
                 if (generateOnFail)
                     Invoke("DoTheThing", 1);
+                state = RandomiserState.Fail;
+                Debug.Log($"Failsafe hit");
             } else if (GenerationFail) {
                 sprite.color = fail;
-                Debug.Log($"Generation failed!");
                 if (generateOnFail)
                     Invoke("DoTheThing", 1);
+                state = RandomiserState.Fail;
+                Debug.Log($"Generation failed!");
+            } else {
+                state = RandomiserState.Fail;
+                throw new Exception("What the fudge, unexpected state at end of generation");
             }
 #if LOGGING
-            //WriteLineToLog(5, $"{InvalidRoomCount == 0},{watch.ElapsedMilliseconds}");
             WriteLineToLog(InvalidRoomCount != 0 ? 1 : 0, watch.ElapsedMilliseconds.ToString());
             WriteLineToLog(2, (InvalidRoomCount == 0).ToString());
-            WriteLineToLog(3, string.Join(":", _iterations, _iterationFail));
+            WriteLineToLog(3, string.Join(",", _iterations, _iterationFail));
 #endif
-            isRandomising = false;
             await _waitForFrame;
         }
         async Task<RoomStatus> TryPlaceCorridor(Room corridor, List<ConnectPoint> points) {
@@ -221,8 +240,10 @@ namespace Pikl.Control {
                         continue;
                     }
 
-                    //Align1(r.transform, r.connectPoints[0].t, cp.t);
-                    Align2(r.transform, r.connectPoints[0].t, cp.t);
+                    Align1(r.transform, r.connectPoints[0].t, cp.t);
+                    //Align2(r.transform, r.connectPoints[0].t, cp.t);
+                    //Align3(r.transform, r.connectPoints[0].t, cp.t);
+                    //Alignment(r.transform, r.connectPoints[0].t, cp.t.parent, cp.t);
                     
                     await Slowdown(true);
                     
@@ -271,6 +292,27 @@ namespace Pikl.Control {
             //TODO - refactor player control stuff - do the colliders
             player.GetComponent<PlayerHealth>().Invulnerable = true;
         }
+
+        void CleanupEmptyCorridors() {
+            foreach (Room corridor in placedAndValidRooms.Where(e => e.type == RoomType.Corridor).ToList()) {
+                int roomConnectCount = 0;
+                foreach (ConnectPoint cp in corridor.connectPoints) {
+                    if (!cp.isConnected)
+                        continue;
+                    roomConnectCount += cp.connectedTo.t.parent.GetComponent<Room>().type == RoomType.Room ? 1 : 0;
+                }
+
+                if (roomConnectCount > 1)
+                    continue;
+                
+                foreach (ConnectPoint cp in corridor.connectPoints) {
+                    Room room = cp.t.parent.GetComponent<Room>();
+                    if (room.type == RoomType.Corridor)
+                        DisconnectAndDestroy(cp.t.GetComponent<Room>());
+                }
+                DisconnectAndDestroy(corridor);
+            }
+        }
         void SealAllExits() {
             IEnumerable<ConnectPoint> points =
                 GetFreeConnectPoints(RoomType.Corridor).Concat(GetFreeConnectPoints(RoomType.Room));
@@ -286,9 +328,23 @@ namespace Pikl.Control {
             target.rotation = sourceC.rotation * targetC.localRotation;
             target.position = sourceC.position + (target.position - targetC.position);
         }
-        void Align2(Transform target, Transform targetChild, Transform source) {
-            target.rotation = source.rotation * Quaternion.Inverse(target.rotation * Quaternion.Inverse(targetChild.rotation));
-            target.position = source.position + (target.position - targetChild.position);
+        void Align2(Transform target, Transform targetChild, Transform sourceChild) {
+            target.rotation = sourceChild.rotation * Quaternion.Inverse(target.rotation * Quaternion.Inverse(targetChild.rotation));
+            target.position = sourceChild.position + (target.position - targetChild.position);
+        }
+        void Align3(Transform target, Transform targetChild, Transform sourceChild) {
+            Vector3 rotation = sourceChild.eulerAngles;
+            rotation.z += 180;
+            target.rotation = sourceChild.rotation * target.rotation;
+            //target.Rotate(Vector3.forward * -270f, Space.Self);
+            //target.eulerAngles = sourceChild.Rotate() rotation; 
+            target.position = sourceChild.position + (target.position - targetChild.position);
+        }
+        void Alignment(Transform tr1P, Transform tr1C, Transform tr2P, Transform tr2C) {
+            Vector3 v1 = tr1P.position - tr1C.position;
+            Vector3 v2 = tr2C.position - tr2P.position;
+            tr1P.rotation = Quaternion.FromToRotation(v1, v2) * tr1P.rotation;
+            tr1P.position = tr2C.position + v2.normalized * v1.magnitude;
         }
         Room GetRandomCorridor() {
             return Instantiate(corridorPool[Random.Range(0, corridorPool.Count)]);
