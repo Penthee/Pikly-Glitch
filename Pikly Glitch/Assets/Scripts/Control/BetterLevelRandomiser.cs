@@ -75,10 +75,9 @@ namespace Pikl.Control {
         void LoadRooms() {
             roomPool.Clear();
             foreach (GameObject o in Resources.LoadAll<GameObject>("Prefabs/Levels/" + _currentSceneName)) {
-                if ( /*o.name.Contains("Teleporter") || */o.name.Contains("StartingRoom")) continue;
-
+                if (o.name.Contains("StartingRoom")) continue;
                 Room r = Instantiate(o).GetComponent<Room>();
-                r.gameObject.SetActive(false);
+                r.DisableRoom();
                 roomPool.Add(r);
             }
             Debug.Log($"Loaded Rooms: {roomPool.Count}");
@@ -86,9 +85,12 @@ namespace Pikl.Control {
         void LoadCorridors() {
             foreach (GameObject o in Resources.LoadAll<GameObject>("Prefabs/Levels/Connectors")) {
                 if (o.name.Contains("Dead End")) continue;
-
                 corridorPool.Add(o.GetComponent<Room>());
+                GameObjectMgr.I.CreatePool(o, 3);
             }
+            
+            GameObjectMgr.I.CreatePool(deadEnd.gameObject, 8);
+            
             Debug.Log($"Loaded Corridors: {corridorPool.Count}");
         }
 #if LOGGING
@@ -107,7 +109,11 @@ namespace Pikl.Control {
         void DoTheThing() {
             if (state == RandomiserState.Randomising)
                 return;
-
+            
+            StateObjectMgr.I.WakeUp();
+            StateObjectMgr.I.CacheObjectsInScene();
+            StateObjectMgr.I.PauseEverything();
+            
             Randomise();
         }
         void Reset() {
@@ -143,7 +149,9 @@ namespace Pikl.Control {
                 List<Room> availableRooms = AvailableRoomsToPlace();
 
                 if (availableRooms.Count > 0) {
-                    foreach (Room corridor in corridorPool.Shuffle().Take(availableRooms.Count)) {
+                    foreach (Room corridor in corridorPool.Where(e => e.connectPoints.Count >= (_iterations == 0 ? 3 : 1)).Shuffle().Take(availableRooms.Count)) {
+                    //foreach (Room corridor in corridorPool.Where(e => e.connectPoints.Count >= (availableRooms.Count > 6 ? 3 : 1)).Take(availableRooms.Count).Shuffle()) {
+                    //foreach (Room corridor in corridorPool.Shuffle().Take(availableRooms.Count)) {
                         List<ConnectPoint> points = GetFreeConnectPoints(RoomType.Room);
                         if (points.Count <= 0) break;
 
@@ -151,7 +159,7 @@ namespace Pikl.Control {
                     }
                 }
 
-                foreach (Room room in availableRooms.Shuffle()) {
+                foreach (Room room in EnumerableExtensions.Shuffle(availableRooms)) {
                     List<ConnectPoint> points = GetFreeConnectPoints(RoomType.Corridor);
                     if (points.Count <= 0) break;
 
@@ -170,26 +178,12 @@ namespace Pikl.Control {
             watch.Stop();
             
             if (InvalidRoomCount == 0) {
-                sprite.color = success;
-                CleanupEmptyCorridors();
-                SealAllExits();
-                if (generateOnSuccess)
-                    Invoke("DoTheThing", 1);
-                state = RandomiserState.Success;
-                Debug.Log($"Generation Success!");
-                if (randomiseItems)
-                    itemRandomiser.Randomise();
+                Success();
             } else if (Failsafe) {
-                sprite.color = fail;
-                if (generateOnFail)
-                    Invoke("DoTheThing", 1);
-                state = RandomiserState.Fail;
+                Fail();
                 Debug.Log($"Failsafe hit");
             } else if (GenerationFail) {
-                sprite.color = fail;
-                if (generateOnFail)
-                    Invoke("DoTheThing", 1);
-                state = RandomiserState.Fail;
+                Fail();
                 Debug.Log($"Generation failed!");
             } else {
                 state = RandomiserState.Fail;
@@ -202,76 +196,79 @@ namespace Pikl.Control {
 #endif
             await _waitForFrame;
         }
+
+        void Success() {
+            sprite.color = success;
+            state = RandomiserState.Success;
+            
+            foreach(Room r in placedAndValidRooms) r.EnableRoom();
+            
+            CleanupEmptyCorridors();
+            SealAllExits();
+//#if !UNITY_EDITOR && !DEBUG
+            if (!generateOnSuccess) DestroyAllPools();  
+//#endif
+            if (randomiseItems) itemRandomiser.Randomise();
+            if (generateOnSuccess) Invoke("DoTheThing", 1);
+            Debug.Log($"Generation Success!");
+            StateObjectMgr.I.UnPauseEverything();
+        }
+
+        void Fail() {
+            sprite.color = fail;
+            if (generateOnFail)
+                Invoke("DoTheThing", 1);
+            state = RandomiserState.Fail;
+        }
+        
         async Task<RoomStatus> TryPlaceCorridor(Room corridor, List<ConnectPoint> points) {
-            Room c = Instantiate(corridor);
+            Room c = GameObjectMgr.I.Spawn(corridor.gameObject).GetComponent<Room>();
+            //Room c = Instantiate(corridor);
             RoomStatus status = await TryPlaceRoom(c, points);
             if (status == RoomStatus.Invalid)
                 DisconnectAndDestroy(c);
             return status;
         }
-        
         async Task<RoomStatus> TryPlaceRoom(Room r, List<ConnectPoint> points) {
-            if (!r) {
-                Debug.Log("Room given was null");
-                return RoomStatus.Invalid;
-            }
-
-            if (points.Count == 0) {
-                Debug.Log("Empty ConnectPoint list");
-                return RoomStatus.Invalid;
-            }
-            
-            bool valid = false;
+            //r.EnableRoom();
+            r.polygonBounds.enabled = true;
+            r.status = RoomStatus.Active;
             
             foreach (ConnectPoint cp in points) {
                 if (cp == null) {
                     Debug.Log("CP given was null");
                     continue;
                 }
-                
-                r.gameObject.SetActive(true);
-                r.status = RoomStatus.Active;
-                
                 //Debug.Log($"Trying: {r.name} -> {cp.t.parent.name} : {cp.t.name}");
 
                 for (int i = 0; i < r.connectPoints.Count; i++) {
-                    if (r.FailedToConnect(cp) || cp.ConnectionFailCount() > connectFailTolerance) {
+                    if (r.HasFailedToConnect(cp) || cp.ConnectionFailCount() > connectFailTolerance) {
                         //Debug.Log($"Already failed, skipping: {r.name} -> {cp.t.parent.name} : {cp.t.name}");
                         continue;
                     }
 
-                    Align1(r.transform, r.connectPoints[0].t, cp.t);
-                    //Align2(r.transform, r.connectPoints[0].t, cp.t);
-                    //Align3(r.transform, r.connectPoints[0].t, cp.t);
-                    //Alignment(r.transform, r.connectPoints[0].t, cp.t.parent, cp.t);
+                    Align(cp.t.parent, cp.t, r.transform, r.connectPoints[0].t);
                     
-                    await Slowdown(true);
+                    await Slowdown();
                     
                     bool overlap = r.IsOverlapping();
                     bool space = r.connectPoints.Any(e => !e.isConnected && e.HasSpaceInfront);
-                    valid = !overlap && space;
+                    bool valid = !overlap && space;
                     //Debug.Log($"Overlap: {overlap}, Space: {space}, Attempts: {i}, totalCPoints: {r.connectPoints.Count}");
-
+#if LOGGING
+                    //WriteLineToLog(4, $"{r.name.Split('(')[0]},{valid.ToString()}");
+#endif
                     if (!valid) {
                         MarkRoomAsInvalid(r, i, cp);
                         continue;
                     }
                     MarkRoomAsValid(r, i, cp);
-                    break;
+                    return RoomStatus.PlacedAndValid;
                 }
-
                 /*Debug.Log(valid
                     ? $"Placement Success: {r.name} -> {cp.t.parent.name} : {cp.t.name}"
                     : $"Placement Fail: {r.name} -> {cp.t.parent.name} : {cp.t.name}");*/
-                
-                if (valid) break;
             }
-
-#if LOGGING
-            WriteLineToLog(4, $"{r.name.Split('(')[0]},{valid.ToString()}");
-#endif
-            if (valid) return RoomStatus.PlacedAndValid;
-            
             DisconnectAndDestroy(r);
             return RoomStatus.Invalid;
         }
@@ -292,7 +289,6 @@ namespace Pikl.Control {
             //TODO - refactor player control stuff - do the colliders
             player.GetComponent<PlayerHealth>().Invulnerable = true;
         }
-
         void CleanupEmptyCorridors() {
             foreach (Room corridor in placedAndValidRooms.Where(e => e.type == RoomType.Corridor).ToList()) {
                 int roomConnectCount = 0;
@@ -319,32 +315,16 @@ namespace Pikl.Control {
             foreach (ConnectPoint cp in points) SealWithDeadEnd(cp);
         }
         void SealWithDeadEnd(ConnectPoint cp) {
-            Room r = Instantiate(deadEnd);
-            Align1(r.transform, r.connectPoints[0].t, cp.t);
-            //Align2(r.transform, r.connectPoints[0].t, cp.t);
+            Room r = GameObjectMgr.I.Spawn(deadEnd.gameObject).GetComponent<Room>();
+            Align(cp.t.parent, cp.t, r.transform, r.connectPoints[0].t);
             MarkRoomAsValid(r, 0, cp);
         }
-        void Align1(Transform target, Transform targetC, Transform sourceC) {
-            target.rotation = sourceC.rotation * targetC.localRotation;
-            target.position = sourceC.position + (target.position - targetC.position);
-        }
-        void Align2(Transform target, Transform targetChild, Transform sourceChild) {
-            target.rotation = sourceChild.rotation * Quaternion.Inverse(target.rotation * Quaternion.Inverse(targetChild.rotation));
-            target.position = sourceChild.position + (target.position - targetChild.position);
-        }
-        void Align3(Transform target, Transform targetChild, Transform sourceChild) {
-            Vector3 rotation = sourceChild.eulerAngles;
-            rotation.z += 180;
-            target.rotation = sourceChild.rotation * target.rotation;
-            //target.Rotate(Vector3.forward * -270f, Space.Self);
-            //target.eulerAngles = sourceChild.Rotate() rotation; 
-            target.position = sourceChild.position + (target.position - targetChild.position);
-        }
-        void Alignment(Transform tr1P, Transform tr1C, Transform tr2P, Transform tr2C) {
-            Vector3 v1 = tr1P.position - tr1C.position;
-            Vector3 v2 = tr2C.position - tr2P.position;
-            tr1P.rotation = Quaternion.FromToRotation(v1, v2) * tr1P.rotation;
-            tr1P.position = tr2C.position + v2.normalized * v1.magnitude;
+        void Align(Transform t1, Transform t1C, Transform t2, Transform t2C) {
+            //t1: connecting to this object, t2: object to be placed
+            if (t1C.right == t2C.right) t2.Rotate(t2.forward, 5);
+
+            t2.rotation = Quaternion.FromToRotation(t2C.right, -t1C.right) * t2.rotation;
+            t2.position = t1C.position + (t2.position - t2C.position);
         }
         Room GetRandomCorridor() {
             return Instantiate(corridorPool[Random.Range(0, corridorPool.Count)]);
@@ -356,7 +336,7 @@ namespace Pikl.Control {
         }
         List<Room> AvailableRoomsToPlace() {
             return roomPool.Where(e =>
-                e.status != RoomStatus.PlacedAndValid && !e.gameObject.activeSelf &&
+                e.status != RoomStatus.PlacedAndValid && e.status != RoomStatus.Active &&
                 e.connectPoints.All(c => !c.isConnected)).ToList();
         }
         List<ConnectPoint> GetFreeConnectPoints(RoomType type) {
@@ -383,6 +363,7 @@ namespace Pikl.Control {
             return validPoints;
         }
         void MarkRoomAsValid(Room r, int i, ConnectPoint cp) {
+            r.EnableRoom();
             r.status = RoomStatus.PlacedAndValid;
             r.connectPoints[i].Connect(cp);
             placedAndValidRooms.Add(r);
@@ -402,22 +383,29 @@ namespace Pikl.Control {
             if (placedAndValidRooms.Contains(r)) placedAndValidRooms.Remove(r);
             
             if (r.type == RoomType.Corridor)
-                Destroy(r.gameObject);
+                //Destroy(r.gameObject);
+                GameObjectMgr.I.Recycle(r.gameObject);
             else
-                r.gameObject.SetActive(false);
+                r.DisableRoom();
+            //r.gameObject.SetActive(false);
         }
-        
-        async Task Slowdown(bool fixedUpdate = false) {
+//#if !UNITY_EDITOR && !DEBUG
+        void DestroyAllPools() {
+            foreach (Room c in corridorPool) {
+                GameObjectMgr.I.DestroyPooled(c.gameObject);
+            }
+            
+            GameObjectMgr.I.DestroyPooled(deadEnd.gameObject);
+        }
+//#endif 
+        async Task Slowdown() {
 #if UNITY_EDITOR || DEBUG
             if (generationSlowdown) {
                 await new WaitForSeconds(generationSpeed);
                 return;
             }
 #endif
-            if (fixedUpdate)
-                await _waitForFixed;
-            else
-                await _waitForFrame;
+            await _waitForFixed;
         }
 #if LOGGING 
         void ClearLogs() {

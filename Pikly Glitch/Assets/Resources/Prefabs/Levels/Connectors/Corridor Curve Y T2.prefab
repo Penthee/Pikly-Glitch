@@ -204,6 +204,7 @@ MonoBehaviour:
     t: {fileID: 3550125792865023861}
     isConnected: 0
   polygonBounds: {fileID: 0}
+  roomEnabled: 0
 --- !u!60 &3674878535961123419
 PolygonCollider2D:
   m_ObjectHideFlags: 0

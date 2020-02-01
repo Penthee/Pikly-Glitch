@@ -356,6 +356,7 @@
             <e p="Weapon.cs" t="Include" />
           </e>
           <e p="Enemies" t="Include">
+            <e p="EnemyPause.cs" t="Include" />
             <e p="EnemyState.cs" t="Include" />
             <e p="EnemyStateObject.cs" t="Include" />
             <e p="Large Mutant" t="Include">
@@ -380,6 +381,7 @@
           </e>
           <e p="Extensions" t="Include">
             <e p="ColorExtensions.cs" t="Include" />
+            <e p="EnumerableExtensions.cs" t="Include" />
             <e p="HSBColor.cs" t="Include" />
             <e p="LayerMaskExtensions.cs" t="Include" />
             <e p="ListExtensions.cs" t="Include" />

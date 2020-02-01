@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableTransform: {fileID: 6925418078161045928}
-  interactRadius: 0
+  interactRadius: 1.5
   labelRadius: 10
   autoInteract: 0
   minimumItemCount: 1

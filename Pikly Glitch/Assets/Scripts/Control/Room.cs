@@ -19,7 +19,7 @@ namespace Pikl.Control {
         public List<ConnectPoint> connectPoints = new List<ConnectPoint>();
         [ReadOnly] public PolygonCollider2D polygonBounds;
 
-        GUIStyle style;
+        [SerializeField] bool roomEnabled;
         
         void Awake() {
             polygonBounds = GetComponent<PolygonCollider2D>();
@@ -27,6 +27,29 @@ namespace Pikl.Control {
             foreach(ConnectPoint cp in connectPoints)
                 cp.connectFails = new List<ConnectPoint>();
         }
+
+        public void EnableRoom() {
+            for (int i = 0; i < transform.childCount; i++) {
+                transform.GetChild(i).gameObject.SetActive(true);
+            }
+            roomEnabled = true;
+        }
+
+        public void DisableRoom() {
+            for (int i = 0; i < transform.childCount; i++) {
+                Transform child = transform.GetChild(i);
+                if (!child.name.Contains("ConnectPoint"))
+                    child.gameObject.SetActive(false);
+            }
+
+            polygonBounds.enabled = false;
+            roomEnabled = false;
+        }
+
+        public bool IsRoomEnabled() {
+            return roomEnabled;
+        }
+        
 
         [Button("Validate Overlap")] void IsOverlapButton() {
             Debug.Log(string.Format("Overlap: {0} : {1}", gameObject.name, IsOverlapping().ToString()));
@@ -51,7 +74,7 @@ namespace Pikl.Control {
             }
         }
         
-        public bool FailedToConnect(ConnectPoint cp) {
+        public bool HasFailedToConnect(ConnectPoint cp) {
             foreach(ConnectPoint thisCp in connectPoints) {
                 if (cp.connectFails.Contains(thisCp))
                     return true;
@@ -59,9 +82,6 @@ namespace Pikl.Control {
 
             return false;
         }
-
-        
-
         public void OnDrawGizmos() {
             foreach (ConnectPoint cp in connectPoints) {
                 if (!cp.t)
@@ -91,7 +111,7 @@ namespace Pikl.Control {
         public Transform t;
         [ReadOnly] public bool isConnected;
         [ReadOnly][SerializeField] public ConnectPoint connectedTo;
-        static float minimumSpaceRequired = 10f;
+        const float MINIMUM_SPACE_REQUIRED = 5f;
 
         public ConnectPoint(Transform t) {
             this.t = t;
@@ -99,8 +119,8 @@ namespace Pikl.Control {
         public bool HasSpaceInfront {
 
             get {
-                bool levelCast = !Physics2D.Raycast(t.position, t.right, minimumSpaceRequired, 1 << LayerMask.NameToLayer("Level"));
-                bool doorCast = !Physics2D.Raycast(t.position, t.right, 1, 1 << LayerMask.NameToLayer("Ground"));
+                bool levelCast = !Physics2D.Raycast(t.position, -t.right, MINIMUM_SPACE_REQUIRED, 1 << LayerMask.NameToLayer("Level"));
+                bool doorCast = !Physics2D.Raycast(t.position, -t.right, 1, 1 << LayerMask.NameToLayer("Ground"));
                 return !levelCast || !doorCast;
             }
         }

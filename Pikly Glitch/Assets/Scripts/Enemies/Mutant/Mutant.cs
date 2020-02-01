@@ -15,7 +15,6 @@ namespace Pikl.Enemy {
         internal override void Start() {
             defaultState = new MutantIdle();
             deadState = new EnemyDeadState();
-            //pauseState = new Pause();
 
             //health = GetComponent<PlayerHealth>();
             //health.Init(this);
@@ -42,4 +41,5 @@ namespace Pikl.Enemy {
         void OnDestroy() {
         }
     }
+
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3523805838577459618}
   - component: {fileID: 3737588267474854054}
   - component: {fileID: 4381918797925463015}
-  m_Layer: 1
+  m_Layer: 8
   m_Name: Roof Support 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,6 +97,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strength: 2
   range: 0.356
+  updateRange: 15
+  updateInterval: 0.1
 --- !u!61 &4381918797925463015
 BoxCollider2D:
   m_ObjectHideFlags: 0

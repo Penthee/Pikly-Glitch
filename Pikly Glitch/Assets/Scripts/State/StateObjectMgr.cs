@@ -68,7 +68,7 @@ namespace Pikl {
         /// <summary>
         /// Grabs all existing StateObjects and stores them in the pool
         /// </summary>
-        void CacheObjectsInScene() {
+        public void CacheObjectsInScene() {
 
             foreach (StateObject so in GameObject.FindObjectsOfType<StateObject>()) {
                 if (!objects.ContainsKey(so.tag))

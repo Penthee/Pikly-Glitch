@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 5482716538068713690}
   - component: {fileID: -999174502161052564}
   m_Layer: 17
-  m_Name: Corridor Cross Big
+  m_Name: Corridor Cross T2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -252,6 +252,7 @@ MonoBehaviour:
     t: {fileID: 3776911983625946440}
     isConnected: 0
   polygonBounds: {fileID: 0}
+  roomEnabled: 0
 --- !u!60 &5482716538068713690
 PolygonCollider2D:
   m_ObjectHideFlags: 0

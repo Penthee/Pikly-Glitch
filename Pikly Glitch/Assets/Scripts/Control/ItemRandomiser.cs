@@ -31,7 +31,6 @@ namespace Pikl.Control {
                 _dropTable.Init();
             }
         }
-        [Button]
         void FindAllRNGItems() {
             _lootBoxes = FindObjectsOfType(typeof(LootBox)) as LootBox[];
             _rngAreas = FindObjectsOfType(typeof(LootArea)) as LootArea[];

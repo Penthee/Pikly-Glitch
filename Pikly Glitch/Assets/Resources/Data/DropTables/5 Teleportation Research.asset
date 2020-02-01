@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 247fc8da9ff72624a8bc667a202ade8b, type: 3}
+  m_Name: 5 Teleportation Research
+  m_EditorClassIdentifier: 
+  items:
+  - _rdsProbability: 5
+    item: {fileID: 11400000, guid: 4e317af3cf6ca72408d46d1d5039273c, type: 2}
+    supply: 3
+    probability: 5
+  - _rdsProbability: 0
+    item: {fileID: 11400000, guid: b0da19c13229ec9498e0247a9548ad48, type: 2}
+    supply: 1
+    probability: 5
+  - _rdsProbability: 5
+    item: {fileID: 11400000, guid: af9fb39ca372f5640b931019e9959152, type: 2}
+    supply: 2
+    probability: 5
+  - _rdsProbability: 3
+    item: {fileID: 11400000, guid: 5859fa28921d35548bf498287b8b668e, type: 2}
+    supply: 1
+    probability: 3
+  - _rdsProbability: 0
+    item: {fileID: 11400000, guid: d2943256c90440046b53d5c0c9ded1d2, type: 2}
+    supply: 2
+    probability: 4
+  - _rdsProbability: 3
+    item: {fileID: 11400000, guid: 9a489da3aef975a498d4b3f9eb3f92bb, type: 2}
+    supply: 2
+    probability: 3
+  - _rdsProbability: 6
+    item: {fileID: 11400000, guid: 634aac8172e540a4dbfabc047a170ad3, type: 2}
+    supply: 1
+    probability: 6
+  - _rdsProbability: 2
+    item: {fileID: 11400000, guid: 4d90fd0884c1ca042918bb6c52555ded, type: 2}
+    supply: 1
+    probability: 2
