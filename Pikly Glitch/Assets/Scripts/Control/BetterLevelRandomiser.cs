@@ -33,7 +33,7 @@ namespace Pikl.Control {
         [BoxGroup("Randomiser Settings")] [Range(0, 20)] public int genFailTolerance, connectFailTolerance;
         [BoxGroup("Randomiser Settings")] public bool generateOnSuccess, generateOnFail, generationSlowdown;
         [BoxGroup("Randomiser Settings")] [ShowIf("generationSlowdown")][Range(0.02f, 5)] public float generationSpeed = 1;
-        [BoxGroup("Randomiser Settings")] public bool randomiseItems;
+        [BoxGroup("Randomiser Settings")] public bool randomiseOnStart, randomiseItems;
 
         public ItemRandomiser itemRandomiser;
         public Room startRoom;
@@ -70,7 +70,8 @@ namespace Pikl.Control {
 #endif
         }
         void Start() {
-            //Randomise();
+            if (randomiseOnStart)
+                Randomise();
         }
         void LoadRooms() {
             roomPool.Clear();

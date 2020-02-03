@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954bd753f82bc58499e073f4fcbbeca2, type: 3}
+  m_Name: 0 Tutorial
+  m_EditorClassIdentifier: 
+  name: Big Science Incorporated
+  sprite: {fileID: 0}
+  text: 'And here I was thinking they''d send me in a rocket. Nope, teleporter. Boring.
+
+    This
+    place looks fancy, and there''s no doubt some of our brightest minds work here.
+
+
+    Well,
+    as long as the food is good, the beds comfy and I get my money.'
+  sceneToOpen: 0 Tutorial
+  scrollTime: 13

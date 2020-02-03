@@ -11,12 +11,13 @@ using UnityEngine.Rendering.PostProcessing;
 
 namespace Pikl.UI {
     public class MainMenu : Menu {
+        public LevelInfo[] levelTexts;
         public GameObject levelSelect;
         public GameObject title;
         public GameObject panel;
         public PostProcessVolume effects;
         public Texture2D pointerCursor;
-        
+
         //[Range(1,5)]
         //public float titleShowDelay = 3f;
         bool _showLevelSelect;
@@ -72,7 +73,7 @@ namespace Pikl.UI {
             if (levelIndex >= 0 && levelIndex < UIMgr.I.levelTexts.Length) {
                 HideLevelSelect();
                 UIMgr.I.OpenMenu(UIMgr.I.textRead);
-                (UIMgr.I.textRead as LevelIntroText).StartScroll(UIMgr.I.levelTexts[levelIndex], null, null);
+                (UIMgr.I.textRead as LevelIntroText).StartScroll(levelTexts[levelIndex], null, null);
             }
             else {
                 Debug.LogWarning($"Tried to load invalid level : {levelIndex.ToString()}", this);

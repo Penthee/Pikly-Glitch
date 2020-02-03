@@ -56,7 +56,6 @@ namespace Pikl.Control {
         }
         
         public bool IsOverlapping() {
-            Physics2D.Simulate(Time.fixedDeltaTime);
             Physics2D.SyncTransforms();
             return polygonBounds.IsTouchingLayers(1 << LayerMask.NameToLayer("Level"));
         }
@@ -107,6 +106,7 @@ namespace Pikl.Control {
 
     [Serializable]
     public class ConnectPoint {
+        //TODO: Circular dependence. Fix: https://answers.unity.com/questions/1393470/serialization-depth-limit-7-exceeded-with-linked-l.html
         public List<ConnectPoint> connectFails = new List<ConnectPoint>();
         public Transform t;
         [ReadOnly] public bool isConnected;

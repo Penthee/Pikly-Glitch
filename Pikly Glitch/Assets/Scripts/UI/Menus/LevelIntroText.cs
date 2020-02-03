@@ -33,9 +33,12 @@ namespace Pikl.UI {
         float startTime;
         bool hasSkipped;
         
-        void Start() {
+        void Awake() {
+            LoadTexts();
         }
-
+        void LoadTexts() {
+            deathTexts = Resources.LoadAll<LevelInfo>("Data/DeathTexts/");
+        }
         public override void Open() {
             if (InputMgr.PlayerOneConfiguration.name == InputAdapter.JoystickConfiguration)
                 Cursor.visible = false;
@@ -44,7 +47,6 @@ namespace Pikl.UI {
 
             base.Open();
         }
-
 
         public override void Close() {
             //Cursor.SetCursor(mouseCursor, Vector2.zero, CursorMode.Auto);
@@ -64,7 +66,7 @@ namespace Pikl.UI {
         }
 
         public void OnSkipButtonPress() {
-            if (hasSkipped || startTime + levelText.scrollSpeed < Time.time) {
+            if (hasSkipped || startTime + levelText.scrollTime < Time.time) {
                 Continue();
             } else {
                 tween.Complete();
@@ -90,7 +92,7 @@ namespace Pikl.UI {
             text.text = string.Empty;
             
             panel.SetActive(true);
-            tween = DOTween.To(() => text.text, x => text.text = x, levelText.text, levelText.scrollSpeed).SetEase(Ease.Linear);
+            tween = DOTween.To(() => text.text, x => text.text = x, levelText.text, levelText.scrollTime).SetEase(Ease.Linear);
             startTime = Time.time;
         }
 

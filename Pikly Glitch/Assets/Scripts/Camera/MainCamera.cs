@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Globalization;
 using Pikl.Extensions;
 using TeamUtility.IO;
 using DG.Tweening;
@@ -10,7 +11,7 @@ namespace Pikl.Utils.Cameras {
 
         public static MainCamera I;
 
-        public Camera losCamera, mapCamera, mapCamera2, mapCamera3, mapCamera4;
+        public Camera losCamera1, losCamera2, mapCamera, mapCamera2, mapCamera3, mapCamera4;
         public Ease mapEase;
         public Transform target;
         public Vector3 offset;
@@ -18,7 +19,7 @@ namespace Pikl.Utils.Cameras {
         public Vector3 shakeOffset;
 
         public float followSpeed = 0.05f, mapCameraSpeed = 0.2f, targetSize = 4, zoomMagnitude = 1, zoomSmoothing = 0.25f, 
-                     minSize = 1, boundsLockHardness = 0.2f, losSizeDiff = 0.25f, mapSize = 13, mapTransitionTime = 1;
+                     minSize = 1, maxSize = 10, boundsLockHardness = 0.2f, losSizeDiff = 0.25f, mapSize = 13, mapTransitionTime = 1, autoZoomMultiplier = 15, autoZoomUpdateSpeed = 1;
         public Bounds bounds;
         public bool mapMode, mapButtonIsDown, scaleWidth = true, gizmo = true, UI;
 
@@ -36,6 +37,8 @@ namespace Pikl.Utils.Cameras {
             }
         }
 
+        
+        
         void Awake() {
             I = this;
             camera = Camera.main;
@@ -51,6 +54,8 @@ namespace Pikl.Utils.Cameras {
             
             //losCamera = GetComponentInChildren<Camera>();
             //CameraShaker.I.StartShake(ShakePresets.HandheldCamera);
+            
+            //InvokeRepeating("SetAutoZoomLevel", 2, autoZoomUpdateSpeed);
         }
         
         void ScaleWidth() {
@@ -124,6 +129,7 @@ namespace Pikl.Utils.Cameras {
 
             //if (target != null)
             //    bounds = target.GetComponent<StupidBounds>().bounds;
+            //TODO: This is horrible, fix it maybe
             if (InputMgr.GetAxisRaw("Map") != 0) {
                 if (!mapButtonIsDown) {
                     if (mapLastToggle + mapTransitionTime < Time.time) {
@@ -255,6 +261,42 @@ namespace Pikl.Utils.Cameras {
             transform.position = Vector3.Lerp(transform.position, t, boundsLockHardness);
         }
 
+        readonly Vector2[] _dir = {
+            Vector2.right, Vector2.down + Vector2.right, //right, down-right
+            -Vector2.up, Vector2.down + -Vector2.right, //down, down-left
+            -Vector2.right, Vector2.up + -Vector2.right, //left, up-left
+            Vector2.up, Vector2.up + Vector2.right //up, up-right
+        };
+        float DetectAutoZoomLevel() {
+            if (target == null) return -1;
+            
+            int hits = 0; 
+            float total = -1;
+            
+            for (int i = 0; i < 8; i++) {
+                RaycastHit2D ray = Physics2D.Raycast(target.position, _dir[i], 10, 1 << LayerMask.NameToLayer("Terrain"));
+                Debug.DrawRay(target.position, _dir[i], Color.blue, autoZoomUpdateSpeed);
+                if (!ray) continue;
+                hits++;
+                total += ray.distance;
+            }
+
+            float average = total / hits;
+
+            return average * autoZoomMultiplier;
+        }
+
+        void SetAutoZoomLevel() {
+            float spaceAroundCam = DetectAutoZoomLevel();
+            float targetZoomLevel = (spaceAroundCam - minSize) / (maxSize - minSize);
+            
+            DOTween.To(() => targetSize, x => targetSize = x, targetZoomLevel, autoZoomUpdateSpeed).SetEase(Ease.Linear);
+            DOTween.To(() => losCamera1.orthographicSize, x => losCamera1.orthographicSize = x, targetZoomLevel, autoZoomUpdateSpeed).SetEase(Ease.Linear);
+            DOTween.To(() => losCamera2.orthographicSize, x => losCamera2.orthographicSize = x, targetZoomLevel, autoZoomUpdateSpeed).SetEase(Ease.Linear);
+            
+            Debug.Log($"Target zoom level: {targetZoomLevel}");
+        }
+        
         void OnDrawGizmos() {
             if (gizmo) {
                 Gizmos.color = Color.yellow;

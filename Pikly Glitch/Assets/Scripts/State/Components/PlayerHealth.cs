@@ -5,6 +5,8 @@ using Pikl.Utils.Shaker;
 using Pikl.Audio;
 using DG.Tweening;
 using System;
+using Pikl.Data;
+using Pikl.Player;
 using Pikl.UI;
 
 namespace Pikl.States.Components {
@@ -296,6 +298,13 @@ namespace Pikl.States.Components {
         }
 
         public void Die() {
+            if (so is Player.Player player) {
+                if (player.inventory.Exists("Teleport")) {
+                    SaveLife();
+                    return;
+                }
+            }
+
             if (deathPlosions.Length > 0) {
                 if (spawnFromPool) {
                     foreach (GameObject plosion in deathPlosions)
@@ -313,5 +322,16 @@ namespace Pikl.States.Components {
             MessageMgr.I.Broadcast("PlayerDeath");
         }
 
+        void SaveLife() {
+            Vector3 spawn = GameObject.Find("SpawnPoint").transform.position;
+            (so as Player.Player).inventory.RemoveOneOrDelete("Teleport");
+            so.t.position = spawn;
+            HP = maxHp * 0.5f;
+            SaveLifeEffect();
+        }
+
+        void SaveLifeEffect() {
+            //TODO: Sparkles n shit
+        }
     }
 }

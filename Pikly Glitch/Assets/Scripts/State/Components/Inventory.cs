@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 using Pikl.States.Components;
 using Pikl.States;
 using TeamUtility.IO;
@@ -281,6 +282,15 @@ namespace Pikl.Player {
             //        o.AddComponent<WeaponPickup>().weapon = new Weapon(i as Weapon);
             //        break;
             //}
+        }
+
+        public bool Exists(string name) {
+            return items.Any(i => i.name == name);
+        }
+        public void RemoveOneOrDelete(string name) {
+            Item i = items.FirstOrDefault(e => e.name == name);
+            if (i != null && --i.quantity < 1)
+                Delete(i);
         }
         
     }
