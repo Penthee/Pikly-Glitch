@@ -12,7 +12,14 @@ namespace Pikl.Utils.RDS {
         public RDSItem() {
             rdsProbability = probability;
         }
-        
+
+        public RDSItem(Item itemItem, float itemProbability, int itemSupply) {
+            this.item = itemItem;
+            rdsProbability = itemProbability;
+            probability = itemProbability;
+            supply = itemSupply;
+        }
+
         public override void OnRDSHit(System.EventArgs e) {
             base.OnRDSHit(e);
 

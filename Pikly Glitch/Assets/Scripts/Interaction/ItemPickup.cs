@@ -31,6 +31,12 @@ namespace Pikl.Interaction {
             Destroy(gameObject);
         }
 
+        public void SetValues() {
+            SetName();
+            SetQuantity();
+            SetSprite();
+        }
+
         void SetName() {
             name = item.name;
         }
@@ -47,9 +53,7 @@ namespace Pikl.Interaction {
         }
 
         void OnDrawGizmosSelected() {
-            SetName();
-            SetQuantity();
-            SetSprite();
+            SetValues();
         }
     }
 }

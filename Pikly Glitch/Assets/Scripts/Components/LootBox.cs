@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using NaughtyAttributes;
 using Pikl.Data;
 using Pikl.Interaction;
 using UnityEngine;
@@ -6,13 +7,14 @@ using UnityEngine;
 namespace Pikl.Components {
     public class LootBox : InteractableObj {
 
-        [Range(1, 5)] public int minimumItemCount;
-        [Range(2, 5)] public int maximumItemCount;
+        [BoxGroup("Loot Box Settings")][Range(1, 5)] public int minimumItemCount;
+        [BoxGroup("Loot Box Settings")][Range(2, 5)] public int maximumItemCount;
 
-        [SerializeField] List<Item> items = new List<Item>();
+        [ReadOnly][SerializeField] List<Item> items = new List<Item>();
+        Transform _t;
         
-        void Start() {
-            
+        void Awake() {
+            _t = transform;
         }
 
         public void SetItems(List<Item> newItems) {
@@ -26,11 +28,22 @@ namespace Pikl.Components {
         }
         
         public override void Interact() {
+            //TODO: Create UI and allow player to select items from the box
+            foreach (Item i in items) {
+                Player.Player.I.inventory.Add(i);
+            }
+
+            Clear();
+            
             base.Interact();
         }
 
         public override void Update() {
             base.Update();
+        }
+
+        public void Clear() {
+            items.Clear();
         }
     }
 }

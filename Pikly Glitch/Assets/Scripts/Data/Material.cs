@@ -23,7 +23,7 @@ namespace Pikl.Data {
         }
 
         public static Material CreateInstance(Material material) {
-            var data = CreateInstance<Material>();
+            Material data = CreateInstance<Material>();
             data.Init(material.name, material.sprite, material.description, material.type, material.quantity, material.maxStack);
             return data;
         }

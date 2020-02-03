@@ -14,7 +14,7 @@ namespace Pikl.Data {
 
         }
 
-        internal void Init(string name, Sprite sprite) {
+        public void Init(string name, Sprite sprite) {
             this.name = name;
             this.sprite = sprite;
         }

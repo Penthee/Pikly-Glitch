@@ -117,6 +117,7 @@ namespace Pikl.Control {
             Randomise();
         }
         void Reset() {
+            itemRandomiser.Reset();
             startRoom.DisconnectAllPoints();
             startRoom.ClearAllFails();
             startRoom.status = RoomStatus.PlacedAndValid;

@@ -21,15 +21,13 @@ namespace Pikl.Control {
         void Awake() {
             LoadTable();
         }
-
+        public void Reset() {
+            ClearGivenLoot();
+            LoadTable();
+        }
         void LoadTable() {
             _dropTable = ScriptableObject.CreateInstance<DropTable>();
-            _dropTable.items = (Resources.Load(string.Concat("Data/DropTables/", SceneManager.GetActiveScene().name)) as DropTable)?.items;
-            if (!_dropTable)
-                Debug.Log($"NO DROP TABLE FOUND FOR {SceneManager.GetActiveScene().name}");
-            else {
-                _dropTable.Init();
-            }
+            _dropTable.Init();
         }
         void FindAllRNGItems() {
             _lootBoxes = FindObjectsOfType(typeof(LootBox)) as LootBox[];
@@ -47,6 +45,16 @@ namespace Pikl.Control {
 
             Item itemToGive = null;
             
+            foreach (LootArea area in _rngAreas) {
+                int itemsToGive = Random.Range(area.minimumItemCount, area.maximumItemCount + 1);
+                for (int i = 0; i < itemsToGive; i++) {
+                    itemToGive = area.preferredItem ? _dropTable.GetPreferredItem(area.preferredItem) : _dropTable.GetItem();
+                    if (!itemToGive) break;
+                    
+                    area.GiveItem(itemToGive);
+                }
+            }
+            
             foreach (LootBox box in _lootBoxes) {
                 int itemsToGive = Random.Range(box.minimumItemCount, box.maximumItemCount + 1);
                 for (int i = 0; i < itemsToGive; i++) {
@@ -57,22 +65,22 @@ namespace Pikl.Control {
                 }
             }
             
-            foreach (LootArea area in _rngAreas) {
-                int itemsToGive = Random.Range(area.minimumItemCount, area.maximumItemCount + 1);
-                for (int i = 0; i < itemsToGive; i++) {
-                    itemToGive = _dropTable.GetItem();
-                    if (!itemToGive) break;
-                    
-                    area.GiveItem(itemToGive);
-                }
-            }
-            
-            foreach (ItemPickup item in _itemPickups) {
+            foreach (ItemPickup pickup in _itemPickups) {
                 itemToGive = _dropTable.GetItem();
                 if (!itemToGive) break;
                 
-                item.item = itemToGive;
+                pickup.item = itemToGive;
+                pickup.SetValues();
             }
         }
+
+        void ClearGivenLoot() {
+            foreach (LootArea area in _rngAreas)
+                area.Clear();
+            foreach (LootBox box in _lootBoxes)
+                box.Clear();
+            //Individual items don't need clearing, fully overwritten on next randomisation.
+        }
+        
     }
 }

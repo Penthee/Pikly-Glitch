@@ -174,7 +174,7 @@ namespace Pikl.Player {
         bool AddNew(Item item) {
             Item empty = items.Find(e => e.name == "Empty" || e.name == string.Empty);
             if (empty != null) {
-                Item newItem = CreateInstance(item);
+                Item newItem = Item.CreateInstanceExt(item);
 
                 if (empty.selected) newItem.selected = true;
                 items[items.IndexOf(empty)] = newItem;
@@ -186,18 +186,7 @@ namespace Pikl.Player {
                 return false;
             }
         }
-
-        Item CreateInstance(Item item) {
-            switch(item.type) {
-                default: return Item.CreateInstance(item);
-                case ItemType.Weapon: return Weapon.CreateInstance(item as Weapon);
-                case ItemType.Throwable: return Throwable.CreateInstance(item as Throwable);
-                case ItemType.Consumable: return Consumable.CreateInstance(item as Consumable);
-                case ItemType.Material: return Data.Material.CreateInstance(item as Data.Material);
-                //case ItemType.Tool: return Tool.CreateInstance(item as Tool);
-            }
-        }
-
+        
         public void Drop() {
             if (SelectedItem.name == "Empty")
                 return;

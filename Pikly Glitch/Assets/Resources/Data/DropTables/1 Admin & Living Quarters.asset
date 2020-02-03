@@ -39,8 +39,8 @@ MonoBehaviour:
     probability: 3
   - _rdsProbability: 6
     item: {fileID: 11400000, guid: 634aac8172e540a4dbfabc047a170ad3, type: 2}
-    supply: 1
-    probability: 6
+    supply: 7
+    probability: 3
   - _rdsProbability: 2
     item: {fileID: 11400000, guid: 4d90fd0884c1ca042918bb6c52555ded, type: 2}
     supply: 1

@@ -269,7 +269,6 @@ namespace Pikl.UI {
                     case ItemType.Tool: inventoryItems[i].color = item.selected ? toolColour.Darker(selectDarkenAmount) : toolColour; break;
                     case ItemType.Material: inventoryItems[i].color = item.selected ? materialColour.Darker(selectDarkenAmount) : materialColour; break;
                     default: inventoryItems[i].color = item.selected ? Color.white.Darker(selectDarkenAmount) : Color.white; break;
-                    case ItemType.None: break;
                 }
 
                 inventoryItems[i].text = ParseItem(item);
