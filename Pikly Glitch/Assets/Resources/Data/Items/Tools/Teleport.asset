@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Teleport
   sprite: {fileID: 21300000, guid: 5cf6dd85321018f48ac05946169934b2, type: 3}
-  description: 1up. used automatically upon death.
+  description: 1up. Used automatically upon death.
   quantity: 1
   maxStack: 2
   type: 5

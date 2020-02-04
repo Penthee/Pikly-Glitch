@@ -22,17 +22,16 @@ namespace Pikl.Player.States {
 
             weapon = (player.inventory.SelectedItem as Weapon);
 
-            if (!weapon)
+            if (weapon == null || weapon.clipAmmo <= 0)
                 Exit();
-
-            //player.shoot.lastTime = Time.time;
 
             DoTheShoot();
 
+            
             Shaker.I.ShakeCameraOnce(weapon.shakeOnShot);
 
             //AudioMgr.I.PlaySound(Player.laserSound);
-            weapon.lastFireTime = Time.time;
+            weapon.lastFireTime = Time.time - (player.shoot.fireRateMultiplier == 1 ? 0 : weapon.fireRate * player.shoot.fireRateMultiplier);
             Exit();
         }
 
@@ -53,6 +52,7 @@ namespace Pikl.Player.States {
             ForceOnStart force = obj.GetComponent<ForceOnStart>();
 
             damageObj.damage = new Damage(weapon.shot.damage);
+            damageObj.damage.baseDmg *= player.shoot.damageMultiplier;
             force.minForce = weapon.shot.force;
             force.maxForce = weapon.shot.force;
 

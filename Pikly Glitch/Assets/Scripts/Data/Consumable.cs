@@ -43,13 +43,13 @@ namespace Pikl.Data {
                         return;
                     break;
                 case ConsumableEffect.Berserk:
-                    //Player.Player.I.powerup.Berserk();
+                    Player.Player.I.powerup.Berserk();
                     break;
                 case ConsumableEffect.Resistance:
-                    //Player.Player.I.powerup.Resistance();
+                    Player.Player.I.powerup.Resistance();
                     break;
                 case ConsumableEffect.Speed:
-                    //Player.Player.I.powerup.Speed();
+                    Player.Player.I.powerup.Speed();
                     break;
             }
 

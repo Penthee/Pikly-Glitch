@@ -724,6 +724,7 @@
             <e p="PlayerEvade.cs" t="Include" />
             <e p="PlayerInput.cs" t="Include" />
             <e p="PlayerKnife.cs" t="Include" />
+            <e p="PlayerPowerup.cs" t="Include" />
             <e p="PlayerShoot.cs" t="Include" />
             <e p="PlayerState.cs" t="Include" />
             <e p="States" t="Include">

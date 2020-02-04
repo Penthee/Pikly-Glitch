@@ -22,7 +22,7 @@ namespace Pikl.Player {
         public Inventory inventory;
         public PlayerKnife knife;
         public SpriteRenderer weaponSprite;
-        //public PlayerPowerup powerup = new PlayerPowerup();
+        public PlayerPowerup powerup;
         public float interactRadius, interactCooldown, lastInteractTime, useCooldown, lastUseTime;
 
         public int evadeID, shootID, secondaryID, stunID, interactID, aimID;
@@ -55,7 +55,7 @@ namespace Pikl.Player {
             evade.Init(this);
             inventory.Init(this);
             knife.Init(this);
-            //powerup.Init(this);
+            powerup.Init(this);
 
             fv2D = GetComponent<FaceInput2D>();
             ar = GetComponent<Animator>();
@@ -75,7 +75,7 @@ namespace Pikl.Player {
             evade.Update();
             inventory.Update();
             knife.Update();
-            //powerup.Update();
+            powerup.Update();
         }
 
         internal override void FixedUpdate() {

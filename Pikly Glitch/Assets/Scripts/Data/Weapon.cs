@@ -35,7 +35,7 @@ namespace Pikl.Data {
             clipAmmo += transfer;
             totalAmmo -= transfer;
 
-            lastReloadTime = Time.time - (instant ? reloadSpeed : 0);
+            lastReloadTime = Time.time - (instant ? reloadSpeed : Player.Player.I.shoot.reloadSpeedMultiplier == 1 ? 0 : reloadSpeed * Player.Player.I.shoot.reloadSpeedMultiplier);
             reloading = !instant;
         }
 

@@ -75,12 +75,12 @@ namespace Pikl.Player {
               stamina, evadeCost;
 
         public bool hasReleasedSinceLastEvade = true;
-
+        public float origStaminaRecoverRate;
         public void Init(Player player) {
             this.player = player;
 
             player.StartCoroutine(RecoverStamina());
-
+            origStaminaRecoverRate = StaminaRecoverRate;
             //particles = player.transform.FindChild("Evade Particles").GetComponent<ParticleSystem>();
         }
 

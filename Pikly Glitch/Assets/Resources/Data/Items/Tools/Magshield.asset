@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Magshield
   sprite: {fileID: 21300000, guid: 4a7c438b91698bf45b1449890564bd7e, type: 3}
-  description: Reflects bullets. Will break.
+  description: As long as it's charged, it'll reflect.
   quantity: 1
   maxStack: 1
   type: 5

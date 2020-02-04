@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Stimulant
   sprite: {fileID: 21300000, guid: 06b7ee708d8962f42a5026ac2b5a7f13, type: 3}
-  description: temporarily increases Stamina Regen and reload speed.
+  description: Temporarily increases Stamina Regen and reload speed.
   quantity: 1
   maxStack: 5
   type: 4

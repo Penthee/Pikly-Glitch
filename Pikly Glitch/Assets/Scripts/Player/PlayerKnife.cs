@@ -15,6 +15,8 @@ namespace Pikl.Player {
         [HideInInspector]
         public bool swiping;
 
+        public bool hasShockblade;
+
         Player _player;
 
         public void Init(Player player) {
@@ -32,10 +34,10 @@ namespace Pikl.Player {
             lastSwipeTime = Time.time;
             swiping = true;
             
-            if (_player.input.MoveAxis.magnitude > 0)
-                _player.ar.Play("Knife Run");
-            else
-                _player.ar.Play("Knife");
+            if (hasShockblade)
+                _player.ar.Play(_player.input.MoveAxis.magnitude > 0 ? "Shockblade Run" : "Shockblade");
+            else 
+                _player.ar.Play(_player.input.MoveAxis.magnitude > 0 ? "Knife Run" : "Knife");
         }
 
         void Stop() {

@@ -50,7 +50,7 @@ namespace Pikl.Player {
                 return new States.Evade(player.evade.Cooldown);
 
             if (player.input.ShootAxis())
-                player.shootID = player.StartAsync(new States.Shoot((player.inventory.SelectedItem as Weapon).fireRate));
+                player.shootID = player.StartAsync(new States.Shoot((player.inventory.SelectedItem as Weapon).fireRate * player.shoot.fireRateMultiplier));
 
             if (player.input.ReloadAxis)
                 (player.inventory.SelectedItem as Weapon).Reload();
