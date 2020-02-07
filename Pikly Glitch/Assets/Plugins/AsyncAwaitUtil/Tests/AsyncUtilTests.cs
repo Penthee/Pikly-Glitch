@@ -87,7 +87,7 @@ namespace UnityAsyncAwaitUtil
 
             if (_buttonHandler.Display("Test www download"))
             {
-                RunWwwAsync().WrapErrors();
+                RunWebRequestAsync().WrapErrors();
             }
 
             if (_buttonHandler.Display("Test Call Async from coroutine"))
@@ -144,11 +144,11 @@ namespace UnityAsyncAwaitUtil
             await new WaitForSeconds(1.0f);
         }
 
-        async Task RunWwwAsync()
+        async Task RunWebRequestAsync()
         {
             Debug.Log("Downloading asset bundle using WWW");
-            var bytes = (await new WWW(AssetBundleSampleUrl)).bytes;
-            Debug.Log("Downloaded " + (bytes.Length / 1024) + " kb");
+            ulong bytes = (await new UnityWebRequest(AssetBundleSampleUrl)).downloadedBytes;
+            Debug.Log("Downloaded " + (bytes / 1024) + " kb");
         }
 
         async Task RunOpenNotepadTestAsync()
@@ -209,8 +209,8 @@ namespace UnityAsyncAwaitUtil
 
         async Task<byte[]> DownloadRawDataAsync(string url)
         {
-            var request = UnityWebRequest.Get(url);
-            await request.Send();
+            UnityWebRequest request = UnityWebRequest.Get(url);
+            await request.SendWebRequest();
             return request.downloadHandler.data;
         }
 

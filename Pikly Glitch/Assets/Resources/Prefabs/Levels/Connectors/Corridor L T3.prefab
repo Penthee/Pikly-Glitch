@@ -111,10 +111,10 @@ MonoBehaviour:
   type: 0
   status: 0
   connectPoints:
-  - connectFails: []
+  - connectFails: 
     t: {fileID: 4750113305273229230}
     isConnected: 0
-  - connectFails: []
+  - connectFails: 
     t: {fileID: 6678690705631976027}
     isConnected: 0
   polygonBounds: {fileID: 0}

@@ -170,13 +170,13 @@ MonoBehaviour:
   type: 0
   status: 0
   connectPoints:
-  - connectFails: []
+  - connectFails: 
     t: {fileID: 5607790783606087269}
     isConnected: 0
-  - connectFails: []
+  - connectFails: 
     t: {fileID: 2915322511538504445}
     isConnected: 0
-  - connectFails: []
+  - connectFails: 
     t: {fileID: 5155736748050105583}
     isConnected: 0
   polygonBounds: {fileID: 0}

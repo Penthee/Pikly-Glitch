@@ -228,16 +228,16 @@ MonoBehaviour:
   type: 0
   status: 0
   connectPoints:
-  - connectFails: []
+  - connectFails: 
     t: {fileID: 2354641914687799369}
     isConnected: 0
-  - connectFails: []
+  - connectFails: 
     t: {fileID: 7949126756945152288}
     isConnected: 0
-  - connectFails: []
+  - connectFails: 
     t: {fileID: 3538999660519153594}
     isConnected: 0
-  - connectFails: []
+  - connectFails: 
     t: {fileID: 3776911983625946440}
     isConnected: 0
   polygonBounds: {fileID: 0}
