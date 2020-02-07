@@ -1,4 +1,4 @@
-﻿#define LOGGING
+﻿//#define LOGGING
 
 using System;
 using System.Collections;
@@ -42,7 +42,7 @@ namespace Pikl.Control {
         public Color working, fail, success;
         public SpriteRenderer sprite;
 
-        [SerializeField] Room deadEnd;
+        Room _deadEnd;
         [SerializeField] List<Room> roomPool = new List<Room>();
         [SerializeField] List<Room> corridorPool = new List<Room>();
         [SerializeField] List<Room> placedAndValidRooms = new List<Room>();
@@ -62,6 +62,7 @@ namespace Pikl.Control {
         void Awake() {
             _currentSceneName = SceneManager.GetActiveScene().name;
             sprite = GetComponent<SpriteRenderer>();
+            _deadEnd = Resources.Load<Room>("Prefabs/Levels/Connectors/Dead End");
             
             LoadRooms();
             LoadCorridors();
@@ -90,7 +91,7 @@ namespace Pikl.Control {
                 GameObjectMgr.I.CreatePool(o, 3);
             }
             
-            GameObjectMgr.I.CreatePool(deadEnd.gameObject, 8);
+            GameObjectMgr.I.CreatePool(_deadEnd.gameObject, 8);
             
             Debug.Log($"Loaded Corridors: {corridorPool.Count}");
         }
@@ -223,13 +224,12 @@ namespace Pikl.Control {
             state = RandomiserState.Fail;
         }
         
-        async Task<RoomStatus> TryPlaceCorridor(Room corridor, List<ConnectPoint> points) {
+        async Task TryPlaceCorridor(Room corridor, List<ConnectPoint> points) {
             Room c = GameObjectMgr.I.Spawn(corridor.gameObject).GetComponent<Room>();
             //Room c = Instantiate(corridor);
             RoomStatus status = await TryPlaceRoom(c, points);
             if (status == RoomStatus.Invalid)
                 DisconnectAndDestroy(c);
-            return status;
         }
         async Task<RoomStatus> TryPlaceRoom(Room r, List<ConnectPoint> points) {
             //r.EnableRoom();
@@ -317,7 +317,7 @@ namespace Pikl.Control {
             foreach (ConnectPoint cp in points) SealWithDeadEnd(cp);
         }
         void SealWithDeadEnd(ConnectPoint cp) {
-            Room r = GameObjectMgr.I.Spawn(deadEnd.gameObject).GetComponent<Room>();
+            Room r = GameObjectMgr.I.Spawn(_deadEnd.gameObject).GetComponent<Room>();
             Align(cp.t.parent, cp.t, r.transform, r.connectPoints[0].t);
             MarkRoomAsValid(r, 0, cp);
         }
@@ -397,7 +397,7 @@ namespace Pikl.Control {
                 GameObjectMgr.I.DestroyPooled(c.gameObject);
             }
             
-            GameObjectMgr.I.DestroyPooled(deadEnd.gameObject);
+            GameObjectMgr.I.DestroyPooled(_deadEnd.gameObject);
         }
 //#endif 
         async Task Slowdown() {

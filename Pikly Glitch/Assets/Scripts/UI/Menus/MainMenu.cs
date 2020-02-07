@@ -48,8 +48,6 @@ namespace Pikl.UI {
             base.Close();
         }
 
-        bool isAlreadyDown = false;
-
         public override void OnUpdate() {
             base.OnUpdate();
         }
@@ -80,7 +78,6 @@ namespace Pikl.UI {
             }
 
             effects.enabled = false;
-            //SceneMgr.I.LoadScene("Text Read Scene");
         }
 
         public void ExitGame() {

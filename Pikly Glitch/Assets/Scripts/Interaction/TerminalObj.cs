@@ -16,9 +16,6 @@ namespace Pikl.Interaction {
         [HideInInspector]
         public bool isOpen = false;
 
-        void Start() {
-        }
-
         public override void Interact() {
             base.Interact();
 

@@ -28,12 +28,13 @@ namespace TeamUtility.IO
 {
 	public class CloneControllerConfiguration : MonoBehaviour 
 	{
-		[SerializeField] private string _inputConfiguration;
+		#pragma warning disable CS0649
+		[SerializeField] string _inputConfiguration;
 		[SerializeField] 
 		[Range(1, 3)]
 		private int _numberOfClones = 1;
 		
-		private void Start()
+		void Start()
 		{
 			InputConfiguration inputConfig = InputMgr.GetInputConfiguration(_inputConfiguration);
 			if(inputConfig == null)

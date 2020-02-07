@@ -23,11 +23,13 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityScript.Steps;
 
 namespace TeamUtility.IO
 {
 	public class InputEventManager : MonoBehaviour
 	{
+		#pragma warning disable CS0649
 		[SerializeField]
         private List<InputEvent> _inputEvents;
 

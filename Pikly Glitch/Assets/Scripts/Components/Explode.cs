@@ -118,17 +118,17 @@ namespace Pikl.Components {
         }
 
         void DestroyChildren() {
-            if (destroyChildrenDelay > 0) {
-                for (int i = 0; i < transform.childCount; i++) {
-                    GameObject child = transform.GetChild(i).gameObject;
-                    if (child.GetComponent<ParticleSystem>() != null)
-                        child.GetComponent<ParticleSystem>().loop = false;
-
-                    //child.GetComponent<Destroy>().enabled = true;
-                }
-
-                transform.DetachChildren();
+            if (!(destroyChildrenDelay > 0)) return;
+            
+            for (int i = 0; i < transform.childCount; i++) {
+                GameObject child = transform.GetChild(i).gameObject;
+                if (child.GetComponent<ParticleSystem>() == null) continue;
+                
+                ParticleSystem.MainModule main = child.GetComponent<ParticleSystem>().main;
+                main.loop = false;
             }
+
+            transform.DetachChildren();
         }
 
         void OnCollisionEnter2D(Collision2D other) {

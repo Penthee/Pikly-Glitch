@@ -16,13 +16,6 @@ namespace Pikl.Utils.Effects.ImageEffects
 
         protected virtual void Start()
         {
-            // Disable if we don't support image effects
-            if (!SystemInfo.supportsImageEffects)
-            {
-                enabled = false;
-                return;
-            }
-
             // Disable the image effect if the shader can't
             // run on the users graphics card
             if (!shader || !shader.isSupported)

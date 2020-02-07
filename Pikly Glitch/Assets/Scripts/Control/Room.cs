@@ -23,9 +23,11 @@ namespace Pikl.Control {
         
         void Awake() {
             polygonBounds = GetComponent<PolygonCollider2D>();
-            
-            foreach(ConnectPoint cp in connectPoints)
-                cp.connectFails = new List<ConnectPoint>();
+
+            foreach (ConnectPoint cp in connectPoints) {
+                cp.connectFails = new List<int>();
+                cp.SetID();
+            }
         }
 
         public void EnableRoom() {
@@ -75,7 +77,7 @@ namespace Pikl.Control {
         
         public bool HasFailedToConnect(ConnectPoint cp) {
             foreach(ConnectPoint thisCp in connectPoints) {
-                if (cp.connectFails.Contains(thisCp))
+                if (cp.connectFails.Contains(thisCp.id))
                     return true;
             }
 
@@ -106,16 +108,21 @@ namespace Pikl.Control {
 
     [Serializable]
     public class ConnectPoint {
-        //TODO: Circular dependence. Fix: https://answers.unity.com/questions/1393470/serialization-depth-limit-7-exceeded-with-linked-l.html
-        public List<ConnectPoint> connectFails = new List<ConnectPoint>();
+        public int id { get; private set; }
+        public List<int> connectFails = new List<int>();
         public Transform t;
         [ReadOnly] public bool isConnected;
         [ReadOnly][SerializeField] public ConnectPoint connectedTo;
         const float MINIMUM_SPACE_REQUIRED = 5f;
-
+        static int idCounter;
         public ConnectPoint(Transform t) {
             this.t = t;
         }
+
+        internal void SetID() {
+            id = ++idCounter;
+        }
+        
         public bool HasSpaceInfront {
 
             get {
@@ -146,8 +153,8 @@ namespace Pikl.Control {
         public void RecordFail(ConnectPoint cp) {
             if (!cp.t) return;
             
-            if (!connectFails.Contains(cp))  connectFails.Add(cp);
-            if (!cp.connectFails.Contains(this))  cp.connectFails.Add(this);
+            if (!connectFails.Contains(cp.id))  connectFails.Add(cp.id);
+            if (!cp.connectFails.Contains(id))  cp.connectFails.Add(id);
         }
         public int ConnectionFailCount() {
             return connectFails.Count;

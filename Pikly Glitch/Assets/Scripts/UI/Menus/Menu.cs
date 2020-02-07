@@ -18,7 +18,7 @@ namespace Pikl.UI {
 			private set { /*_animator.SetBool("IsOpen", value);*/ }
 		}
 
-		public void Awake()
+		public virtual void Awake()
 		{
             _animator = GetComponent<Animator>();
             _canvasGroup = GetComponent<CanvasGroup>();

@@ -30,9 +30,9 @@ public class RippleEffect : MonoBehaviour {
     [Range(0.0f, 2.0f)]
     public float dropInterval = 0.5f;
     
+    #pragma warning disable CS0649
     [SerializeField]
     Shader shader;
-
 
     class Droplet {
         Vector2 position;

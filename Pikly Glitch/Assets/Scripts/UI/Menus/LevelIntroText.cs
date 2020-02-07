@@ -33,7 +33,8 @@ namespace Pikl.UI {
         float startTime;
         bool hasSkipped;
         
-        void Awake() {
+        public override void Awake() {
+            base.Awake();
             LoadTexts();
         }
         void LoadTexts() {

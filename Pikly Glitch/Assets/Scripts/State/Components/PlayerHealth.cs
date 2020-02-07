@@ -76,7 +76,7 @@ namespace Pikl.States.Components {
         public bool isDead { get; set; }
         public float maxArmour;
 
-        float origHP = 5;
+        //float origHP = 5;
         Color[] originalColours;
 
         public void Init(StateObject so) {
@@ -184,10 +184,10 @@ namespace Pikl.States.Components {
             so.rb.AddForce(forceDirection * force);
         }
 
-        int i = 0;
+        //int i = 0;
         public IEnumerator FlashRed() {
-            i = 0;
-
+            //i = 0;
+            //TODO: take MonoHealth flash and insert here
             //foreach(var mat in (so as Player.Player).ship.GetComponent<MeshRenderer>().materials)
             //    mat.color = Color.red;
 

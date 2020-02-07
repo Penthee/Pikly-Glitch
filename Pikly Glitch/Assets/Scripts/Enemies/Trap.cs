@@ -50,11 +50,14 @@ namespace Pikl.Enemies {
             if (Vector2.Distance(transform.position, player.transform.position) < distance) {
                 if (!setInsideTime) {
                     insideTime = Time.time;
+                    setInsideTime = true;
                 }
 
                 if (Time.time < triggerTime + insideTime) {
                     return true;
                 }
+            } else {
+                setInsideTime = false;
             }
 
             return false;
@@ -65,6 +68,8 @@ namespace Pikl.Enemies {
                 GameObject.Instantiate(enemy, spawnPos.position, Quaternion.identity);
                 yield return new WaitForSeconds(spawnSpeed);
             }
+
+            enabled = false;
         }
 
         private void OnDrawGizmos() {

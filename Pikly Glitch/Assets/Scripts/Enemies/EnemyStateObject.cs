@@ -30,8 +30,7 @@ namespace Pikl.Enemy {
         }*/
 
         public void SpawnDmgObj() {
-            var pos = t.position + (t.right * meleeAttackRange);
-            GameObjectMgr.I.Spawn(meleeDmgObj, pos);
+            GameObjectMgr.I.Spawn(meleeDmgObj, t.position + (t.right * meleeAttackRange));
         }
 
 

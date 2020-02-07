@@ -13,7 +13,7 @@ namespace Pikl.Components {
         [ReadOnly][SerializeField] List<Item> items = new List<Item>();
         Transform _t;
         
-        void Awake() {
+        internal override void Awake() {
             _t = transform;
         }
 

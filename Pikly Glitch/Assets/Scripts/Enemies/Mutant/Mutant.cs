@@ -28,10 +28,6 @@ namespace Pikl.Enemy {
             base.Update();
         }
 
-        public void SpawnDmgObj() {
-            Instantiate(meleeDmgObj, t.position + (t.right * meleeAttackRange), Quaternion.identity);
-        }
-
         void OnDrawGizmos() {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, meleeAttackRange);
