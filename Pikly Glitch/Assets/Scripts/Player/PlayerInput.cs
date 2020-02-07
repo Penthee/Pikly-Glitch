@@ -190,7 +190,8 @@ namespace Pikl.Player {
         }
 
         public bool AimAxis =>
-            (player.inventory.SelectedType == ItemType.Weapon) &&
+            (player.inventory.SelectedType == ItemType.Weapon || 
+             player.inventory.SelectedType == ItemType.Tool) &&
             AimInput;
 
         public bool AimInput {
@@ -297,6 +298,7 @@ namespace Pikl.Player {
                     !cheatHover &&
                     !(UI.UIMgr.I.CurrentMenu as UI.GameUI).craftingUI.activeSelf &&
                     (player.inventory.SelectedType == ItemType.Consumable ||
+                     player.inventory.SelectedType == ItemType.Tool ||
                     player.inventory.SelectedType == ItemType.Throwable) &&
                     HasCooledDown(player.lastUseTime, player.useCooldown) &&
                     !useLocked &&

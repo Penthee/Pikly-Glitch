@@ -23,7 +23,7 @@ namespace Pikl.Data {
 
         public bool Craftable() {
             foreach(Ingredient ingredient in ingredients) {
-                if (Player.Player.I.inventory.ItemCount(ingredient.item) < ingredient.quantity)
+                if (Player.Player.I.inventory.ItemCount(ingredient.item.name) < ingredient.quantity)
                     return false;
             }
 
@@ -37,9 +37,7 @@ namespace Pikl.Data {
                 }
 
                 Player.Player.I.inventory.Add(item);
-            } else {
-                Debug.Log("Attempted to craft an uncraftable " + item.name);
-            }
+            } 
         }
     }
 

@@ -20,4 +20,4 @@ MonoBehaviour:
     If you want to
     escape, you need to do more than that.'
   sceneToOpen: Menu
-  scrollSpeed: 5
+  scrollTime: 7

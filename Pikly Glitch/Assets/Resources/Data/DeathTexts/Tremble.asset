@@ -18,4 +18,4 @@ MonoBehaviour:
     its shadows.\r\nBut fear not death. Death is just part of the journey. \r\n\nWill
     you tremble when you meet it's gaze again?"
   sceneToOpen: Menu
-  scrollSpeed: 5
+  scrollTime: 12

@@ -51,6 +51,9 @@ namespace Pikl.Player {
                     case ItemType.Throwable:
                         (player.inventory.SelectedItem as Throwable).Use();
                         break;
+                    case ItemType.Tool:
+                        (player.inventory.SelectedItem as Tool).Use();
+                        break;
                 }
 
                 return base.HandleInput();

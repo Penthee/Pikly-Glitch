@@ -38,6 +38,7 @@ Transform:
   - {fileID: 4326992968425920}
   - {fileID: 7587869361319782445}
   - {fileID: 5577621591759569310}
+  - {fileID: 4990971250714714916}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: -788532913
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d257ffe81a7cc4a4b984855dd660cf46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ee0cf402a9619246bcaf4e3aa2100f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -204,6 +205,7 @@ MonoBehaviour:
     hasShockblade: 0
   weaponSprite: {fileID: 8882300514576398242}
   powerup:
+    magshield: {fileID: 3279641749147548481}
     berserkTime: 180
     resistanceTime: 180
     speedTime: 180
@@ -213,6 +215,7 @@ MonoBehaviour:
     speedMoveMultiplier: 1.2
     speedStaminaMultiplier: 2
     speedReloadMultiplier: 0.6
+    detectorRadius: 0
     berserkTimeRemaining: 0
     resistanceTimeRemaining: 0
     speedTimeRemaining: 0
@@ -312,7 +315,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.41666666}
+    oldSize: {x: 0.25, y: 0.33333334}
     newSize: {x: 0.25, y: 0.33333334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -338,7 +341,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.41666666}
+    oldSize: {x: 0.25, y: 0.33333334}
     newSize: {x: 0.25, y: 0.33333334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -508,6 +511,137 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!1 &3279641749147548481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4990971250714714916}
+  - component: {fileID: 8339758821377543091}
+  - component: {fileID: 1319858098530124319}
+  - component: {fileID: 672558647753806860}
+  m_Layer: 11
+  m_Name: Magshield
+  m_TagString: PlayerDamage
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4990971250714714916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279641749147548481}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.053, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4611001503557340}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!70 &8339758821377543091
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279641749147548481}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.35, y: 0.325}
+  m_Direction: 1
+--- !u!114 &1319858098530124319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279641749147548481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c52f20846b46c47925909406a30c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layersToDamage:
+    serializedVersion: 2
+    m_Bits: 1024
+  selfAsOrigin: 1
+  useExplode: 0
+  useRaycast: 0
+  disabled: 0
+  damage:
+    type: 0
+    baseDmg: 1
+    knockbackForce: 1250
+    tickRepeatRate: 0
+    effectDuration: 0
+    cooldown: 0
+    ticks: 0
+    effectChance: 0
+    origin: {fileID: 4990971250714714916}
+  entitiesToPierce: -1
+  disableIfNoCollisionAtStart: 0
+  disableAfterTrigger: 0
+--- !u!212 &672558647753806860
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3279641749147548481}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 4a7c438b91698bf45b1449890564bd7e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.25, y: 0.25}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &4246091314483795003
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1860928094178799715}
   - component: {fileID: 468944735141880820}
   - component: {fileID: 8166223724300662538}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: MutantDmgObj
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -48,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

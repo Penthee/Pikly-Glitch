@@ -66,7 +66,7 @@ namespace Pikl.Data {
                 case ItemType.Throwable: return Throwable.CreateInstance(item as Throwable);
                 case ItemType.Consumable: return Consumable.CreateInstance(item as Consumable);
                 case ItemType.Material: return Data.Material.CreateInstance(item as Data.Material);
-                //case ItemType.Tool: return Tool.CreateInstance(item as Tool);
+                case ItemType.Tool: return Tool.CreateInstance(item as Tool);
             }
         }
     }

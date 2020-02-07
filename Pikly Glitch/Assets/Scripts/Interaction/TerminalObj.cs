@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Pikl.Data;
+using Pikl.Enemies;
 using Pikl.UI;
 using UnityEditor;
 

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8166223724300662538}
   - component: {fileID: 5043914399412814701}
   - component: {fileID: 6952429522864832555}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: MutantRockObj
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -9,12 +9,13 @@ namespace Pikl.Interaction {
         public Item item;
         public bool randomise;
 
-        void Start() {
-            if (item != null) {
-                SetSprite();
-                SetName();
-                SetQuantity();
-            }
+        internal override void Start() {
+            base.Start();
+            
+            if (item == null) return;
+            SetSprite();
+            SetName();
+            SetQuantity();
         }
 
         public override void Interact() {
@@ -23,7 +24,6 @@ namespace Pikl.Interaction {
             if (Player.Player.I.inventory.Add(item)) {
                 PickUp();
             }
-
         }
 
         void PickUp() {

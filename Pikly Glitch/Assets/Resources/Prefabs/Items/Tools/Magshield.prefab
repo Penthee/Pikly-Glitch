@@ -48,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -142,8 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4efdd117436cc4cb082f5fcfd7418f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableTransform: {fileID: 4257597987581076}
   interactRadius: 0.35
   labelRadius: 5
   autoInteract: 1
-  item: {fileID: 11400000, guid: 0f68b7ebfbb20ab44ac47a7e170fe5d3, type: 2}
+  hasInteracted: 0
+  item: {fileID: 11400000, guid: 5fee08b479ca7814daeacb52d2ac8c0b, type: 2}
+  randomise: 0

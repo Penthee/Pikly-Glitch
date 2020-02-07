@@ -17,9 +17,10 @@ MonoBehaviour:
   text: 'Everything in the entire expanse of space and time has led you to this moment.
 
 
-    To die a horrible death, like a fool.
+    To
+    die a horrible death, like a fool.
 
 
     Don''t feel bad, this was your destiny.'
   sceneToOpen: Menu
-  scrollSpeed: 5
+  scrollTime: 10

@@ -77,18 +77,17 @@ namespace Pikl.Player {
             knife.Update();
             powerup.Update();
         }
-
         internal override void FixedUpdate() {
             if (MainCamera.I.mapMode)
                 return;
 
             base.FixedUpdate();
         }
-
         public void EndGame() {
             UIMgr.I.OpenMenu(UIMgr.I.textRead);
             (UIMgr.I.textRead as LevelIntroText).StartDeathScroll();
         }
+
 
         void OnDrawGizmos() {
             //foreach (Transform t in shoot.shootTransforms)

@@ -315,6 +315,7 @@
           </e>
           <e p="Components" t="Include">
             <e p="AimTarget.cs" t="Include" />
+            <e p="AlphaOnTargetDistance.cs" t="Include" />
             <e p="DamageObject.cs" t="Include" />
             <e p="Destroy.cs" t="Include" />
             <e p="DisableFarAwayChild.cs" t="Include" />
@@ -353,6 +354,7 @@
             <e p="RecipeBook.cs" t="Include" />
             <e p="Terminal.cs" t="Include" />
             <e p="Throwable.cs" t="Include" />
+            <e p="Tool.cs" t="Include" />
             <e p="Weapon.cs" t="Include" />
           </e>
           <e p="Enemies" t="Include">

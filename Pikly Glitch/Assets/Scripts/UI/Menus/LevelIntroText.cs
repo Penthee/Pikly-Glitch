@@ -37,7 +37,7 @@ namespace Pikl.UI {
             LoadTexts();
         }
         void LoadTexts() {
-            deathTexts = Resources.LoadAll<LevelInfo>("Data/DeathTexts/");
+            deathTexts = Resources.LoadAll<LevelInfo>("Data/DeathTexts");
         }
         public override void Open() {
             if (InputMgr.PlayerOneConfiguration.name == InputAdapter.JoystickConfiguration)

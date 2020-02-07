@@ -11,13 +11,14 @@ namespace Pikl.Player {
     public class PlayerPowerup {
         Player _player;
 
+        [BoxGroup("Powerup Settings")] public GameObject magshield; 
         [BoxGroup("Powerup Settings")] public float berserkTime, resistanceTime, speedTime;
         [BoxGroup("Powerup Settings")] public float berserkFireRateMultiplier, berserkDamageMultiplier, 
-            resistDamageMultiplier, speedMoveMultiplier, speedStaminaMultiplier, speedReloadMultiplier;
+            resistDamageMultiplier, speedMoveMultiplier, speedStaminaMultiplier, speedReloadMultiplier, detectorRadius;
         
         [ReadOnly] public float berserkTimeRemaining, resistanceTimeRemaining, speedTimeRemaining;
         [ReadOnly] public bool berserkActive, resistanceActive, speedActive;
-        
+
         public void Init(Player player) {
             _player = player;
         }

@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2848395157754766386}
   - component: {fileID: 1169729399532921490}
-  - component: {fileID: 2532571042003344904}
   - component: {fileID: -6470681629905641911}
+  - component: {fileID: 2532571042003344904}
   - component: {fileID: 5023155529859679290}
   - component: {fileID: 7481443902679081761}
-  m_Layer: 8
+  m_Layer: 18
   m_Name: Trap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -85,6 +86,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-6470681629905641911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6320309803660375563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3463cda40142f08429ca0bc088da728a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1803677181431866755, guid: 0c4c74580691e674690af4d2bd616912, type: 3}
+  spawnPos: {fileID: 7485537496485833100}
+  distance: 2.85
+  quantity: 10
+  spawnSpeed: 0.1
+  triggerTimeMin: 0.5
+  triggerTimeMax: 2
+  triggered: 0
 --- !u!61 &2532571042003344904
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -111,26 +132,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.85}
   m_EdgeRadius: 0
---- !u!114 &-6470681629905641911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6320309803660375563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3463cda40142f08429ca0bc088da728a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 1803677181431866755, guid: 0c4c74580691e674690af4d2bd616912, type: 3}
-  spawnPos: {fileID: 7485537496485833100}
-  distance: 2.85
-  quantity: 10
-  spawnSpeed: 0.1
-  triggerTimeMin: 0.5
-  triggerTimeMax: 2
-  triggered: 0
 --- !u!61 &5023155529859679290
 BoxCollider2D:
   m_ObjectHideFlags: 0

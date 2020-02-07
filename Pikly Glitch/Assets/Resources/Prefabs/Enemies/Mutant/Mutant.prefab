@@ -51,6 +51,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -189,7 +190,7 @@ MonoBehaviour:
   meleeDmgObj: {fileID: 1803677181431866755, guid: 4b903f6c4f18a1a49bdc5ba3a4635013,
     type: 3}
   rockDamageObj: {fileID: 0}
-  meleeAttackRange: 0.225
+  meleeAttackRange: 0.245
   meleeAttackTime: 0.65
   rockThrowChance: 0
 --- !u!114 &1834072703

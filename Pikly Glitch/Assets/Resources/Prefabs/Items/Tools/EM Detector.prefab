@@ -48,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -100,7 +101,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.33333334}
+    oldSize: {x: 0.4, y: 0.26666668}
     newSize: {x: 0.5, y: 0.33333334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -142,8 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4efdd117436cc4cb082f5fcfd7418f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableTransform: {fileID: 4257597987581076}
   interactRadius: 0.35
   labelRadius: 5
   autoInteract: 1
-  item: {fileID: 11400000, guid: 97801d9ee3aed1f4595357a4ddf6d8f7, type: 2}
+  hasInteracted: 0
+  item: {fileID: 11400000, guid: 4ee8d2e4c4a41524e8d02bdd8785083a, type: 2}
+  randomise: 0

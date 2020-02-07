@@ -39,7 +39,7 @@ SpriteAtlas:
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 0
-      enableTightPacking: 1
+      enableTightPacking: 0
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 1b0a0c3541fc51f41a54d8de99bcd2f4, type: 3}
@@ -68,7 +68,7 @@ SpriteAtlas:
     - {fileID: 102900000, guid: 26efc0b8bc7445f47be47d393b05f619, type: 3}
     - {fileID: 102900000, guid: 20714de346b5f49468d11bf5de6000cc, type: 3}
     - {fileID: 102900000, guid: 99d0c75138e5b55418e88ed0fd05a2e3, type: 3}
-    totalSpriteSurfaceArea: 383684
+    totalSpriteSurfaceArea: 390226
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -134,6 +134,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 63eac7e301a82094ab5bc020759ff5d1, type: 3}
   - {fileID: 21300000, guid: 7bb17114b1a9d77469253e3e8d61a02c, type: 3}
   - {fileID: 21300000, guid: fda4c3249258914498f9e9f61d5a2233, type: 3}
+  - {fileID: 21300000, guid: bc193d2401cbf0f419fdf7609eeae817, type: 3}
   - {fileID: 21300000, guid: 4e4055445c02a4a4d8094c928b994a70, type: 3}
   - {fileID: 21300000, guid: 9165ce44427ee6748b8af80574a12d46, type: 3}
   - {fileID: 21300000, guid: 6d6ad18486626d8408f95dff833671b8, type: 3}
@@ -141,6 +142,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 4f8f1d84ac84c87498fc410c479c925d, type: 3}
   - {fileID: 21300000, guid: dc835da409ecc5d41bced32aa479ae37, type: 3}
   - {fileID: 21300000, guid: 740c28f4ae21eca40a8731146f21e51d, type: 3}
+  - {fileID: 21300000, guid: 90c30f051ced14145af191fe4af5b3c7, type: 3}
   - {fileID: 21300000, guid: f07639257c7680c4dbb6d0bae7aeab23, type: 3}
   - {fileID: 21300000, guid: 643c864594a943147b785123dfce5650, type: 3}
   - {fileID: 21300000, guid: f3b69845730ddd342a8158076554374b, type: 3}
@@ -205,6 +207,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: af677f098fa29b44fb1c1db7fd92e2b3, type: 3}
   - {fileID: 21300000, guid: 01391329bcc49514790762f8eca00efc, type: 3}
   - {fileID: 21300000, guid: 17188c39695890a4cbf1ffb5405ab771, type: 3}
+  - {fileID: 21300000, guid: f5f468495c55c19478cd620f22f2f92b, type: 3}
   - {fileID: 21300000, guid: 0a209589ae4590147b7bcec46c14f2a4, type: 3}
   - {fileID: 21300000, guid: 5717b6a99f4fbbb42acecdd7f9b0f793, type: 3}
   - {fileID: 21300000, guid: 9ee0efa99ffa9ba4992b9f82858f5779, type: 3}
@@ -246,6 +249,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 66ffd7ab2f7841941a56507e0e14272d, type: 3}
   - {fileID: 21300000, guid: 954eddabca001444eb0e6ac9be7381f2, type: 3}
   - {fileID: 21300000, guid: 053818cb4628ad2448e2db5197ffd616, type: 3}
+  - {fileID: 21300000, guid: b217c1eb855e2494589cf7f7a10cc7c3, type: 3}
   - {fileID: 21300000, guid: 58fad5fbc928ad14e96ce1f734d0aa8f, type: 3}
   - {fileID: 21300000, guid: bcdd240cd054981468ab6921ee7b45b8, type: 3}
   - {fileID: 21300000, guid: bedd7f1c91740364198015a78bb25b24, type: 3}
@@ -259,6 +263,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6325ac5ce7583704c869d3693743fa34, type: 3}
   - {fileID: 21300000, guid: 3531157c2f87b1149a57c4088fdafa09, type: 3}
   - {fileID: 21300000, guid: 9ad9f99c67d41fe419487c8b6908ecec, type: 3}
+  - {fileID: 21300000, guid: e10d9a9c7ced41242b6b117a3ecba711, type: 3}
   - {fileID: 21300000, guid: e70d85bc99d160a4b843c17d777d28b9, type: 3}
   - {fileID: 21300000, guid: b74caabcfbdad404fb3e11067dd3bf65, type: 3}
   - {fileID: 21300000, guid: 3fef84ecc0ff84849957364da91184b6, type: 3}
@@ -294,14 +299,17 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 347ea00fa2f365e40bc6ddae9b062b6c, type: 3}
   - {fileID: 21300000, guid: 7881bd1f17e7ce34c98723528cb56311, type: 3}
   - {fileID: 21300000, guid: 4235cd1f6fc5fd44897a6a443c8e6af1, type: 3}
+  - {fileID: 21300000, guid: f4fccf1f5b7f2ec438c4d220978cfeb5, type: 3}
   - {fileID: 21300000, guid: 4a4e9e2fbcb1fbe4a825afadd1505fae, type: 3}
   - {fileID: 21300000, guid: e421053f886cd884488e4ad75bd91994, type: 3}
   - {fileID: 21300000, guid: 42ffc35f325794b479940e9c9b4f51dd, type: 3}
   - {fileID: 21300000, guid: cdfb406f194450544b158dbdc90e83b0, type: 3}
+  - {fileID: 21300000, guid: d8a1436f5056d25418ab7de0f4787eb0, type: 3}
   - {fileID: 21300000, guid: a813296f3b175774ebf2cc43c4de516b, type: 3}
   - {fileID: 21300000, guid: 6bdf129fa5fbf684eade93dedffea66c, type: 3}
   - {fileID: 21300000, guid: 38b38baf0311bb247bc46536a8e59fbc, type: 3}
   - {fileID: 21300000, guid: 6af427efebc4020458b5abe29a6a2f32, type: 3}
+  - {fileID: 21300000, guid: 1d054fef08dd6184fa94dba3766696c1, type: 3}
   m_PackedSpriteNamesToIndex:
   - Keyboard
   - Enemy Melee Rec Knife 4
@@ -365,6 +373,7 @@ SpriteAtlas:
   - youtube
   - Zombie Reanimating 1
   - twitter
+  - Robo Arm - Gear
   - Roll 1
   - Zombie Idle
   - Generator
@@ -372,6 +381,7 @@ SpriteAtlas:
   - Sink
   - Roll 2
   - Slug Spitter Death 3
+  - Wooden Pallet
   - Enemy Melee Rec Knife 3
   - Clay Floor 16 3
   - Laser Gun
@@ -436,6 +446,7 @@ SpriteAtlas:
   - Grass Specs 2
   - Clay Floor 16 2
   - Slug Spitter Idle 2
+  - Enemy Marker
   - Grass Specs 3
   - Empty Can
   - Slug Spitter 2nd Move
@@ -477,6 +488,7 @@ SpriteAtlas:
   - Slug Spitter Attack
   - Security Camera
   - Zombie Legs
+  - Robo Arm - Hand
   - facebook
   - Big Mutant Throw After
   - Valve Station
@@ -490,6 +502,7 @@ SpriteAtlas:
   - Enemy Melee Rec Idle
   - Square
   - grass 2
+  - Robo Arm - Body
   - Canned Meat
   - 9mm SMG
   - Clay Wall 2
@@ -525,13 +538,16 @@ SpriteAtlas:
   - Slug Spitter Death 6
   - Zombie Torso Dead
   - Clay Light Floor 32
+  - Robo Arm - Arm
   - Slug Spitter Death 1
   - Microchip
   - Battery
   - grey_checkmarkGrey
+  - Robo Arm - Body 2
   - Grass Specs 4
   - Grass0
   - Zombie Torso Crawl 4
   - Swarm Bot (Taser)
+  - Trap Marker
   m_Tag: Atlas
   m_IsVariant: 0

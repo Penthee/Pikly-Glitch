@@ -71,18 +71,7 @@ namespace Pikl.UI {
                 UpdateHealth();
                 UpdateArmour();
                 UpdateStamina();
-                //UpdateVelocity();
-                //UpdateState();
                 UpdateInventory();
-//#if UNITY_EDITOR
-//                if (debug) {
-//                    debugPanel.SetActive(true);
-//                    UpdateDebugValues();
-
-//                } else {
-//                    debugPanel.SetActive(false);
-//                }
-//#endif
 
                 if (craftingUI.activeSelf) {
                     ClearCraftingList();
@@ -167,42 +156,6 @@ namespace Pikl.UI {
                 }
             }
             return true;
-
-            //bool atLeastOneCraftable = false;
-            //List<Item> availableCrafts = new List<Item>();
-
-            //foreach (Recipe r in recipeBook.recipes) {
-            //    bool hasAllIngredients = false;
-
-            //    foreach (Ingredient ingredient in r.ingredients) {
-            //        IEnumerable<Item> matchingItems = player.inventory.items.Where(e => e.name == ingredient.item.name);
-            //        int tally = 0;
-
-            //        foreach(Item i in matchingItems)
-            //            tally += i.quantity;
-
-            //        hasAllIngredients = tally >= ingredient.quantity;
-
-            //        if (!hasAllIngredients) break;
-            //    }
-
-            //    if (hasAllIngredients) {
-            //        availableCrafts.Add(r.item);
-            //        atLeastOneCraftable = true;
-            //    }
-            //}
-
-            //if (availableCrafts.Count > 0) {
-            //    for(int i = 0; i < availableCrafts.Count; i++) {
-            //        craftingItems[i].text = availableCrafts[i].name;
-            //        for(int j = 0; j < 20; j++) {
-            //            inventoryCraftHighlights.transform.GetChild(j).gameObject.SetActive(availableCrafts[i].name == player.inventory.items[j].name);
-            //        }
-
-            //    }
-            //}
-
-            //return atLeastOneCraftable;
         }
 
         void UpdateCraftingSelection() {

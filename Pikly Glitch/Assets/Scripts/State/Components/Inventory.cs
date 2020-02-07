@@ -119,7 +119,13 @@ namespace Pikl.Player {
                     SelectedIndex += (int)moveInput;
             }
 
+            UpdateTools();
             DeleteZeroQuantities();
+        }
+
+        void UpdateTools() {
+            foreach (Tool tool in items.Where(e => e.type == ItemType.Tool).Cast<Tool>())
+                tool.Update();
         }
 
         void DeleteZeroQuantities() {
@@ -129,11 +135,11 @@ namespace Pikl.Player {
             }
         }
 
-        public int ItemCount(Item item) {
+        public int ItemCount(string itemName) {
             int count = 0;
 
             foreach(Item i in items) {
-                if (i.name == item.name)
+                if (i.name == itemName)
                     count += i.quantity;
             }
 
@@ -202,10 +208,12 @@ namespace Pikl.Player {
                 }
             }
 
+            SelectedItem.Drop();
             CreatePickup(SelectedItem);
-
+            
             Item newEmpty = Item.CreateInstance(emptyItem);
             newEmpty.selected = true;
+            
             SelectedItem = newEmpty;
         }
 
