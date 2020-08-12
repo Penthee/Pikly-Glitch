@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace Pikl.Player {
     [System.Serializable]
     public class PlayerKnife {
-        public float activeTime, cooldown;
+        public float activeTime, moveSpeedMod, cooldown;
         public GameObject obj;
         [HideInInspector]
         public float lastSwipeTime;
@@ -18,6 +18,7 @@ namespace Pikl.Player {
         public bool hasShockblade;
 
         Player _player;
+        float origForce;
 
         public void Init(Player player) {
             _player = player;
@@ -32,6 +33,8 @@ namespace Pikl.Player {
             if (swiping) return;
             
             lastSwipeTime = Time.time;
+            origForce = _player.move.force;
+            _player.move.force = _player.move.force * moveSpeedMod;
             swiping = true;
             
             if (hasShockblade)
@@ -42,6 +45,7 @@ namespace Pikl.Player {
 
         void Stop() {
             swiping = false;
+            _player.move.force = origForce;
         }
     }
 }

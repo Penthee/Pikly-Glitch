@@ -74,7 +74,7 @@ namespace Pikl.UI {
                 item.Value.transform.position = item.Key.position;
         }
         public void ShowLabel(string labelText, Transform parent) {
-            if (_activeLabels.ContainsKey(parent)) return;
+            if (parent == null || _activeLabels.ContainsKey(parent)) return;
 
             GameObject obj = GetLabel();
             
@@ -87,14 +87,14 @@ namespace Pikl.UI {
             _activeLabels.Add(parent, obj);
         }
         public void HideLabel(Transform t) {
-            if (!_activeLabels.ContainsKey(t)) return;
+            if (t == null || !_activeLabels.ContainsKey(t)) return;
 
             _activeLabels[t].SetActive(false);
             _labelPool.Push(_activeLabels[t]);
             _activeLabels.Remove(t);
         }
         public void ShowTrapMarker(Transform parent) {
-            if (_activeTrapMarkers.ContainsKey(parent)) return;
+            if (parent == null || _activeTrapMarkers.ContainsKey(parent)) return;
 
             GameObject obj = GetTrapMarker();
             
@@ -106,14 +106,14 @@ namespace Pikl.UI {
             _activeTrapMarkers.Add(parent, obj);
         }
         public void HideTrapMarker(Transform t) {
-            if (!_activeTrapMarkers.ContainsKey(t)) return;
+            if (t == null || !_activeTrapMarkers.ContainsKey(t)) return;
 
             _activeTrapMarkers[t].SetActive(false);
             _trapMarkerPool.Push(_activeTrapMarkers[t]);
             _activeTrapMarkers.Remove(t);
         }
         public void ShowEnemyMarker(Transform parent) {
-            if (_activeEnemyMarkers.ContainsKey(parent)) return;
+            if (parent == null || _activeEnemyMarkers.ContainsKey(parent)) return;
 
             GameObject obj = GetEnemyMarker();
             

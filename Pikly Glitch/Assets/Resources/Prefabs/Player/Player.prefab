@@ -57,6 +57,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -198,6 +199,7 @@ MonoBehaviour:
     selectedIndex: 0
   knife:
     activeTime: 0.15
+    moveSpeedMod: 0.6
     cooldown: 0.3
     obj: {fileID: 1477947234600142}
     lastSwipeTime: 0
@@ -215,7 +217,7 @@ MonoBehaviour:
     speedMoveMultiplier: 1.2
     speedStaminaMultiplier: 2
     speedReloadMultiplier: 0.6
-    detectorRadius: 0
+    detectorRadius: 6
     berserkTimeRemaining: 0
     resistanceTimeRemaining: 0
     speedTimeRemaining: 0
@@ -476,6 +478,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -607,6 +610,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
